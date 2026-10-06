@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0e7c57">
+<title>VoiceBench recorder · सहायक</title>
+<link rel="icon" href="/app/icons/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/app/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <span class="brand-text"><b>सहायक VoiceBench</b><small>RECORDER</small></span>
+</header>
+<main>
+  <!-- 1. consent -->
+  <section class="screen" id="vb-consent">
+    <h1>आवाज़ रिकॉर्डिंग की अनुमति</h1>
+    <p class="sub">Voice recording consent</p>
+    <ul class="promise">
+      <li>आप लगभग 40 छोटे वाक्य पढ़ेंगे। इसमें 5 मिनट लगते हैं। / You will read about 40 short sentences (5 minutes).</li>
+      <li>रिकॉर्डिंग सिर्फ़ यह मापने के लिए है कि सहायक आवाज़ कितनी ठीक समझता है। / The recordings only measure how well Sahayak understands speech.</li>
+      <li>आपका नाम नहीं लिया जाता। रिकॉर्डिंग इसी नोड पर रहती है, इंटरनेट पर नहीं जाती। / No name is taken. Recordings stay on this node and never go online.</li>
+      <li>आप कभी भी अपनी रिकॉर्डिंग मिटवा सकते हैं। / You can have your recordings deleted at any time.</li>
+    </ul>
+    <label class="have"><input type="checkbox" id="vb-agree"> मैं सहमत हूँ / I agree</label>
+    <button class="primary big" id="vb-next1" type="button" disabled>आगे / Next</button>
+  </section>
+
+  <!-- 2. speaker group (no name) -->
+  <section class="screen" id="vb-speaker" hidden>
+    <h2>बोलने वाले के बारे में (नाम नहीं) / About the speaker (no name)</h2>
+    <form id="vb-form" class="form-grid" autocomplete="off">
+      <label><span>उम्र / Age</span>
+        <div class="seg">
+          <label><input type="radio" name="age_band" value="18-34" required><span>18–34</span></label>
+          <label><input type="radio" name="age_band" value="35-54"><span>35–54</span></label>
+          <label><input type="radio" name="age_band" value="55+"><span>55+</span></label>
+        </div></label>
+      <label><span>लिंग / Gender</span>
+        <div class="seg">
+          <label><input type="radio" name="gender" value="female"><span>महिला / F</span></label>
+          <label><input type="radio" name="gender" value="male"><span>पुरुष / M</span></label>
+          <label><input type="radio" name="gender" value="not_said" checked><span>न बताएँ / —</span></label>
+        </div></label>
+      <label><span>राज्य या क्षेत्र / State or region</span><input type="text" name="region" maxlength="40" placeholder="Bihar, Rajasthan…"></label>
+      <label><span>मातृभाषा / First language</span><input type="text" name="first_language" maxlength="30" placeholder="Hindi, Bhojpuri…"></label>
+    </form>
+    <button class="primary big" id="vb-start" type="button">रिकॉर्डिंग शुरू करें / Start</button>
+  </section>
+
+  <!-- 3. prompts -->
+  <section class="screen" id="vb-prompt" hidden>
+    <div class="q-progress"><span id="vb-count"></span><span class="bar" aria-hidden="true"><span id="vb-bar"></span></span></div>
+    <p class="sub" id="vb-hint">यह वाक्य अपनी सामान्य आवाज़ में पढ़ें। / Read this sentence in your normal voice.</p>
+    <h2 id="vb-text" class="vb-text"></h2>
+    <div id="vb-mic" class="mic-slot"></div>
+    <div class="cta-row">
+      <button class="secondary" id="vb-play" type="button" disabled>सुनें / Play back</button>
+      <button class="primary" id="vb-ok" type="button" disabled>ठीक है, आगे / Next</button>
+    </div>
+    <p class="meta" id="vb-status"></p>
+  </section>
+
+  <!-- 4. done -->
+  <section class="screen" id="vb-done" hidden>
+    <h2>धन्यवाद! / Thank you!</h2>
+    <p id="vb-summary"></p>
+    <button class="primary big" id="vb-again" type="button">अगला व्यक्ति / Next speaker</button>
+    <button class="ghost" id="vb-withdraw" type="button">मेरी रिकॉर्डिंग मिटाएँ / Delete my recordings</button>
+  </section>
+</main>
+<script src="/app/mic.js" defer></script>
+<script src="/app/voicebench.js" defer></script>
+</body>
+</html>

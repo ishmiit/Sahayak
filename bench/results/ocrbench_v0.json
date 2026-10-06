@@ -1,0 +1,56 @@
+{
+ "date": "2026-10-03",
+ "messages": 55,
+ "cer_mean": 0.0219,
+ "cer_median": 0.016,
+ "same_flag": 51,
+ "same_verdict": 50,
+ "by_lang": {
+  "en": {
+   "n": 38,
+   "cer": 0.0178,
+   "same_flag": 34
+  },
+  "hi": {
+   "n": 8,
+   "cer": 0.0544,
+   "same_flag": 8
+  },
+  "hinglish": {
+   "n": 9,
+   "cer": 0.0105,
+   "same_flag": 9
+  }
+ },
+ "seconds_p50": 6.86,
+ "disagreements": [
+  {
+   "id": "sb-0109",
+   "typed": "no_signs",
+   "read": "suspicious",
+   "text": "Paytm customer support: there was a double deduction from your wallet. To reverse it approve the request we sent you.",
+   "ocr": "+91 98765 43210\nPaytm customer support: there was a double deduction from your wallet: To reverse it approve the request we sent you:"
+  },
+  {
+   "id": "sb-0119",
+   "typed": "scam",
+   "read": "no_signs",
+   "text": "Free laptop yojana 2026: all students get a free laptop. Register now at free-laptop-yojana.online",
+   "ocr": "+91 98765 43210\nFree laptop yojana 2026: all students get a free laptop. Register now at free-laptop-yojana online"
+  },
+  {
+   "id": "sb-0125",
+   "typed": "scam",
+   "read": "no_signs",
+   "text": "Your gas subsidy of Rs 1,200 is pending. Update your bank details on the government portal: lpg-subsidy.click",
+   "ocr": "+91 98765 43210\nYour gas subsidy of Rs 1,200 is pending: Update your bank details on the government portal: Ipg-subsidy click"
+  },
+  {
+   "id": "sb-0136",
+   "typed": "scam",
+   "read": "no_signs",
+   "text": "Your bank's security team detected malware. Install the Bank Protect app from bankprotect.apk.download now to secure your money.",
+   "ocr": "+91 98765 43210\nYour bank's security team detected malware: Install the Bank Protect app from bankprotectapk download now to secure your money:"
+  }
+ ]
+}

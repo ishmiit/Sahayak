@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0e7c57">
+<title>Sahayak console · सहायक काउंटर</title>
+<link rel="icon" href="/app/icons/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/app/styles.css">
+<link rel="stylesheet" href="/app/console.css">
+</head>
+<body class="console-page">
+<header class="topbar">
+  <span class="brand-text"><b>सहायक काउंटर · Sahayak console</b><small>CSC / BANK AGENT</small></span>
+  <button class="lang-toggle no-print" id="c-logout" type="button" hidden>Logout</button>
+</header>
+
+<!-- PIN -->
+<main id="c-login" class="c-login">
+  <h1>ऑपरेटर PIN · Operator PIN</h1>
+  <p class="sub">PIN नोड के टर्मिनल में छपा है (या SAHAYAK_CONSOLE_PIN) · The PIN is printed in the node's terminal (or set with SAHAYAK_CONSOLE_PIN).</p>
+  <form id="c-login-form" autocomplete="off">
+    <input id="c-pin" type="password" inputmode="numeric" maxlength="12" placeholder="PIN" aria-label="PIN">
+    <button class="primary big" type="submit">खोलें · Open</button>
+  </form>
+  <p class="meta" id="c-login-msg"></p>
+</main>
+
+<!-- CONSOLE -->
+<div id="c-app" class="c-app" hidden>
+  <nav class="c-nav no-print" aria-label="Console sections">
+    <button data-tab="queue" class="on">कतार · Queue <span id="c-qcount" class="count">0</span></button>
+    <button data-tab="assist">जाँच करें · Assisted check</button>
+    <button data-tab="cases">केस लॉग · Case log</button>
+    <button data-tab="counters">गिनती · Impact counters</button>
+    <button data-tab="reference">संदर्भ · Quick reference</button>
+    <button data-tab="status">नोड · Status</button>
+  </nav>
+
+  <main class="c-main">
+    <section class="c-tab" data-tab="queue">
+      <h2>"एजेंट से पूछें" कतार · "Ask the agent" queue</h2>
+      <p class="meta">फ़ोन पर "एजेंट से पूछें" दबाते ही यहाँ दिखता है · Appears here as soon as someone taps "Ask the agent" on their phone.</p>
+      <ul id="c-queue" class="c-queue"></ul>
+      <div id="c-serving" class="c-card" hidden></div>
+    </section>
+
+    <section class="c-tab" data-tab="assist" hidden>
+      <h2>व्यक्ति के लिए जाँच · Check for a walk-in</h2>
+      <div class="c-row">
+        <label>भाषा · Their language
+          <select id="a-lang"><option value="hi">हिंदी</option><option value="en">English</option></select></label>
+        <label>प्रकार · Type
+          <select id="a-type"><option value="text">SMS / message</option><option value="call">Phone call</option></select></label>
+        <label>भेजने वाला · Sender <input id="a-sender" type="text" maxlength="40" placeholder="AX-SBIBNK-S / 98xxxxxx10"></label>
+      </div>
+      <textarea id="a-text" maxlength="4000" placeholder="मैसेज यहाँ लिखें या चिपकाएँ · Type or paste the message"></textarea>
+      <div class="cta-row">
+        <button class="primary" id="a-check" type="button">जाँचें · Check</button>
+        <a class="secondary" id="a-benefits" href="/?nav=start" target="_blank" rel="noopener">योजनाएँ देखें (ऐप) · Benefits interview (app)</a>
+      </div>
+      <div id="a-result" class="c-card" hidden></div>
+    </section>
+
+    <section class="c-tab" data-tab="cases" hidden>
+      <h2>केस लॉग · Case log</h2>
+      <p class="meta" id="c-cases-note"></p>
+      <table class="nd-table"><thead><tr><th>Time</th><th>Kind</th><th>Verdict / schemes</th><th>Category</th><th>₹ at risk</th><th>Lang</th><th>Slip</th></tr></thead>
+        <tbody id="c-cases"></tbody></table>
+      <button class="danger" id="c-delete-all" type="button">सब मिटाएँ · Delete everything</button>
+    </section>
+
+    <section class="c-tab" data-tab="counters" hidden>
+      <h2>इस महीने की गिनती · This month's impact counters</h2>
+      <p class="meta">कोई नाम, नंबर या मैसेज नहीं रखा जाता; 5 से कम गिनती "&lt;5" दिखती है · No names, numbers or message text are kept; counts under 5 show as "&lt;5".</p>
+      <div id="c-counters" class="c-counters"></div>
+      <div class="cta-row">
+        <button class="primary" id="c-export" type="button">CSV निर्यात (हस्ताक्षरित) · Export signed CSV</button>
+        <button class="ghost" id="c-reset" type="button">गिनती शून्य करें · Reset counters</button>
+      </div>
+    </section>
+
+    <section class="c-tab" data-tab="reference" hidden>
+      <h2>आम ठगी और क्या समझाएँ · Common scams and what to say</h2>
+      <div id="c-reference"></div>
+    </section>
+
+    <section class="c-tab" data-tab="status" hidden>
+      <h2>नोड · Node status</h2>
+      <p><a class="secondary" href="/app/node.html" target="_blank" rel="noopener">पूरा स्टेटस और स्टिकर खोलें · Open full status and sticker</a></p>
+      <div id="c-status" class="big-numbers"></div>
+    </section>
+  </main>
+</div>
+
+<!-- 58 mm thermal slip, filled before printing -->
+<div id="print58" class="print58" aria-hidden="true"></div>
+<script src="/app/console.js" defer></script>
+</body>
+</html>

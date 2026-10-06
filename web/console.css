@@ -1,0 +1,57 @@
+/* Operator console: a laptop layout on the same tokens as the app. */
+.console-page main { max-width: none; }
+.c-login { max-width: 420px; margin: 40px auto; padding: 0 16px; }
+.c-login input { width: 100%; font-size: 1.6rem; text-align: center; letter-spacing: .3em; padding: 14px; border-radius: 14px;
+  border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); }
+.c-app { display: grid; grid-template-columns: 240px 1fr; min-height: calc(100vh - 60px); }
+.c-nav { display: flex; flex-direction: column; gap: 6px; padding: 16px; border-right: 1.5px solid var(--line); background: var(--surface-2); }
+.c-nav button { text-align: left; min-height: 48px; padding: 10px 12px; border-radius: 12px; border: 1.5px solid transparent;
+  background: none; font-weight: 700; color: var(--ink-2); }
+.c-nav button.on { background: var(--surface); border-color: var(--line); color: var(--ink); }
+.c-nav .count { display: inline-grid; place-items: center; min-width: 24px; height: 24px; padding: 0 6px; border-radius: 99px;
+  background: var(--saffron); color: #fff; font-size: .75rem; margin-left: 4px; }
+.c-main { padding: 20px 24px 40px; max-width: 1100px; }
+.c-main h2 { margin-top: 0; }
+.c-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 10px; }
+.c-row label { display: grid; gap: 4px; font-size: .85rem; font-weight: 700; color: var(--ink-2); }
+.c-row select, .c-row input { min-height: 44px; padding: 8px 10px; border-radius: 10px; border: 1.5px solid var(--line);
+  background: var(--surface); color: var(--ink); font-size: .95rem; }
+.c-queue { list-style: none; padding: 0; margin: 0 0 16px; display: grid; gap: 10px; }
+.c-queue li { display: grid; grid-template-columns: 90px 1fr auto; gap: 12px; align-items: center; padding: 12px 14px;
+  background: var(--surface); border: 1.5px solid var(--line); border-radius: 14px; }
+.c-queue .ticket { font-size: 1.5rem; font-weight: 900; color: var(--saffron); }
+.c-queue .serving { border-color: var(--saffron); background: var(--warn-soft); }
+.c-queue .empty { grid-template-columns: 1fr; color: var(--ink-2); }
+.c-card { margin-top: 16px; padding: 16px; background: var(--surface); border: 1.5px solid var(--line); border-radius: var(--radius); }
+.c-card h3 { margin: 0 0 8px; color: var(--ink); }
+.c-card .verdict { margin-bottom: 10px; }
+.c-card .consent { display: flex; align-items: center; gap: 10px; margin: 12px 0; font-weight: 600; }
+.c-card .consent input { width: 22px; height: 22px; accent-color: var(--brand); }
+.c-counters { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.c-counters .box { padding: 14px; background: var(--surface); border: 1.5px solid var(--line); border-radius: 14px; }
+.c-counters .box h4 { margin: 0 0 6px; font-size: .8rem; color: var(--ink-2); text-transform: uppercase; letter-spacing: .04em; }
+.c-counters .box .n { font-size: 2rem; font-weight: 900; }
+.c-counters .box ul { margin: 6px 0 0; padding-left: 18px; font-size: .88rem; }
+.ref { margin-bottom: 12px; padding: 12px 14px; background: var(--surface); border: 1.5px solid var(--line); border-radius: 14px; }
+.ref h4 { margin: 0 0 6px; }
+.ref .seen { font-size: .78rem; color: var(--ink-2); font-weight: 600; margin-left: 6px; }
+.ref ol { margin: 0; padding-left: 20px; }
+.ref .en { display: block; color: var(--ink-2); font-size: .82rem; }
+#c-delete-all { margin-top: 16px; }
+@media (max-width: 760px) { .c-app { grid-template-columns: 1fr; } .c-nav { flex-direction: row; flex-wrap: wrap; border-right: 0; } }
+
+/* 58 mm thermal printer: about 48 mm printable, black on white, nothing else on the page */
+.print58 { display: none; }
+@media print {
+  @page { size: 58mm auto; margin: 2mm; }
+  body.console-page * { visibility: hidden; }
+  body.console-page .print58, body.console-page .print58 * { visibility: visible; }
+  body.console-page .print58 { display: block; position: absolute; left: 0; top: 0; width: 54mm; color: #000; background: #fff;
+    font: 9pt/1.35 "Noto Sans Devanagari", "Nirmala UI", sans-serif; }
+  .print58 h1 { font-size: 11pt; margin: 0 0 1mm; }
+  .print58 .big { font-size: 14pt; font-weight: 900; margin: 1mm 0; }
+  .print58 ul, .print58 ol { margin: 0 0 1mm; padding-left: 4mm; }
+  .print58 img { width: 36mm; height: 36mm; image-rendering: pixelated; display: block; margin: 1mm auto; }
+  .print58 .small { font-size: 7pt; }
+  .print58 hr { border: 0; border-top: 1px dashed #000; margin: 1.5mm 0; }
+}

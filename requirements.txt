@@ -1,0 +1,23 @@
+# Node server and core pipeline (all pure-Python or prebuilt wheels; no GPU needed)
+fastapi>=0.110
+uvicorn>=0.29
+pydantic>=2.6
+httpx>=0.27
+numpy>=1.26
+scipy>=1.11
+scikit-learn>=1.4
+cryptography>=42
+psutil>=5.9
+qrcode>=7.4
+pillow>=10.0
+opencv-python-headless>=4.8  # reads UPI QR codes and screenshots from photos
+
+# Offline voice (models: python scripts/get_models.py). If `srt` (a vosk dependency) fails to
+# build on Windows, install it first with SETUPTOOLS_USE_DISTUTILS=stdlib.
+sherpa-onnx>=1.13
+vosk>=0.3.45
+av>=12          # decodes recordings from a phone's recorder app (m4a, amr, ogg)
+soundfile>=0.12 # VoiceBench evaluation only
+
+# Tests
+pytest>=8.0

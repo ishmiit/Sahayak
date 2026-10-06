@@ -1,0 +1,6 @@
+# Optional: read screenshots and photos of messages offline (EasyOCR, Devanagari + English).
+# Pulls in PyTorch (about 200 MB on Windows and macOS). On Linux, install the CPU-only build first, or pip
+# downloads the much larger GPU build:
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+# Then: pip install -r requirements-ocr.txt && python scripts/get_models.py
+easyocr>=1.7

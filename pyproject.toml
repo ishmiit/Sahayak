@@ -1,0 +1,10 @@
+[project]
+name = "sahayak"
+version = "0.1.0"
+description = "Offline, voice-first fraud-shield and benefits navigator for Bharat"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

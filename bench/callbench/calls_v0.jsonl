@@ -1,0 +1,26 @@
+{"id": "c01", "label": "scam", "category": "digital_arrest", "lang": "en", "text": "Someone from CBI called and said I am under digital arrest and must stay on video call"}
+{"id": "c02", "label": "scam", "category": "digital_arrest", "lang": "hi", "text": "एक आदमी ने फ़ोन करके कहा कि वह पुलिस से है और मेरे आधार से मनी लॉन्ड्रिंग हुई है, वीडियो कॉल पर रहो"}
+{"id": "c03", "label": "scam", "category": "digital_arrest", "lang": "hinglish", "text": "Call aaya tha, bola mumbai police se hu, aapke naam pe case hai, kisi ko mat batana, video call pe raho"}
+{"id": "c04", "label": "scam", "category": "courier", "lang": "en", "text": "The caller said my FedEx parcel had drugs and passports and customs seized it, then transferred me to a police officer"}
+{"id": "c05", "label": "scam", "category": "courier", "lang": "hi", "text": "किसी ने कहा आपके नाम का पार्सल पकड़ा गया है जिसमें ड्रग्स हैं, अभी पुलिस से बात करो"}
+{"id": "c06", "label": "scam", "category": "customer_care", "lang": "en", "text": "Customer care called to give my refund and asked me to install AnyDesk and share the code"}
+{"id": "c07", "label": "scam", "category": "customer_care", "lang": "hinglish", "text": "customer care wale ne refund ke liye AnyDesk download karwaya aur code maanga"}
+{"id": "c08", "label": "scam", "category": "otp_pin", "lang": "en", "text": "A man said he was from SBI and asked for the OTP that came on my phone to stop my card being blocked"}
+{"id": "c09", "label": "scam", "category": "otp_pin", "lang": "hi", "text": "बैंक वाला बनकर किसी ने फ़ोन किया और मेरे फ़ोन पर आया ओटीपी माँगा"}
+{"id": "c10", "label": "scam", "category": "otp_pin", "lang": "hinglish", "text": "kisi ne bank se bolke phone kiya aur otp maang raha tha, bola card band ho jayega"}
+{"id": "c11", "label": "scam", "category": "kyc", "lang": "hi", "text": "फ़ोन पर कहा गया कि आपका KYC खत्म हो गया है, खाता बंद हो जाएगा, लिंक पर जाकर अपडेट करो"}
+{"id": "c12", "label": "scam", "category": "electricity", "lang": "hinglish", "text": "bijli vibhag se call aaya ki aaj raat bijli kat jayegi, turant is number pe paise bhejo"}
+{"id": "c13", "label": "scam", "category": "impersonation", "lang": "hi", "text": "किसी ने कहा मैं आपका बेटा बोल रहा हूँ, नया नंबर है, मुसीबत में हूँ, तुरंत पैसे भेजो"}
+{"id": "c14", "label": "scam", "category": "prize", "lang": "en", "text": "They said I won 25 lakh in KBC lottery and must pay 10000 tax first to get the prize"}
+{"id": "c15", "label": "scam", "category": "upi_receive", "lang": "hinglish", "text": "usne kaha paise bhejne ke liye QR scan karo aur PIN dalo, tab paise milenge"}
+{"id": "c16", "label": "scam", "category": "digital_arrest", "lang": "en", "text": "A person in police uniform on WhatsApp video said there is an arrest warrant and I must transfer money to verify"}
+{"id": "c17", "label": "scam", "category": "loan_fee", "lang": "hi", "text": "लोन वाले ने कहा आपका लोन पास है, पहले प्रोसेसिंग फ़ीस भेजो"}
+{"id": "c18", "label": "scam", "category": "govt_scheme", "lang": "hinglish", "text": "PM kisan se call aaya, bole kist ke liye apna OTP batao"}
+{"id": "g01", "label": "genuine", "lang": "en", "text": "The bank called to confirm my new debit card was delivered and did not ask for anything"}
+{"id": "g02", "label": "genuine", "lang": "hi", "text": "डिलीवरी वाले ने घर का पता पूछने के लिए फ़ोन किया था"}
+{"id": "g03", "label": "genuine", "lang": "hinglish", "text": "beta ka call aaya tha, bola khana kha liya aur kal aayega"}
+{"id": "g04", "label": "genuine", "lang": "en", "text": "The gas agency called to say my cylinder will come tomorrow"}
+{"id": "g05", "label": "genuine", "lang": "hi", "text": "स्कूल से फ़ोन आया कि कल पेरेंट्स मीटिंग है"}
+{"id": "g06", "label": "genuine", "lang": "en", "text": "My doctor's clinic called to move my appointment to Friday"}
+{"id": "g07", "label": "genuine", "lang": "hinglish", "text": "bank se call aaya tha FD renew karne ke liye branch aane ko bola, kuch nahi maanga"}
+{"id": "g08", "label": "genuine", "lang": "hi", "text": "पंचायत से फ़ोन आया कि पेंशन के कागज़ लेकर सोमवार को आना है"}

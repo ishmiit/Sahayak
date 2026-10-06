@@ -1,0 +1,5 @@
+# Only for the team's build scripts (screenshots, clips, PDFs, submission folder), not for running the node.
+# After installing: python -m playwright install chromium
+playwright>=1.40
+markdown>=3.5
+pypdf>=4.0

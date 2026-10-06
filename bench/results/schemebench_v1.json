@@ -1,0 +1,162 @@
+{
+ "date": "2026-10-02",
+ "pack": {
+  "version": "1.0.0",
+  "date": "2026-10-02",
+  "sha256": "6fdf4618444b6fede5cfb5c72b6b203217496ad5158199e99fd93e427b8f93b5"
+ },
+ "personas": 200,
+ "rules": {
+  "decisions": 2400,
+  "agree": 2400,
+  "rate": 1.0,
+  "per_scheme": {
+   "ignoaps": 200,
+   "ignwps": 200,
+   "igndps": 200,
+   "nfbs": 200,
+   "pmsby": 200,
+   "pmjjby": 200,
+   "apy": 200,
+   "pmkisan": 200,
+   "pmjay": 200,
+   "eshram": 200,
+   "pmsym": 200,
+   "pmjdy": 200
+  },
+  "disagreements": []
+ },
+ "expected_distribution": {
+  "ignoaps": {
+   "likely": 46,
+   "not_eligible": 140,
+   "check": 14
+  },
+  "ignwps": {
+   "likely": 9,
+   "not_eligible": 183,
+   "check": 8
+  },
+  "igndps": {
+   "not_eligible": 190,
+   "likely": 9,
+   "check": 1
+  },
+  "nfbs": {
+   "not_eligible": 174,
+   "likely": 16,
+   "check": 10
+  },
+  "pmsby": {
+   "eligible": 78,
+   "unlock": 38,
+   "not_eligible": 71,
+   "check": 13
+  },
+  "pmjjby": {
+   "not_eligible": 130,
+   "unlock": 20,
+   "eligible": 45,
+   "check": 5
+  },
+  "apy": {
+   "not_eligible": 162,
+   "unlock": 10,
+   "eligible": 21,
+   "check": 7
+  },
+  "pmkisan": {
+   "not_eligible": 173,
+   "likely": 22,
+   "check": 5
+  },
+  "pmjay": {
+   "check": 142,
+   "eligible": 58
+  },
+  "eshram": {
+   "not_eligible": 148,
+   "eligible": 52
+  },
+  "pmsym": {
+   "not_eligible": 185,
+   "eligible": 10,
+   "check": 5
+  },
+  "pmjdy": {
+   "not_eligible": 125,
+   "eligible": 58,
+   "check": 17
+  }
+ },
+ "interview": {
+  "median": 5.0,
+  "mean": 5.01,
+  "p90": 6,
+  "max": 7,
+  "histogram": {
+   "4": 33,
+   "5": 134,
+   "6": 31,
+   "7": 2
+  },
+  "equivalent": 200,
+  "not_equivalent": []
+ },
+ "sweep": {
+  "n": 5000,
+  "median": 5.0,
+  "max": 7,
+  "not_equivalent": 0
+ },
+ "amounts": {
+  "untraced": []
+ },
+ "timing_ms": {
+  "result_p50": 0.23,
+  "result_p95": 0.37
+ },
+ "exhaustive": {
+  "pack_sha256": "6fdf4618444b6fede5cfb5c72b6b203217496ad5158199e99fd93e427b8f93b5",
+  "cases": 224640,
+  "ages": [
+   0,
+   15,
+   16,
+   17,
+   18,
+   39,
+   40,
+   41,
+   50,
+   51,
+   59,
+   60,
+   69,
+   70,
+   71,
+   79,
+   80,
+   119,
+   120,
+   "lt18",
+   "18_40",
+   "41_50",
+   "51_59",
+   "60_69",
+   "70_79",
+   "80p"
+  ],
+  "max": 7,
+  "median": 5.0,
+  "histogram": {
+   "4": 23400,
+   "5": 145080,
+   "6": 51480,
+   "7": 4680
+  },
+  "not_equivalent": 0,
+  "examples": [],
+  "seconds": 480
+ }
+}

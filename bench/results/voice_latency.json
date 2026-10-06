@@ -1,0 +1,250 @@
+{
+ "summary": {
+  "date": "2026-10-03",
+  "runs": 3,
+  "cases": 4,
+  "cached": {
+   "n": 12,
+   "p50": 0.65,
+   "max": 1.58,
+   "asr_p50": 0.61
+  },
+  "live": {
+   "n": 12,
+   "p50": 2.44,
+   "max": 4.31,
+   "asr_p50": 0.73
+  },
+  "unrecognised": 0
+ },
+ "rows": [
+  {
+   "run": 0,
+   "mode": "cached",
+   "question": "age",
+   "answer": 65,
+   "asr_s": 0.876,
+   "first_audio_s": 0.909,
+   "tts_cache": ""
+  },
+  {
+   "run": 0,
+   "mode": "cached",
+   "question": "situation",
+   "answer": [
+    "widow"
+   ],
+   "asr_s": 0.554,
+   "first_audio_s": 0.599,
+   "tts_cache": ""
+  },
+  {
+   "run": 0,
+   "mode": "cached",
+   "question": "ration",
+   "answer": "aay",
+   "asr_s": 0.575,
+   "first_audio_s": 0.617,
+   "tts_cache": ""
+  },
+  {
+   "run": 0,
+   "mode": "cached",
+   "question": "bank",
+   "answer": "yes",
+   "asr_s": 0.563,
+   "first_audio_s": 0.6,
+   "tts_cache": ""
+  },
+  {
+   "run": 0,
+   "mode": "live",
+   "question": "age",
+   "answer": 65,
+   "asr_s": 0.597,
+   "first_audio_s": 4.308,
+   "tts_cache": ""
+  },
+  {
+   "run": 0,
+   "mode": "live",
+   "question": "situation",
+   "answer": [
+    "widow"
+   ],
+   "asr_s": 0.709,
+   "first_audio_s": 2.371,
+   "tts_cache": ""
+  },
+  {
+   "run": 0,
+   "mode": "live",
+   "question": "ration",
+   "answer": "aay",
+   "asr_s": 0.705,
+   "first_audio_s": 2.518,
+   "tts_cache": ""
+  },
+  {
+   "run": 0,
+   "mode": "live",
+   "question": "bank",
+   "answer": "yes",
+   "asr_s": 0.764,
+   "first_audio_s": 2.007,
+   "tts_cache": ""
+  },
+  {
+   "run": 1,
+   "mode": "cached",
+   "question": "age",
+   "answer": 65,
+   "asr_s": 0.742,
+   "first_audio_s": 0.784,
+   "tts_cache": ""
+  },
+  {
+   "run": 1,
+   "mode": "cached",
+   "question": "situation",
+   "answer": [
+    "widow"
+   ],
+   "asr_s": 0.563,
+   "first_audio_s": 0.601,
+   "tts_cache": ""
+  },
+  {
+   "run": 1,
+   "mode": "cached",
+   "question": "ration",
+   "answer": "aay",
+   "asr_s": 0.561,
+   "first_audio_s": 0.586,
+   "tts_cache": ""
+  },
+  {
+   "run": 1,
+   "mode": "cached",
+   "question": "bank",
+   "answer": "yes",
+   "asr_s": 0.59,
+   "first_audio_s": 0.628,
+   "tts_cache": ""
+  },
+  {
+   "run": 1,
+   "mode": "live",
+   "question": "age",
+   "answer": 65,
+   "asr_s": 0.603,
+   "first_audio_s": 2.251,
+   "tts_cache": ""
+  },
+  {
+   "run": 1,
+   "mode": "live",
+   "question": "situation",
+   "answer": [
+    "widow"
+   ],
+   "asr_s": 0.697,
+   "first_audio_s": 2.883,
+   "tts_cache": ""
+  },
+  {
+   "run": 1,
+   "mode": "live",
+   "question": "ration",
+   "answer": "aay",
+   "asr_s": 0.88,
+   "first_audio_s": 3.889,
+   "tts_cache": ""
+  },
+  {
+   "run": 1,
+   "mode": "live",
+   "question": "bank",
+   "answer": "yes",
+   "asr_s": 0.761,
+   "first_audio_s": 2.125,
+   "tts_cache": ""
+  },
+  {
+   "run": 2,
+   "mode": "cached",
+   "question": "age",
+   "answer": 65,
+   "asr_s": 0.735,
+   "first_audio_s": 1.577,
+   "tts_cache": ""
+  },
+  {
+   "run": 2,
+   "mode": "cached",
+   "question": "situation",
+   "answer": [
+    "widow"
+   ],
+   "asr_s": 0.627,
+   "first_audio_s": 0.668,
+   "tts_cache": ""
+  },
+  {
+   "run": 2,
+   "mode": "cached",
+   "question": "ration",
+   "answer": "aay",
+   "asr_s": 0.868,
+   "first_audio_s": 0.882,
+   "tts_cache": ""
+  },
+  {
+   "run": 2,
+   "mode": "cached",
+   "question": "bank",
+   "answer": "yes",
+   "asr_s": 0.753,
+   "first_audio_s": 0.779,
+   "tts_cache": ""
+  },
+  {
+   "run": 2,
+   "mode": "live",
+   "question": "age",
+   "answer": 65,
+   "asr_s": 0.769,
+   "first_audio_s": 2.724,
+   "tts_cache": ""
+  },
+  {
+   "run": 2,
+   "mode": "live",
+   "question": "situation",
+   "answer": [
+    "widow"
+   ],
+   "asr_s": 0.682,
+   "first_audio_s": 2.368,
+   "tts_cache": ""
+  },
+  {
+   "run": 2,
+   "mode": "live",
+   "question": "ration",
+   "answer": "aay",
+   "asr_s": 0.763,
+   "first_audio_s": 2.673,
+   "tts_cache": ""
+  },
+  {
+   "run": 2,
+   "mode": "live",
+   "question": "bank",
+   "answer": "yes",
+   "asr_s": 0.765,
+   "first_audio_s": 2.166,
+   "tts_cache": ""
+  }
+ ]
+}

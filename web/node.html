@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0e7c57">
+<title>Sahayak node · सहायक नोड</title>
+<link rel="icon" href="/app/icons/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/app/styles.css">
+</head>
+<body class="node-page">
+<header class="topbar">
+  <span class="brand-text"><b>सहायक नोड · Sahayak node</b><small id="nd-version">…</small></span>
+</header>
+<main class="node-main">
+  <section class="screen node-panel egress" aria-live="polite">
+    <h2 id="nd-headline">…</h2>
+    <div class="big-numbers">
+      <div class="bign"><span id="nd-connects">…</span><small>Sahayak के बाहरी कनेक्शन<br>outbound connections by Sahayak</small></div>
+      <div class="bign"><span id="nd-lookups">…</span><small>बाहरी DNS सवाल<br>outside DNS lookups by Sahayak</small></div>
+      <div class="bign"><span id="nd-machine">…</span><small>इस मशीन के इंटरनेट कनेक्शन<br>open internet connections, whole machine</small></div>
+    </div>
+    <p class="fw" id="nd-firewall">…</p>
+    <h3>नोड से फ़ोन तक (स्थानीय) · Local traffic: phones and the node</h3>
+    <ul class="nd-list" id="nd-interfaces"></ul>
+    <p class="meta" id="nd-since"></p>
+    <details class="nd-recent"><summary>आख़िरी बाहरी प्रयास · Last outbound attempts</summary><ul id="nd-recent"></ul></details>
+  </section>
+
+  <section class="screen node-panel sticker" id="nd-sticker">
+    <h2>फ़ोन जोड़ें · Connect a phone</h2>
+    <div class="qrs">
+      <figure id="nd-wifi" hidden><img alt="Wi-Fi QR"><figcaption></figcaption></figure>
+      <figure><img id="nd-app-qr" alt="App QR"><figcaption id="nd-app-url"></figcaption></figure>
+    </div>
+    <p class="note">1. Wi-Fi से जुड़ें (इंटरनेट नहीं है)। 2. ऐप खोलें। · 1. Join the Wi-Fi (it has no internet). 2. Open the app.</p>
+    <button class="secondary no-print" id="nd-print" type="button">स्टिकर प्रिंट करें · Print sticker</button>
+  </section>
+
+  <section class="screen node-panel wide">
+    <h2>सामग्री पैक · Content packs</h2>
+    <p class="meta" id="nd-signed-mode"></p>
+    <table class="nd-table"><thead><tr><th>Pack</th><th>Version</th><th>Date</th><th>Signed</th><th>SHA-256</th></tr></thead>
+      <tbody id="nd-packs"></tbody></table>
+  </section>
+
+  <section class="screen node-panel wide">
+    <h2>मॉडल · Models</h2>
+    <table class="nd-table"><thead><tr><th>Model</th><th>Size</th><th>SHA-256 / digest</th></tr></thead>
+      <tbody id="nd-models"></tbody></table>
+  </section>
+</main>
+<script src="/app/node.js" defer></script>
+</body>
+</html>

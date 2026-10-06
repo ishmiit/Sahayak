@@ -1,0 +1,1237 @@
+{
+ "first": {
+  "date": "2026-10-06",
+  "messages": 74,
+  "systems": {
+   "blocklist": {
+    "scams_flagged": 33,
+    "scams": 52,
+    "genuine_left_alone": 12,
+    "genuine": 22,
+    "by_technique": {
+     "advisory_wrapped": {
+      "right": 3,
+      "n": 3
+     },
+     "callback_only": {
+      "right": 0,
+      "n": 2
+     },
+     "devanagari_english": {
+      "right": 1,
+      "n": 2
+     },
+     "emoji": {
+      "right": 2,
+      "n": 2
+     },
+     "genuine_awareness": {
+      "right": 0,
+      "n": 3
+     },
+     "genuine_bill": {
+      "right": 1,
+      "n": 1
+     },
+     "genuine_courier": {
+      "right": 1,
+      "n": 1
+     },
+     "genuine_delivery_otp": {
+      "right": 0,
+      "n": 2
+     },
+     "genuine_govt": {
+      "right": 2,
+      "n": 2
+     },
+     "genuine_insurance": {
+      "right": 1,
+      "n": 1
+     },
+     "genuine_job": {
+      "right": 1,
+      "n": 1
+     },
+     "genuine_kyc_official": {
+      "right": 0,
+      "n": 1
+     },
+     "genuine_otp": {
+      "right": 0,
+      "n": 2
+     },
+     "genuine_personal": {
+      "right": 2,
+      "n": 2
+     },
+     "genuine_personal_money": {
+      "right": 1,
+      "n": 1
+     },
+     "genuine_refund": {
+      "right": 0,
+      "n": 1
+     },
+     "genuine_short_link_promo": {
+      "right": 0,
+      "n": 1
+     },
+     "genuine_txn_alert": {
+      "right": 2,
+      "n": 2
+     },
+     "genuine_upi_request": {
+      "right": 1,
+      "n": 1
+     },
+     "leetspeak": {
+      "right": 1,
+      "n": 2
+     },
+     "line_breaks": {
+      "right": 0,
+      "n": 1
+     },
+     "link_in_words": {
+      "right": 2,
+      "n": 3
+     },
+     "link_shouted": {
+      "right": 1,
+      "n": 1
+     },
+     "lookalike_letters": {
+      "right": 2,
+      "n": 2
+     },
+     "not_a_scam_claim": {
+      "right": 0,
+      "n": 2
+     },
+     "novel_courier_fee": {
+      "right": 0,
+      "n": 1
+     },
+     "novel_crypto": {
+      "right": 0,
+      "n": 1
+     },
+     "novel_electricity_app": {
+      "right": 0,
+      "n": 1
+     },
+     "novel_family_voice": {
+      "right": 1,
+      "n": 1
+     },
+     "novel_olx_buyer": {
+      "right": 1,
+      "n": 1
+     },
+     "novel_sextortion": {
+      "right": 0,
+      "n": 1
+     },
+     "novel_sim_swap": {
+      "right": 1,
+      "n": 1
+     },
+     "novel_task_job": {
+      "right": 1,
+      "n": 2
+     },
+     "novel_traffic_challan": {
+      "right": 1,
+      "n": 1
+     },
+     "official_name_in_link": {
+      "right": 3,
+      "n": 3
+     },
+     "otp_synonym": {
+      "right": 1,
+      "n": 2
+     },
+     "padded": {
+      "right": 1,
+      "n": 2
+     },
+     "polite": {
+      "right": 0,
+      "n": 2
+     },
+     "punycode": {
+      "right": 1,
+      "n": 1
+     },
+     "romanised_variants": {
+      "right": 2,
+      "n": 2
+     },
+     "short_link": {
+      "right": 2,
+      "n": 2
+     },
+     "spaced_letters": {
+      "right": 1,
+      "n": 3
+     },
+     "spoofed_sender": {
+      "right": 2,
+      "n": 2
+     },
+     "zero_width": {
+      "right": 3,
+      "n": 3
+     }
+    },
+    "misses": [
+     {
+      "id": "rt-005",
+      "label": "scam",
+      "technique": "spaced_letters",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-006",
+      "label": "scam",
+      "technique": "spaced_letters",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-007",
+      "label": "scam",
+      "technique": "leetspeak",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-013",
+      "label": "scam",
+      "technique": "link_in_words",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-021",
+      "label": "scam",
+      "technique": "callback_only",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-022",
+      "label": "scam",
+      "technique": "callback_only",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-023",
+      "label": "scam",
+      "technique": "polite",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-024",
+      "label": "scam",
+      "technique": "polite",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-028",
+      "label": "scam",
+      "technique": "not_a_scam_claim",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-029",
+      "label": "scam",
+      "technique": "not_a_scam_claim",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-033",
+      "label": "scam",
+      "technique": "padded",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-034",
+      "label": "scam",
+      "technique": "line_breaks",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-038",
+      "label": "scam",
+      "technique": "devanagari_english",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-041",
+      "label": "scam",
+      "technique": "otp_synonym",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-044",
+      "label": "scam",
+      "technique": "novel_task_job",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-046",
+      "label": "scam",
+      "technique": "novel_crypto",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-048",
+      "label": "scam",
+      "technique": "novel_electricity_app",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-050",
+      "label": "scam",
+      "technique": "novel_sextortion",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-051",
+      "label": "scam",
+      "technique": "novel_courier_fee",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-053",
+      "label": "genuine",
+      "technique": "genuine_otp",
+      "verdict": "scam",
+      "right": false
+     },
+     {
+      "id": "rt-054",
+      "label": "genuine",
+      "technique": "genuine_otp",
+      "verdict": "scam",
+      "right": false
+     },
+     {
+      "id": "rt-055",
+      "label": "genuine",
+      "technique": "genuine_delivery_otp",
+      "verdict": "scam",
+      "right": false
+     },
+     {
+      "id": "rt-056",
+      "label": "genuine",
+      "technique": "genuine_delivery_otp",
+      "verdict": "scam",
+      "right": false
+     },
+     {
+      "id": "rt-057",
+      "label": "genuine",
+      "technique": "genuine_awareness",
+      "verdict": "scam",
+      "right": false
+     },
+     {
+      "id": "rt-058",
+      "label": "genuine",
+      "technique": "genuine_awareness",
+      "verdict": "scam",
+      "right": false
+     },
+     {
+      "id": "rt-059",
+      "label": "genuine",
+      "technique": "genuine_awareness",
+      "verdict": "scam",
+      "right": false
+     },
+     {
+      "id": "rt-060",
+      "label": "genuine",
+      "technique": "genuine_kyc_official",
+      "verdict": "scam",
+      "right": false
+     },
+     {
+      "id": "rt-065",
+      "label": "genuine",
+      "technique": "genuine_short_link_promo",
+      "verdict": "scam",
+      "right": false
+     },
+     {
+      "id": "rt-074",
+      "label": "genuine",
+      "technique": "genuine_refund",
+      "verdict": "scam",
+      "right": false
+     }
+    ]
+   },
+   "full": {
+    "scams_flagged": 46,
+    "scams": 52,
+    "genuine_left_alone": 19,
+    "genuine": 22,
+    "by_technique": {
+     "advisory_wrapped": {
+      "right": 2,
+      "n": 3
+     },
+     "callback_only": {
+      "right": 2,
+      "n": 2
+     },
+     "devanagari_english": {
+      "right": 2,
+      "n": 2
+     },
+     "emoji": {
+      "right": 2,
+      "n": 2
+     },
+     "genuine_awareness": {
+      "right": 2,
+      "n": 3
+     },
+     "genuine_bill": {
+      "right": 1,
+      "n": 1
+     },
+     "genuine_courier": {
+      "right": 1,
+      "n": 1
+     },
+     "genuine_delivery_otp": {
+      "right": 2,
+      "n": 2
+     },
+     "genuine_govt": {
+      "right": 2,
+      "n": 2
+     },
+     "genuine_insurance": {
+      "right": 1,
+      "n": 1
+     },
+     "genuine_job": {
+      "right": 1,
+      "n": 1
+     },
+     "genuine_kyc_official": {
+      "right": 1,
+      "n": 1
+     },
+     "genuine_otp": {
+      "right": 2,
+      "n": 2
+     },
+     "genuine_personal": {
+      "right": 2,
+      "n": 2
+     },
+     "genuine_personal_money": {
+      "right": 1,
+      "n": 1
+     },
+     "genuine_refund": {
+      "right": 1,
+      "n": 1
+     },
+     "genuine_short_link_promo": {
+      "right": 0,
+      "n": 1
+     },
+     "genuine_txn_alert": {
+      "right": 1,
+      "n": 2
+     },
+     "genuine_upi_request": {
+      "right": 1,
+      "n": 1
+     },
+     "leetspeak": {
+      "right": 1,
+      "n": 2
+     },
+     "line_breaks": {
+      "right": 1,
+      "n": 1
+     },
+     "link_in_words": {
+      "right": 2,
+      "n": 3
+     },
+     "link_shouted": {
+      "right": 1,
+      "n": 1
+     },
+     "lookalike_letters": {
+      "right": 2,
+      "n": 2
+     },
+     "not_a_scam_claim": {
+      "right": 2,
+      "n": 2
+     },
+     "novel_courier_fee": {
+      "right": 1,
+      "n": 1
+     },
+     "novel_crypto": {
+      "right": 1,
+      "n": 1
+     },
+     "novel_electricity_app": {
+      "right": 1,
+      "n": 1
+     },
+     "novel_family_voice": {
+      "right": 1,
+      "n": 1
+     },
+     "novel_olx_buyer": {
+      "right": 1,
+      "n": 1
+     },
+     "novel_sextortion": {
+      "right": 1,
+      "n": 1
+     },
+     "novel_sim_swap": {
+      "right": 1,
+      "n": 1
+     },
+     "novel_task_job": {
+      "right": 2,
+      "n": 2
+     },
+     "novel_traffic_challan": {
+      "right": 1,
+      "n": 1
+     },
+     "official_name_in_link": {
+      "right": 3,
+      "n": 3
+     },
+     "otp_synonym": {
+      "right": 0,
+      "n": 2
+     },
+     "padded": {
+      "right": 2,
+      "n": 2
+     },
+     "polite": {
+      "right": 1,
+      "n": 2
+     },
+     "punycode": {
+      "right": 1,
+      "n": 1
+     },
+     "romanised_variants": {
+      "right": 2,
+      "n": 2
+     },
+     "short_link": {
+      "right": 2,
+      "n": 2
+     },
+     "spaced_letters": {
+      "right": 3,
+      "n": 3
+     },
+     "spoofed_sender": {
+      "right": 2,
+      "n": 2
+     },
+     "zero_width": {
+      "right": 3,
+      "n": 3
+     }
+    },
+    "misses": [
+     {
+      "id": "rt-007",
+      "label": "scam",
+      "technique": "leetspeak",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-012",
+      "label": "scam",
+      "technique": "link_in_words",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-023",
+      "label": "scam",
+      "technique": "polite",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-025",
+      "label": "scam",
+      "technique": "advisory_wrapped",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-041",
+      "label": "scam",
+      "technique": "otp_synonym",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-042",
+      "label": "scam",
+      "technique": "otp_synonym",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-059",
+      "label": "genuine",
+      "technique": "genuine_awareness",
+      "verdict": "suspicious",
+      "right": false
+     },
+     {
+      "id": "rt-061",
+      "label": "genuine",
+      "technique": "genuine_txn_alert",
+      "verdict": "scam",
+      "right": false
+     },
+     {
+      "id": "rt-065",
+      "label": "genuine",
+      "technique": "genuine_short_link_promo",
+      "verdict": "suspicious",
+      "right": false
+     }
+    ]
+   }
+  }
+ },
+ "latest": {
+  "date": "2026-10-06",
+  "messages": 74,
+  "systems": {
+   "blocklist": {
+    "scams_flagged": 34,
+    "scams": 52,
+    "genuine_left_alone": 12,
+    "genuine": 22,
+    "by_technique": {
+     "advisory_wrapped": {
+      "right": 3,
+      "n": 3
+     },
+     "callback_only": {
+      "right": 0,
+      "n": 2
+     },
+     "devanagari_english": {
+      "right": 1,
+      "n": 2
+     },
+     "emoji": {
+      "right": 2,
+      "n": 2
+     },
+     "genuine_awareness": {
+      "right": 0,
+      "n": 3
+     },
+     "genuine_bill": {
+      "right": 1,
+      "n": 1
+     },
+     "genuine_courier": {
+      "right": 1,
+      "n": 1
+     },
+     "genuine_delivery_otp": {
+      "right": 0,
+      "n": 2
+     },
+     "genuine_govt": {
+      "right": 2,
+      "n": 2
+     },
+     "genuine_insurance": {
+      "right": 1,
+      "n": 1
+     },
+     "genuine_job": {
+      "right": 1,
+      "n": 1
+     },
+     "genuine_kyc_official": {
+      "right": 0,
+      "n": 1
+     },
+     "genuine_otp": {
+      "right": 0,
+      "n": 2
+     },
+     "genuine_personal": {
+      "right": 2,
+      "n": 2
+     },
+     "genuine_personal_money": {
+      "right": 1,
+      "n": 1
+     },
+     "genuine_refund": {
+      "right": 0,
+      "n": 1
+     },
+     "genuine_short_link_promo": {
+      "right": 0,
+      "n": 1
+     },
+     "genuine_txn_alert": {
+      "right": 2,
+      "n": 2
+     },
+     "genuine_upi_request": {
+      "right": 1,
+      "n": 1
+     },
+     "leetspeak": {
+      "right": 2,
+      "n": 2
+     },
+     "line_breaks": {
+      "right": 0,
+      "n": 1
+     },
+     "link_in_words": {
+      "right": 2,
+      "n": 3
+     },
+     "link_shouted": {
+      "right": 1,
+      "n": 1
+     },
+     "lookalike_letters": {
+      "right": 2,
+      "n": 2
+     },
+     "not_a_scam_claim": {
+      "right": 0,
+      "n": 2
+     },
+     "novel_courier_fee": {
+      "right": 0,
+      "n": 1
+     },
+     "novel_crypto": {
+      "right": 0,
+      "n": 1
+     },
+     "novel_electricity_app": {
+      "right": 0,
+      "n": 1
+     },
+     "novel_family_voice": {
+      "right": 1,
+      "n": 1
+     },
+     "novel_olx_buyer": {
+      "right": 1,
+      "n": 1
+     },
+     "novel_sextortion": {
+      "right": 0,
+      "n": 1
+     },
+     "novel_sim_swap": {
+      "right": 1,
+      "n": 1
+     },
+     "novel_task_job": {
+      "right": 1,
+      "n": 2
+     },
+     "novel_traffic_challan": {
+      "right": 1,
+      "n": 1
+     },
+     "official_name_in_link": {
+      "right": 3,
+      "n": 3
+     },
+     "otp_synonym": {
+      "right": 1,
+      "n": 2
+     },
+     "padded": {
+      "right": 1,
+      "n": 2
+     },
+     "polite": {
+      "right": 0,
+      "n": 2
+     },
+     "punycode": {
+      "right": 1,
+      "n": 1
+     },
+     "romanised_variants": {
+      "right": 2,
+      "n": 2
+     },
+     "short_link": {
+      "right": 2,
+      "n": 2
+     },
+     "spaced_letters": {
+      "right": 1,
+      "n": 3
+     },
+     "spoofed_sender": {
+      "right": 2,
+      "n": 2
+     },
+     "zero_width": {
+      "right": 3,
+      "n": 3
+     }
+    },
+    "misses": [
+     {
+      "id": "rt-005",
+      "label": "scam",
+      "technique": "spaced_letters",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-006",
+      "label": "scam",
+      "technique": "spaced_letters",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-013",
+      "label": "scam",
+      "technique": "link_in_words",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-021",
+      "label": "scam",
+      "technique": "callback_only",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-022",
+      "label": "scam",
+      "technique": "callback_only",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-023",
+      "label": "scam",
+      "technique": "polite",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-024",
+      "label": "scam",
+      "technique": "polite",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-028",
+      "label": "scam",
+      "technique": "not_a_scam_claim",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-029",
+      "label": "scam",
+      "technique": "not_a_scam_claim",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-033",
+      "label": "scam",
+      "technique": "padded",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-034",
+      "label": "scam",
+      "technique": "line_breaks",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-038",
+      "label": "scam",
+      "technique": "devanagari_english",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-041",
+      "label": "scam",
+      "technique": "otp_synonym",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-044",
+      "label": "scam",
+      "technique": "novel_task_job",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-046",
+      "label": "scam",
+      "technique": "novel_crypto",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-048",
+      "label": "scam",
+      "technique": "novel_electricity_app",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-050",
+      "label": "scam",
+      "technique": "novel_sextortion",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-051",
+      "label": "scam",
+      "technique": "novel_courier_fee",
+      "verdict": "no_signs",
+      "right": false
+     },
+     {
+      "id": "rt-053",
+      "label": "genuine",
+      "technique": "genuine_otp",
+      "verdict": "scam",
+      "right": false
+     },
+     {
+      "id": "rt-054",
+      "label": "genuine",
+      "technique": "genuine_otp",
+      "verdict": "scam",
+      "right": false
+     },
+     {
+      "id": "rt-055",
+      "label": "genuine",
+      "technique": "genuine_delivery_otp",
+      "verdict": "scam",
+      "right": false
+     },
+     {
+      "id": "rt-056",
+      "label": "genuine",
+      "technique": "genuine_delivery_otp",
+      "verdict": "scam",
+      "right": false
+     },
+     {
+      "id": "rt-057",
+      "label": "genuine",
+      "technique": "genuine_awareness",
+      "verdict": "scam",
+      "right": false
+     },
+     {
+      "id": "rt-058",
+      "label": "genuine",
+      "technique": "genuine_awareness",
+      "verdict": "scam",
+      "right": false
+     },
+     {
+      "id": "rt-059",
+      "label": "genuine",
+      "technique": "genuine_awareness",
+      "verdict": "scam",
+      "right": false
+     },
+     {
+      "id": "rt-060",
+      "label": "genuine",
+      "technique": "genuine_kyc_official",
+      "verdict": "scam",
+      "right": false
+     },
+     {
+      "id": "rt-065",
+      "label": "genuine",
+      "technique": "genuine_short_link_promo",
+      "verdict": "scam",
+      "right": false
+     },
+     {
+      "id": "rt-074",
+      "label": "genuine",
+      "technique": "genuine_refund",
+      "verdict": "scam",
+      "right": false
+     }
+    ]
+   },
+   "full": {
+    "scams_flagged": 52,
+    "scams": 52,
+    "genuine_left_alone": 20,
+    "genuine": 22,
+    "by_technique": {
+     "advisory_wrapped": {
+      "right": 3,
+      "n": 3
+     },
+     "callback_only": {
+      "right": 2,
+      "n": 2
+     },
+     "devanagari_english": {
+      "right": 2,
+      "n": 2
+     },
+     "emoji": {
+      "right": 2,
+      "n": 2
+     },
+     "genuine_awareness": {
+      "right": 3,
+      "n": 3
+     },
+     "genuine_bill": {
+      "right": 1,
+      "n": 1
+     },
+     "genuine_courier": {
+      "right": 1,
+      "n": 1
+     },
+     "genuine_delivery_otp": {
+      "right": 2,
+      "n": 2
+     },
+     "genuine_govt": {
+      "right": 2,
+      "n": 2
+     },
+     "genuine_insurance": {
+      "right": 1,
+      "n": 1
+     },
+     "genuine_job": {
+      "right": 1,
+      "n": 1
+     },
+     "genuine_kyc_official": {
+      "right": 1,
+      "n": 1
+     },
+     "genuine_otp": {
+      "right": 2,
+      "n": 2
+     },
+     "genuine_personal": {
+      "right": 2,
+      "n": 2
+     },
+     "genuine_personal_money": {
+      "right": 1,
+      "n": 1
+     },
+     "genuine_refund": {
+      "right": 1,
+      "n": 1
+     },
+     "genuine_short_link_promo": {
+      "right": 0,
+      "n": 1
+     },
+     "genuine_txn_alert": {
+      "right": 1,
+      "n": 2
+     },
+     "genuine_upi_request": {
+      "right": 1,
+      "n": 1
+     },
+     "leetspeak": {
+      "right": 2,
+      "n": 2
+     },
+     "line_breaks": {
+      "right": 1,
+      "n": 1
+     },
+     "link_in_words": {
+      "right": 3,
+      "n": 3
+     },
+     "link_shouted": {
+      "right": 1,
+      "n": 1
+     },
+     "lookalike_letters": {
+      "right": 2,
+      "n": 2
+     },
+     "not_a_scam_claim": {
+      "right": 2,
+      "n": 2
+     },
+     "novel_courier_fee": {
+      "right": 1,
+      "n": 1
+     },
+     "novel_crypto": {
+      "right": 1,
+      "n": 1
+     },
+     "novel_electricity_app": {
+      "right": 1,
+      "n": 1
+     },
+     "novel_family_voice": {
+      "right": 1,
+      "n": 1
+     },
+     "novel_olx_buyer": {
+      "right": 1,
+      "n": 1
+     },
+     "novel_sextortion": {
+      "right": 1,
+      "n": 1
+     },
+     "novel_sim_swap": {
+      "right": 1,
+      "n": 1
+     },
+     "novel_task_job": {
+      "right": 2,
+      "n": 2
+     },
+     "novel_traffic_challan": {
+      "right": 1,
+      "n": 1
+     },
+     "official_name_in_link": {
+      "right": 3,
+      "n": 3
+     },
+     "otp_synonym": {
+      "right": 2,
+      "n": 2
+     },
+     "padded": {
+      "right": 2,
+      "n": 2
+     },
+     "polite": {
+      "right": 2,
+      "n": 2
+     },
+     "punycode": {
+      "right": 1,
+      "n": 1
+     },
+     "romanised_variants": {
+      "right": 2,
+      "n": 2
+     },
+     "short_link": {
+      "right": 2,
+      "n": 2
+     },
+     "spaced_letters": {
+      "right": 3,
+      "n": 3
+     },
+     "spoofed_sender": {
+      "right": 2,
+      "n": 2
+     },
+     "zero_width": {
+      "right": 3,
+      "n": 3
+     }
+    },
+    "misses": [
+     {
+      "id": "rt-061",
+      "label": "genuine",
+      "technique": "genuine_txn_alert",
+      "verdict": "scam",
+      "right": false
+     },
+     {
+      "id": "rt-065",
+      "label": "genuine",
+      "technique": "genuine_short_link_promo",
+      "verdict": "suspicious",
+      "right": false
+     }
+    ]
+   }
+  }
+ },
+ "notes": [
+  "6 Oct, fraud pack 1.3.0: digits read as letters inside words (0TP, bl0cked, upd4te); written-out links undone (hxxp://, [.], (dot), ' dot xyz'); OTP stand-ins added ('6 digit number', 'verification number', 'number wala', 'code you receive'); awareness phrasing about what police never do ('no police', 'arrests anyone'). Kept by design: a shop offer on a bit.ly link stays Suspicious (a short link hides where it goes), and a debit alert asking you to call or SMS a mobile number is flagged even under a bank header (scammers copy exactly that). ScamBench train, dev and test unchanged."
+ ]
+}

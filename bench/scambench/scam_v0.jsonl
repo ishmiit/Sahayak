@@ -1,0 +1,151 @@
+{"text": "Dear Customer, your SBI YONO account will be blocked today. Please update your PAN card immediately by clicking http://sbi-yono-pan.top/update", "category": "kyc", "lang": "en", "group": "kyc-01"}
+{"text": "प्रिय ग्राहक, आपका SBI YONO खाता आज बंद हो जाएगा। तुरंत अपना PAN कार्ड अपडेट करें: http://sbi-yono-pan.top/update", "category": "kyc", "lang": "hi", "group": "kyc-01"}
+{"text": "Your HDFC a/c KYC is pending. Complete re-KYC within 24 hrs else your account will be freezed. Click: bit.ly/hdfc-rekyc", "category": "kyc", "lang": "en", "group": "kyc-02"}
+{"text": "Dear user your Paytm KYC expired today. To avoid wallet suspension call our KYC officer 9876543210 now", "category": "kyc", "lang": "en", "group": "kyc-03"}
+{"text": "Aapka Kotak bank KYC update nahi hua hai, aaj raat 12 baje account band ho jayega. Is link pe KYC karo: kotak-kyc.online", "category": "kyc", "lang": "hinglish", "group": "kyc-04"}
+{"text": "ICICI Bank: Your Netbanking access is suspended due to incomplete KYC. Re-activate now at icici-reactivate.xyz", "category": "kyc", "lang": "en", "group": "kyc-05"}
+{"text": "प्रिय ग्राहक आपका बैंक खाता KYC न होने के कारण निलंबित कर दिया गया है। केवाईसी अपडेट करने के लिए 91234 56789 पर कॉल करें।", "category": "kyc", "lang": "hi", "group": "kyc-06"}
+{"text": "Your Aadhaar is not linked with your bank account. Your DBT benefits will stop. Link now: aadhaar-link-dbt.site", "category": "kyc", "lang": "en", "group": "kyc-07"}
+{"text": "PNB alert: your debit card is blocked because KYC is expired. Update details on this link to unblock immediately pnb-card-kyc.club", "category": "kyc", "lang": "en", "group": "kyc-08"}
+{"text": "Bhai aapka SBI ka khata KYC ke bina band ho gaya hai, document photo whatsapp karo 70000 11122 pe, abhi chalu kar denge", "category": "kyc", "lang": "hinglish", "group": "kyc-09"}
+{"text": "Dear customer, your electricity connection and bank KYC both expire today. Do e-KYC through the link below to continue services. https://ekyc-services.in.net/verify", "category": "kyc", "lang": "en", "group": "kyc-10"}
+{"text": "This is calling from SBI head office. Due to RBI rules your card will be blocked. Please tell me the 6 digit OTP received on your mobile to verify.", "category": "otp_pin", "lang": "en", "input_type": "call", "group": "otp-01"}
+{"text": "मैं एसबीआई हेड ऑफिस से बोल रहा हूँ। आपका कार्ड ब्लॉक होने वाला है। आपके मोबाइल पर आया 6 अंकों का OTP बताइए।", "category": "otp_pin", "lang": "hi", "input_type": "call", "group": "otp-01"}
+{"text": "Madam aapke account se 49,000 ka transaction ho raha hai, rokne ke liye jo OTP aaya hai wo jaldi bataiye", "category": "otp_pin", "lang": "hinglish", "input_type": "call", "group": "otp-02"}
+{"text": "Your reward points worth Rs 7,850 expire today. To redeem, reply with your card number, expiry and CVV.", "category": "otp_pin", "lang": "en", "group": "otp-03"}
+{"text": "Hello sir, Amazon delivery executive here, an OTP has come on your phone, just read it to me so I can mark the parcel delivered", "category": "otp_pin", "lang": "en", "input_type": "call", "group": "otp-04"}
+{"text": "Sir aapke credit card ka limit badhana hai, aapko ek code aayega, wo code mujhe bata dena bas", "category": "otp_pin", "lang": "hinglish", "input_type": "call", "group": "otp-05"}
+{"text": "मैं बैंक से बोल रहा हूँ, आपका एटीएम पिन बदलना है। अपना पुराना पिन और कार्ड नंबर बता दीजिए।", "category": "otp_pin", "lang": "hi", "input_type": "call", "group": "otp-06"}
+{"text": "Dear Customer, to stop the auto-debit of Rs 9,999 please share the verification code sent to your registered mobile with our agent.", "category": "otp_pin", "lang": "en", "group": "otp-07"}
+{"text": "Uncle main aapke bete ka dost hoon, galti se mera OTP aapke number pe chala gaya, please woh number bhej do", "category": "otp_pin", "lang": "hinglish", "group": "otp-08"}
+{"text": "Your WhatsApp will be verified on a new phone. If this is a mistake send us the 6-digit code you received now.", "category": "otp_pin", "lang": "en", "group": "otp-09"}
+{"text": "Please confirm your net banking user id and password on this form to keep your account active: secure-netbanking-login.icu", "category": "otp_pin", "lang": "en", "group": "otp-10"}
+{"text": "Congratulations! Rs 2,000 cashback is waiting for you. Scan this QR code and enter UPI PIN to get the money in your account.", "category": "upi_receive", "lang": "en", "group": "upi-01"}
+{"text": "बधाई हो! आपको 2000 रुपये का कैशबैक मिला है। पैसे पाने के लिए QR स्कैन करें और UPI पिन डालें।", "category": "upi_receive", "lang": "hi", "group": "upi-01"}
+{"text": "Sir I am buying your sofa from OLX, I have sent a request of Rs 15,000 on Google Pay, just accept the request to receive payment", "category": "upi_receive", "lang": "en", "group": "upi-02"}
+{"text": "Main army mein hoon, aapka saman lena hai. Payment ke liye maine collect request bheji hai, approve karke PIN daalo to paise aa jayenge", "category": "upi_receive", "lang": "hinglish", "group": "upi-03"}
+{"text": "Your electricity bill refund of Rs 1,250 is approved. Approve the payment request in PhonePe to get your refund.", "category": "upi_receive", "lang": "en", "group": "upi-04"}
+{"text": "Paise paane ke liye bas is QR ko scan karo aur pin daal do, turant aapke khate mein aa jayenge", "category": "upi_receive", "lang": "hinglish", "group": "upi-05"}
+{"text": "Your PhonePe wallet has a pending credit of Rs 4,999. To receive it, open the link and enter your UPI PIN: phonepe-credit.live", "category": "upi_receive", "lang": "en", "group": "upi-06"}
+{"text": "Dear seller, payment sent. Enter your UPI PIN on the request to receive Rs 8,500 in your account.", "category": "upi_receive", "lang": "en", "group": "upi-07"}
+{"text": "आपके नाम पर सरकारी सहायता राशि 5000 रुपये आई है। राशि प्राप्त करने के लिए भेजे गए क्यूआर कोड को स्कैन करें।", "category": "upi_receive", "lang": "hi", "group": "upi-08"}
+{"text": "Hi, I accidentally sent Rs 3,000 to your number by mistake. Please check and return it on this UPI ID, I am in trouble: rahul.k3000@ybl", "category": "upi_receive", "lang": "en", "group": "upi-09"}
+{"text": "Congratulations! Your mobile number has won Rs 25,00,000 in the KBC lucky draw. To claim call Rana Pratap Singh on WhatsApp 90000 12345", "category": "prize", "lang": "en", "group": "prize-01"}
+{"text": "बधाई हो! आपके मोबाइल नंबर ने केबीसी लकी ड्रॉ में 25 लाख रुपये जीते हैं। इनाम के लिए व्हाट्सएप करें 90000 12345", "category": "prize", "lang": "hi", "group": "prize-01"}
+{"text": "Jio lucky customer! Aapne 5 lakh ka inaam jeeta hai. Inaam lene ke liye 12,500 GST jama karna hoga.", "category": "prize", "lang": "hinglish", "group": "prize-02"}
+{"text": "Dear winner, you have won an iPhone 15 in our anniversary contest. Pay Rs 499 delivery charges to receive your gift: gift-claim.store", "category": "prize", "lang": "en", "group": "prize-03"}
+{"text": "Your number is selected in Coca-Cola UK lottery 2026 for GBP 750,000. Send your name, address and bank details to claim.", "category": "prize", "lang": "en", "group": "prize-04"}
+{"text": "Flipkart Big Billion Lucky Draw: You are the lucky winner of a Tata Nexon car. Register with Rs 6,500 registration fee to get the car.", "category": "prize", "lang": "en", "group": "prize-05"}
+{"text": "आपका नाम प्रधानमंत्री लकी ड्रॉ योजना में आया है, आपको 1 लाख रुपये मिलेंगे। रजिस्ट्रेशन फीस 1500 रुपये भरें।", "category": "prize", "lang": "hi", "group": "prize-06"}
+{"text": "Ur no. has been chosen for spin and win. Claim ur 10,000 bonus now!! http://spin-win-bonus.xyz", "category": "prize", "lang": "en", "group": "prize-07"}
+{"text": "Congrats! You won Rs 50,000 in Amazon quiz. Send Rs 999 processing charge to release prize money to your account.", "category": "prize", "lang": "en", "group": "prize-08"}
+{"text": "KBC office se baat kar raha hoon, aapki lottery nikli hai 35 lakh ki, process ke liye 25,000 tax bharna padega", "category": "prize", "lang": "hinglish", "input_type": "call", "group": "prize-09"}
+{"text": "This is Inspector Sharma from Mumbai Cyber Crime. Your Aadhaar is linked to a money laundering case. You are under digital arrest. Stay on this video call and do not inform anyone.", "category": "digital_arrest", "lang": "en", "input_type": "call", "group": "da-01"}
+{"text": "मैं मुंबई साइबर क्राइम से इंस्पेक्टर शर्मा बोल रहा हूँ। आपके आधार पर मनी लॉन्ड्रिंग का केस है। आप डिजिटल अरेस्ट में हैं, वीडियो कॉल पर रहें और किसी को न बताएं।", "category": "digital_arrest", "lang": "hi", "input_type": "call", "group": "da-01"}
+{"text": "CBI notice: an arrest warrant has been issued against you for illegal transactions. Transfer your savings to the RBI verification account to clear your name.", "category": "digital_arrest", "lang": "en", "group": "da-02"}
+{"text": "TRAI se call: aapke number se illegal activities hui hain, 2 ghante mein number band ho jayega aur police case darj hoga. Press 9 to talk.", "category": "digital_arrest", "lang": "hinglish", "input_type": "call", "group": "da-03"}
+{"text": "Narcotics department: drugs were found in a parcel booked with your Aadhaar. An FIR has been registered. Join the Skype call with the officer immediately.", "category": "digital_arrest", "lang": "en", "group": "da-04"}
+{"text": "आपके खिलाफ कोर्ट केस दर्ज है। गिरफ्तारी से बचने के लिए तुरंत इस नंबर पर संपर्क करें 88888 12345", "category": "digital_arrest", "lang": "hi", "group": "da-05"}
+{"text": "Your son has been caught in a rape case. I am from police. Send Rs 50,000 immediately to settle, otherwise he will be jailed.", "category": "digital_arrest", "lang": "en", "input_type": "call", "group": "da-06"}
+{"text": "Main ED officer bol raha hoon, aapke account mein black money aaya hai. Jaanch ke liye saara paisa is account mein transfer karo, baad mein wapas milega. Ghar walon ko mat batana.", "category": "digital_arrest", "lang": "hinglish", "input_type": "call", "group": "da-07"}
+{"text": "Customs officer here. You are digitally arrested for smuggling case. Keep camera on, do not disconnect the call till verification is complete.", "category": "digital_arrest", "lang": "en", "input_type": "call", "group": "da-08"}
+{"text": "Delhi Police: your mobile number is used in a cyber fraud. To avoid arrest, verify yourself by paying a security amount of Rs 25,000.", "category": "digital_arrest", "lang": "en", "group": "da-09"}
+{"text": "FedEx: your parcel to Taiwan containing 5 passports, 3 credit cards and MDMA has been seized by Mumbai customs. Press 1 to speak to the officer.", "category": "courier", "lang": "en", "input_type": "call", "group": "courier-01"}
+{"text": "फेडएक्स: आपके नाम का पार्सल जिसमें ड्रग्स और नकली पासपोर्ट हैं, कस्टम ने ज़ब्त कर लिया है। अधिकारी से बात करने के लिए 1 दबाएं।", "category": "courier", "lang": "hi", "input_type": "call", "group": "courier-01"}
+{"text": "India Post: your package is held at our warehouse due to incomplete address. Update within 12 hours: indiapost-redelivery.top", "category": "courier", "lang": "en", "group": "courier-02"}
+{"text": "DHL courier se bol rahe hain, aapke naam ka parcel airport pe pakda gaya hai illegal saman ke saath, clearance ke liye 8,000 bharna padega", "category": "courier", "lang": "hinglish", "input_type": "call", "group": "courier-03"}
+{"text": "Blue Dart: Shipment AWB 7823 could not be delivered. Pay Rs 25 re-delivery fee here bluedart-pay.xyz", "category": "courier", "lang": "en", "group": "courier-04"}
+{"text": "Your consignment from Dubai is stuck at customs. Pay the customs duty of Rs 46,000 to release the gift sent by your friend.", "category": "courier", "lang": "en", "group": "courier-05"}
+{"text": "आपका पार्सल डिलीवर नहीं हो सका क्योंकि पता अधूरा है। पता अपडेट करने के लिए लिंक पर जाएं: parcel-address-update.site", "category": "courier", "lang": "hi", "group": "courier-06"}
+{"text": "Courier boy here madam, your parcel has cash on delivery 1 rupee only, please pay on the link I am sending to confirm address", "category": "courier", "lang": "en", "group": "courier-07"}
+{"text": "Mumbai customs: your international parcel contains illegal items. Your Aadhaar is involved. Contact narcotics officer on 91234 50000 immediately.", "category": "courier", "lang": "en", "group": "courier-08"}
+{"text": "Dear consumer your electricity power will be disconnected tonight at 9.30 pm from electricity office because your previous month bill was not update. Please immediately contact with our electricity officer 98765 43210", "category": "electricity", "lang": "en", "group": "elec-01"}
+{"text": "प्रिय उपभोक्ता, आपका पिछले महीने का बिल अपडेट नहीं हुआ है, आज रात 9:30 बजे आपकी बिजली काट दी जाएगी। तुरंत बिजली अधिकारी से संपर्क करें 98765 43210", "category": "electricity", "lang": "hi", "group": "elec-01"}
+{"text": "Bijli vibhag: aapka bill pending hai, aaj raat light kaat di jayegi. Turant call karein 70001 23456", "category": "electricity", "lang": "hinglish", "group": "elec-02"}
+{"text": "BESCOM: your power supply will be cut off within 2 hours due to non-payment. Pay now through this link bescom-billpay.online", "category": "electricity", "lang": "en", "group": "elec-03"}
+{"text": "Dear customer, your electricity meter is not updated. Light will be cut today. Download the Bill Update app from the link to avoid disconnection.", "category": "electricity", "lang": "en", "group": "elec-04"}
+{"text": "UPPCL: aapka connection band hone wala hai. Last date aaj hai. Officer se baat karein 90001 23456", "category": "electricity", "lang": "hinglish", "group": "elec-05"}
+{"text": "बिजली विभाग: बिल जमा न होने से आज रात कनेक्शन कट जाएगा। अपडेट के लिए इस नंबर पर व्हाट्सएप करें 88001 23456", "category": "electricity", "lang": "hi", "group": "elec-06"}
+{"text": "Electricity board notice: KYC of your meter is pending. Power will be cut tonight. Call 9123412345 to update.", "category": "electricity", "lang": "en", "group": "elec-07"}
+{"text": "Dear consumer, last month bill not paid. Your power will be disconnected. Contact electricity officer Mr. Verma: 7894561230", "category": "electricity", "lang": "en", "group": "elec-08"}
+{"text": "Part time job offer! Earn Rs 5,000 to 10,000 daily by liking YouTube videos. No investment. WhatsApp us now.", "category": "job_task", "lang": "en", "group": "job-01"}
+{"text": "पार्ट टाइम नौकरी! यूट्यूब वीडियो लाइक करके रोज़ 5000 से 10000 रुपये कमाएं। बिना निवेश। अभी व्हाट्सएप करें।", "category": "job_task", "lang": "hi", "group": "job-01"}
+{"text": "Hello, I am Priya from Amazon HR. We are hiring for work from home. Daily salary Rs 3,000. Join our Telegram channel for tasks: t.me/amz_tasks", "category": "job_task", "lang": "en", "group": "job-02"}
+{"text": "Ghar baithe kamaye 2000 roz, sirf hotel reviews dene hain. Interested ho to reply karo", "category": "job_task", "lang": "hinglish", "group": "job-03"}
+{"text": "Your task commission of Rs 850 is credited. Complete the next prepaid task of Rs 5,000 to unlock your earnings.", "category": "job_task", "lang": "en", "group": "job-04"}
+{"text": "Hi! We found your resume on Naukri. Earn up to Rs 1,500 per hour by rating products online. Contact HR on WhatsApp 98000 11223", "category": "job_task", "lang": "en", "group": "job-05"}
+{"text": "Data entry job, home based, Rs 25,000 monthly. Registration fee Rs 1,200 only. Pay and get your ID today.", "category": "job_task", "lang": "en", "group": "job-06"}
+{"text": "Netflix hiring movie reviewers! Rate movies, earn Rs 400 per review. Join telegram group to start today", "category": "job_task", "lang": "en", "group": "job-07"}
+{"text": "घर बैठे कमाई का मौका! सिर्फ मोबाइल से रोज 3000 रुपये कमाएं। अभी जुड़ें", "category": "job_task", "lang": "hi", "group": "job-08"}
+{"text": "Congratulations! You are selected for Flipkart part time job. To activate your account deposit Rs 999 security, refundable after first task.", "category": "job_task", "lang": "en", "group": "job-09"}
+{"text": "Bhai mere paas ek kaam hai, roz 1 ghanta video like karo aur 2500 kamao, payment turant UPI pe. Batao interested?", "category": "job_task", "lang": "hinglish", "group": "job-10"}
+{"text": "Guaranteed 300% returns in 30 days! Join our VIP stock market tips group on WhatsApp. Limited seats.", "category": "investment", "lang": "en", "group": "inv-01"}
+{"text": "30 दिनों में पैसा डबल! हमारे वीआईपी शेयर टिप्स ग्रुप से जुड़ें। सीमित सीटें।", "category": "investment", "lang": "hi", "group": "inv-01"}
+{"text": "Get IPO allotment guaranteed through our institutional account. Invest Rs 50,000 and get 4x listing gain. Contact our advisor.", "category": "investment", "lang": "en", "group": "inv-02"}
+{"text": "Crypto trading bot gives 5% daily profit. Start with just Rs 10,000 and withdraw anytime. Join: cryptoprofit-india.vip", "category": "investment", "lang": "en", "group": "inv-03"}
+{"text": "Sir humara premium stock tips group join kijiye, har mahine 40% munafa pakka. Fees sirf 4,999", "category": "investment", "lang": "hinglish", "group": "inv-04"}
+{"text": "Welcome to Goldman Elite Traders group. Our professor will share multibagger insider tips daily. Download our trading app to begin.", "category": "investment", "lang": "en", "group": "inv-05"}
+{"text": "Paisa double scheme: 1 lakh lagao, 60 din mein 2 lakh pao. Company registered hai, koi risk nahi.", "category": "investment", "lang": "hinglish", "group": "inv-06"}
+{"text": "Forex trading opportunity with assured returns of 20% monthly. Minimum investment Rs 25,000. Reply YES to know more.", "category": "investment", "lang": "en", "group": "inv-07"}
+{"text": "आपका निवेश अब सुरक्षित, हर महीने 10% पक्का मुनाफा। हमारे ऐप से अभी निवेश करें।", "category": "investment", "lang": "hi", "group": "inv-08"}
+{"text": "Dear investor, your trading account shows profit of Rs 3,20,000. To withdraw pay 18% tax of Rs 57,600 first.", "category": "investment", "lang": "en", "group": "inv-09"}
+{"text": "Join India's No.1 options trading community. 95% accuracy calls. First week free. https://t.me/optionskingindia", "category": "investment", "lang": "en", "group": "inv-10"}
+{"text": "Your loan of Rs 2,00,000 is approved without documents. Pay Rs 1,999 processing fee to transfer the amount today.", "category": "loan_fee", "lang": "en", "group": "loan-01"}
+{"text": "आपका 2 लाख रुपये का लोन बिना दस्तावेज़ के मंज़ूर हो गया है। आज रकम पाने के लिए 1999 रुपये प्रोसेसिंग फीस भरें।", "category": "loan_fee", "lang": "hi", "group": "loan-01"}
+{"text": "Instant loan in 5 minutes! Low CIBIL ok. Download QuickCash app from this link: quickcash-loan.apk.site", "category": "loan_fee", "lang": "en", "group": "loan-02"}
+{"text": "Sir aapka 5 lakh ka personal loan sanction ho gaya hai, bas file charge 3,500 bhar dijiye, kal account mein aa jayega", "category": "loan_fee", "lang": "hinglish", "input_type": "call", "group": "loan-03"}
+{"text": "Bajaj Finserv pre-approved loan of Rs 3 lakh. Pay refundable insurance deposit of Rs 4,800 to activate.", "category": "loan_fee", "lang": "en", "group": "loan-04"}
+{"text": "You have an overdue loan in your name. If you do not pay today, your photos will be sent to all your contacts.", "category": "loan_fee", "lang": "en", "group": "loan-05"}
+{"text": "मुद्रा लोन योजना: 50,000 रुपये का लोन तुरंत पाएं। रजिस्ट्रेशन शुल्क 750 रुपये इस नंबर पर भेजें।", "category": "loan_fee", "lang": "hi", "group": "loan-06"}
+{"text": "Loan approved!! Rs 75,000 credited after verification. Send Rs 600 GST via UPI to loan.verify@okicici", "category": "loan_fee", "lang": "en", "group": "loan-07"}
+{"text": "No income proof needed. Get loan upto 10 lakh at 2% interest. Pay token amount and get money in 1 hour.", "category": "loan_fee", "lang": "en", "group": "loan-08"}
+{"text": "Kisan credit card loan approved 1.5 lakh, bina guarantor. Pehle 2,000 fees jama karo is number pe 90000 54321", "category": "loan_fee", "lang": "hinglish", "group": "loan-09"}
+{"text": "Your Amazon order is cancelled. Refund of Rs 2,499 will be processed only after verification. Call customer care 98760 12345", "category": "customer_care", "lang": "en", "group": "cc-01"}
+{"text": "आपका अमेज़न ऑर्डर रद्द हो गया है। 2499 रुपये के रिफ़ंड के लिए कस्टमर केयर 98760 12345 पर कॉल करें।", "category": "customer_care", "lang": "hi", "group": "cc-01"}
+{"text": "Hello this is Zomato customer care. Your refund failed. Please install AnyDesk and share the code, I will process it for you.", "category": "customer_care", "lang": "en", "input_type": "call", "group": "cc-02"}
+{"text": "Your Rs 1,500 cashback could not be credited. Click to claim refund before it expires: cashback-refund.click", "category": "customer_care", "lang": "en", "group": "cc-03"}
+{"text": "Gas agency se bol raha hoon, aapka cylinder subsidy refund pending hai, link pe click karke details bharo", "category": "customer_care", "lang": "hinglish", "input_type": "call", "group": "cc-04"}
+{"text": "IRCTC refund helpline: your ticket refund is on hold. To process call our support 7004512398 and keep your debit card ready.", "category": "customer_care", "lang": "en", "group": "cc-05"}
+{"text": "Paytm customer support: there was a double deduction from your wallet. To reverse it approve the request we sent you.", "category": "customer_care", "lang": "en", "group": "cc-06"}
+{"text": "Your Airtel number will be suspended today because of a pending bill. Call our helpline 90000 99887 to keep it active.", "category": "customer_care", "lang": "en", "group": "cc-07"}
+{"text": "Swiggy order refund ke liye humare executive ko screen share karna hoga, Play Store se QuickSupport download karo", "category": "customer_care", "lang": "hinglish", "input_type": "call", "group": "cc-08"}
+{"text": "I have your private video from the video call. Pay Rs 20,000 or I will upload it and send it to all your relatives.", "category": "sextortion", "lang": "en", "group": "sext-01"}
+{"text": "तुम्हारा वीडियो मेरे पास है। 20000 रुपये भेजो वरना वायरल कर दूंगा और घरवालों को भेज दूंगा।", "category": "sextortion", "lang": "hi", "group": "sext-01"}
+{"text": "Your obscene video call is recorded. YouTube team will upload it in 2 hours. Pay to delete it.", "category": "sextortion", "lang": "en", "group": "sext-02"}
+{"text": "Tumhari photos edit karke ghar walon ko bhej dunga, 10,000 abhi bhejo is UPI pe", "category": "sextortion", "lang": "hinglish", "group": "sext-03"}
+{"text": "Delhi Police cyber cell: a complaint is filed against you for an obscene video. Pay the settlement amount or face arrest.", "category": "sextortion", "lang": "en", "group": "sext-04"}
+{"text": "PM Kisan yojana new list jari. Apna naam dekhne ke liye PM-Kisan.apk download karein", "category": "govt_scheme", "lang": "hinglish", "group": "gov-01"}
+{"text": "पीएम किसान योजना की नई सूची जारी। अपना नाम देखने के लिए PM-Kisan.apk डाउनलोड करें।", "category": "govt_scheme", "lang": "hi", "group": "gov-01"}
+{"text": "Free laptop yojana 2026: all students get a free laptop. Register now at free-laptop-yojana.online", "category": "govt_scheme", "lang": "en", "group": "gov-02"}
+{"text": "Ayushman card holders get Rs 5,000 monthly. Install the Ayushman Bonus app from this link to apply.", "category": "govt_scheme", "lang": "en", "group": "gov-03"}
+{"text": "Berojgari bhatta ke liye form bharo, har mahine 3500 milenge. Form fees 200 rupay, link: bhatta-form.xyz", "category": "govt_scheme", "lang": "hinglish", "group": "gov-04"}
+{"text": "Your traffic e-challan of Rs 500 is pending. Pay now to avoid court action: echallan-parivahan.top", "category": "govt_payment", "lang": "en", "group": "gov-05"}
+{"text": "आपका ट्रैफ़िक चालान 2000 रुपये बकाया है। कोर्ट केस से बचने के लिए यहाँ भुगतान करें: e-challan-pay.online", "category": "govt_payment", "lang": "hi", "group": "gov-06"}
+{"text": "Income Tax Department: you are eligible for an income tax refund of Rs 15,490. Verify your account here incometax-refund.info", "category": "govt_payment", "lang": "en", "group": "gov-07"}
+{"text": "Your gas subsidy of Rs 1,200 is pending. Update your bank details on the government portal: lpg-subsidy.click", "category": "govt_scheme", "lang": "en", "group": "gov-08"}
+{"text": "Ration card band hone wala hai. Aadhaar seeding ke liye apna OTP is number pe bhejo", "category": "govt_scheme", "lang": "hinglish", "group": "gov-09"}
+{"text": "Papa, I met with an accident and I am at the hospital. My phone broke, this is my friend's number. Please send Rs 30,000 urgently by GPay.", "category": "impersonation", "lang": "en", "group": "imp-01"}
+{"text": "पापा, मेरा एक्सीडेंट हो गया है, मैं अस्पताल में हूँ। यह मेरे दोस्त का नंबर है। जल्दी 30000 रुपये भेज दो।", "category": "impersonation", "lang": "hi", "group": "imp-01"}
+{"text": "Hi mummy, this is my new number. Save it. I need some money urgently for fees, can you send 15,000 now?", "category": "impersonation", "lang": "en", "group": "imp-02"}
+{"text": "Bhaiya main thane mein fas gaya hoon, police wale 20,000 maang rahe hain, abhi is number pe paise bhejo, ghar pe mat batana", "category": "impersonation", "lang": "hinglish", "group": "imp-03"}
+{"text": "Your SIM will be blocked in 24 hours as per TRAI. To upgrade to eSIM reply with ESIM and the code you receive.", "category": "impersonation", "lang": "en", "group": "imp-04"}
+{"text": "Jio: upgrade your 4G SIM to 5G for free. Call 90000 22233 and share the OTP to activate.", "category": "impersonation", "lang": "en", "group": "imp-05"}
+{"text": "आपका सिम कार्ड 2 घंटे में बंद हो जाएगा। सिम अपग्रेड के लिए 1 दबाएं और आया हुआ कोड बताएं।", "category": "impersonation", "lang": "hi", "input_type": "call", "group": "imp-06"}
+{"text": "Hello Sir, this is Colonel Rao, your daughter's school principal's friend. She asked me to collect the fees. Please transfer to my account today.", "category": "impersonation", "lang": "en", "group": "imp-07"}
+{"text": "Beta main tera chacha bol raha hoon, naye number se. Hospital mein bharti hoon, 10 hazaar bhej de jaldi", "category": "impersonation", "lang": "hinglish", "input_type": "call", "group": "imp-08"}
+{"text": "Your bank's security team detected malware. Install the Bank Protect app from bankprotect.apk.download now to secure your money.", "category": "malicious_app", "lang": "en", "group": "app-01"}
+{"text": "आपके बैंक खाते में वायरस है। सुरक्षा के लिए यह ऐप डाउनलोड करें: bank-security-app.xyz/secure.apk", "category": "malicious_app", "lang": "hi", "group": "app-01"}
+{"text": "Wedding invitation from Rahul. Open the invite card: Wedding_Invite.apk", "category": "malicious_app", "lang": "en", "group": "app-02"}
+{"text": "Sir aapka phone check karna hai, TeamViewer install karo aur ID batao, hum bank se hain", "category": "malicious_app", "lang": "hinglish", "input_type": "call", "group": "app-03"}
+{"text": "RTO traffic challan details: download RTO_Challan.apk to view and pay your pending fine.", "category": "malicious_app", "lang": "en", "group": "app-04"}
+{"text": "Your mobile has a virus. Download antivirus from this link immediately or your data will be deleted: phone-cleaner.top", "category": "malicious_app", "lang": "en", "group": "app-05"}
+{"text": "Hello, I am Ramesh, an army officer posted in Kashmir. I am selling my bike for Rs 25,000 because of transfer. Send Rs 5,000 advance for army courier.", "category": "loan_fee", "lang": "en", "group": "hard-01"}
+{"text": "Hi, is this Neha? I think we met at the conference last month. I work in crypto trading, can I share an opportunity with you?", "category": "investment", "lang": "en", "group": "hard-02"}
+{"text": "Dear parent, your child has been shortlisted for a scholarship of Rs 25,000. Pay the verification charge of Rs 500 to the coordinator.", "category": "govt_scheme", "lang": "en", "group": "hard-03"}
+{"text": "Kya aap Rahul ki mummy hain? Aapke bete ke naam pe ek parcel aaya hai jisme gaanja mila hai, unhe bachana hai to mujhse baat karo", "category": "digital_arrest", "lang": "hinglish", "input_type": "call", "group": "hard-04"}
+{"text": "Your account statement is ready. Login to view: hdfcbank.com-statement-view.co", "category": "kyc", "lang": "en", "group": "hard-05"}
+{"text": "Main bank manager bol raha hoon, aapka naya ATM card ready hai, verification ke liye card ke peeche wala number bataiye", "category": "otp_pin", "lang": "hinglish", "input_type": "call", "group": "hard-06"}
+{"text": "Good news! Government is giving free solar panels. Book your slot by paying Rs 1,100 booking amount on this number.", "category": "govt_scheme", "lang": "en", "group": "hard-07"}
+{"text": "Hello dear, I am a US doctor working with UN. I want to send you a gift of jewellery and dollars. Please pay the delivery fee when the courier calls.", "category": "courier", "lang": "en", "group": "hard-08"}
+{"text": "Aapka electricity bill zyada aaya hai, adjust karne ke liye officer aapko call karega, unki baat maan lena", "category": "electricity", "lang": "hinglish", "group": "hard-09"}
+{"text": "Your PF of Rs 1,25,000 is ready for withdrawal. Share your UAN and bank login to process.", "category": "otp_pin", "lang": "en", "group": "hard-10"}

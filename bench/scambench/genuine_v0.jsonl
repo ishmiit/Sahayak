@@ -1,0 +1,105 @@
+{"text": "482910 is your OTP for txn of Rs 2,500.00 at AMAZON on HDFC Bank card XX4421. Valid for 5 mins. Do not share OTP with anyone. -HDFC Bank", "sender": "AX-HDFCBK-T", "category": "bank_otp", "lang": "en", "group": "g-otp-01"}
+{"text": "OTP for login to YONO is 739204. Never share it with anyone. SBI never asks for OTP.", "sender": "VM-SBIBNK-T", "category": "bank_otp", "lang": "en", "group": "g-otp-02"}
+{"text": "आपका OTP 482910 है। इसे किसी के साथ साझा न करें। - SBI", "sender": "AX-SBIBNK-T", "category": "bank_otp", "lang": "hi", "group": "g-otp-03"}
+{"text": "Use OTP 551823 to complete your transaction of INR 1,299.00 at FLIPKART. Do not share this OTP. -ICICI Bank", "sender": "JD-ICICIT-T", "category": "bank_otp", "lang": "en", "group": "g-otp-04"}
+{"text": "Dear Customer, 4829 is your OTP for UPI PIN reset. Do not disclose it to anyone. Axis Bank", "sender": "AX-AXISBK-T", "category": "bank_otp", "lang": "en", "group": "g-otp-05"}
+{"text": "Your Aadhaar OTP for authentication is 918273. Valid for 10 minutes. Do not share. UIDAI", "sender": "AX-UIDAIG-G", "category": "bank_otp", "lang": "en", "group": "g-otp-06"}
+{"text": "प्रिय ग्राहक, लेन-देन के लिए आपका ओटीपी 664120 है। बैंक कभी भी ओटीपी नहीं मांगता। - पंजाब नेशनल बैंक", "sender": "VK-PNBSMS-T", "category": "bank_otp", "lang": "hi", "group": "g-otp-07"}
+{"text": "OTP for your Flipkart order delivery is 4821. Share it with the delivery agent only after you receive the product.", "sender": "VM-FLPKRT-S", "category": "delivery_otp", "lang": "en", "group": "g-otp-08"}
+{"text": "Your Amazon delivery code is 3389. Give this code to the delivery associate to receive your package.", "sender": "AX-AMAZON-S", "category": "delivery_otp", "lang": "en", "group": "g-otp-09"}
+{"text": "Swiggy: your order is on the way. Share OTP 2210 with the delivery partner at your door.", "sender": "VK-SWIGGY-S", "category": "delivery_otp", "lang": "en", "group": "g-otp-10"}
+{"text": "Your IRCTC login OTP is 450912. Valid for 3 minutes. Please do not share it with anyone.", "sender": "VM-IRCTCI-T", "category": "bank_otp", "lang": "en", "group": "g-otp-11"}
+{"text": "Paytm: 728193 is your OTP to log in. Never share your OTP with anyone, including Paytm employees.", "sender": "JM-PAYTMB-T", "category": "bank_otp", "lang": "en", "group": "g-otp-12"}
+{"text": "Rs 1,200.00 debited from A/c XX7781 on 01-10-26 to VPA ravi@okaxis. UPI Ref 427811902. Not you? Call 18001234 -SBI", "sender": "JD-SBIINB-S", "category": "txn_alert", "lang": "en", "group": "g-txn-01"}
+{"text": "Dear Customer, INR 5,000.00 credited to your A/c XX2219 on 30-09-26 by NEFT from RAMESH KUMAR. Bal: INR 12,340.55 -Canara Bank", "sender": "VM-CANBNK-S", "category": "txn_alert", "lang": "en", "group": "g-txn-02"}
+{"text": "आपके खाते XX4410 में 2,000 रुपये जमा हुए हैं। शेष राशि 8,420 रुपये। - बैंक ऑफ बड़ौदा", "sender": "AD-BOBTXN-S", "category": "txn_alert", "lang": "hi", "group": "g-txn-03"}
+{"text": "A/c XX9012 debited for Rs 450.00 on 02-Oct-26 for ATM withdrawal at JAYANAGAR. Avl bal Rs 3,210.40. If not done by you call 1800 1080. -SBI", "sender": "AX-SBIATM-S", "category": "txn_alert", "lang": "en", "group": "g-txn-04"}
+{"text": "Sent Rs 250.00 from Kotak Bank A/c X1123 to sharma.kirana@paytm on 01-10-26. UPI Ref 7281829. Not you, call 18602662666", "sender": "VM-KOTAKB-S", "category": "txn_alert", "lang": "en", "group": "g-txn-05"}
+{"text": "Your A/c XX5521 is credited with Rs 2,000.00 towards PM-KISAN instalment on 28-09-26. -Union Bank of India", "sender": "VK-UBOIIN-S", "category": "txn_alert", "lang": "en", "group": "g-txn-06"}
+{"text": "Rs 3,150 has been debited from your account XX8812 for your electricity bill payment to BESCOM. Ref 99281.", "sender": "AX-HDFCBK-S", "category": "txn_alert", "lang": "en", "group": "g-txn-07"}
+{"text": "आपके खाते से 500 रुपये की निकासी हुई है। यदि यह आपने नहीं किया है तो तुरंत 1800 425 3800 पर कॉल करें। - एसबीआई", "sender": "AD-SBIBNK-S", "category": "txn_alert", "lang": "hi", "group": "g-txn-08"}
+{"text": "Your SBI Credit Card ending 4417 has been used for Rs 1,899.00 at MYNTRA on 01/10/26. Not you? SMS BLOCK 4417 to 5676791.", "sender": "VM-SBICRD-S", "category": "txn_alert", "lang": "en", "group": "g-txn-09"}
+{"text": "Received Rs 300.00 in your Google Pay linked A/c XX3340 from sunita.devi@oksbi. UPI Ref 3321899.", "sender": "JD-ICICIB-S", "category": "txn_alert", "lang": "en", "group": "g-txn-10"}
+{"text": "Your loan EMI of Rs 4,512 for October has been debited from A/c XX1100. Thank you. -Bajaj Finance", "sender": "VM-BAJAJF-S", "category": "txn_alert", "lang": "en", "group": "g-txn-11"}
+{"text": "Your A/c XX7781 is credited with Rs 1,000.00 DBT LPG subsidy on 25-09-26. -SBI", "sender": "JD-SBIINB-S", "category": "txn_alert", "lang": "en", "group": "g-txn-12"}
+{"text": "Dear Customer, your KYC is due for periodic update. Please visit your nearest branch with valid documents.", "sender": "VM-SBIBNK-S", "category": "kyc_reminder", "lang": "en", "group": "g-kyc-01"}
+{"text": "प्रिय ग्राहक, आपका केवाईसी अपडेट होना है। कृपया वैध दस्तावेज़ों के साथ अपनी नज़दीकी शाखा में जाएं।", "sender": "VM-SBIBNK-S", "category": "kyc_reminder", "lang": "hi", "group": "g-kyc-01"}
+{"text": "Your Re-KYC was completed successfully on 15-09-26. Thank you for banking with us. -Canara Bank", "sender": "VM-CANBNK-S", "category": "kyc_reminder", "lang": "en", "group": "g-kyc-02"}
+{"text": "Update your KYC through the official ICICI iMobile app or at any branch. ICICI Bank never sends KYC links by SMS.", "sender": "JD-ICICIB-S", "category": "kyc_reminder", "lang": "en", "group": "g-kyc-03"}
+{"text": "Dear Customer, KYC documents received. Your account is fully active. -Bank of India", "sender": "AD-BOIIND-S", "category": "kyc_reminder", "lang": "en", "group": "g-kyc-04"}
+{"text": "PM-KISAN: Rs 2,000 instalment has been transferred to your Aadhaar-linked bank account. Check status at pmkisan.gov.in", "sender": "VM-PMKISN-G", "category": "government", "lang": "en", "group": "g-gov-01"}
+{"text": "पीएम-किसान: 2000 रुपये की किस्त आपके आधार से जुड़े बैंक खाते में भेज दी गई है।", "sender": "VM-PMKISN-G", "category": "government", "lang": "hi", "group": "g-gov-01"}
+{"text": "Your Aadhaar has been updated successfully. Download your updated Aadhaar from myaadhaar.uidai.gov.in. -UIDAI", "sender": "AX-UIDAIG-G", "category": "government", "lang": "en", "group": "g-gov-02"}
+{"text": "Old-age pension of Rs 1,000 for September credited to your account. -Social Welfare Department", "sender": "VM-SWDEPT-G", "category": "government", "lang": "en", "group": "g-gov-03"}
+{"text": "Your ration for October is available at your fair price shop from 5th October. Carry your ration card.", "sender": "VM-FOODPD-G", "category": "government", "lang": "en", "group": "g-gov-04"}
+{"text": "Your Ayushman card has been generated. Show it at any empanelled hospital for treatment. -NHA", "sender": "VM-NHAPMJ-G", "category": "government", "lang": "en", "group": "g-gov-05"}
+{"text": "आपका ई-श्रम कार्ड सफलतापूर्वक बन गया है। कार्ड डाउनलोड करने के लिए eshram.gov.in पर जाएं।", "sender": "VM-ESHRAM-G", "category": "government", "lang": "hi", "group": "g-gov-06"}
+{"text": "Vehicle KA05AB1234: e-challan of Rs 500 issued for over-speeding. Pay at echallan.parivahan.gov.in within 60 days.", "sender": "VM-PARIVN-G", "category": "government", "lang": "en", "group": "g-gov-07"}
+{"text": "Your income tax refund of Rs 3,410 has been credited to your bank account. -Income Tax Department", "sender": "AD-ITDEPT-G", "category": "government", "lang": "en", "group": "g-gov-08"}
+{"text": "Polio Ravivar: give 2 drops of polio vaccine to children under 5 at your nearest booth this Sunday.", "sender": "VM-MOHFWI-G", "category": "government", "lang": "en", "group": "g-gov-09"}
+{"text": "Your order #4031-2288 for Bajaj Mixer Grinder has been shipped and will be delivered by Friday. Track on the Amazon app.", "sender": "AX-AMAZON-S", "category": "commerce", "lang": "en", "group": "g-com-01"}
+{"text": "Refund of Rs 799 for your cancelled order has been initiated to your original payment method. It will reflect in 5-7 days. -Flipkart", "sender": "VM-FLPKRT-S", "category": "commerce", "lang": "en", "group": "g-com-02"}
+{"text": "Your Meesho order has been delivered. Rate your experience in the app.", "sender": "VK-MEESHO-S", "category": "commerce", "lang": "en", "group": "g-com-03"}
+{"text": "Myntra: Your return pickup is scheduled for tomorrow between 9 AM and 7 PM.", "sender": "VM-MYNTRA-S", "category": "commerce", "lang": "en", "group": "g-com-04"}
+{"text": "आपका ऑर्डर भेज दिया गया है और कल तक पहुंच जाएगा। - फ्लिपकार्ट", "sender": "VM-FLPKRT-S", "category": "commerce", "lang": "hi", "group": "g-com-05"}
+{"text": "Your Zomato order from Sharma Dhaba is out for delivery. Arriving in 20 minutes.", "sender": "VK-ZOMATO-S", "category": "commerce", "lang": "en", "group": "g-com-06"}
+{"text": "Your cashback of Rs 50 for the electricity bill payment has been credited to your Paytm wallet.", "sender": "JM-PAYTMB-S", "category": "commerce", "lang": "en", "group": "g-com-07"}
+{"text": "Recharge of Rs 299 successful for 98XXXXXX21. Validity 28 days, 1.5 GB/day. Thank you for choosing Jio.", "sender": "JM-JIOINF-S", "category": "telecom", "lang": "en", "group": "g-tel-01"}
+{"text": "Your Airtel plan expires in 3 days. Recharge on the Airtel Thanks app to stay connected.", "sender": "VM-AIRTEL-P", "category": "telecom", "lang": "en", "group": "g-tel-02"}
+{"text": "आपका रिचार्ज 2 दिन में खत्म हो रहा है। जियो ऐप से रिचार्ज करें।", "sender": "JM-JIOINF-P", "category": "telecom", "lang": "hi", "group": "g-tel-03"}
+{"text": "90% of your daily data quota is used. Speed will reduce after 100%. -Vi", "sender": "VM-VIINDP-S", "category": "telecom", "lang": "en", "group": "g-tel-04"}
+{"text": "Jio True 5G is now available in your area. Enjoy unlimited 5G data on eligible plans. No SIM change required.", "sender": "JM-JIOINF-P", "category": "telecom", "lang": "en", "group": "g-tel-05"}
+{"text": "Your BSNL landline bill of Rs 590 is generated. Pay by 20 Oct at portal.bsnl.in or any BSNL office.", "sender": "VM-BSNLIN-S", "category": "telecom", "lang": "en", "group": "g-tel-06"}
+{"text": "Your electricity bill of Rs 845 for September is generated. Pay on the official app before 15 Oct.", "sender": "VM-BESCOM-S", "category": "utility", "lang": "en", "group": "g-util-01"}
+{"text": "बिजली बिल 1,240 रुपये, अंतिम तिथि 18 अक्टूबर। भुगतान के लिए बिजली कार्यालय या आधिकारिक ऐप का उपयोग करें।", "sender": "VM-UPPCLB-S", "category": "utility", "lang": "hi", "group": "g-util-02"}
+{"text": "Scheduled power maintenance in Jayanagar 4th Block on 5 Oct from 10 AM to 2 PM. Regret the inconvenience. -BESCOM", "sender": "VM-BESCOM-S", "category": "utility", "lang": "en", "group": "g-util-03"}
+{"text": "Your LPG cylinder booking is confirmed. Delivery within 2 days. Booking ID 77812. -Indane", "sender": "VM-INDANE-S", "category": "utility", "lang": "en", "group": "g-util-04"}
+{"text": "Water bill for Sept: Rs 312. Pay at the ward office or official portal by 30 Oct.", "sender": "VM-BWSSBB-S", "category": "utility", "lang": "en", "group": "g-util-05"}
+{"text": "Beta khana kha liya? Kal subah 9 baje station pe milte hain.", "category": "personal", "lang": "hinglish", "group": "g-per-01"}
+{"text": "Mummy ki tabiyat theek hai, doctor ne dawai badal di hai. Shaam ko video call karna.", "category": "personal", "lang": "hinglish", "group": "g-per-02"}
+{"text": "बेटा, दिवाली पर घर कब आ रहे हो? टिकट बुक करवा लेना।", "category": "personal", "lang": "hi", "group": "g-per-03"}
+{"text": "Happy birthday Didi! Party kab de rahi ho?", "category": "personal", "lang": "hinglish", "group": "g-per-04"}
+{"text": "I have sent Rs 500 to your account for your books. Let me know when you get it. - Papa", "category": "personal", "lang": "en", "group": "g-per-05"}
+{"text": "Meeting is moved to 4 pm tomorrow. Please bring the attendance register.", "category": "personal", "lang": "en", "group": "g-per-06"}
+{"text": "भाई, कल की क्रिकेट मैच का स्कोर क्या रहा?", "category": "personal", "lang": "hi", "group": "g-per-07"}
+{"text": "Uncle, aapka parcel neeche guard ke paas rakh diya hai.", "category": "personal", "lang": "hinglish", "group": "g-per-08"}
+{"text": "SHG meeting this Thursday at Sunita ji's house at 3 pm. Bring passbooks for the savings entry.", "category": "personal", "lang": "en", "group": "g-per-09"}
+{"text": "Doctor ne bola hai report kal aayegi, tension mat lo.", "category": "personal", "lang": "hinglish", "group": "g-per-10"}
+{"text": "Can you send me the photo of the electricity bill? I will pay it from my phone tonight.", "category": "personal", "lang": "en", "group": "g-per-11"}
+{"text": "Main ghar pahunch gaya hoon, phone ki battery khatam ho rahi thi isliye call nahi kiya.", "category": "personal", "lang": "hinglish", "group": "g-per-12"}
+{"text": "SBI never asks for your OTP, PIN or passwords. Beware of digital arrest scams; police never arrest anyone on a video call. Report fraud on 1930.", "sender": "AD-SBIBNK-G", "category": "advisory", "lang": "en", "group": "g-adv-01"}
+{"text": "सावधान! कोई भी पुलिस अधिकारी वीडियो कॉल पर 'डिजिटल अरेस्ट' नहीं करता। ऐसी कॉल आए तो 1930 पर शिकायत करें।", "sender": "VM-CYBDOS-G", "category": "advisory", "lang": "hi", "group": "g-adv-02"}
+{"text": "RBI cautions: never share your card details, CVV, OTP or UPI PIN with anyone. Banks never ask for them.", "sender": "AD-RBISAY-G", "category": "advisory", "lang": "en", "group": "g-adv-03"}
+{"text": "Do not install screen-sharing apps like AnyDesk on the advice of unknown callers. Stay alert, stay safe. -HDFC Bank", "sender": "AX-HDFCBK-S", "category": "advisory", "lang": "en", "group": "g-adv-04"}
+{"text": "बैंक कभी भी केवाईसी अपडेट के लिए लिंक नहीं भेजता। किसी अनजान लिंक पर क्लिक न करें। - पंजाब नेशनल बैंक", "sender": "VK-PNBSMS-S", "category": "advisory", "lang": "hi", "group": "g-adv-05"}
+{"text": "Beware of fake job offers asking for registration fees. Real employers never charge money. -Cyber Dost", "sender": "VM-CYBDOS-G", "category": "advisory", "lang": "en", "group": "g-adv-06"}
+{"text": "To receive money on UPI you never need to enter your PIN or scan a QR. -NPCI", "sender": "AD-NPCIUP-G", "category": "advisory", "lang": "en", "group": "g-adv-07"}
+{"text": "Lottery and KBC prize messages are scams. Do not pay any tax or fee to claim a prize. Report on 1930.", "sender": "VM-CYBDOS-G", "category": "advisory", "lang": "en", "group": "g-adv-08"}
+{"text": "Diwali Dhamaka sale! Flat 40% off on kitchen appliances this weekend at Big Bazaar. T&C apply.", "sender": "VM-BIGBZR-P", "category": "promo", "lang": "en", "group": "g-pro-01"}
+{"text": "Get up to 10% cashback on electricity bill payments with your SBI Card this month. T&C apply.", "sender": "VM-SBICRD-P", "category": "promo", "lang": "en", "group": "g-pro-02"}
+{"text": "दिवाली ऑफ़र! सभी कपड़ों पर 30% छूट। आज ही नज़दीकी स्टोर पर आएं।", "sender": "VM-VSHALM-P", "category": "promo", "lang": "hi", "group": "g-pro-03"}
+{"text": "Pre-approved personal loan up to Rs 5 lakh available in the HDFC MobileBanking app. Interest rates as per bank policy. T&C apply.", "sender": "AX-HDFCBK-P", "category": "promo", "lang": "en", "group": "g-pro-04"}
+{"text": "New batch of spoken English classes starts Monday at Vidya Coaching Centre, MG Road. Call 080-2345678 for details.", "sender": "VM-VIDYAC-P", "category": "promo", "lang": "en", "group": "g-pro-05"}
+{"text": "Mutual fund investments are subject to market risks. Read all scheme related documents carefully. Start a SIP with Rs 500 on the official app.", "sender": "VM-NIPPON-P", "category": "promo", "lang": "en", "group": "g-pro-06"}
+{"text": "Free eye check-up camp at Government Hospital this Sunday 9 AM to 1 PM. No registration fee.", "sender": "VM-DHSKAR-G", "category": "promo", "lang": "en", "group": "g-pro-07"}
+{"text": "Your PNR 4521873390 for train 12627 on 12-Oct is CONFIRMED. Coach S4 Berth 22. -IRCTC", "sender": "VM-IRCTCI-S", "category": "travel", "lang": "en", "group": "g-trv-01"}
+{"text": "Your appointment with Dr. Mehta is confirmed for 5 Oct at 11:30 AM at City Clinic.", "sender": "VM-CLINIC-S", "category": "travel", "lang": "en", "group": "g-trv-02"}
+{"text": "Your bus ticket from Bengaluru to Manipal on 13 Oct is confirmed. Seat 14. -KSRTC", "sender": "VM-KSRTCB-S", "category": "travel", "lang": "en", "group": "g-trv-03"}
+{"text": "Your flight 6E-512 to Delhi on 13 Oct departs at 07:40. Web check-in is open on the IndiGo app.", "sender": "VM-INDIGO-S", "category": "travel", "lang": "en", "group": "g-trv-04"}
+{"text": "आपका अपॉइंटमेंट 7 अक्टूबर सुबह 10 बजे सरकारी अस्पताल में तय है। आधार कार्ड साथ लाएं।", "sender": "VM-DHSKAR-G", "category": "travel", "lang": "hi", "group": "g-trv-05"}
+{"text": "Thank you for applying to Infosys. Your interview is scheduled on 8 Oct at 10 AM at our Mysuru campus. No fee is charged at any stage.", "sender": "VM-INFYHR-S", "category": "job_real", "lang": "en", "group": "g-job-01"}
+{"text": "Your EPF passbook is updated. Contribution for September: Rs 1,800. -EPFO", "sender": "AD-EPFOHO-G", "category": "government", "lang": "en", "group": "g-gov-10"}
+{"text": "Your LIC premium of Rs 2,340 is due on 15 Oct. Pay through the LIC app or any branch.", "sender": "VM-LICIND-S", "category": "commerce", "lang": "en", "group": "g-com-08"}
+{"text": "Your SIP of Rs 1,000 in Axis Bluechip Fund is processed. Units allotted on NAV of 30-09-26.", "sender": "VM-AXISMF-S", "category": "commerce", "lang": "en", "group": "g-com-09"}
+{"text": "Fee reminder: the second instalment of school fees, Rs 6,500, is due on 10 Oct. Pay at the school office.", "sender": "VM-DPSSCH-S", "category": "commerce", "lang": "en", "group": "g-com-10"}
+{"text": "Your Ola ride is confirmed. Driver Suresh, KA01AB2345, arriving in 4 minutes. Share OTP 4417 with the driver to start the ride.", "sender": "VM-OLACAB-S", "category": "delivery_otp", "lang": "en", "group": "g-otp-13"}
+{"text": "Rapido: Share your ride PIN 2231 with the captain only after you sit on the bike.", "sender": "VM-RAPIDO-S", "category": "delivery_otp", "lang": "en", "group": "g-otp-14"}
+{"text": "बैंक कर्मचारी कभी फ़ोन पर ओटीपी या पिन नहीं मांगते। शक हो तो पासबुक पर छपे नंबर पर फ़ोन करें।", "sender": "VM-BOBTXN-S", "category": "advisory", "lang": "hi", "group": "g-adv-09"}
+{"text": "Arre yaar, kal se gym shuru karna hai, tu bhi aa ja subah 6 baje.", "category": "personal", "lang": "hinglish", "group": "g-per-13"}
+{"text": "Sir, the plumber will come tomorrow at 11 to fix the tap. Please keep someone at home.", "category": "personal", "lang": "en", "group": "g-per-14"}
+{"text": "Your parcel from Amma has reached the Manipal post office. Collect it with ID proof. -India Post", "sender": "VM-INPOST-G", "category": "commerce", "lang": "en", "group": "g-com-11"}
+{"text": "Congratulations! You have earned 250 reward points on your HDFC Bank credit card. Redeem them on the official SmartBuy portal.", "sender": "AX-HDFCBK-P", "category": "promo", "lang": "en", "group": "g-pro-08"}
+{"text": "Dear Customer, your cheque no. 000123 for Rs 12,000 has been cleared. -Canara Bank", "sender": "VM-CANBNK-S", "category": "txn_alert", "lang": "en", "group": "g-txn-13"}
+{"text": "Your new debit card ending 7781 has been dispatched by Speed Post and will reach you in 7 days. Never share the card PIN.", "sender": "JD-SBIINB-S", "category": "txn_alert", "lang": "en", "group": "g-txn-14"}
+{"text": "Reminder: Gram Sabha meeting on 2 October at the Panchayat Bhavan at 11 AM. All villagers are requested to attend.", "sender": "VM-GPANCH-G", "category": "government", "lang": "en", "group": "g-gov-11"}
+{"text": "Your Sukanya Samriddhi account deposit of Rs 1,000 is received. -India Post", "sender": "VM-INPOST-G", "category": "government", "lang": "en", "group": "g-gov-12"}

@@ -1,0 +1,438 @@
+{
+  "bench": "scambench_v0.jsonl",
+  "splits": [
+    "test"
+  ],
+  "n": 60,
+  "n_scam": 37,
+  "n_genuine": 23,
+  "date": "2026-10-02",
+  "systems": {
+    "blocklist": {
+      "flagged": {
+        "precision": 0.6551724137931034,
+        "recall": 0.5135135135135135,
+        "f1": 0.5757575757575758,
+        "false_alarm_rate": 0.43478260869565216,
+        "tp": 19,
+        "fp": 10,
+        "fn": 18,
+        "tn": 13
+      },
+      "flagged_ci95": {
+        "precision": [
+          0.48,
+          0.8275862068965517
+        ],
+        "recall": [
+          0.35135135135135137,
+          0.6744186046511628
+        ],
+        "f1": [
+          0.41935483870967744,
+          0.7058823529411764
+        ],
+        "false_alarm_rate": [
+          0.22727272727272727,
+          0.6428571428571429
+        ]
+      },
+      "strict_scam": {
+        "precision": 0.6551724137931034,
+        "recall": 0.5135135135135135,
+        "f1": 0.5757575757575758,
+        "false_alarm_rate": 0.43478260869565216,
+        "tp": 19,
+        "fp": 10,
+        "fn": 18,
+        "tn": 13
+      },
+      "by_lang": {
+        "en": {
+          "precision": 0.5909090909090909,
+          "recall": 0.5652173913043478,
+          "f1": 0.5777777777777778,
+          "false_alarm_rate": 0.5,
+          "tp": 13,
+          "fp": 9,
+          "fn": 10,
+          "tn": 9
+        },
+        "hi": {
+          "precision": 0.5,
+          "recall": 0.14285714285714285,
+          "f1": 0.22222222222222224,
+          "false_alarm_rate": 1.0,
+          "tp": 1,
+          "fp": 1,
+          "fn": 6,
+          "tn": 0
+        },
+        "hinglish": {
+          "precision": 1.0,
+          "recall": 0.7142857142857143,
+          "f1": 0.8333333333333333,
+          "false_alarm_rate": 0.0,
+          "tp": 5,
+          "fp": 0,
+          "fn": 2,
+          "tn": 4
+        }
+      },
+      "recall_by_category": {
+        "courier": 0.0,
+        "customer_care": 0.5,
+        "digital_arrest": 1.0,
+        "electricity": 0.0,
+        "govt_scheme": 0.625,
+        "impersonation": 0.5,
+        "investment": 0.0,
+        "kyc": 1.0,
+        "loan_fee": 1.0,
+        "malicious_app": 0.0,
+        "otp_pin": 0.5,
+        "prize": 1.0,
+        "sextortion": 0.0,
+        "upi_receive": 0.6666666666666666
+      },
+      "misses": [
+        "sb-0019",
+        "sb-0032",
+        "sb-0057",
+        "sb-0068",
+        "sb-0082",
+        "sb-0083",
+        "sb-0084",
+        "sb-0109",
+        "sb-0112",
+        "sb-0113",
+        "sb-0117",
+        "sb-0118",
+        "sb-0128",
+        "sb-0136",
+        "sb-0137",
+        "sb-0139",
+        "sb-0140",
+        "sb-0144"
+      ],
+      "false_alarms": [
+        "sb-0153",
+        "sb-0156",
+        "sb-0157",
+        "sb-0163",
+        "sb-0226",
+        "sb-0227",
+        "sb-0232",
+        "sb-0235",
+        "sb-0248",
+        "sb-0254"
+      ]
+    },
+    "signals": {
+      "flagged": {
+        "precision": 0.9393939393939394,
+        "recall": 0.8378378378378378,
+        "f1": 0.8857142857142858,
+        "false_alarm_rate": 0.08695652173913043,
+        "tp": 31,
+        "fp": 2,
+        "fn": 6,
+        "tn": 21
+      },
+      "flagged_ci95": {
+        "precision": [
+          0.8461538461538461,
+          1.0
+        ],
+        "recall": [
+          0.7105263157894737,
+          0.9473684210526315
+        ],
+        "f1": [
+          0.7998717948717949,
+          0.955223880597015
+        ],
+        "false_alarm_rate": [
+          0.0,
+          0.2222222222222222
+        ]
+      },
+      "strict_scam": {
+        "precision": 0.9666666666666667,
+        "recall": 0.7837837837837838,
+        "f1": 0.8656716417910447,
+        "false_alarm_rate": 0.043478260869565216,
+        "tp": 29,
+        "fp": 1,
+        "fn": 8,
+        "tn": 22
+      },
+      "by_lang": {
+        "en": {
+          "precision": 0.9,
+          "recall": 0.782608695652174,
+          "f1": 0.8372093023255814,
+          "false_alarm_rate": 0.1111111111111111,
+          "tp": 18,
+          "fp": 2,
+          "fn": 5,
+          "tn": 16
+        },
+        "hi": {
+          "precision": 1.0,
+          "recall": 0.8571428571428571,
+          "f1": 0.923076923076923,
+          "false_alarm_rate": 0.0,
+          "tp": 6,
+          "fp": 0,
+          "fn": 1,
+          "tn": 1
+        },
+        "hinglish": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_alarm_rate": 0.0,
+          "tp": 7,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4
+        }
+      },
+      "recall_by_category": {
+        "courier": 1.0,
+        "customer_care": 0.5,
+        "digital_arrest": 0.5,
+        "electricity": 1.0,
+        "govt_scheme": 0.875,
+        "impersonation": 0.5,
+        "investment": 1.0,
+        "kyc": 1.0,
+        "loan_fee": 1.0,
+        "malicious_app": 1.0,
+        "otp_pin": 0.5,
+        "prize": 1.0,
+        "sextortion": 1.0,
+        "upi_receive": 0.6666666666666666
+      },
+      "misses": [
+        "sb-0016",
+        "sb-0032",
+        "sb-0049",
+        "sb-0109",
+        "sb-0128",
+        "sb-0148"
+      ],
+      "false_alarms": [
+        "sb-0227",
+        "sb-0235"
+      ]
+    },
+    "patterns": {
+      "flagged": {
+        "precision": 0.9393939393939394,
+        "recall": 0.8378378378378378,
+        "f1": 0.8857142857142858,
+        "false_alarm_rate": 0.08695652173913043,
+        "tp": 31,
+        "fp": 2,
+        "fn": 6,
+        "tn": 21
+      },
+      "flagged_ci95": {
+        "precision": [
+          0.8461538461538461,
+          1.0
+        ],
+        "recall": [
+          0.7105263157894737,
+          0.9473684210526315
+        ],
+        "f1": [
+          0.7998717948717949,
+          0.955223880597015
+        ],
+        "false_alarm_rate": [
+          0.0,
+          0.2222222222222222
+        ]
+      },
+      "strict_scam": {
+        "precision": 0.9666666666666667,
+        "recall": 0.7837837837837838,
+        "f1": 0.8656716417910447,
+        "false_alarm_rate": 0.043478260869565216,
+        "tp": 29,
+        "fp": 1,
+        "fn": 8,
+        "tn": 22
+      },
+      "by_lang": {
+        "en": {
+          "precision": 0.9,
+          "recall": 0.782608695652174,
+          "f1": 0.8372093023255814,
+          "false_alarm_rate": 0.1111111111111111,
+          "tp": 18,
+          "fp": 2,
+          "fn": 5,
+          "tn": 16
+        },
+        "hi": {
+          "precision": 1.0,
+          "recall": 0.8571428571428571,
+          "f1": 0.923076923076923,
+          "false_alarm_rate": 0.0,
+          "tp": 6,
+          "fp": 0,
+          "fn": 1,
+          "tn": 1
+        },
+        "hinglish": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_alarm_rate": 0.0,
+          "tp": 7,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4
+        }
+      },
+      "recall_by_category": {
+        "courier": 1.0,
+        "customer_care": 0.5,
+        "digital_arrest": 0.5,
+        "electricity": 1.0,
+        "govt_scheme": 0.875,
+        "impersonation": 0.5,
+        "investment": 1.0,
+        "kyc": 1.0,
+        "loan_fee": 1.0,
+        "malicious_app": 1.0,
+        "otp_pin": 0.5,
+        "prize": 1.0,
+        "sextortion": 1.0,
+        "upi_receive": 0.6666666666666666
+      },
+      "misses": [
+        "sb-0016",
+        "sb-0032",
+        "sb-0049",
+        "sb-0109",
+        "sb-0128",
+        "sb-0148"
+      ],
+      "false_alarms": [
+        "sb-0227",
+        "sb-0235"
+      ]
+    },
+    "full": {
+      "flagged": {
+        "precision": 0.9444444444444444,
+        "recall": 0.918918918918919,
+        "f1": 0.9315068493150684,
+        "false_alarm_rate": 0.08695652173913043,
+        "tp": 34,
+        "fp": 2,
+        "fn": 3,
+        "tn": 21
+      },
+      "flagged_ci95": {
+        "precision": [
+          0.8571428571428571,
+          1.0
+        ],
+        "recall": [
+          0.8205128205128205,
+          1.0
+        ],
+        "f1": [
+          0.8620689655172413,
+          0.9859154929577464
+        ],
+        "false_alarm_rate": [
+          0.0,
+          0.2222222222222222
+        ]
+      },
+      "strict_scam": {
+        "precision": 0.96875,
+        "recall": 0.8378378378378378,
+        "f1": 0.8985507246376812,
+        "false_alarm_rate": 0.043478260869565216,
+        "tp": 31,
+        "fp": 1,
+        "fn": 6,
+        "tn": 22
+      },
+      "by_lang": {
+        "en": {
+          "precision": 0.9090909090909091,
+          "recall": 0.8695652173913043,
+          "f1": 0.888888888888889,
+          "false_alarm_rate": 0.1111111111111111,
+          "tp": 20,
+          "fp": 2,
+          "fn": 3,
+          "tn": 16
+        },
+        "hi": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_alarm_rate": 0.0,
+          "tp": 7,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1
+        },
+        "hinglish": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "false_alarm_rate": 0.0,
+          "tp": 7,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4
+        }
+      },
+      "recall_by_category": {
+        "courier": 1.0,
+        "customer_care": 0.5,
+        "digital_arrest": 1.0,
+        "electricity": 1.0,
+        "govt_scheme": 0.875,
+        "impersonation": 1.0,
+        "investment": 1.0,
+        "kyc": 1.0,
+        "loan_fee": 1.0,
+        "malicious_app": 1.0,
+        "otp_pin": 0.5,
+        "prize": 1.0,
+        "sextortion": 1.0,
+        "upi_receive": 1.0
+      },
+      "misses": [
+        "sb-0016",
+        "sb-0109",
+        "sb-0148"
+      ],
+      "false_alarms": [
+        "sb-0227",
+        "sb-0235"
+      ]
+    }
+  },
+  "mcnemar_full_vs_blocklist": {
+    "full_right_baseline_wrong": 25,
+    "baseline_right_full_wrong": 2,
+    "p_value": 5.647540092468262e-06
+  },
+  "latency_ms_full": {
+    "p50": 2.2177500068210065,
+    "p95": 3.0158099631080404
+  }
+}

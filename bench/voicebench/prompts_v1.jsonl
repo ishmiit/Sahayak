@@ -1,0 +1,43 @@
+{"id": "a01", "lang": "hi", "text": "मेरी उम्र पैंसठ साल है।", "question": "age", "answer": 65}
+{"id": "a02", "lang": "hi", "text": "मैं बहत्तर साल का हूँ।", "question": "age", "answer": 72}
+{"id": "a03", "lang": "hi", "text": "उम्र चालीस साल।", "question": "age", "answer": 40}
+{"id": "a04", "lang": "hi", "text": "सत्तावन।", "question": "age", "answer": 57}
+{"id": "a05", "lang": "hi", "text": "मेरी उम्र अट्ठाईस साल है।", "question": "age", "answer": 28}
+{"id": "a06", "lang": "hi", "text": "मैं अस्सी साल की हूँ।", "question": "age", "answer": 80}
+{"id": "a07", "lang": "hi", "text": "हाँ, मेरा जन धन खाता है।", "question": "bank", "options": ["yes", "no", "dont_know"], "answer": "yes"}
+{"id": "a08", "lang": "hi", "text": "नहीं, कोई खाता नहीं है।", "question": "bank", "options": ["yes", "no", "dont_know"], "answer": "no"}
+{"id": "a09", "lang": "hi", "text": "पता नहीं।", "question": "bank", "options": ["yes", "no", "dont_know"], "answer": "dont_know"}
+{"id": "a10", "lang": "hi", "text": "अंत्योदय कार्ड है।", "question": "ration", "options": ["aay", "bpl_phh", "apl", "none", "dont_know"], "answer": "aay"}
+{"id": "a11", "lang": "hi", "text": "हमारे पास बीपीएल कार्ड है।", "question": "ration", "options": ["aay", "bpl_phh", "apl", "none", "dont_know"], "answer": "bpl_phh"}
+{"id": "a12", "lang": "hi", "text": "सामान्य कार्ड है।", "question": "ration", "options": ["aay", "bpl_phh", "apl", "none", "dont_know"], "answer": "apl"}
+{"id": "a13", "lang": "hi", "text": "कोई राशन कार्ड नहीं है।", "question": "ration", "options": ["aay", "bpl_phh", "apl", "none", "dont_know"], "answer": "none"}
+{"id": "a14", "lang": "hi", "text": "मैं खेती करता हूँ, अपनी ज़मीन है।", "question": "work", "options": ["farmer_land", "farm_labour", "unorganised", "salaried_pf", "government", "not_working"], "answer": "farmer_land"}
+{"id": "a15", "lang": "hi", "text": "मैं खेत मज़दूर हूँ।", "question": "work", "options": ["farmer_land", "farm_labour", "unorganised", "salaried_pf", "government", "not_working"], "answer": "farm_labour"}
+{"id": "a16", "lang": "hi", "text": "दिहाड़ी मज़दूरी करती हूँ।", "question": "work", "options": ["farmer_land", "farm_labour", "unorganised", "salaried_pf", "government", "not_working"], "answer": "unorganised"}
+{"id": "a17", "lang": "hi", "text": "सरकारी नौकरी है।", "question": "work", "options": ["farmer_land", "farm_labour", "unorganised", "salaried_pf", "government", "not_working"], "answer": "government"}
+{"id": "a18", "lang": "hi", "text": "मैं गृहिणी हूँ, अभी काम नहीं करती।", "question": "work", "options": ["farmer_land", "farm_labour", "unorganised", "salaried_pf", "government", "not_working"], "answer": "not_working"}
+{"id": "a19", "lang": "hi", "text": "महीने में दस हज़ार कमाता हूँ।", "question": "money", "options": ["taxpayer", "le15k", "gt15k", "dont_know"], "answer": "le15k"}
+{"id": "a20", "lang": "hi", "text": "बीस हज़ार महीना।", "question": "money", "options": ["taxpayer", "le15k", "gt15k", "dont_know"], "answer": "gt15k"}
+{"id": "a21", "lang": "hi", "text": "हाँ, इनकम टैक्स भरता हूँ।", "question": "money", "options": ["taxpayer", "le15k", "gt15k", "dont_know"], "answer": "taxpayer"}
+{"id": "a22", "lang": "hi", "text": "मैं विधवा हूँ।", "question": "situation", "options": ["widow", "disability80", "earner_died"], "answer": ["widow"]}
+{"id": "a23", "lang": "hi", "text": "इनमें से कोई नहीं।", "question": "situation", "options": ["widow", "disability80", "earner_died"], "answer": []}
+{"id": "a24", "lang": "hi", "text": "मेरे पास विकलांगता का प्रमाण-पत्र है।", "question": "situation", "options": ["widow", "disability80", "earner_died"], "answer": ["disability80"]}
+{"id": "a25", "lang": "hi", "text": "नहीं, कोई नहीं।", "question": "kisan", "options": ["yes", "no", "dont_know"], "answer": "no"}
+{"id": "d01", "lang": "hi", "text": "सर मैं बैंक से बोल रहा हूँ, आपका कार्ड बंद हो जाएगा, ओटीपी बताइए।"}
+{"id": "d02", "lang": "hi", "text": "आपका बिजली का बिल जमा नहीं हुआ है, आज रात बिजली कट जाएगी।"}
+{"id": "d03", "lang": "hi", "text": "मुझे एक कॉल आया कि मेरे आधार से मनी लॉन्ड्रिंग हुई है।"}
+{"id": "d04", "lang": "hi", "text": "बधाई हो, आपने पच्चीस लाख रुपये की लॉटरी जीती है।"}
+{"id": "d05", "lang": "hi", "text": "पीएम किसान की नई सूची देखने के लिए यह ऐप डाउनलोड करें।"}
+{"id": "d06", "lang": "hi", "text": "घर बैठे रोज़ तीन हज़ार रुपये कमाएँ, टेलीग्राम ग्रुप से जुड़ें।"}
+{"id": "d07", "lang": "hi", "text": "आपका पार्सल कस्टम में पकड़ा गया है, पुलिस अधिकारी से बात करें।"}
+{"id": "d08", "lang": "hi", "text": "किसी ने मुझसे यूपीआई पिन डालने को कहा ताकि पैसे मिल सकें।"}
+{"id": "d09", "lang": "hi", "text": "मेरे बेटे के नाम से पैसे माँगने वाला मैसेज आया है।"}
+{"id": "d10", "lang": "hi", "text": "क्या यह मैसेज सही है या ठगी है?"}
+{"id": "d11", "lang": "hi", "text": "मुझे बुढ़ापा पेंशन के बारे में जानना है।"}
+{"id": "d12", "lang": "hi", "text": "मेरे खाते से पैसे कट गए, मैं क्या करूँ?"}
+{"id": "e01", "lang": "en", "text": "My age is sixty five.", "question": "age", "answer": 65}
+{"id": "e02", "lang": "en", "text": "Yes, I have a bank account.", "question": "bank", "options": ["yes", "no", "dont_know"], "answer": "yes"}
+{"id": "e03", "lang": "en", "text": "I don't know.", "question": "bank", "options": ["yes", "no", "dont_know"], "answer": "dont_know"}
+{"id": "e04", "lang": "en", "text": "I am a daily wage worker.", "question": "work", "options": ["farmer_land", "farm_labour", "unorganised", "salaried_pf", "government", "not_working"], "answer": "unorganised"}
+{"id": "e05", "lang": "en", "text": "Someone asked me to share my OTP on a call."}
+{"id": "e06", "lang": "en", "text": "Is this message a scam?"}

@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Runtime data and models never live in the repo (they go to %USERPROFILE%\.sahayak)
+models/
+*.gguf
+*.onnx
+*.safetensors
+data/
+logs/
+
+# Private benchmark material (real messages before PII review)
+bench/scambench/private/
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# Keys and test data: never in the repo
+*.key
+.env
+tests/.sahayak-test/
