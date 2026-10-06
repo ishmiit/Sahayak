@@ -16,7 +16,7 @@ Team: Roshan Raj and Ishmiit Singh · Problem statement: Inclusive Innovation fo
 | `04_Application_to_Prototype.pdf` | What changed since the application, and why each change was made |
 | `05_Sahayak_Testing_Report.pdf` | How every number was measured, with confidence intervals and limits |
 | `06_Sahayak_Jury_Kit.pdf` | Printable test cards (messages, UPI QR codes, benefit personas) with an answer key |
-| `07_Sahayak_Source_Code.zip` | The full source: node, phone app, console, content packs, benchmarks, 334 tests |
+| `07_Sahayak_Source_Code.zip` | The full source: node, phone app, console, content packs, benchmarks, 360 tests |
 | `screenshots/`, `clips/` | 14 phone screenshots and 5 silent screen recordings |
 
 ## See it in 2 minutes
@@ -37,11 +37,17 @@ python scripts/get_models.py        # once, with internet: speech and screenshot
 python -m sahayak                   # the node; prints its address and the console PIN
 ```
 
+To try it on a phone with no node at all, open **https://roshworldwide.github.io/optum-v2/** (the stand-alone build,
+`python scripts/build_tryit.py`); after the first visit it works with the internet off.
+
 Open `http://<node-address>:8000` on a phone on the same Wi-Fi (or `http://127.0.0.1:8000` on the same computer). The
 operator console is `/app/console.html` and the node's status page is `/app/node.html`. After the models are downloaded,
-the internet can be switched off: everything keeps working. `python -m pytest` runs the 334 tests.
+the internet can be switched off: everything keeps working. `python -m pytest` runs the 360 tests.
 
 ## Try it in 5 minutes
+
+On your phone: open **https://roshworldwide.github.io/optum-v2/**, check a message, then switch on airplane mode and
+check another. It still works: the scam check and the benefits interview run on the phone itself.
 
 Print `06_Sahayak_Jury_Kit.pdf`. Type, speak or photograph a message card; photograph a QR card in "QR code" mode;
 answer the benefits interview as one of the persona cards. Try to fool it with your own message. The last page shows

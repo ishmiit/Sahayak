@@ -38,6 +38,10 @@ def main() -> None:
                      f"(blocklist {rt['blocklist']['scams_flagged']} / {rt['blocklist']['scams']}); "
                      f"{after['scams_flagged']} / {after['scams']} after the fixes it found"))
     rows.append(("Offline", "0 outbound connections or outside DNS lookups by the node, counted live by an audit hook; firewall blocks the rest"))
+    if (ROOT / "bench" / "results" / "phone_parity.json").exists():
+        ph = R("phone_parity.json")
+        rows.append(("On the phone", f"the node's exact answer on {ph['fraud']['cases']:,} scam checks and {ph['navigator']['cases']:,} "
+                     f"benefits cases ({ph['fraud']['mismatches'] + ph['navigator']['mismatches']} mismatches)"))
     table = "".join(f"<tr><th>{html.escape(a)}</th><td>{html.escape(b)}</td></tr>" for a, b in rows)
     page = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><style>
 @page {{ size: A4; margin: 12mm 13mm; }}
@@ -50,7 +54,7 @@ h2 {{ font-size: 10.5pt; margin: 9px 0 4px; color: #0e7c57; text-transform: uppe
 .box b {{ color: #0e7c57; }}
 table {{ width: 100%; border-collapse: collapse; }} th, td {{ text-align: left; vertical-align: top; padding: 3px 6px; border-bottom: 1px solid #e2ddd2; }}
 th {{ width: 22%; color: #4b524e; }}
-.shots {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }} .shots img {{ width: 100%; border-radius: 6px; border: 1px solid #d9d3c6; height: 172px; object-fit: cover; object-position: top; }}
+.shots {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }} .shots img {{ width: 100%; border-radius: 6px; border: 1px solid #d9d3c6; height: 140px; object-fit: cover; object-position: top; }}
 ul {{ margin: 2px 0; padding-left: 16px; }} li {{ margin: 1px 0; }}
 .foot {{ margin-top: 8px; font-size: 8.5pt; color: #4b524e; }}
 </style></head><body>
@@ -63,6 +67,7 @@ ul {{ margin: 2px 0; padding-left: 16px; }} li {{ margin: 1px 0; }}
 <h2>How it works</h2>
 <ul>
  <li><b>One node at a CSC or bank-agent counter</b> (a laptop or mini-PC). Phones join its Wi-Fi, which has no internet; the app is a cached web page, no install.</li>
+ <li><b>At home, too:</b> after one visit the phone keeps its own scam check and benefits interview, with no node or internet; results lead with health cover (Ayushman; Vay Vandana for 70+).</li>
  <li><b>Named signals decide, not a model:</b> 51 signals in a signed content pack (lookalike links, .bank.in rule, UPI "scan to receive", OTP asks, digital arrest…), a pattern matcher and a small classifier. Vetted templates explain each verdict; an optional local LLM may add a line only through a safety gate (off in the demo).</li>
  <li><b>Scheme rules as data</b>, each traced to its official page and date; answers with yes / likely / unknown / no, asking only questions that can still change the result.</li>
  <li><b>Offline voice</b> both ways on the node; amounts spoken as words; "I heard …, is that right?" before any answer is used.</li>

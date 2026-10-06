@@ -14,6 +14,12 @@ Nothing a person types or says leaves the node. The node page shows it live: out
 and DNS lookups by Sahayak, open internet connections on the machine, and whether the firewall blocks
 the internet.
 
+**At home, too.** Scam calls and messages arrive at home, not at the counter. After one visit, the phone keeps
+its own copy of the scam check and the benefits interview (the same rules, from the same signed packs) and answers
+by itself, with no node and no internet; nothing leaves the phone. The phone's answers match the node's on every
+benchmark case (`bench/results/phone_parity.md`). A stand-alone build of the app runs from any HTTPS site, offline
+after the first visit: **try it at https://roshworldwide.github.io/optum-v2/** (`python scripts/build_tryit.py`).
+
 Built for Ideas for India 2026 (Times of India) by Roshan Raj and Ishmiit Singh.
 
 | | |
@@ -29,6 +35,7 @@ Built for Ideas for India 2026 (Times of India) by Roshan Raj and Ishmiit Singh.
 | Safety gate | Every model sentence is checked for forbidden advice, wrong numbers or links, verdict contradictions, invented amounts and script, in each language, before anyone sees it | `sahayak/safety/gate.py` |
 | Benefits Navigator | Scheme rules as data (each with its official source and date), evaluated with yes / likely / unknown / no logic; asks only questions that can still change an answer; never more than 8 | `sahayak/navigator/`, `packs/schemes.v1.json` |
 | Voice | Offline Hindi and English speech out (every fixed sentence pre-synthesised) and speech in; amounts spoken as words; "I heard …, is that right?" | `sahayak/voice/`, `packs/voice.v1.json` |
+| On the phone | The scam check and the benefits interview in the browser, from the packs the node serves (`/phone-packs/`) and the service worker keeps; identical answers to the node, checked case by case. Benefits results lead with health cover (Ayushman Bharat; the Vay Vandana card for anyone 70+) | `web/checker.js`, `web/navigator.js`, `web/sw.js`, `scripts/build_tryit.py` |
 | More ways in | Call descriptions, photographed UPI QR codes ("a QR never brings money in"), screenshots read offline | `sahayak/inputs/` |
 | Operator console | PIN-protected: "Ask the agent" queue, assisted checks read aloud, consented and encrypted case log, 58 mm slips, impact counters with a signed export that holds no personal data | `/app/console.html`, `sahayak/node/` |
 | Node and proof | Zero-egress monitor, captive-portal DNS, HTTPS with redirect, firewall scripts, Ed25519-signed packs with install and rollback, hashes of every model and pack | `/app/node.html`, `sahayak/node/`, `scripts/firewall/` |
@@ -38,7 +45,13 @@ Built for Ideas for India 2026 (Times of India) by Roshan Raj and Ishmiit Singh.
 Every number we quote comes from a script in `bench/` and a report in `bench/results/`. The summary is in
 **[docs/TESTING_REPORT.md](docs/TESTING_REPORT.md)**: scam detection with 95% confidence intervals against a keyword
 blocklist, scheme rules checked against an independent re-derivation, Hindi speech recognition on a public test set,
-voice latency, screenshot reading, a red team of disguised scams, and the limits of each.
+voice latency, screenshot reading, a red team of disguised scams, the phone-versus-node parity check, and the limits of each.
+
+With real people: `docs/field/` holds a one-morning field protocol for a CSC (consent in Hindi and English, paired
+before/after message cards, the benefits interview, the off-node check), a print-ready kit
+(`Sahayak_Field_Morning_Kit.pdf`: run sheet, consent, 30 recording cards; `scripts/build_field_kit.py`), invitations
+to send, the sheets to fill, letters of intent, and `bench/eval_field.py`, which turns the filled sheets into
+`bench/results/field_v0.json` for the report and the deck.
 
 ## Run it
 
@@ -67,7 +80,20 @@ Then open `http://<node-address>:8000` on a phone on the same Wi-Fi. The node pr
   phone's recorder app.
 - **Memory.** On an 8 GB machine the screenshot reader (PyTorch, about 1 GB) loads on its first use, so the first
   screenshot takes longer; `SAHAYAK_WARM_OCR=1` loads it at start-up on a node with room to spare.
-- **Tests.** `python -m pytest` (334 tests; the voice and OCR tests use the installed models).
+- **On the phone, offline.** Browsers keep an offline copy only for a secure page: the node's HTTPS address (above), or
+  `http://127.0.0.1:8000` on the node itself. `python scripts/check_phone_offline.py <address>` proves it in a phone
+  browser (one visit, network off, then a scam check, a QR check and a benefits interview).
+- **Stand-alone site.** Live at **https://roshworldwide.github.io/optum-v2/** (try it on a phone, then switch on
+  airplane mode). `python scripts/build_tryit.py` writes it to `dist/tryit/` for any HTTPS host (GitHub Pages works).
+  Voice input and screenshot reading need the node and are left out; QR photos use the phone browser's own QR reader
+  where it has one.
+- **HTTPS for the node.** `docs/NODE_HTTPS.md`: a certificate for a name under a domain you own (one DNS TXT record),
+  then three environment variables.
+- **Signing packs.** Each team member who signs keeps their own key (`SAHAYAK_SIGNER=<name>`, private key in
+  `~/.sahayak/keys/<name>.key`); the node trusts every public key in `packs/keys/`. `python scripts/sign_packs.py --only
+  <pack>` re-signs what you changed.
+- **Tests.** `python -m pytest` (360 tests; the voice and OCR tests use the installed models, and the JavaScript
+  parity tests need `node`).
 
 Settings are environment variables (`SAHAYAK_*`); see `sahayak/config.py`.
 
@@ -101,11 +127,14 @@ pmjdy.gov.in, state NSAP pages); each rule cites its page and the date it was ch
 
 ```
 sahayak/            the node: server, fraud, navigator, voice, inputs, node (egress, console, counters), safety
-web/                the phone app, console, node page and VoiceBench recorder (vanilla JS, no build step)
+web/                the phone app (with its own scam check and benefits engine), console, node page and VoiceBench
+                    recorder (vanilla JS, no build step)
 packs/              signed content packs: fraud signals, scheme rules, voice data, demo examples
-bench/              ScamBench, SchemeBench, VoiceBench, OCR and call benches, and their results
-scripts/            models, speech cache, pack signing, screenshots, firewall scripts
-tests/              pytest suite
-docs/               testing report, one-pager, jury kit, pitch deck, screenshots, demo clips and narrated draft video (video/)
+bench/              ScamBench, SchemeBench, VoiceBench, OCR, call and phone-parity benches, field scoring, and results
+scripts/            models, speech cache, pack signing and updates, screenshots, offline phone check, stand-alone build,
+                    firewall scripts
+tests/              pytest suite; tests/js/ holds the phone-versus-node parity harness
+docs/               testing report, one-pager, jury kit, pitch decks (v3 for the finale), field kit (field/),
+                    screenshots, demo clips and narrated draft video (video/)
 PROGRESS.md         what is built, what is left, and every decision taken while building
 ```

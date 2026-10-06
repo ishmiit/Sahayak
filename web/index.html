@@ -28,6 +28,7 @@
   <section class="screen" data-screen="home">
     <h1 data-i18n="home_title"></h1>
     <p class="sub" data-i18n="home_sub"></p>
+    <p class="note" id="phone-mode-note" data-i18n="phone_mode_note" hidden></p>
     <div class="tiles">
       <button class="tile tile-shield" data-go="check" type="button">
         <svg viewBox="0 0 56 56" aria-hidden="true"><path d="M28 5 9 12v13c0 13 8 22 19 26 11-4 19-13 19-26V12L28 5Z" fill="#e3f3ec" stroke="#0e7c57" stroke-width="2.5"/><path d="M20 28.5l6 6 11-12" fill="none" stroke="#0e7c57" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -175,6 +176,7 @@
   <!-- BENEFITS NAVIGATOR: result -->
   <section class="screen" data-screen="benefits-result" hidden>
     <div id="nav-summary" class="nav-summary" role="status" aria-live="polite" tabindex="-1"></div>
+    <div id="nav-health"></div>
     <div id="nav-groups"></div>
     <p class="note" id="nav-amount-note"></p>
     <p class="note warn" id="nav-fraud-note"></p>
@@ -207,6 +209,8 @@
 
 <footer class="foot"><span data-i18n="foot"></span> <span id="pack-version"></span></footer>
 <script src="/app/mic.js" defer></script>
+<script src="/app/checker.js" defer></script>
+<script src="/app/navigator.js" defer></script>
 <script src="/app/app.js" defer></script>
 </body>
 </html>

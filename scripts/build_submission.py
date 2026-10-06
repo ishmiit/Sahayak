@@ -19,7 +19,7 @@ import markdown
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT.parent / "Sahayak_Submission"
 LIMIT = 25 * 1024 * 1024
-SKIP_DIRS = {"__pycache__", ".pytest_cache", ".sahayak-test", ".git", "node_modules", "console"}
+SKIP_DIRS = {"__pycache__", ".pytest_cache", ".sahayak-test", ".git", "node_modules", "console", "dist"}  # dist: built sites
 SKIP_PATHS = {Path("docs/video"), Path("docs/screenshots")}  # shipped beside the zip
 
 CSS = """
@@ -53,7 +53,7 @@ def source_zip(dst: Path) -> int:
             rel = path.relative_to(ROOT)
             if path.is_dir() or SKIP_DIRS & set(rel.parts) or any(rel.is_relative_to(p) for p in SKIP_PATHS):
                 continue
-            if path.suffix in (".pyc", ".key", ".log"):
+            if path.suffix in (".pyc", ".key", ".log") or path.name.endswith("_corpus.json"):  # corpora: rebuilt by the tests
                 continue
             z.write(path, Path("sahayak") / rel)
             n += 1
@@ -77,10 +77,13 @@ def main() -> int:
     (docs / "submission").mkdir(exist_ok=True)  # the same PDFs, kept in the repo
     for name in ("00_START_HERE.pdf", "04_Application_to_Prototype.pdf", "05_Sahayak_Testing_Report.pdf"):
         shutil.copy2(OUT / name, docs / "submission" / name)
+    # the newest deck that has both its slides and its PDF (v3 for the finale, else v2)
+    deck = next(v for v in ("v3", "v2") if (docs / "deck" / f"Sahayak_Pitch_Deck_{v}.pdf").exists()
+                and (docs / "deck" / f"Sahayak_Pitch_Deck_{v}.pptx").exists())
     copies = {
         docs / "video" / "Sahayak_demo_draft.mp4": "01_Sahayak_Demo_Video.mp4",
-        docs / "deck" / "Sahayak_Pitch_Deck_v2.pdf": "02_Sahayak_Pitch_Deck.pdf",
-        docs / "deck" / "Sahayak_Pitch_Deck_v2.pptx": "02_Sahayak_Pitch_Deck.pptx",
+        docs / "deck" / f"Sahayak_Pitch_Deck_{deck}.pdf": "02_Sahayak_Pitch_Deck.pdf",
+        docs / "deck" / f"Sahayak_Pitch_Deck_{deck}.pptx": "02_Sahayak_Pitch_Deck.pptx",
         docs / "Sahayak_OnePager.pdf": "03_Sahayak_OnePager.pdf",
         docs / "Sahayak_Jury_Kit.pdf": "06_Sahayak_Jury_Kit.pdf",
     }

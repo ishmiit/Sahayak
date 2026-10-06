@@ -1,6 +1,6 @@
 # Sahayak testing report
 
-Prototype for Ideas for India 2026 · generated 2026-10-06 by `scripts/build_testing_report.py` from the result files in `bench/results/`. Every number below can be reproduced with the command given in its section, on a 4-core laptop CPU (Intel i5-10210U, no GPU) with the internet off.
+Prototype for Ideas for India 2026 · generated 2026-10-07 by `scripts/build_testing_report.py` from the result files in `bench/results/`. Every number below can be reproduced with the command given in its section, on a 4-core laptop CPU (Intel i5-10210U, no GPU) with the internet off.
 
 ## At a glance
 
@@ -15,10 +15,11 @@ Prototype for Ideas for India 2026 · generated 2026-10-06 by `scripts/build_tes
 | Screenshot reading | same scam / not-scam decision as the typed message on 51 / 55 screenshots; 6.86 s each | ScamBench test messages rendered as SMS screenshots |
 | Red team | disguised scams flagged 46 / 52 on the first run (blocklist 33 / 52); hard genuine messages left alone 19 / 22 | 74 messages written to get past Sahayak |
 | Call descriptions | 18 / 18 scam calls flagged, 8 / 8 genuine calls left alone | 26 descriptions written by the team (a tuning set) |
+| On the phone, offline | the phone's own engines give the node's exact answer on 1,453 scam checks and 7,983 benefits cases (0 mismatches); a check takes 0.118 ms | `bench/eval_phone_parity.py`, `scripts/check_phone_offline.py` |
 | Zero egress | Sahayak's own process opens no outbound connection and makes no outside DNS lookup (counted by an audit hook on every socket); the firewall scripts block everything but the local network | `/app/node.html`, `tests/test_node.py` |
 | Privacy of the impact export | messages full of names, phone numbers and UPI IDs leave no trace in the export; counts under 5 are masked | `tests/test_console.py` |
 | Signed content | an altered pack is refused; an unsigned one is refused in strict mode | `tests/test_node.py` |
-| Automated tests | 334 tests pass | `python -m pytest` |
+| Automated tests | 359 tests pass, 1 skipped | `python -m pytest` |
 
 ## 1. Scam detection: ScamBench v0
 
@@ -80,6 +81,7 @@ Reproduce: `python bench/eval_voicebench.py --fleurs --report`, `python bench/vo
 
 - **Zero egress.** A Python audit hook on the node counts every socket connection and DNS lookup the node process makes to an address outside the local network; the node page shows the count live, next to the machine's open internet connections and whether the firewall rules are active. The tests trigger the hook with a simulated outside connection and lookup and check they are counted. The firewall scripts (`scripts/firewall/`) add a block rule for every non-local address.
 - **Signed packs.** Every content pack carries an Ed25519 signature; the tests alter one amount in the scheme pack and check the node refuses it, and that an unsigned pack is refused in strict mode.
+- **On the phone.** After one visit to the node's HTTPS address (or to the stand-alone site, `scripts/build_tryit.py`), the phone keeps the app, its own scam check (`web/checker.js`) and benefits interview (`web/navigator.js`) and the signed packs, and answers by itself with no node and no internet; nothing leaves the phone. `bench/eval_phone_parity.py` replays 1,453 scam-check and 7,983 benefits cases through both and compares every field: 0 mismatches. `scripts/check_phone_offline.py` drives a phone browser: one visit, network off, then a scam check, a UPI QR check and a benefits interview.
 - **Privacy.** The impact export is tested with messages full of names, phone numbers and UPI IDs: none appear in it; counts under 5 show as "<5"; the rupees-at-risk total is withheld until there are 5 flagged messages; the export's signature verifies. The case log refuses entries without consent, drops any name or number field, is unreadable on disk, and deletes entries older than 30 days.
 - **Safety gate.** Every vetted template passes the runtime gate, and the tests check it blocks advice to share an OTP, click a link, install an app or pay a fee, catches verdict contradictions and invented amounts, and treats "never share your OTP" and "it asks you to share your OTP" as safe (`tests/test_gate.py`).
 
@@ -87,6 +89,6 @@ Reproduce: `python bench/eval_voicebench.py --fleurs --report`, `python bench/vo
 
 - ScamBench v1 (600+ real messages, collected with consent) and a red team from outside the team are still to come.
 - VoiceBench recordings, real phone screenshots, and a field test with real users and an operator are team tasks.
-- Known misses on the ScamBench test split: an "approve the request" refund scam and a "pay the booking amount" government-scheme scam.
+- Known miss on the ScamBench test split: a "pay the booking amount" government-scheme scam. The "approve the request" refund scam was fixed after the freeze (6 Oct); the frozen numbers above still count it as missed.
 - The Hindi voices and the optional language model are licensed for non-commercial use only.
-- HTTPS on phones needs a domain and certificate; until then voice input on phones uses the recorder-app fallback.
+- HTTPS on phones needs a domain and certificate; until then voice input on phones uses the recorder-app fallback, and phones keep no offline copy from the node (the stand-alone site, on any HTTPS host, works offline after one visit).

@@ -119,9 +119,11 @@ def test_egress_and_status_endpoints():
 
 # ---------------------------------------------------------------- signed packs
 
-def test_every_pack_in_the_repo_is_signed_by_the_team_key():
+def test_every_pack_in_the_repo_is_signed_by_a_team_key():
+    trusted = {f.stem for f in (get_settings().packs_dir / "keys").glob("*.pub")}
+    assert "sahayak-packs" in trusted
     for p in installed_packs():
-        assert p["signed_by"] == "sahayak-packs", f"{p['file']}: run python scripts/sign_packs.py"
+        assert p["signed_by"] in trusted, f"{p['file']}: run python scripts/sign_packs.py"
 
 
 @pytest.fixture
@@ -143,6 +145,37 @@ def test_an_altered_pack_is_refused(temp_packs):
     f.write_bytes(f.read_bytes().replace("₹200".encode(), "₹900".encode(), 1))  # someone edits an amount
     with pytest.raises(PackSignatureError):
         load_pack_file(f)
+
+
+@pytest.mark.parametrize("eol", [b"\n", b"\r\n"], ids=["lf", "crlf"])
+def test_signatures_hold_on_any_line_ending(temp_packs, eol):
+    """git checks packs out with CRLF on Windows and LF on macOS and Linux: a genuine pack verifies
+    either way, with the same hash, and an edited one is still refused."""
+    for f in sorted(temp_packs.glob("*.v*.json")):
+        before = load_pack_file(f)
+        f.write_bytes(f.read_bytes().replace(b"\r\n", b"\n").replace(b"\n", eol))
+        pack = load_pack_file(f)
+        assert pack.signed_by == before.signed_by is not None and pack.sha256 == before.sha256, f.name
+    f = temp_packs / "schemes.v1.json"
+    f.write_bytes(f.read_bytes().replace("₹200".encode(), "₹900".encode(), 1))
+    with pytest.raises(PackSignatureError):
+        load_pack_file(f)
+
+
+def test_a_second_signer_is_trusted_only_once_its_key_is_in_the_packs(temp_packs, tmp_path):
+    """Several team members can sign: the node trusts every public key in packs/keys, and no other."""
+    from sahayak.signing import load_or_create_private_key, public_pem, sign_file, trusted_keys
+    key = load_or_create_private_key(tmp_path / "keys" / "teammate.key")
+    assert (tmp_path / "keys" / "teammate.key").stat().st_mode & 0o077 == 0 or sys.platform == "win32"  # owner only
+    f = temp_packs / "demo.v1.json"
+    sign_file(f, key)
+    trusted_keys.cache_clear()
+    with pytest.raises(PackSignatureError):
+        load_pack_file(f)  # a stranger's signature
+    (temp_packs / "keys" / "teammate.pub").write_bytes(public_pem(key))
+    trusted_keys.cache_clear()
+    assert load_pack_file(f).signed_by == "teammate"
+    trusted_keys.cache_clear()
 
 
 def test_unsigned_packs_are_refused_only_in_strict_mode(temp_packs, monkeypatch):

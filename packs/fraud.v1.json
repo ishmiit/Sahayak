@@ -1,6 +1,6 @@
 {
   "pack": "fraud",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "date": "2026-10-06",
   "notes": "Signal lexicons, weights, bilingual reasons and action cards for Fraud-Shield. Hindi strings need review by a native speaker before the field test. Official-domain rules follow RBI's .bank.in mandate (deadline 31 Oct 2025); caller rules follow TRAI's 1600-series direction (PR 135/2025); sender rules follow TRAI's -P/-S/-T/-G header suffixes (12 Feb 2025 amendment).",
   "thresholds": {
@@ -63,7 +63,7 @@
     "shorteners": ["bit.ly", "bitly.com", "tinyurl.com", "cutt.ly", "rb.gy", "is.gd", "t.ly", "shorturl.at", "goo.gl", "tiny.cc", "s.id", "rebrand.ly", "ow.ly", "t.co", "bl.ink", "v.gd", "qr.ae", "shorte.st", "tinu.be", "short.gy", "u.to", "clck.ru"],
     "suspicious_tlds": ["xyz", "top", "online", "site", "club", "icu", "live", "shop", "info", "buzz", "click", "link", "vip", "rest", "work", "tk", "ml", "ga", "cf", "gq", "support", "help", "monster", "cyou", "sbs", "cfd", "quest", "bond", "win", "loan", "cam", "today", "store", "space", "website", "fun", "pw"],
     "official_suffixes": [".bank.in", ".gov.in", ".nic.in", ".fin.in"],
-    "official_domains": ["rbi.org.in", "npci.org.in", "bhimupi.org.in", "onlinesbi.sbi", "sbi.co.in", "sbicard.com", "hdfcbank.com", "icicibank.com", "axisbank.com", "kotak.com", "pnbindia.in", "bankofbaroda.in", "canarabank.com", "unionbankofindia.co.in", "yesbank.in", "indusind.com", "idbibank.in", "federalbank.co.in", "bandhanbank.com", "irctc.co.in", "amazon.in", "amazon.com", "flipkart.com", "jio.com", "airtel.in", "myvi.in", "bsnl.co.in", "paytm.com", "phonepe.com", "pay.google.com", "licindia.in", "nsdl.co.in", "cdslindia.com", "nseindia.com", "bseindia.com", "swiggy.com", "zomato.com", "myntra.com", "meesho.com", "bsnl.in"],
+    "official_domains": ["rbi.org.in", "npci.org.in", "bhimupi.org.in", "onlinesbi.sbi", "sbi.co.in", "sbicard.com", "hdfcbank.com", "icicibank.com", "axisbank.com", "kotak.com", "pnbindia.in", "bankofbaroda.in", "canarabank.com", "unionbankofindia.co.in", "yesbank.in", "indusind.com", "idbibank.in", "federalbank.co.in", "bandhanbank.com", "irctc.co.in", "amazon.in", "amazon.com", "flipkart.com", "jio.com", "airtel.in", "myvi.in", "bsnl.co.in", "paytm.com", "phonepe.com", "pay.google.com", "licindia.in", "nsdl.co.in", "cdslindia.com", "nseindia.com", "bseindia.com", "swiggy.com", "zomato.com", "myntra.com", "meesho.com", "bsnl.in", "bescom.co.in", "mahadiscom.in", "uppcl.org", "tatapower.com", "tatapower-ddl.com", "bsesdelhi.com", "icicilombard.com", "bluedart.com", "fedex.com", "dhl.com"],
     "brand_tokens": ["sbi", "onlinesbi", "yono", "hdfc", "icici", "axis", "kotak", "pnb", "bankofbaroda", "baroda", "canara", "unionbank", "indianbank", "ucobank", "idbi", "yesbank", "indusind", "federalbank", "bandhan", "paytm", "phonepe", "gpay", "googlepay", "bhim", "npci", "rbi", "uidai", "aadhaar", "aadhar", "incometax", "itrefund", "epfo", "pmkisan", "irctc", "fedex", "dhl", "bluedart", "indiapost", "amazon", "flipkart", "jio", "airtel", "bsnl", "bescom", "msedcl", "mahadiscom", "tneb", "uppcl", "bses", "tatapower", "parivahan", "echallan", "kyc", "reward", "rewards", "cashback", "refund", "lottery", "kbc"]
   },
   "signals": {
@@ -458,6 +458,16 @@
         "hi": "इसमें लिंक या ऐप के ज़रिए सरकारी योजना का फ़ायदा देने की बात है। सरकारी योजनाओं के लिए CSC, बैंक या आधिकारिक पोर्टल पर आवेदन होता है।"
       }
     },
+    "scheme_fee": {
+      "weight": 3.0,
+      "hard": false,
+      "category": "govt_scheme",
+      "show": true,
+      "reason": {
+        "en": "It asks you to send money to a phone number, UPI ID or link to get a government scheme or card. Government benefits are never given for money sent this way; Ayushman and e-Shram cards are free.",
+        "hi": "इसमें सरकारी योजना या कार्ड के लिए किसी नंबर, UPI ID या लिंक पर पैसे भेजने को कहा गया है। सरकारी फ़ायदे ऐसे भेजे पैसों से नहीं मिलते; आयुष्मान और ई-श्रम कार्ड मुफ़्त बनते हैं।"
+      }
+    },
     "challan_link": {
       "weight": 2.5,
       "hard": false,
@@ -747,8 +757,8 @@
         "hi": "नकली सरकारी योजना"
       },
       "actions": {
-        "en": ["Government schemes do not ask you to install apps from links.", "Apply only at the CSC, your bank, or the official portal.", "Use Sahayak's 'What am I owed?' to check schemes safely."],
-        "hi": ["सरकारी योजनाएँ लिंक से ऐप डालने को नहीं कहतीं।", "आवेदन सिर्फ़ CSC, अपने बैंक या आधिकारिक पोर्टल पर करें।", "योजनाओं की सुरक्षित जानकारी के लिए सहायक में 'मेरा हक क्या है?' देखें।"]
+        "en": ["Government schemes never ask you to install an app from a link, or to send money to a phone number.", "Apply only at the CSC, your bank, or the official portal.", "Use Sahayak's 'What am I owed?' to check schemes safely."],
+        "hi": ["सरकारी योजनाएँ लिंक से ऐप डालने या किसी नंबर पर पैसे भेजने को नहीं कहतीं।", "आवेदन सिर्फ़ CSC, अपने बैंक या आधिकारिक पोर्टल पर करें।", "योजनाओं की सुरक्षित जानकारी के लिए सहायक में 'मेरा हक क्या है?' देखें।"]
       }
     },
     "govt_payment": {

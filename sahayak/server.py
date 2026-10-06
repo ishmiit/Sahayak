@@ -52,9 +52,16 @@ egress.install()  # count every outbound attempt this process makes (it should n
 
 
 def _warm_model() -> None:
-    """Load the models in the background so the first explanation, the first spoken
-    sentence and the first recognised answer are not cold starts."""
+    """Load the models in the background so the first check, the first explanation, the first
+    spoken sentence and the first recognised answer are not cold starts."""
     def _warm() -> None:
+        try:
+            # Compile the signal lexicons, fit the pattern matcher and load the scheme rules, so the
+            # first person's check takes milliseconds too (nothing is counted: this is not api_check).
+            check_message_full("warm up", input_type="text")
+            get_navigator()
+        except Exception:  # noqa: BLE001 - warm-up is best effort
+            pass
         try:
             speaker = get_speaker()
             for lang, voices in speaker.voices().items():
@@ -633,6 +640,24 @@ def lan_addresses() -> list[str]:
     return out
 
 
+# ---------------------------------------------------------------- packs for the phone
+# The phone app carries its own copy of the scam check and the benefits interview (web/checker.js,
+# web/navigator.js), so it keeps working at home, away from the node. It needs the same packs the node
+# uses; the node has already verified their signatures, and the phone's service worker caches them.
+
+PHONE_PACKS = ("fraud", "scam_patterns", "fraud_model", "schemes", "demo")
+
+
+@app.get("/phone-packs/{name}.json", include_in_schema=False)
+def phone_pack(name: str) -> JSONResponse:
+    if name not in PHONE_PACKS:
+        raise HTTPException(status_code=404, detail="no such pack")
+    pack = get_pack(name)
+    return JSONResponse({"name": pack.name, "version": pack.version, "date": pack.date, "sha256": pack.sha256,
+                         "signed_by": pack.signed_by, "data": pack.data},
+                        headers={"Cache-Control": "no-cache"})  # revalidated on every visit to the node
+
+
 # ---------------------------------------------------------------- the phone app
 
 settings = get_settings()
@@ -655,7 +680,7 @@ app.mount("/app", StaticFiles(directory=settings.web_dir), name="app")
 
 @app.exception_handler(404)
 async def not_found(request: Request, exc: Exception) -> JSONResponse:
-    if request.url.path.startswith("/api/"):
+    if request.url.path.startswith(("/api/", "/phone-packs/")):
         detail = getattr(exc, "detail", "Not found")
         return JSONResponse({"detail": detail}, status_code=404)
     # Captive-portal probes and unknown paths land on the app.

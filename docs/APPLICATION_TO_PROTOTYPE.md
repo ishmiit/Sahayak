@@ -1,7 +1,7 @@
 # Sahayak: from the application to the working prototype
 
 The application (Inclusive Innovation for Bharat, Roshan Raj) described the idea and a clickable demo. The prototype submitted on
-8 October 2026 is working software: a node, a phone web app and an operator console, with 334 automated tests and a benchmark
+8 October 2026 is working software: a node, a phone web app and an operator console, with 360 automated tests and a benchmark
 behind every number. Building it changed some choices. Each change below was made because a measurement said so.
 
 | The application said | The prototype does | Why |
@@ -14,7 +14,7 @@ behind every number. Building it changed some choices. Each change below was mad
 | Voice-first, vernacular | Offline speech in and out in Hindi and English; Hinglish text; amounts read as words; "I heard …, is that right?" before an answer is used | Two languages done properly first. Hindi word error 15.4% on Google's FLEURS test set. More languages are a content pack |
 | −90% query resolution; 70–90% lower cost per user | Not claimed for Sahayak | These were not measured for Sahayak |
 | Health and learning on the same platform | Not built. Finance only: scam checks and benefits | The flagship first |
-| An interactive phone-style demo | Working software you can run, plus a jury kit of test cards with an answer key produced by Sahayak itself | The prototype stage asked for a running product |
+| An interactive phone-style demo | Working software you can run, plus a jury kit of test cards with an answer key produced by Sahayak itself; after one visit the phone checks messages and runs the benefits interview by itself, offline, with answers identical to the node's on every benchmark case, and a stand-alone build runs in any phone browser | The prototype stage asked for a running product, and scams arrive at home, not at the counter |
 
 **Added beyond the application:** UPI QR checks ("a QR never brings money in"), screenshots read offline, phone-call
 descriptions, a 1930 complaint draft, an operator console with an "Ask the agent" queue and impact counters with no

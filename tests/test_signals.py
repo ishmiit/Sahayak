@@ -3,6 +3,7 @@ messages most likely to cause false alarms."""
 import pytest
 
 from sahayak.fraud import check_message
+from sahayak.packs import get_pack
 
 
 def ids(card):
@@ -35,6 +36,8 @@ def ids(card):
      None, "text", "scam", "investment_promise"),
     ("Dear customer, your HDFC Bank account will be suspended. Update PAN now: hdfc-pan-update.top",
      "9812345678", "text", "scam", "link_lookalike"),
+    ("If you did not make this payment of Rs 4,999, approve the request in Google Pay to reverse it.",
+     None, "text", "scam", "upi_receive"),
 ])
 def test_scams(text, sender, itype, verdict, signal):
     card = check_message(text, sender=sender, input_type=itype)
@@ -70,6 +73,12 @@ def test_genuine_messages_are_not_flagged(text, sender):
     ("Your Ola ride is confirmed. Driver Suresh arriving in 4 minutes. Share OTP 4417 with the driver to start the ride.", "VM-OLACAB-S"),
     ("Congratulations! You have earned 250 reward points on your HDFC Bank credit card.", "AX-HDFCBK-P"),
     ("Your BSNL landline bill of Rs 590 is generated. Pay by 20 Oct at portal.bsnl.in or any BSNL office.", "VM-BSNLIN-S"),
+    # found 6 Oct: warnings about refund and collect-request scams were themselves called scams, and a
+    # refund report must not read as the collect-request trick
+    ("Never approve a collect request from strangers to get a refund. A request always takes money from you. -NPCI", "AD-NPCIUP-G"),
+    ("Beware: fraudsters ask you to approve requests or scan QR codes for refunds. Report on 1930.", None),
+    ("We have accepted your request for a refund of Rs 499. It will reach your account in 5-7 days. -Myntra", "VM-MYNTRA-S"),
+    ("आपकी रिफंड रिक्वेस्ट स्वीकार कर ली गई है। ₹499 पांच दिन में आपके खाते में आ जाएंगे।", None),
 ])
 def test_known_false_alarms_stay_fixed(text, sender):
     assert check_message(text, sender=sender)["verdict"] == "no_signs"
@@ -82,9 +91,36 @@ def test_known_false_alarms_stay_fixed(text, sender):
     ("Tumhari photos edit karke ghar walon ko bhej dunga, 10,000 abhi bhejo is UPI pe", "text"),
     # found by the console tests: a masked card number ("XX4421") was taken for an OTP code
     ("Sunita ji, aapke card XX4421 ka OTP batao turant warna block ho jayega", "text"),
+    # the collect-request trick (ScamBench sb-0109, logged 2 Oct, fixed 6 Oct): approving a request sends money
+    ("I am sending Rs 5000 to you by mistake, please accept the request on PhonePe and return it", "text"),
+    ("Bhai galti se maine aapko 2000 bhej diye, request accept kar do, paise wapas chahiye", "text"),
+    ("मैंने गलती से आपको 3000 रुपये भेज दिए हैं। कृपया रिक्वेस्ट स्वीकार करें और पैसे वापस करें।", "text"),
 ])
 def test_known_misses_stay_fixed(text, itype):
     assert check_message(text, input_type=itype)["verdict"] in ("scam", "suspicious")
+
+
+SCHEME_FEE_ON = "scheme_fee" in get_pack("fraud").data["signals"]
+
+
+@pytest.mark.skipif(not SCHEME_FEE_ON, reason="fraud pack 1.4.0 not signed and installed yet (scripts/pack_update_1_4.py)")
+@pytest.mark.parametrize("text,sender,want", [
+    # money sent to a number, UPI ID or link for a free government card or scheme
+    ("आयुष्मान कार्ड बनवाने के लिए 500 रुपये इस नंबर पर भेजें 9876012345, कार्ड घर आ जाएगा।", "9876012345", "scam"),
+    ("Aapka Ayushman card band hone wala hai. Card chalu rakhne ke liye 299 rupaye is UPI par bhejein: ayushman.help@ybl", None, "scam"),
+    ("e-Shram card yojana: Rs 100 registration ke liye 9812233445 par Google Pay karein, card 2 din mein aayega.", None, "scam"),
+    ("Pension yojana list mein naam ke liye Rs 500 pay karein is number par 9123456780", None, "scam"),
+    # the same words, but advice, a counter, or a genuine notice
+    ("आयुष्मान कार्ड मुफ़्त है। कार्ड के लिए किसी को पैसे न भेजें। शिकायत 14555 पर करें।", "VM-NHAPMJ-G", "no_signs"),
+    ("Do not pay anyone for an Ayushman or e-Shram card. Both are free at your CSC. Report agents to 14555.", "VM-CSCSPV-G", "no_signs"),
+    ("Ayushman card camp at Gram Panchayat Bhavan on 9 Oct, 10 AM. Bring Aadhaar. Free of cost. -CSC", "VM-CSCSPV-G", "no_signs"),
+    ("PM-KISAN: Rs 2000 ki kist aapke bank khate mein bhej di gayi hai. Status pmkisan.gov.in par dekhein.", "VM-PMKSAN-G", "no_signs"),
+])
+def test_paying_for_a_free_scheme_card(text, sender, want):
+    card = check_message(text, sender=sender)
+    assert card["verdict"] == want, (card["verdict"], ids(card))
+    if want == "scam":
+        assert "scheme_fee" in ids(card) and card["category"]["id"] == "govt_scheme"
 
 
 def test_never_says_safe():

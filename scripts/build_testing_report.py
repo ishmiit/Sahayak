@@ -80,6 +80,7 @@ def main(log: Path | None = None) -> None:
     sb, sch, fleurs, lat, ocr = (load("scambench_v0_test.json"), load("schemebench_v1.json"), load("voicebench_fleurs_hi.json"),
                                  load("voice_latency.json"), load("ocrbench_v0.json"))
     rt = load("redteam_v0.json")
+    phone, field = load("phone_parity.json"), load("field_v0.json")
     rt1 = rt["first"]["systems"] if rt else None
     rtl = rt["latest"]["systems"]["full"] if rt and rt.get("latest") else None
     calls = call_bench()
@@ -120,6 +121,13 @@ def main(log: Path | None = None) -> None:
         *([f"| Red team | disguised scams flagged {rt1['full']['scams_flagged']} / {rt1['full']['scams']} on the first run (blocklist {rt1['blocklist']['scams_flagged']} / {rt1['blocklist']['scams']}); hard genuine messages left alone {rt1['full']['genuine_left_alone']} / {rt1['full']['genuine']} | 74 messages written to get past Sahayak |"] if rt1 else []),
         f"| Call descriptions | {calls[0]} / {calls[1]} scam calls flagged, {calls[2]} / {calls[3]} genuine calls left alone | "
         "26 descriptions written by the team (a tuning set) |",
+        *([f"| On the phone, offline | the phone's own engines give the node's exact answer on {phone['fraud']['cases']:,} scam checks "
+           f"and {phone['navigator']['cases']:,} benefits cases ({phone['fraud']['mismatches'] + phone['navigator']['mismatches']} "
+           f"mismatches); a check takes {phone['fraud']['check_ms_median']} ms | `bench/eval_phone_parity.py`, "
+           "`scripts/check_phone_offline.py` |"] if phone else []),
+        *([f"| With real people | {field['people']} people at {field['meta']['place']}: message cards judged right "
+           f"{pct(field['cards']['before']['rate'], 0)} on their own, {pct(field['cards']['with_sahayak']['rate'], 0)} with Sahayak | "
+           "`bench/eval_field.py`, `docs/field/FIELD_TEST_PROTOCOL.md` |"] if field and field.get("cards") else []),
         "| Zero egress | Sahayak's own process opens no outbound connection and makes no outside DNS lookup (counted by an audit hook "
         "on every socket); the firewall scripts block everything but the local network | `/app/node.html`, `tests/test_node.py` |",
         "| Privacy of the impact export | messages full of names, phone numbers and UPI IDs leave no trace in the export; counts under 5 "
@@ -227,6 +235,12 @@ def main(log: Path | None = None) -> None:
         "check they are counted. The firewall scripts (`scripts/firewall/`) add a block rule for every non-local address.",
         "- **Signed packs.** Every content pack carries an Ed25519 signature; the tests alter one amount in the scheme pack and check "
         "the node refuses it, and that an unsigned pack is refused in strict mode.",
+        *(["- **On the phone.** After one visit to the node's HTTPS address (or to the stand-alone site, `scripts/build_tryit.py`), "
+           "the phone keeps the app, its own scam check (`web/checker.js`) and benefits interview (`web/navigator.js`) and the signed "
+           "packs, and answers by itself with no node and no internet; nothing leaves the phone. `bench/eval_phone_parity.py` replays "
+           f"{phone['fraud']['cases']:,} scam-check and {phone['navigator']['cases']:,} benefits cases through both and compares every "
+           f"field: {phone['fraud']['mismatches'] + phone['navigator']['mismatches']} mismatches. `scripts/check_phone_offline.py` "
+           "drives a phone browser: one visit, network off, then a scam check, a UPI QR check and a benefits interview."] if phone else []),
         "- **Privacy.** The impact export is tested with messages full of names, phone numbers and UPI IDs: none appear in it; counts "
         "under 5 show as \"<5\"; the rupees-at-risk total is withheld until there are 5 flagged messages; the export's signature "
         "verifies. The case log refuses entries without consent, drops any name or number field, is unreadable on disk, and "
@@ -239,10 +253,11 @@ def main(log: Path | None = None) -> None:
         "",
         "- ScamBench v1 (600+ real messages, collected with consent) and a red team from outside the team are still to come.",
         "- VoiceBench recordings, real phone screenshots, and a field test with real users and an operator are team tasks.",
-        "- Known misses on the ScamBench test split: an \"approve the request\" refund scam and a \"pay the booking amount\" "
-        "government-scheme scam.",
+        "- Known miss on the ScamBench test split: a \"pay the booking amount\" government-scheme scam. The \"approve the "
+        "request\" refund scam was fixed after the freeze (6 Oct); the frozen numbers above still count it as missed.",
         "- The Hindi voices and the optional language model are licensed for non-commercial use only.",
-        "- HTTPS on phones needs a domain and certificate; until then voice input on phones uses the recorder-app fallback.",
+        "- HTTPS on phones needs a domain and certificate; until then voice input on phones uses the recorder-app fallback, and "
+        "phones keep no offline copy from the node (the stand-alone site, on any HTTPS host, works offline after one visit).",
         "",
     ]
     out = ROOT / "docs" / "TESTING_REPORT.md"

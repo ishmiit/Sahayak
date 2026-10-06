@@ -133,6 +133,27 @@ _UPI_RECEIVE_PATTERNS = [re.compile(p) for p in (
     r"(?:paise|paisa)\s+(?:paane|pane|lene)\s+ke\s+liye\s+(?:\S+\s+){0,3}?(?:pin|qr|scan)",
     r"(?:राशि|पैसे|पैसा|रकम|रुपये)\s+(?:प्राप्त|पाने|लेने)\s+(?:करने\s+)?के\s+लिए\s+(?:\S+\s+){0,6}?(?:पिन|क्यूआर|qr|स्कैन)",
 )]
+# The collect-request trick: "to reverse it, approve the request we sent you", "I sent Rs 5000 by mistake,
+# accept the request and return it". Approving a UPI request sends money out; it never reverses or refunds
+# anything. Only the instruction counts ("approve", "accept kar do"), never a report ("request accepted").
+_COLLECT_VERB = re.compile(r"(?<![a-z])(?:approve|accept)(?![a-z])|स्वीकार|अप्रूव")
+_COLLECT_WHY = re.compile(r"reverse|return|refund|mistake|galti|wapas|vapas|गलती|वापस|रिफंड|लौटा")
+_COLLECT_REQUEST = [(re.compile(p), why) for p, why in (
+    # instruction, then why: "accept the request on PhonePe and return it"
+    (r"(?<![a-z])(?:approve|accept)(?![a-z])\W+(?:\w+\W+){0,4}?(?:requests?|रिक्वेस्ट)(?![a-z])(?:\W+\w+){0,10}?\W+"
+     r"(?:reverse|return|refund|back|wapas|vapas|वापस|mistake|galti|गलती)", False),
+    # why, then instruction: "to reverse it approve the request", "by mistake, please accept the request"
+    (r"(?:reverse|return|refund|mistake|galti|wapas|vapas|गलती|वापस)\W+(?:\w+\W+){0,8}?(?<![a-z])(?:approve|accept)(?![a-z])"
+     r"\W+(?:\w+\W+){0,3}?(?:requests?|रिक्वेस्ट)(?![a-z])", False),
+    # Hindi word order: "रिक्वेस्ट स्वीकार करें", "request accept kar do" (with a why anywhere in the message)
+    (r"(?:requests?|रिक्वेस्ट|अनुरोध)\W+(?:\S+\s+){0,2}?(?:(?:approve|accept)\s+(?:kar\s*do|karo|karein|karen|kar\s+dein|kijiye)"
+     r"|(?:स्वीकार|अप्रूव)\s+(?:करें|करो|कर\s+दें|कर\s+दो|कीजिए))", True),
+)]
+_WALLET_TERMS = re.compile(r"(?<![a-z])(?:paytm|phonepe|phone pe|google pay|gpay|bhim|wallet|deduct\w*|debit\w*)(?![a-z])")
+# Sending money, for scheme_fee: "500 रुपये इस नंबर पर भेजें", "is UPI par 299 bhejo", "pay Rs 100 to this number".
+_SEND_MONEY = re.compile(
+    r"(?<![a-z])(?:send|pay|transfer|bhejo|bhejein|bhejen|bhej\s+do|bhejiye|jama\s+karo|jama\s+karein|jama\s+kare)(?![a-z])"
+    r"|(?:भेजें|भेजो|भेज\s+दें|भेज\s+दो|भेजिए|जमा\s+करें|जमा\s+करो|भुगतान\s+करें)(?![ऀ-ॿ])")
 # Pay (or send) money first to receive, release, withdraw or settle something.
 _PAY_FIRST = re.compile(
     r"(?:pay|paying|send|deposit|bharo|bharna|jama)\s+(?:\w+\s+){0,5}?(?:tax|gst|fee|fees|charge|charges|duty|deposit|"
@@ -241,10 +262,23 @@ class SignalEngine:
             fire("personal_info_request")
         for pat in _UPI_RECEIVE_PATTERNS:
             m = pat.search(n)
-            # also reject a negation inside the match: "to receive money you never need to enter your PIN"
-            if m and not self.negated(n, m.start(), m.end()) and not self.L["negations_pre"].search(n, m.start(), m.end()):
+            # also reject a negation inside the match: "to receive money you never need to enter your PIN",
+            # and a warning about the trick: "fraudsters ask you to scan QR codes for refunds"
+            if (m and not self.negated(n, m.start(), m.end()) and not self.L["negations_pre"].search(n, m.start(), m.end())
+                    and not self.L["advisory"].search(_sentence(n, m.start(), m.end()))):
                 fire("upi_receive", phrase=m.group(0)[:60])
                 break
+        if "upi_receive" not in fired and (L["money_terms"].search(n) or ctx.amounts or ctx.upi_ids or _WALLET_TERMS.search(n)):
+            for pat, needs_why in _COLLECT_REQUEST:
+                m = pat.search(n)
+                if not m or (needs_why and not _COLLECT_WHY.search(n)):
+                    continue
+                verb = _COLLECT_VERB.search(n, m.start(), m.end())
+                # negation is checked at the verb: "never approve a request" is advice, while "if you did
+                # not make this payment, approve the request to reverse it" is still the trick
+                if verb and not self.advisory_context(n, verb):
+                    fire("upi_receive", phrase=m.group(0)[:60])
+                    break
 
         # --- links
         for u in nonofficial:
@@ -356,7 +390,9 @@ class SignalEngine:
             fire("new_number")
         if L["sim_terms"].search(n) and L["sim_action"].search(n):
             fire("sim_swap")
-        refunds, actions = L["refund_terms"].finditer(n), L["action_terms"].finditer(n) + calls
+        refunds = L["refund_terms"].finditer(n)
+        # "do not click any link offering a refund" and "never approve a request to get a refund" are advice
+        actions = [a for a in L["action_terms"].finditer(n) + calls if not self.advisory_context(n, a)]
         if refunds and actions and _near(refunds, actions, 60):
             fire("refund_bait")
         media = L["sextortion_media"].finditer(n)
@@ -367,6 +403,13 @@ class SignalEngine:
         install = L["install_terms"].finditer(n)
         if L["scheme_terms"].search(n) and (nonofficial or install or apk):
             fire("govt_scheme_bait")
+        # Money sent to a phone number, UPI ID or link to get a scheme or card. Ayushman and e-Shram cards are
+        # free; a fee paid at the counter has no number or link and is not this. On once the fraud pack defines
+        # scheme_fee (pack 1.4.0, scripts/pack_update_1_4.py); web/checker.js mirrors it.
+        if ("scheme_fee" in self.defs and L["scheme_terms"].search(n) and (ctx.mobiles or ctx.upi_ids or nonofficial)
+                and (ctx.amounts or L["money_terms"].search(n))
+                and any(not self.advisory_context(n, m) for m in _SEND_MONEY.finditer(n))):
+            fire("scheme_fee")
         if L["challan_terms"].search(n) and nonofficial:
             fire("challan_link")
         if L["tax_refund_terms"].search(n) and (nonofficial or "personal_info_request" in fired):

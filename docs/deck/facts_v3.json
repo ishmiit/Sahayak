@@ -1,0 +1,27 @@
+{
+  "note": "Outside numbers on deck v3, each checked on 6 Oct 2026 against the source named (primary where one exists). Edit here, not in the deck builder. Sahayak's own numbers come from bench/results/*.json, never from this file.",
+  "tryit_url": "https://roshworldwide.github.io/optum-v2/",
+  "fraud_2025": {"value": "₹22,495 crore", "text": "lost to financial cyber fraud in 2025, across 24 lakh complaints", "source": "MHA / I4C, Rajya Sabha, Feb 2026", "url": "https://www.dynamitenews.com/national/cyber-frauds-mount-to-rs22495-crore-in-2025-over-rs8000-crore-saved-through-rapid-response-system"},
+  "seniors_2025": {"value": "₹4,005 crore", "text": "lost by senior citizens in 2025 (1,03,488 complaints)", "source": "MHA, Rajya Sabha, 5 Aug 2026", "url": "https://www.newkerala.com/news/a/over-lakh-senior-citizens-463-lakh-women-lodged-614.htm"},
+  "upi_families": {"value": "1 in 5", "text": "families with a UPI user hit by UPI fraud in the last 3 years; 51% never reported it", "source": "LocalCircles survey, 2025", "url": "https://www.localcircles.com/a/press/page/upi-fraud-complaint"},
+  "pension_awareness": {"value": "55%", "text": "of people aged 60+ know the old-age pension exists; 29% of poor elders receive it", "source": "LASI Wave 1, 2017–18 (IIPS)", "url": "https://iipsindia.ac.in/sites/default/files/105_Social_securty_for_elderly-CUP.pdf"},
+  "jan_dhan": {"value": "59 crore", "text": "Jan Dhan accounts; about 1 in 4 is inoperative", "source": "PIB, Aug 2026; Finance Ministry RTI, Sep 2026", "url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/aug/doc_9716_20260827_14055201.pdf"},
+  "vay_vandana": {"value": "1.1 crore of ~6 crore", "text": "seniors aged 70+ had their Ayushman Vay Vandana card by Feb 2026", "source": "MoHFW, Feb 2026; Cabinet, Sep 2024", "url": "https://pmindia.gov.in/en/news_updates/cabinet-approves-health-coverage-to-all-senior-citizens-of-the-age-70-years-and-above-irrespective-of-income-under-ayushman-bharat-pradhan-mantri-jan-arogya-yojana-ab-pm-jay/"},
+  "csc_card_fee": {"value": "₹20", "text": "paid to the CSC network per first-time Ayushman card, and per e-Shram registration; free to the citizen", "source": "NHA–CSC MoU, 2021; Ministry of Labour", "url": "https://biovoicenews.com/nha-signs-mou-with-meity-to-issue-new-ayushman-bharat-pm-jay-cards-to-beneficiaries-for-free/"},
+  "vle_income": {"value": "86%", "text": "of rural village-level entrepreneurs earned under ₹500 a month", "source": "CAG audit, reported Apr 2026", "url": "https://www.medianama.com/2026/04/223-cscs-inactive-cag-audit-exposes-structural-gaps-rural-digital-services-network/"},
+  "cscs": {"value": "6 lakh", "text": "functional CSCs, 4.7 lakh of them at gram-panchayat level", "source": "MeitY, Rajya Sabha, Mar 2025", "url": "https://rsdebate.nic.in/bitstream/123456789/759405/1/PQ_267_21032025_S237_p34_p35.pdf"},
+  "rbi_compensation": {"value": "1 Jan 2027", "text": "RBI compensation starts: 85% of a digital-fraud loss up to ₹25,000, shared by RBI and the banks, only if reported within 5 days", "source": "RBI Directions, 24 Jun 2026", "url": "https://rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63011"},
+  "airtel": {"value": "68.7%", "text": "fall in fraud losses on Airtel's network after its AI spam filter, as Airtel reports it", "source": "Airtel, citing I4C data, Sep 2025", "url": "https://www.outlookbusiness.com/corporate/anti-fraud-offensive-led-to-687-drop-in-value-of-financial-losses-airtel"},
+  "truecaller": {"value": "339 million", "text": "Truecaller users in India (Android, monthly)", "source": "Truecaller, Q2 2026", "url": "https://mb.cision.com/Main/20429/4375764/4197700.pdf"},
+  "google_scam": {"value": "Pixel 9+", "text": "only, for Google's on-device call-scam alerts in India (Pixel: under 1% of phones)", "source": "TechCrunch, Nov 2025", "url": "https://techcrunch.com/2025/11/20/google-steps-up-ai-scam-protection-in-india-but-gaps-remain"},
+  "myscheme": {"value": "4,700+", "text": "schemes in 15 languages, online, self-serve", "source": "myScheme.gov.in, Oct 2026", "url": "https://www.myscheme.gov.in/faqs"},
+  "haqdarshak": {"value": "₹19,233 crore", "text": "in benefits for 6.7 million citizens through trained agents, online", "source": "Haqdarshak impact analysis, 2025", "url": "https://haqdarshak.com/annual_impact_analysis_2025"},
+  "rural_internet": {"value": "83%", "text": "of rural households have internet at home; 82% own a smartphone", "source": "NSO Telecom survey, May 2025", "url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/may/doc2025529560001.pdf"},
+  "node_cost": {"value": "₹25,000–35,000", "text": "for a node: an N150 mini-PC (8–16 GB) or a refurbished i5 laptop", "source": "Amazon.in listings, 6 Oct 2026", "url": "https://www.amazon.in/dp/B00VFKOV1I"},
+  "partners": [
+    {"who": "CSC village-level entrepreneur or bank business correspondent", "role": "hosts the node and the field morning", "status": "seeking"},
+    {"who": "A rural NGO or SHG federation", "role": "invites participants, checks the Hindi and the consent", "status": "seeking"},
+    {"who": "A bank branch, regional office or SLBC", "role": "BC points for the pilot, real messages for ScamBench v1", "status": "seeking"},
+    {"who": "Haqdarshak or myScheme", "role": "scheme content beyond 12 central schemes; Sahayak is the offline front door", "status": "seeking"}
+  ]
+}

@@ -54,10 +54,14 @@ listed here; they are **not** reflected in the numbers above and will be measure
 | sb-0227 | False alarm on an NPCI advisory ("you never need to enter your PIN") | Negation inside the matched phrase was not checked | UPI-receive matches now reject an inner negation |
 | sb-0235 | False alarm on "No registration fee" | Fee phrases ignored a preceding "no" | Fee phrases now skip "no", "without", "free", "बिना" |
 | sb-0016 | Missed "read it to me" OTP request | Phrase not in the share-verb list | Added "read it to me", "read it out", "read the code/OTP" |
-| sb-0109 | Missed "approve the request" refund scam | Approval without an explicit receive/refund word nearby | Not fixed; logged for v1 |
+| sb-0109 | Missed "approve the request" refund scam | Approval without an explicit receive/refund word nearby | Fixed 6 Oct in `signals.py` (no pack change): an instruction to approve or accept a request, tied to reversing, returning or refunding money or to "by mistake", fires `upi_receive`; reports such as "your refund request was accepted" and warnings such as "never approve a request" do not |
 | sb-0148 | Missed "free solar panels, pay booking amount on this number" | No pay-to-book pattern | Not fixed; logged for v1 |
 | (not a test item) | Found 3 Oct by the console tests: "card XX4421 ka OTP batao" was only Suspicious | A masked card number was read as an OTP code, which marks a message as delivering a code | Digits right after a mask (XX, **) no longer count as a code (`signals.py`); regression test added |
 
 Re-running the test split with every fix above (3 Oct): full system recall 94.6%, precision 100%, false alarms 0%. These
 numbers are **not** an unbiased estimate, because the split's own errors guided the fixes; the frozen numbers above
 remain the result to quote until ScamBench v1.
+
+6 Oct, with the sb-0109 fix: test split recall 97.3% (36/37), false alarms 0/23; train and dev, the red-team set and the
+call set give the same verdict on every message as before the change (356 messages compared one by one). Same caveat:
+not an unbiased estimate.

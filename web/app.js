@@ -5,7 +5,10 @@
 
   const T = {
     hi: {
-      node_pill: "बिना इंटरनेट",
+      node_pill: "बिना इंटरनेट", node_pill_phone: "फ़ोन पर · बिना इंटरनेट",
+      foot_phone: "सहायक इसी फ़ोन पर चल रहा है। आप जो लिखते हैं, वह फ़ोन से बाहर नहीं जाता।",
+      phone_mode_note: "अभी नोड से नहीं जुड़े: जाँच इसी फ़ोन पर होती है और कुछ भी बाहर नहीं जाता। बोलकर पूछने और एजेंट से मदद के लिए CSC के Wi-Fi पर आएँ।",
+      checked_phone: "इस फ़ोन पर जाँच", qr_no_detector: "यह फ़ोन नोड के बिना QR नहीं पढ़ सकता। CSC पर आकर जाँचें, या QR के साथ लिखा मैसेज लिखकर जाँचें।",
       home_title: "नमस्ते! मैं सहायक हूँ।",
       home_sub: "मैं मैसेज में ठगी पकड़ सकता हूँ और बता सकता हूँ कि आपका हक क्या है, बिना इंटरनेट के।",
       tile_check: "मैसेज जाँचें", tile_check_sub: "क्या यह ठगी है?",
@@ -67,14 +70,17 @@
       details: "कागज़, जगह और कारण", why_label: "क्यों", benefit_label: "क्या मिलता है", docs_label: "कौन-से कागज़ ले जाएँ",
       where_label: "कहाँ जाएँ", say_label: "काउंटर पर ऐसे कहें", how_label: "कैसे पता करें", source_label: "स्रोत", checked_label: "जाँचा",
       have_label: "मुझे यह पहले से मिल रहा है",
-      nav_slip: "पर्ची बनाएँ (CSC के लिए)", nav_change: "पिछला जवाब बदलें", nav_restart: "फिर से शुरू करें",
+      health_title: "पहले सेहत: मुफ़्त इलाज", nav_slip: "पर्ची बनाएँ (CSC के लिए)", nav_change: "पिछला जवाब बदलें", nav_restart: "फिर से शुरू करें",
       questions_asked: "सवाल",
       slip_title: "सहायक — योजना पर्ची", slip_answers: "जवाब", slip_schemes: "योजनाएँ", slip_date: "तारीख",
       slip_no_name: "नाम नहीं रखा गया", slip_qr: "QR कोड, जिसमें ये जवाब हैं",
       slip_operator: "CSC ऑपरेटर: QR में यही जवाब हैं, दोबारा पूछने की ज़रूरत नहीं।",
     },
     en: {
-      node_pill: "Offline",
+      node_pill: "Offline", node_pill_phone: "On phone · offline",
+      foot_phone: "Sahayak is running on this phone. Nothing you type leaves it.",
+      phone_mode_note: "Not connected to the node: checks run on this phone and nothing leaves it. For voice and help from the agent, come to the CSC's Wi-Fi.",
+      checked_phone: "Checked on this phone in", qr_no_detector: "This phone cannot read QR codes without the node. Check it at the CSC, or type the message that came with the QR.",
       home_title: "Namaste! I am Sahayak.",
       home_sub: "I can check a message for fraud and tell you what you are owed, without internet.",
       tile_check: "Check a message", tile_check_sub: "Is it a scam?",
@@ -136,7 +142,7 @@
       details: "Papers, place and reasons", why_label: "Why", benefit_label: "What you get", docs_label: "Papers to take",
       where_label: "Where to go", say_label: "Say this at the counter", how_label: "How to check", source_label: "Source", checked_label: "checked",
       have_label: "I already get this",
-      nav_slip: "Make a slip (for the CSC)", nav_change: "Change last answer", nav_restart: "Start again",
+      health_title: "Health first: free treatment", nav_slip: "Make a slip (for the CSC)", nav_change: "Change last answer", nav_restart: "Start again",
       questions_asked: "questions",
       slip_title: "Sahayak scheme slip", slip_answers: "Answers", slip_schemes: "Schemes", slip_date: "Date",
       slip_no_name: "No name kept", slip_qr: "QR code holding these answers",
@@ -152,7 +158,7 @@
 
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
-  const state = { lang: loadLang(), check: null, message: "", explanation: null, health: null };
+  const state = { lang: loadLang(), check: null, message: "", explanation: null, health: null, nodeless: false };
 
   function loadLang() {
     try { return localStorage.getItem("sahayak.lang") || "hi"; } catch { return "hi"; }
@@ -217,13 +223,112 @@
     if (el) el.remove();
   }
 
-  // ---------------------------------------------------------------- API
-  async function api(path, body) {
-    const res = await fetch(path, body ? {
-      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body),
-    } : {});
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  // ---------------------------------------------------------------- the node, or this phone on its own
+  // On the CSC's Wi-Fi every answer comes from the node. Away from it (at home, where the scam message
+  // or call actually arrives) the scam check and the benefits interview run in this browser instead, from
+  // the same packs the node verified and served, which the service worker keeps (web/checker.js,
+  // web/navigator.js). Nothing leaves the phone either way. The stand-alone build has no node at all.
+  // The stand-alone build marks its page with <meta name="sahayak-standalone"> (scripts/build_tryit.py).
+  const STANDALONE = Boolean(document.querySelector('meta[name="sahayak-standalone"]'));
+  const ROOT = STANDALONE ? "" : "/";  // static files: relative in the stand-alone build
+  const local = { ready: null, checker: null, nav: null, demo: null, packs: [] };
+  let nodeRetryAt = 0;  // after a failed call, go straight to the phone for a while instead of waiting again
+
+  class NodeUnreachable extends Error {}
+
+  function loadLocal() {
+    if (!local.ready) {
+      local.ready = (async () => {
+        const get = async (name) => {
+          const res = await fetch(`${ROOT}phone-packs/${name}.json`);
+          if (!res.ok) throw new Error(`pack ${name}: HTTP ${res.status}`);
+          return res.json();
+        };
+        const [fraud, patterns, model, schemes, demo] = await Promise.all(
+          ["fraud", "scam_patterns", "fraud_model", "schemes", "demo"].map(get));
+        local.checker = window.SahayakChecker.create({ fraud: fraud.data, patterns: patterns.data, model: model.data,
+          fraudSha256: fraud.sha256 });
+        local.nav = window.SahayakNavigator.create(schemes.data);
+        local.demo = demo.data;
+        local.packs = [fraud, patterns, model, schemes, demo].map(({ name, version, date, sha256, signed_by }) =>
+          ({ name, version, date, sha256, signed_by }));
+      })();
+      local.ready.catch(() => { local.ready = null; });  // try again next time
+    }
+    return local.ready;
+  }
+
+  async function nodeApi(path, body) {
+    if (STANDALONE || Date.now() < nodeRetryAt) throw new NodeUnreachable(path);
+    const ctl = new AbortController();
+    const timer = setTimeout(() => ctl.abort(), 4000);
+    let res;
+    try {
+      res = await fetch(path, {
+        signal: ctl.signal,
+        ...(body ? { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) } : {}),
+      });
+    } catch {
+      throw new NodeUnreachable(path);
+    } finally {
+      clearTimeout(timer);
+    }
+    if (!res.ok) throw Object.assign(new Error(`HTTP ${res.status}`), { status: res.status });
+    setNodeless(false);
     return res.json();
+  }
+
+  // What this phone can answer by itself, in the same shape as the node's API.
+  const LOCAL_API = {
+    "/api/check": (b) => ({ ...local.checker.check(b.text, { sender: b.sender, inputType: b.input_type }), where: "phone" }),
+    "/api/examples": () => local.demo,
+    "/api/navigator": () => local.nav.catalog(),
+    "/api/navigator/next": (b) => local.nav.next(b.answers || {}),
+    "/api/navigator/result": (b) => local.nav.result(b.answers || {}, b.already || []),
+  };
+
+  async function api(path, body) {
+    try {
+      return await nodeApi(path, body);
+    } catch (e) {
+      if (!(e instanceof NodeUnreachable) || !LOCAL_API[path]) throw e;
+      setNodeless(true);
+      await loadLocal();
+      return LOCAL_API[path](body || {});
+    }
+  }
+
+  // Without the node: no voice input (recognition runs on the node), no screenshot reading, no agent
+  // queue; QR codes only where the browser can read them itself.
+  function setNodeless(on) {
+    if (STANDALONE) on = true;
+    if (on) nodeRetryAt = Date.now() + 30000;
+    if (state.nodeless === on) return;
+    state.nodeless = on;
+    if (on) {
+      state.health = null;
+      voice.nodeOk = false;  // the phone's own voice reads the screens
+    } else {
+      loadHealth();
+    }
+    renderNodeMode();
+  }
+
+  function renderNodeMode() {
+    const off = Boolean(state.nodeless);
+    for (const [sel, key] of [["#node-pill [data-i18n]", "node_pill"], [".foot [data-i18n]", "foot"]]) {
+      const node = $(sel);
+      node.dataset.i18n = off ? `${key}_phone` : key;  // applyI18n keeps it on a language switch
+      node.textContent = t(node.dataset.i18n);
+    }
+    $("#phone-mode-note").hidden = !off;
+    $('input[name="mode"][value="ocr"]').closest("label").hidden = off;
+    $("#btn-agent-check").hidden = off;
+    $("#btn-agent-nav").hidden = off;
+    if (off && state.mode === "ocr") setMode("text");
+    setupMessageMic();
+    if (nav.question) renderQuestionMic();
+    renderVoiceStatus();
   }
 
   // ---------------------------------------------------------------- four ways in
@@ -250,15 +355,44 @@
   }));
 
   async function postImage(path, blob) {
-    const res = await fetch(path, { method: "POST", headers: { "Content-Type": blob.type || "application/octet-stream" }, body: blob });
+    if (STANDALONE || Date.now() < nodeRetryAt) throw new NodeUnreachable(path);
+    let res;
+    try {
+      res = await fetch(path, { method: "POST", headers: { "Content-Type": blob.type || "application/octet-stream" }, body: blob });
+    } catch {
+      throw new NodeUnreachable(path);
+    }
     if (!res.ok) throw Object.assign(new Error(`HTTP ${res.status}`), { status: res.status });
     return res.json();
   }
 
-  async function checkQR(blob) {
+  // Without the node: the browser's own QR reader (Chrome on Android has one), then the same UPI
+  // analysis and scam check as the node, on this phone. A demo card's payload needs no reader.
+  async function qrOnPhone(blob, payload) {
+    await loadLocal();
+    let text = payload;
+    if (!text) {
+      if (!("BarcodeDetector" in window)) throw Object.assign(new Error("no QR reader"), { status: 501 });
+      const codes = await new window.BarcodeDetector({ formats: ["qr_code"] }).detect(await createImageBitmap(blob));
+      if (!codes.length) throw Object.assign(new Error("no QR code"), { status: 422 });
+      text = codes[0].rawValue;
+    }
+    const { check_text: checkText, ...qr } = local.checker.analyseQR(text);
+    return { ...local.checker.check(checkText, { inputType: "qr" }), qr, where: "phone" };
+  }
+
+  async function checkQR(blob, payload) {
     toast(t("qr_reading"));
     try {
-      const card = await postImage(`/api/qr?lang=${state.lang}`, blob);
+      let card;
+      try {
+        if (!blob) throw new NodeUnreachable("qr");
+        card = await postImage(`/api/qr?lang=${state.lang}`, blob);
+      } catch (e) {
+        if (!(e instanceof NodeUnreachable)) throw e;
+        if (blob) setNodeless(true);
+        card = await qrOnPhone(blob, payload);
+      }
       hideToast();
       state.check = card; state.message = ""; state.explanation = null;
       renderResult(card);
@@ -266,7 +400,7 @@
       $("#headline").focus();
       if (voice.auto) speak(joinSpoken([card.label[state.lang], ...(card.qr.facts || []).map((f) => f[state.lang])]));
     } catch (e) {
-      toast(t(e.status === 422 ? "qr_none" : "err_network"));
+      toast(t(e.status === 422 ? "qr_none" : e.status === 501 ? "qr_no_detector" : "err_network"));
     }
   }
 
@@ -284,7 +418,7 @@
       $("#msg").focus();
       if (voice.auto) speak(t("ocr_review"));
     } catch (e) {
-      toast(t(e.status === 422 ? "ocr_none" : e.status === 503 ? "ocr_off" : "err_network"));
+      toast(t(e.status === 422 ? "ocr_none" : e.status === 503 || e instanceof NodeUnreachable ? "ocr_off" : "err_network"));
     }
   }
 
@@ -299,8 +433,9 @@
     let list = [];
     try { list = (await api("/api/examples")).qr_examples || []; } catch { list = []; }
     $("#qr-examples").replaceChildren(...list.map((ex) => el("button", { type: "button", class: "chip", onclick: async () => {
-      const res = await fetch(`/api/demo/qr/${ex.id}`);
-      if (res.ok) checkQR(await res.blob());
+      if (state.nodeless) { checkQR(null, ex.payload); return; }
+      const res = await fetch(`/api/demo/qr/${ex.id}`).catch(() => null);
+      if (res && res.ok) checkQR(await res.blob()); else checkQR(null, ex.payload);
     } }, tr(ex.label))));
   }
 
@@ -356,7 +491,7 @@
       go("result");
       $("#headline").focus();
       if (voice.auto) speak(spokenSummary(card), state.lang);
-      explain(card.id);
+      if (card.where !== "phone") explain(card.id);  // the vetted reasons already explain a phone check
     } catch {
       toast(t("err_network"));
     } finally {
@@ -428,6 +563,7 @@
     return Boolean(out && out.source !== "template" && out.safety && out.safety.langs && out.safety.langs[lang]);
   }
   function modelExpected(lang) {
+    if (state.nodeless || (state.check && state.check.where === "phone")) return false;
     const llm = state.health && state.health.llm;
     return Boolean(llm && llm.available && (state.health.llm_langs || []).includes(lang));
   }
@@ -476,7 +612,8 @@
   function renderMeta() {
     const card = state.check;
     if (!card) return;
-    const parts = [`${t("checked_in")} ${card.timing_ms.total} ${t("ms")}`, `${t("pack")} ${card.pack.version}`];
+    const parts = [`${t(card.where === "phone" ? "checked_phone" : "checked_in")} ${card.timing_ms.total} ${t("ms")}`,
+      `${t("pack")} ${card.pack.version}`];
     const out = state.explanation;
     if (modelWrote(out, state.lang) && out.tokens_per_s) parts.push(`${out.model} · ${out.tokens_per_s} tok/s`);
     $("#meta").textContent = parts.join(" · ");
@@ -680,6 +817,7 @@
   }
 
   function setupMessageMic() {
+    if (state.nodeless) { $("#mic-msg").replaceChildren(); return; }  // speech is recognised on the node
     $("#mic-msg").replaceChildren(micButton("mic_dictate", async (wav) => {
       try {
         const out = await asr(wav, {});
@@ -852,6 +990,7 @@
   function renderQuestionMic() {
     const q = nav.question;
     $("#q-confirm").hidden = true;
+    if (state.nodeless) { $("#q-mic").replaceChildren(); return; }
     $("#q-mic").replaceChildren(micButton("mic_answer", async (wav) => {
       const params = { question: q.id };
       if (q.options) params.options = q.options.map((o) => o.id).join(",");
@@ -956,6 +1095,15 @@
     $("#nav-summary").replaceChildren(
       el("div", { class: "big" }, useful ? fmt(t("nav_summary"), { n: useful, total: r.schemes.length }) : t("nav_summary_none")),
       el("div", { class: "profile" }, r.profile.map((p) => el("span", { class: "pchip" }, `${tr(p.short)}: ${tr(p.answer)}`))));
+    // Health cover first: free hospital treatment is often the most valuable line on the page, and the
+    // card is made at this very counter. Every word and amount here comes from the signed schemes pack.
+    const health = r.schemes.filter((s) => s.family === "health" && ["eligible", "likely", "check"].includes(s.status));
+    $("#nav-health").replaceChildren(...(health.length ? [el("section", { class: "health-callout" },
+      el("div", { class: "hc-title" }, t("health_title")),
+      health.map((s) => el("div", { class: "hc-item" },
+        el("div", { class: "hc-name" }, `${tr(s.name)} · ${t(`st_${s.status}`)}`),
+        s.benefit_now ? el("div", { class: "hc-now" }, tr(s.benefit_now)) : null,
+        el("p", { class: "hc-say" }, `${t("say_label")}: “${s.counter[state.lang]}”`))))] : []));
     const blocks = NAV_GROUPS.filter((g) => r.groups[g].length).map((g) => {
       const cards = r.groups[g].map((id) => schemeCard(byId[id]));
       if (g === "not_eligible") {
@@ -1033,11 +1181,11 @@
     });
     $("#slip-sheet").replaceChildren(
       el("div", { class: "slip-head" },
-        el("img", { class: "slip-qr", src: r.slip.qr, alt: t("slip_qr"), width: "128", height: "128" }),
+        r.slip.qr ? el("img", { class: "slip-qr", src: r.slip.qr, alt: t("slip_qr"), width: "128", height: "128" }) : null,
         el("div", {},
           el("h2", {}, t("slip_title")),
           el("p", {}, `${t("slip_date")}: ${r.slip.date} · ${t("slip_no_name")}`),
-          el("p", { class: "slip-op" }, t("slip_operator")))),
+          r.slip.qr ? el("p", { class: "slip-op" }, t("slip_operator")) : null)),
       el("h3", {}, t("slip_answers")),
       el("ul", { class: "slip-answers" }, r.profile.map((p) => el("li", {}, el("b", {}, `${tr(p.short)}: `), tr(p.answer)))),
       el("h3", {}, t("slip_schemes")),
@@ -1079,11 +1227,20 @@
       $("#node-pill").title = `Sahayak node ${h.version}`;
       voice.nodeOk = Boolean(h.voice && h.voice.tts && (h.voice.tts.hi || []).length);
       renderVoiceStatus();
-    } catch { /* node unreachable; the pill stays as is */ }
+    } catch (e) {
+      if (!(e instanceof NodeUnreachable)) return;
+      setNodeless(true);  // away from the node: say so, and show the packs this phone checks with
+      loadLocal().then(() => {
+        const fraud = local.packs.find((p) => p.name === "fraud");
+        $("#pack-version").textContent = fraud ? `· fraud pack v${fraud.version}` : "";
+      }).catch(() => {});
+    }
   }
 
+  // The service worker keeps the app, the on-phone checker and its packs (browsers allow it only on a
+  // secure page: the node's HTTPS address, or the stand-alone build on an HTTPS site).
   if ("serviceWorker" in navigator && window.isSecureContext) {
-    navigator.serviceWorker.register("/sw.js").catch(() => {});
+    navigator.serviceWorker.register(`${ROOT}sw.js`).catch(() => {});
   }
 
   // Deep links: ?lang=en, ?screen=check|benefits, ?demo=<example id>, ?nav=start|<persona id>.
@@ -1107,7 +1264,10 @@
     else if (persona) navDemo(persona);
     else if (params.get("qr")) {  // ?qr=<example id>: a printed demo card's QR opens its check
       setMode("qr");
-      fetch(`/api/demo/qr/${encodeURIComponent(params.get("qr"))}`).then((r) => (r.ok ? r.blob() : null)).then((b) => b && checkQR(b));
+      const ex = ((local.demo || {}).qr_examples || []).find((x) => x.id === params.get("qr"));
+      if (state.nodeless) { if (ex) checkQR(null, ex.payload); } else {
+        fetch(`/api/demo/qr/${encodeURIComponent(params.get("qr"))}`).then((r) => (r.ok ? r.blob() : null)).then((b) => b && checkQR(b));
+      }
     }
     else if (params.get("answers")) {
       try {
@@ -1118,6 +1278,9 @@
     else if (params.get("nav") === "start") { navReset(); navNext(); }
     else if (params.get("screen")) go(params.get("screen"));
   });
-  loadHealth();
+  if (STANDALONE) setNodeless(true); else loadHealth();
+  // Load the on-phone checker in the background, so it is ready (and kept by the service worker) before
+  // the person walks away from the node.
+  setTimeout(() => loadLocal().catch(() => {}), 1500);
   if ("speechSynthesis" in window) window.speechSynthesis.getVoices();  // warm the voice list
 })();
