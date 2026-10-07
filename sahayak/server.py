@@ -96,6 +96,48 @@ app = FastAPI(title="Sahayak node", version=__version__, docs_url=None, redoc_ur
               lifespan=lifespan)
 
 
+# Starlette reads a whole request body into memory before an endpoint can look at its size, so a phone
+# on the node's Wi-Fi could send 200 MB and the node would hold all of it. This refuses a body larger
+# than its endpoint could ever accept: from the declared length, or as soon as a streamed body passes it.
+MAX_JSON_BYTES = 256 * 1024
+
+
+def body_limit(path: str) -> int:
+    if path in ("/api/qr", "/api/ocr"):
+        return MAX_IMAGE_BYTES
+    if path == "/api/asr" or path.startswith("/api/voicebench/"):
+        return MAX_AUDIO_BYTES
+    return MAX_JSON_BYTES
+
+
+class BodyLimit:
+    def __init__(self, app):
+        self.app = app
+
+    async def __call__(self, scope, receive, send):
+        if scope["type"] != "http":
+            await self.app(scope, receive, send)
+            return
+        limit = body_limit(scope["path"])
+        declared = dict(scope["headers"]).get(b"content-length")
+        if declared is not None and (not declared.isdigit() or int(declared) > limit):
+            await JSONResponse({"detail": "request too large"}, status_code=413)(scope, receive, send)
+            return
+        seen = 0
+
+        async def counted():
+            nonlocal seen
+            message = await receive()
+            seen += len(message.get("body", b""))
+            if seen > limit:
+                raise HTTPException(status_code=413, detail="request too large")
+            return message
+        await self.app(scope, counted, send)
+
+
+app.add_middleware(BodyLimit)  # added before the headers middleware, so its refusals get those headers too
+
+
 @app.middleware("http")
 async def security_headers(request: Request, call_next):
     response = await call_next(request)
@@ -524,6 +566,20 @@ def api_console_case(check_id: str, request: Request) -> dict[str, Any]:
     if not found:
         raise HTTPException(status_code=404, detail="Check expired; run it again with the person")
     return found[1]
+
+
+class DoneRequest(BaseModel):
+    scheme: str = Field(min_length=2, max_length=20)
+
+
+@app.post("/api/console/done")
+def api_console_done(req: DoneRequest, request: Request) -> dict[str, Any]:
+    """The operator made the card or filed the form for a scheme: counted, so the node reports what was claimed."""
+    require_console(request)
+    if req.scheme not in {s["id"] for s in get_pack("schemes").data["schemes"]}:
+        raise HTTPException(status_code=422, detail=f"unknown scheme '{req.scheme}'")
+    counters.record_done(req.scheme)
+    return {"ok": True}
 
 
 class CaseRequest(BaseModel):

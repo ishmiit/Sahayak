@@ -3,9 +3,10 @@ message, a demo UPI QR code and run the benefits interview, all answered by the 
 
 Runs against the node (its HTTPS address, or http://127.0.0.1:8000 on the node itself: browsers treat
 localhost as secure, so the service worker runs there too) or against the stand-alone build
-(scripts/build_tryit.py) served on localhost or HTTPS. Emulates a 412x915 Android phone.
+(scripts/build_tryit.py) served on localhost or HTTPS. Emulates a 412x915 Android phone in Chromium, an
+iPhone 13 in WebKit (Safari's engine) or a phone-sized window in Firefox.
 
-Usage: python scripts/check_phone_offline.py [base_url] [--shots out_dir]
+Usage: python scripts/check_phone_offline.py [base_url] [--shots out_dir] [--browser chromium|webkit|firefox]
 """
 from __future__ import annotations
 
@@ -24,6 +25,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("base", nargs="?", default="http://127.0.0.1:8000/")
     ap.add_argument("--shots", type=Path, help="save phone screenshots of each offline screen here")
+    ap.add_argument("--browser", choices=("chromium", "webkit", "firefox"), default="chromium")
     args = ap.parse_args()
     base = args.base if args.base.endswith("/") else args.base + "/"
     if args.shots:
@@ -39,8 +41,10 @@ def main() -> int:
             page.screenshot(path=str(args.shots / f"{name}.png"), full_page=True)
 
     with sync_playwright() as p:
-        browser = p.chromium.launch()
-        ctx = browser.new_context(**PHONE, color_scheme="light")
+        browser = getattr(p, args.browser).launch()
+        phone = {"chromium": PHONE, "webkit": p.devices["iPhone 13"],
+                 "firefox": dict(viewport=PHONE["viewport"], has_touch=True)}[args.browser]
+        ctx = browser.new_context(**phone, color_scheme="light")
         page = ctx.new_page()
 
         # 1. One visit while connected: the service worker keeps the app, the checker and the packs.

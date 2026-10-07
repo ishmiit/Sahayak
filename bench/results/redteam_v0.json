@@ -644,7 +644,7 @@
   }
  },
  "latest": {
-  "date": "2026-10-06",
+  "date": "2026-10-07",
   "messages": 74,
   "systems": {
    "blocklist": {
@@ -1032,7 +1032,7 @@
    "full": {
     "scams_flagged": 52,
     "scams": 52,
-    "genuine_left_alone": 20,
+    "genuine_left_alone": 21,
     "genuine": 22,
     "by_technique": {
      "advisory_wrapped": {
@@ -1104,7 +1104,7 @@
       "n": 1
      },
      "genuine_txn_alert": {
-      "right": 1,
+      "right": 2,
       "n": 2
      },
      "genuine_upi_request": {
@@ -1214,13 +1214,6 @@
     },
     "misses": [
      {
-      "id": "rt-061",
-      "label": "genuine",
-      "technique": "genuine_txn_alert",
-      "verdict": "scam",
-      "right": false
-     },
-     {
       "id": "rt-065",
       "label": "genuine",
       "technique": "genuine_short_link_promo",
@@ -1232,6 +1225,7 @@
   }
  },
  "notes": [
-  "6 Oct, fraud pack 1.3.0: digits read as letters inside words (0TP, bl0cked, upd4te); written-out links undone (hxxp://, [.], (dot), ' dot xyz'); OTP stand-ins added ('6 digit number', 'verification number', 'number wala', 'code you receive'); awareness phrasing about what police never do ('no police', 'arrests anyone'). Kept by design: a shop offer on a bit.ly link stays Suspicious (a short link hides where it goes), and a debit alert asking you to call or SMS a mobile number is flagged even under a bank header (scammers copy exactly that). ScamBench train, dev and test unchanged."
+  "6 Oct, fraud pack 1.3.0: digits read as letters inside words (0TP, bl0cked, upd4te); written-out links undone (hxxp://, [.], (dot), ' dot xyz'); OTP stand-ins added ('6 digit number', 'verification number', 'number wala', 'code you receive'); awareness phrasing about what police never do ('no police', 'arrests anyone'). Kept by design: a shop offer on a bit.ly link stays Suspicious (a short link hides where it goes), and a debit alert asking you to call or SMS a mobile number is flagged even under a bank header (scammers copy exactly that). ScamBench train, dev and test unchanged.",
+  "7 Oct, fraud pack 1.6.0: rt-061 (a debit alert ending 'call 1800... or SMS BLOCK to <long code>') is no longer flagged: a bank's SMS-block line beside its toll-free number is not a number to call (PROGRESS.md D37). rt-065 stays flagged on purpose."
  ]
 }

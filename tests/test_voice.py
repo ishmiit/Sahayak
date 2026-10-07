@@ -145,6 +145,75 @@ def test_tts_speaks_wav_and_caches_fixed_sentences():
     assert client.post("/api/tts", json={"text": "x" * 700}).status_code == 422
 
 
+
+class _SlowEngine:
+    """Stands in for a Piper voice: takes a moment per sentence and counts what it is asked."""
+
+    def __init__(self, log, lock):
+        self.log, self.lock = log, lock
+
+    def generate(self, text, sid=0, speed=1.0):
+        import time
+        import types
+        with self.lock:
+            self.log.append(text)
+        time.sleep(0.2)
+        return types.SimpleNamespace(samples=[0.0] * 160, sample_rate=16000)
+
+
+def _fake_speaker(tmp_path, engines, fail=False):
+    import threading
+    from sahayak.voice.tts import Speaker, TTSUnavailable
+    sp = Speaker(tmp_path / "models", tmp_path / "cache", engines=engines)
+    log, made, lock = [], [], threading.Lock()
+
+    def make(model):
+        if fail:
+            raise TTSUnavailable("no model")
+        with lock:
+            made.append(model)
+        return _SlowEngine(log, lock)
+    sp._make = make  # noqa: SLF001 - no voice model needed to test the queueing
+    return sp, log, made
+
+
+def test_many_phones_asking_the_same_sentence_get_one_synthesis(tmp_path):
+    from concurrent.futures import ThreadPoolExecutor
+    sp, log, made = _fake_speaker(tmp_path, engines=4)
+    with ThreadPoolExecutor(8) as ex:
+        out = list(ex.map(lambda _: sp.synth("यह ठगी है", "hi"), range(8)))
+    assert len(log) == 1 and len(made) == 1
+    assert {info["cached"] for _, info in out} <= {"no", "shared", "memory"}
+    assert len({wav for wav, _ in out}) == 1
+
+
+def test_engines_are_added_only_while_phones_wait_and_never_beyond_the_cap(tmp_path):
+    from concurrent.futures import ThreadPoolExecutor
+    sp, log, made = _fake_speaker(tmp_path, engines=3)
+    sp.synth("पहला वाक्य", "hi")
+    assert len(made) == 1  # one at a time needs one engine
+    with ThreadPoolExecutor(10) as ex:
+        list(ex.map(lambda i: sp.synth(f"वाक्य {i}", "hi"), range(10)))
+    assert len(made) == 3 and len(log) == 11
+
+
+def test_a_missing_voice_fails_every_waiting_phone_and_frees_the_slot(tmp_path):
+    from concurrent.futures import ThreadPoolExecutor
+    from sahayak.voice.tts import TTSUnavailable
+    sp, _, _ = _fake_speaker(tmp_path, engines=2, fail=True)
+
+    def ask(_):
+        try:
+            sp.synth("यह ठगी है", "hi")
+        except TTSUnavailable:
+            return "unavailable"
+        return "spoke"
+    with ThreadPoolExecutor(4) as ex:
+        assert set(ex.map(ask, range(4))) == {"unavailable"}
+    pool = sp._pool("vits-piper-hi_IN-priyamvada-medium-int8")  # noqa: SLF001
+    assert pool.count == 0 and not sp._inflight  # noqa: SLF001
+
+
 @needs_models
 @pytest.mark.parametrize("said,question,options,want", [
     ("मेरी उम्र बहत्तर साल है", "age", None, 72),

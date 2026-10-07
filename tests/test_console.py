@@ -116,3 +116,15 @@ def test_counter_export_has_no_personal_data_and_is_signed(client):
 def test_reference_lists_categories_with_what_to_say(client):
     cats = login(client).get("/api/console/reference").json()["categories"]
     assert len(cats) >= 10 and all(c["actions"]["hi"] and c["actions"]["en"] for c in cats)
+
+
+def test_operator_ticks_cards_made_and_the_node_counts_them(client):
+    assert client.post("/api/console/done", json={"scheme": "pmjay"}).status_code == 401
+    login(client)
+    before = client.get("/api/console/counters").json()
+    n0 = next((int(v) if v.isdigit() else 0 for f, k, v in before["export_rows"] if f == "done" and k == "pmjay"), 0)
+    assert client.post("/api/console/done", json={"scheme": "pmjay"}).json() == {"ok": True}
+    assert client.post("/api/console/done", json={"scheme": "no-such-scheme"}).status_code == 422
+    rows = client.get("/api/console/counters").json()["export_rows"]
+    value = next(v for f, k, v in rows if f == "done" and k == "pmjay")
+    assert value == "<5" or int(value) == n0 + 1

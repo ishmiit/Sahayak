@@ -240,6 +240,38 @@ ADVERSARIAL: list[tuple[str, str | None, str]] = [
     ("\U00100000 share OTP \U0001CCD6 now \U00100001", "VM-\U0001CCD6BNK-S", "text"),
     # code points unassigned in every Unicode version still sit inside Python's [Ͱ-Ͽ] range
     ("SB\u0382I account blocked, call 9876543210 \u0378x\u0379", None, "text"),
+    # scripts Sahayak cannot read: "could not check", unless signs it can read are there anyway
+    ("আপনার ব্যাংক অ্যাকাউন্ট আজ বন্ধ হয়ে যাবে। KYC আপডেট করতে এই নম্বরে কল করুন 9876543210 এবং OTP বলুন।", None, "text"),
+    ("உங்கள் வங்கி கணக்கு முடக்கப்படும். உங்களுக்கு வந்த OTP எண்ணை எங்களிடம் சொல்லுங்கள்.", None, "text"),
+    ("ನಿಮ್ಮ ಬ್ಯಾಂಕ್ ಖಾತೆ ಬ್ಲಾಕ್ ಆಗುತ್ತದೆ. ನಿಮಗೆ ಬಂದ OTP ಹೇಳಿ.", "9876543210", "text"),
+    ("మీ ఖాతా బ్లాక్ అవుతుంది, వెంటనే ఈ లింక్ క్లిక్ చేయండి http://sbi-kyc.xyz", None, "text"),
+    ("तुमचे वीज बिल भरले नाही. आज रात्री वीज कापली जाईल. 9876543210 वर कॉल करा.", None, "text"),
+    ("प्रिय ग्राहक, तुमचे खाते आज बंद होईल. OTP सांगा आणि लवकर KYC करा.", "VM-SBIBNK-S", "text"),
+    ("आपका खाता बंद नहीं होगा, आप चिंता न करें। नाही आणि", None, "text"),
+    ("मुझे नाही पता, आहे या नहीं है, यह आपका काम है", None, "text"),
+    ("ਤੁਹਾਡਾ ਖਾਤਾ ਬੰਦ ਹੋ ਜਾਵੇਗਾ। OTP ਦੱਸੋ।", None, "call"),
+    ("તમારું ખાતું બંધ થશે. OTP આપો.", None, "text"),
+    ("ଆପଣଙ୍କ ଖାତା ବନ୍ଦ ହେବ।", None, "text"),
+    ("നിങ്ങളുടെ അക്കൗണ്ട് ബ്ലോക്ക് ചെയ്യും. OTP പറയൂ.", None, "voice"),
+    ("آپ کا بینک اکاؤنٹ آج بند ہو جائے گا۔ فوراً اس نمبر پر کال کریں 9876543210", None, "text"),
+    ("ᱟᱢᱟᱜ ᱠᱷᱟᱛᱟ ᱵᱚᱸᱫ ᱦᱩᱭᱩᱜ-ᱟ", None, "text"),
+    ("ꯅꯍꯥꯛꯀꯤ ꯑꯦꯀꯥꯎꯟꯠ ꯕ꯭ꯂꯣꯛ ꯇꯧꯔꯒꯅꯤ", None, "text"),
+    ("Your OTP for login is 482910. Do not share it with anyone. -SBI உங்கள் OTP 482910. யாருடனும் பகிர வேண்டாம்.", "AX-SBIBNK-S", "text"),
+    ("Your OTP is 482910 for login. Do not share it with anyone. வணக்கம்", None, "text"),
+    ("வங்கி வங்கி বাংক বাংক ਬੈਂਕ ਬੈਂਕ OTP share", None, "text"),
+    # the money a message asks for, not the prize, loan or "case" it names
+    ("Congratulations! You have won Rs 25,00,000 in KBC lucky draw. Pay processing fee of Rs 4,999 to claim your prize. Call 9876543210.", None, "text"),
+    ("This is CBI officer. A parcel in your name has drugs. Rs 2,00,00,000 money laundering case is filed. Stay on video call, do not tell family. Transfer Rs 50,000 for verification.", None, "call"),
+    ("आपने ₹25,00,000 की लॉटरी जीती है। ₹4,999 प्रोसेसिंग फ़ीस जमा करें। कॉल करें 9876543210", None, "text"),
+    ("Pay ₹500 to get a loan of ₹5 lakh today, limit Rs 2 lakh. Call 9876543210", None, "text"),
+    ("Part time job: earn Rs 3000 per day. Registration fee Rs 499 only. WhatsApp 9876543210", None, "text"),
+    ("Your account will be debited Rs 10,000 today unless you update KYC at http://sbi-kyc.top", None, "text"),
+    ("Pay Rs 10 to activate cashback of Rs 5000: http://cash-back.xyz", None, "text"),
+    # numbers and links banks publish themselves
+    ("Give a missed call to 9223766666 to know your account balance. Save this number. -SBI", None, "text"),
+    ("SBI Quick: missed call 09223866666 for mini statement, call 9223766666 for balance", None, "text"),
+    ("Pre-approved Personal Loan up to Rs 5,00,000 for you at attractive rates. Apply in 2 mins: https://hdfcbk.io/a/Pl8xQ T&C -HDFC Bank", None, "text"),
+    ("SBI customer care 9223766666, or call our officer on 9876543210 to unblock", None, "text"),
 ]
 
 # a few base messages run with every input type and several senders

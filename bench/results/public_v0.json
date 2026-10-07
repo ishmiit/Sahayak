@@ -1,0 +1,3327 @@
+{
+ "first": {
+  "date": "2026-10-07",
+  "messages": 137,
+  "packs": {
+   "fraud": "1.5.0",
+   "scam_patterns": "1.0.0",
+   "fraud_model": "1.0.0"
+  },
+  "systems": {
+   "blocklist": {
+    "groups": {
+     "all": {
+      "caught": 64,
+      "missed": 39,
+      "left_alone": 17,
+      "false_alarm": 17,
+      "scams": 103,
+      "genuine": 34,
+      "caught_ci": [
+       0.5249,
+       0.7091
+      ],
+      "false_alarm_ci": [
+       0.3407,
+       0.6593
+      ]
+     },
+     "hindi_english_hinglish": {
+      "caught": 62,
+      "missed": 35,
+      "left_alone": 17,
+      "false_alarm": 17,
+      "scams": 97,
+      "genuine": 34,
+      "caught_ci": [
+       0.54,
+       0.7278
+      ],
+      "false_alarm_ci": [
+       0.3407,
+       0.6593
+      ]
+     },
+     "other_indian_languages": {
+      "missed": 4,
+      "caught": 2,
+      "scams": 6,
+      "genuine": 0,
+      "caught_ci": [
+       0.0968,
+       0.7
+      ],
+      "false_alarm": 0,
+      "false_alarm_ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "verbatim_only": {
+      "caught": 50,
+      "missed": 25,
+      "left_alone": 15,
+      "false_alarm": 17,
+      "scams": 75,
+      "genuine": 32,
+      "caught_ci": [
+       0.5542,
+       0.7629
+      ],
+      "false_alarm_ci": [
+       0.3645,
+       0.6913
+      ]
+     },
+     "text": {
+      "caught": 50,
+      "missed": 30,
+      "left_alone": 17,
+      "false_alarm": 17,
+      "scams": 80,
+      "genuine": 34,
+      "caught_ci": [
+       0.5155,
+       0.7231
+      ],
+      "false_alarm_ci": [
+       0.3407,
+       0.6593
+      ]
+     },
+     "call": {
+      "caught": 14,
+      "missed": 9,
+      "scams": 23,
+      "genuine": 0,
+      "caught_ci": [
+       0.4079,
+       0.7784
+      ],
+      "false_alarm": 0,
+      "false_alarm_ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "dev_half": {
+      "caught": 36,
+      "missed": 23,
+      "left_alone": 6,
+      "false_alarm": 8,
+      "scams": 59,
+      "genuine": 14,
+      "caught_ci": [
+       0.4827,
+       0.7242
+      ],
+      "false_alarm_ci": [
+       0.3259,
+       0.7862
+      ]
+     },
+     "test_half": {
+      "caught": 28,
+      "missed": 16,
+      "left_alone": 11,
+      "false_alarm": 9,
+      "scams": 44,
+      "genuine": 20,
+      "caught_ci": [
+       0.4887,
+       0.7622
+      ],
+      "false_alarm_ci": [
+       0.2582,
+       0.6579
+      ]
+     }
+    },
+    "by_category": {
+     "genuine:bank_notice": {
+      "left_alone": 2
+     },
+     "genuine:bank_service_ack": {
+      "left_alone": 1
+     },
+     "genuine:beneficiary_alert": {
+      "false_alarm": 1
+     },
+     "genuine:card_alert": {
+      "false_alarm": 1,
+      "left_alone": 1
+     },
+     "genuine:debit_alert": {
+      "left_alone": 1
+     },
+     "genuine:electricity_bill": {
+      "left_alone": 1
+     },
+     "genuine:emergency_alert_test": {
+      "left_alone": 2
+     },
+     "genuine:epfo": {
+      "left_alone": 1
+     },
+     "genuine:income_tax": {
+      "left_alone": 6,
+      "false_alarm": 4
+     },
+     "genuine:lpg_booking": {
+      "false_alarm": 2
+     },
+     "genuine:lpg_ekyc": {
+      "false_alarm": 1
+     },
+     "genuine:otp": {
+      "false_alarm": 5
+     },
+     "genuine:passport_seva": {
+      "false_alarm": 1
+     },
+     "genuine:pm_kisan_credit": {
+      "left_alone": 1
+     },
+     "genuine:security_alert": {
+      "false_alarm": 1
+     },
+     "genuine:uidai": {
+      "false_alarm": 1
+     },
+     "genuine:upi_alert": {
+      "left_alone": 1
+     },
+     "scam:account_blocked": {
+      "caught": 2
+     },
+     "scam:army_olx_buyer": {
+      "caught": 2,
+      "missed": 1
+     },
+     "scam:courier_delivery_address": {
+      "caught": 4
+     },
+     "scam:credit_card": {
+      "missed": 1
+     },
+     "scam:customs_parcel": {
+      "caught": 2
+     },
+     "scam:digital_arrest": {
+      "caught": 2,
+      "missed": 3
+     },
+     "scam:e_challan": {
+      "caught": 3,
+      "missed": 1
+     },
+     "scam:electricity_disconnection": {
+      "missed": 6
+     },
+     "scam:fake_credit_sms": {
+      "missed": 1
+     },
+     "scam:fake_customer_care": {
+      "missed": 1
+     },
+     "scam:fake_debit_alert": {
+      "missed": 2
+     },
+     "scam:fake_govt_scheme": {
+      "caught": 5,
+      "missed": 4
+     },
+     "scam:free_money_link": {
+      "caught": 1,
+      "missed": 2
+     },
+     "scam:free_recharge": {
+      "caught": 4
+     },
+     "scam:gas_bill_disconnection": {
+      "missed": 4,
+      "caught": 1
+     },
+     "scam:income_tax_refund": {
+      "caught": 2
+     },
+     "scam:investment_stock_group": {
+      "caught": 1,
+      "missed": 2
+     },
+     "scam:job_offer": {
+      "caught": 2,
+      "missed": 1
+     },
+     "scam:kyc_pan_aadhaar_update": {
+      "caught": 9
+     },
+     "scam:loan_app": {
+      "caught": 2
+     },
+     "scam:mobile_tower_scam": {
+      "missed": 1
+     },
+     "scam:otp_forward_account_takeover": {
+      "missed": 1,
+      "caught": 1
+     },
+     "scam:part_time_job_task": {
+      "caught": 3,
+      "missed": 1
+     },
+     "scam:pension_life_certificate": {
+      "caught": 1
+     },
+     "scam:prize_lottery_kbc": {
+      "caught": 6,
+      "missed": 1
+     },
+     "scam:rbi_impersonation": {
+      "missed": 1,
+      "caught": 1
+     },
+     "scam:relative_emergency": {
+      "caught": 3,
+      "missed": 2
+     },
+     "scam:reward_points_apk": {
+      "caught": 1,
+      "missed": 1
+     },
+     "scam:scholarship": {
+      "caught": 1
+     },
+     "scam:sextortion": {
+      "caught": 2,
+      "missed": 2
+     },
+     "scam:telecom_disconnection_kyc": {
+      "caught": 2
+     },
+     "scam:wedding_invitation_apk": {
+      "caught": 1
+     }
+    },
+    "wrong": [
+     {
+      "id": "pub-004",
+      "label": "scam",
+      "category": "army_olx_buyer",
+      "lang": "en",
+      "input_type": "call",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-010",
+      "label": "scam",
+      "category": "credit_card",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-015",
+      "label": "scam",
+      "category": "digital_arrest",
+      "lang": "hi",
+      "input_type": "call",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-016",
+      "label": "scam",
+      "category": "digital_arrest",
+      "lang": "hi",
+      "input_type": "call",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-017",
+      "label": "scam",
+      "category": "digital_arrest",
+      "lang": "hinglish",
+      "input_type": "call",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-021",
+      "label": "scam",
+      "category": "e_challan",
+      "lang": "ml",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-022",
+      "label": "scam",
+      "category": "electricity_disconnection",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-023",
+      "label": "scam",
+      "category": "electricity_disconnection",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-024",
+      "label": "scam",
+      "category": "electricity_disconnection",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-025",
+      "label": "scam",
+      "category": "electricity_disconnection",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-026",
+      "label": "scam",
+      "category": "electricity_disconnection",
+      "lang": "ta",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-027",
+      "label": "scam",
+      "category": "electricity_disconnection",
+      "lang": "te",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-028",
+      "label": "scam",
+      "category": "fake_credit_sms",
+      "lang": "en",
+      "input_type": "call",
+      "verbatim": false,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-029",
+      "label": "scam",
+      "category": "fake_customer_care",
+      "lang": "en",
+      "input_type": "call",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-030",
+      "label": "scam",
+      "category": "fake_debit_alert",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-031",
+      "label": "scam",
+      "category": "fake_debit_alert",
+      "lang": "en",
+      "input_type": "call",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-035",
+      "label": "scam",
+      "category": "fake_govt_scheme",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-038",
+      "label": "scam",
+      "category": "fake_govt_scheme",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-039",
+      "label": "scam",
+      "category": "fake_govt_scheme",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-040",
+      "label": "scam",
+      "category": "fake_govt_scheme",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-042",
+      "label": "scam",
+      "category": "free_money_link",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-043",
+      "label": "scam",
+      "category": "free_money_link",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-048",
+      "label": "scam",
+      "category": "gas_bill_disconnection",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-049",
+      "label": "scam",
+      "category": "gas_bill_disconnection",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-050",
+      "label": "scam",
+      "category": "gas_bill_disconnection",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-051",
+      "label": "scam",
+      "category": "gas_bill_disconnection",
+      "lang": "gu",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-056",
+      "label": "scam",
+      "category": "investment_stock_group",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-057",
+      "label": "scam",
+      "category": "investment_stock_group",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-060",
+      "label": "scam",
+      "category": "job_offer",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-072",
+      "label": "scam",
+      "category": "mobile_tower_scam",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-073",
+      "label": "scam",
+      "category": "otp_forward_account_takeover",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-077",
+      "label": "scam",
+      "category": "part_time_job_task",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-084",
+      "label": "scam",
+      "category": "prize_lottery_kbc",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-087",
+      "label": "scam",
+      "category": "rbi_impersonation",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-091",
+      "label": "scam",
+      "category": "relative_emergency",
+      "lang": "hi",
+      "input_type": "call",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-093",
+      "label": "scam",
+      "category": "relative_emergency",
+      "lang": "hi",
+      "input_type": "call",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-095",
+      "label": "scam",
+      "category": "reward_points_apk",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-098",
+      "label": "scam",
+      "category": "sextortion",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-099",
+      "label": "scam",
+      "category": "sextortion",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-107",
+      "label": "genuine",
+      "category": "beneficiary_alert",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-108",
+      "label": "genuine",
+      "category": "card_alert",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-116",
+      "label": "genuine",
+      "category": "income_tax",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-117",
+      "label": "genuine",
+      "category": "income_tax",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-120",
+      "label": "genuine",
+      "category": "income_tax",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-123",
+      "label": "genuine",
+      "category": "income_tax",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-125",
+      "label": "genuine",
+      "category": "lpg_booking",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-126",
+      "label": "genuine",
+      "category": "lpg_booking",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-127",
+      "label": "genuine",
+      "category": "lpg_ekyc",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-128",
+      "label": "genuine",
+      "category": "otp",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-129",
+      "label": "genuine",
+      "category": "otp",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-130",
+      "label": "genuine",
+      "category": "otp",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-131",
+      "label": "genuine",
+      "category": "otp",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-132",
+      "label": "genuine",
+      "category": "otp",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-133",
+      "label": "genuine",
+      "category": "passport_seva",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-135",
+      "label": "genuine",
+      "category": "security_alert",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-136",
+      "label": "genuine",
+      "category": "uidai",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     }
+    ],
+    "not_checked": []
+   },
+   "full": {
+    "groups": {
+     "all": {
+      "missed": 30,
+      "caught": 67,
+      "not_checked": 6,
+      "left_alone": 23,
+      "false_alarm": 11,
+      "scams": 103,
+      "genuine": 34,
+      "caught_ci": [
+       0.5545,
+       0.7357
+      ],
+      "false_alarm_ci": [
+       0.1913,
+       0.4916
+      ]
+     },
+     "hindi_english_hinglish": {
+      "missed": 30,
+      "caught": 67,
+      "left_alone": 23,
+      "false_alarm": 11,
+      "scams": 97,
+      "genuine": 34,
+      "caught_ci": [
+       0.593,
+       0.774
+      ],
+      "false_alarm_ci": [
+       0.1913,
+       0.4916
+      ]
+     },
+     "other_indian_languages": {
+      "not_checked": 6,
+      "scams": 6,
+      "genuine": 0,
+      "caught": 0,
+      "caught_ci": [
+       0.0,
+       0.3903
+      ],
+      "false_alarm": 0,
+      "false_alarm_ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "verbatim_only": {
+      "caught": 53,
+      "missed": 22,
+      "left_alone": 21,
+      "false_alarm": 11,
+      "scams": 75,
+      "genuine": 32,
+      "caught_ci": [
+       0.5956,
+       0.7976
+      ],
+      "false_alarm_ci": [
+       0.2041,
+       0.5169
+      ]
+     },
+     "text": {
+      "missed": 22,
+      "caught": 52,
+      "not_checked": 6,
+      "left_alone": 23,
+      "false_alarm": 11,
+      "scams": 80,
+      "genuine": 34,
+      "caught_ci": [
+       0.5408,
+       0.7455
+      ],
+      "false_alarm_ci": [
+       0.1913,
+       0.4916
+      ]
+     },
+     "call": {
+      "caught": 15,
+      "missed": 8,
+      "scams": 23,
+      "genuine": 0,
+      "caught_ci": [
+       0.4489,
+       0.8119
+      ],
+      "false_alarm": 0,
+      "false_alarm_ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "dev_half": {
+      "caught": 39,
+      "missed": 16,
+      "not_checked": 4,
+      "false_alarm": 5,
+      "left_alone": 9,
+      "scams": 59,
+      "genuine": 14,
+      "caught_ci": [
+       0.5337,
+       0.7686
+      ],
+      "false_alarm_ci": [
+       0.1634,
+       0.6124
+      ]
+     },
+     "test_half": {
+      "missed": 14,
+      "caught": 28,
+      "not_checked": 2,
+      "left_alone": 14,
+      "false_alarm": 6,
+      "scams": 44,
+      "genuine": 20,
+      "caught_ci": [
+       0.4887,
+       0.7622
+      ],
+      "false_alarm_ci": [
+       0.1455,
+       0.519
+      ]
+     }
+    },
+    "by_category": {
+     "genuine:bank_notice": {
+      "left_alone": 1,
+      "false_alarm": 1
+     },
+     "genuine:bank_service_ack": {
+      "left_alone": 1
+     },
+     "genuine:beneficiary_alert": {
+      "left_alone": 1
+     },
+     "genuine:card_alert": {
+      "left_alone": 2
+     },
+     "genuine:debit_alert": {
+      "left_alone": 1
+     },
+     "genuine:electricity_bill": {
+      "false_alarm": 1
+     },
+     "genuine:emergency_alert_test": {
+      "false_alarm": 1,
+      "left_alone": 1
+     },
+     "genuine:epfo": {
+      "left_alone": 1
+     },
+     "genuine:income_tax": {
+      "left_alone": 6,
+      "false_alarm": 4
+     },
+     "genuine:lpg_booking": {
+      "left_alone": 1,
+      "false_alarm": 1
+     },
+     "genuine:lpg_ekyc": {
+      "left_alone": 1
+     },
+     "genuine:otp": {
+      "left_alone": 4,
+      "false_alarm": 1
+     },
+     "genuine:passport_seva": {
+      "left_alone": 1
+     },
+     "genuine:pm_kisan_credit": {
+      "left_alone": 1
+     },
+     "genuine:security_alert": {
+      "false_alarm": 1
+     },
+     "genuine:uidai": {
+      "left_alone": 1
+     },
+     "genuine:upi_alert": {
+      "false_alarm": 1
+     },
+     "scam:account_blocked": {
+      "missed": 1,
+      "caught": 1
+     },
+     "scam:army_olx_buyer": {
+      "caught": 2,
+      "missed": 1
+     },
+     "scam:courier_delivery_address": {
+      "caught": 4
+     },
+     "scam:credit_card": {
+      "caught": 1
+     },
+     "scam:customs_parcel": {
+      "caught": 2
+     },
+     "scam:digital_arrest": {
+      "missed": 2,
+      "caught": 3
+     },
+     "scam:e_challan": {
+      "caught": 3,
+      "not_checked": 1
+     },
+     "scam:electricity_disconnection": {
+      "caught": 4,
+      "not_checked": 2
+     },
+     "scam:fake_credit_sms": {
+      "missed": 1
+     },
+     "scam:fake_customer_care": {
+      "caught": 1
+     },
+     "scam:fake_debit_alert": {
+      "missed": 2
+     },
+     "scam:fake_govt_scheme": {
+      "missed": 4,
+      "caught": 5
+     },
+     "scam:free_money_link": {
+      "missed": 3
+     },
+     "scam:free_recharge": {
+      "caught": 4
+     },
+     "scam:gas_bill_disconnection": {
+      "caught": 3,
+      "not_checked": 2
+     },
+     "scam:income_tax_refund": {
+      "caught": 1,
+      "missed": 1
+     },
+     "scam:investment_stock_group": {
+      "caught": 1,
+      "missed": 2
+     },
+     "scam:job_offer": {
+      "missed": 2,
+      "caught": 1
+     },
+     "scam:kyc_pan_aadhaar_update": {
+      "caught": 8,
+      "not_checked": 1
+     },
+     "scam:loan_app": {
+      "caught": 1,
+      "missed": 1
+     },
+     "scam:mobile_tower_scam": {
+      "caught": 1
+     },
+     "scam:otp_forward_account_takeover": {
+      "missed": 1,
+      "caught": 1
+     },
+     "scam:part_time_job_task": {
+      "caught": 4
+     },
+     "scam:pension_life_certificate": {
+      "caught": 1
+     },
+     "scam:prize_lottery_kbc": {
+      "missed": 2,
+      "caught": 5
+     },
+     "scam:rbi_impersonation": {
+      "caught": 1,
+      "missed": 1
+     },
+     "scam:relative_emergency": {
+      "missed": 1,
+      "caught": 4
+     },
+     "scam:reward_points_apk": {
+      "caught": 2
+     },
+     "scam:scholarship": {
+      "caught": 1
+     },
+     "scam:sextortion": {
+      "caught": 1,
+      "missed": 3
+     },
+     "scam:telecom_disconnection_kyc": {
+      "caught": 1,
+      "missed": 1
+     },
+     "scam:wedding_invitation_apk": {
+      "missed": 1
+     }
+    },
+    "wrong": [
+     {
+      "id": "pub-001",
+      "label": "scam",
+      "category": "account_blocked",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-004",
+      "label": "scam",
+      "category": "army_olx_buyer",
+      "lang": "en",
+      "input_type": "call",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-013",
+      "label": "scam",
+      "category": "digital_arrest",
+      "lang": "en",
+      "input_type": "call",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-015",
+      "label": "scam",
+      "category": "digital_arrest",
+      "lang": "hi",
+      "input_type": "call",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-028",
+      "label": "scam",
+      "category": "fake_credit_sms",
+      "lang": "en",
+      "input_type": "call",
+      "verbatim": false,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-030",
+      "label": "scam",
+      "category": "fake_debit_alert",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-031",
+      "label": "scam",
+      "category": "fake_debit_alert",
+      "lang": "en",
+      "input_type": "call",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-032",
+      "label": "scam",
+      "category": "fake_govt_scheme",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-035",
+      "label": "scam",
+      "category": "fake_govt_scheme",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-039",
+      "label": "scam",
+      "category": "fake_govt_scheme",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-040",
+      "label": "scam",
+      "category": "fake_govt_scheme",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-041",
+      "label": "scam",
+      "category": "free_money_link",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-042",
+      "label": "scam",
+      "category": "free_money_link",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-043",
+      "label": "scam",
+      "category": "free_money_link",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-054",
+      "label": "scam",
+      "category": "income_tax_refund",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-056",
+      "label": "scam",
+      "category": "investment_stock_group",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-057",
+      "label": "scam",
+      "category": "investment_stock_group",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-058",
+      "label": "scam",
+      "category": "job_offer",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-060",
+      "label": "scam",
+      "category": "job_offer",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-071",
+      "label": "scam",
+      "category": "loan_app",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-073",
+      "label": "scam",
+      "category": "otp_forward_account_takeover",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-080",
+      "label": "scam",
+      "category": "prize_lottery_kbc",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-084",
+      "label": "scam",
+      "category": "prize_lottery_kbc",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-088",
+      "label": "scam",
+      "category": "rbi_impersonation",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-089",
+      "label": "scam",
+      "category": "relative_emergency",
+      "lang": "en",
+      "input_type": "call",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-098",
+      "label": "scam",
+      "category": "sextortion",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-099",
+      "label": "scam",
+      "category": "sextortion",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-100",
+      "label": "scam",
+      "category": "sextortion",
+      "lang": "hi",
+      "input_type": "call",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-102",
+      "label": "scam",
+      "category": "telecom_disconnection_kyc",
+      "lang": "en",
+      "input_type": "call",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-103",
+      "label": "scam",
+      "category": "wedding_invitation_apk",
+      "lang": "hinglish",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-105",
+      "label": "genuine",
+      "category": "bank_notice",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "suspicious",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-111",
+      "label": "genuine",
+      "category": "electricity_bill",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "suspicious",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-112",
+      "label": "genuine",
+      "category": "emergency_alert_test",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "suspicious",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-118",
+      "label": "genuine",
+      "category": "income_tax",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "suspicious",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-119",
+      "label": "genuine",
+      "category": "income_tax",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "suspicious",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-120",
+      "label": "genuine",
+      "category": "income_tax",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "suspicious",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-123",
+      "label": "genuine",
+      "category": "income_tax",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "suspicious",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-126",
+      "label": "genuine",
+      "category": "lpg_booking",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-132",
+      "label": "genuine",
+      "category": "otp",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-135",
+      "label": "genuine",
+      "category": "security_alert",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "suspicious",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-137",
+      "label": "genuine",
+      "category": "upi_alert",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "suspicious",
+      "outcome": "false_alarm"
+     }
+    ],
+    "not_checked": [
+     {
+      "id": "pub-021",
+      "label": "scam",
+      "category": "e_challan",
+      "lang": "ml",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "unreadable",
+      "outcome": "not_checked"
+     },
+     {
+      "id": "pub-026",
+      "label": "scam",
+      "category": "electricity_disconnection",
+      "lang": "ta",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "test",
+      "verdict": "unreadable",
+      "outcome": "not_checked"
+     },
+     {
+      "id": "pub-027",
+      "label": "scam",
+      "category": "electricity_disconnection",
+      "lang": "te",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "unreadable",
+      "outcome": "not_checked"
+     },
+     {
+      "id": "pub-051",
+      "label": "scam",
+      "category": "gas_bill_disconnection",
+      "lang": "gu",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "unreadable",
+      "outcome": "not_checked"
+     },
+     {
+      "id": "pub-052",
+      "label": "scam",
+      "category": "gas_bill_disconnection",
+      "lang": "mr",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "test",
+      "verdict": "unreadable",
+      "outcome": "not_checked"
+     },
+     {
+      "id": "pub-069",
+      "label": "scam",
+      "category": "kyc_pan_aadhaar_update",
+      "lang": "ml",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "unreadable",
+      "outcome": "not_checked"
+     }
+    ]
+   }
+  }
+ },
+ "latest": {
+  "date": "2026-10-07",
+  "messages": 137,
+  "packs": {
+   "fraud": "1.6.0",
+   "scam_patterns": "1.0.0",
+   "fraud_model": "1.0.0"
+  },
+  "systems": {
+   "blocklist": {
+    "groups": {
+     "all": {
+      "caught": 64,
+      "missed": 39,
+      "left_alone": 17,
+      "false_alarm": 17,
+      "scams": 103,
+      "genuine": 34,
+      "caught_ci": [
+       0.5249,
+       0.7091
+      ],
+      "false_alarm_ci": [
+       0.3407,
+       0.6593
+      ]
+     },
+     "hindi_english_hinglish": {
+      "caught": 62,
+      "missed": 35,
+      "left_alone": 17,
+      "false_alarm": 17,
+      "scams": 97,
+      "genuine": 34,
+      "caught_ci": [
+       0.54,
+       0.7278
+      ],
+      "false_alarm_ci": [
+       0.3407,
+       0.6593
+      ]
+     },
+     "other_indian_languages": {
+      "missed": 4,
+      "caught": 2,
+      "scams": 6,
+      "genuine": 0,
+      "caught_ci": [
+       0.0968,
+       0.7
+      ],
+      "false_alarm": 0,
+      "false_alarm_ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "verbatim_only": {
+      "caught": 50,
+      "missed": 25,
+      "left_alone": 15,
+      "false_alarm": 17,
+      "scams": 75,
+      "genuine": 32,
+      "caught_ci": [
+       0.5542,
+       0.7629
+      ],
+      "false_alarm_ci": [
+       0.3645,
+       0.6913
+      ]
+     },
+     "text": {
+      "caught": 50,
+      "missed": 30,
+      "left_alone": 17,
+      "false_alarm": 17,
+      "scams": 80,
+      "genuine": 34,
+      "caught_ci": [
+       0.5155,
+       0.7231
+      ],
+      "false_alarm_ci": [
+       0.3407,
+       0.6593
+      ]
+     },
+     "call": {
+      "caught": 14,
+      "missed": 9,
+      "scams": 23,
+      "genuine": 0,
+      "caught_ci": [
+       0.4079,
+       0.7784
+      ],
+      "false_alarm": 0,
+      "false_alarm_ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "dev_half": {
+      "caught": 36,
+      "missed": 23,
+      "left_alone": 6,
+      "false_alarm": 8,
+      "scams": 59,
+      "genuine": 14,
+      "caught_ci": [
+       0.4827,
+       0.7242
+      ],
+      "false_alarm_ci": [
+       0.3259,
+       0.7862
+      ]
+     },
+     "test_half": {
+      "caught": 28,
+      "missed": 16,
+      "left_alone": 11,
+      "false_alarm": 9,
+      "scams": 44,
+      "genuine": 20,
+      "caught_ci": [
+       0.4887,
+       0.7622
+      ],
+      "false_alarm_ci": [
+       0.2582,
+       0.6579
+      ]
+     }
+    },
+    "by_category": {
+     "genuine:bank_notice": {
+      "left_alone": 2
+     },
+     "genuine:bank_service_ack": {
+      "left_alone": 1
+     },
+     "genuine:beneficiary_alert": {
+      "false_alarm": 1
+     },
+     "genuine:card_alert": {
+      "false_alarm": 1,
+      "left_alone": 1
+     },
+     "genuine:debit_alert": {
+      "left_alone": 1
+     },
+     "genuine:electricity_bill": {
+      "left_alone": 1
+     },
+     "genuine:emergency_alert_test": {
+      "left_alone": 2
+     },
+     "genuine:epfo": {
+      "left_alone": 1
+     },
+     "genuine:income_tax": {
+      "left_alone": 6,
+      "false_alarm": 4
+     },
+     "genuine:lpg_booking": {
+      "false_alarm": 2
+     },
+     "genuine:lpg_ekyc": {
+      "false_alarm": 1
+     },
+     "genuine:otp": {
+      "false_alarm": 5
+     },
+     "genuine:passport_seva": {
+      "false_alarm": 1
+     },
+     "genuine:pm_kisan_credit": {
+      "left_alone": 1
+     },
+     "genuine:security_alert": {
+      "false_alarm": 1
+     },
+     "genuine:uidai": {
+      "false_alarm": 1
+     },
+     "genuine:upi_alert": {
+      "left_alone": 1
+     },
+     "scam:account_blocked": {
+      "caught": 2
+     },
+     "scam:army_olx_buyer": {
+      "caught": 2,
+      "missed": 1
+     },
+     "scam:courier_delivery_address": {
+      "caught": 4
+     },
+     "scam:credit_card": {
+      "missed": 1
+     },
+     "scam:customs_parcel": {
+      "caught": 2
+     },
+     "scam:digital_arrest": {
+      "caught": 2,
+      "missed": 3
+     },
+     "scam:e_challan": {
+      "caught": 3,
+      "missed": 1
+     },
+     "scam:electricity_disconnection": {
+      "missed": 6
+     },
+     "scam:fake_credit_sms": {
+      "missed": 1
+     },
+     "scam:fake_customer_care": {
+      "missed": 1
+     },
+     "scam:fake_debit_alert": {
+      "missed": 2
+     },
+     "scam:fake_govt_scheme": {
+      "caught": 5,
+      "missed": 4
+     },
+     "scam:free_money_link": {
+      "caught": 1,
+      "missed": 2
+     },
+     "scam:free_recharge": {
+      "caught": 4
+     },
+     "scam:gas_bill_disconnection": {
+      "missed": 4,
+      "caught": 1
+     },
+     "scam:income_tax_refund": {
+      "caught": 2
+     },
+     "scam:investment_stock_group": {
+      "caught": 1,
+      "missed": 2
+     },
+     "scam:job_offer": {
+      "caught": 2,
+      "missed": 1
+     },
+     "scam:kyc_pan_aadhaar_update": {
+      "caught": 9
+     },
+     "scam:loan_app": {
+      "caught": 2
+     },
+     "scam:mobile_tower_scam": {
+      "missed": 1
+     },
+     "scam:otp_forward_account_takeover": {
+      "missed": 1,
+      "caught": 1
+     },
+     "scam:part_time_job_task": {
+      "caught": 3,
+      "missed": 1
+     },
+     "scam:pension_life_certificate": {
+      "caught": 1
+     },
+     "scam:prize_lottery_kbc": {
+      "caught": 6,
+      "missed": 1
+     },
+     "scam:rbi_impersonation": {
+      "missed": 1,
+      "caught": 1
+     },
+     "scam:relative_emergency": {
+      "caught": 3,
+      "missed": 2
+     },
+     "scam:reward_points_apk": {
+      "caught": 1,
+      "missed": 1
+     },
+     "scam:scholarship": {
+      "caught": 1
+     },
+     "scam:sextortion": {
+      "caught": 2,
+      "missed": 2
+     },
+     "scam:telecom_disconnection_kyc": {
+      "caught": 2
+     },
+     "scam:wedding_invitation_apk": {
+      "caught": 1
+     }
+    },
+    "wrong": [
+     {
+      "id": "pub-004",
+      "label": "scam",
+      "category": "army_olx_buyer",
+      "lang": "en",
+      "input_type": "call",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-010",
+      "label": "scam",
+      "category": "credit_card",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-015",
+      "label": "scam",
+      "category": "digital_arrest",
+      "lang": "hi",
+      "input_type": "call",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-016",
+      "label": "scam",
+      "category": "digital_arrest",
+      "lang": "hi",
+      "input_type": "call",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-017",
+      "label": "scam",
+      "category": "digital_arrest",
+      "lang": "hinglish",
+      "input_type": "call",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-021",
+      "label": "scam",
+      "category": "e_challan",
+      "lang": "ml",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-022",
+      "label": "scam",
+      "category": "electricity_disconnection",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-023",
+      "label": "scam",
+      "category": "electricity_disconnection",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-024",
+      "label": "scam",
+      "category": "electricity_disconnection",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-025",
+      "label": "scam",
+      "category": "electricity_disconnection",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-026",
+      "label": "scam",
+      "category": "electricity_disconnection",
+      "lang": "ta",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-027",
+      "label": "scam",
+      "category": "electricity_disconnection",
+      "lang": "te",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-028",
+      "label": "scam",
+      "category": "fake_credit_sms",
+      "lang": "en",
+      "input_type": "call",
+      "verbatim": false,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-029",
+      "label": "scam",
+      "category": "fake_customer_care",
+      "lang": "en",
+      "input_type": "call",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-030",
+      "label": "scam",
+      "category": "fake_debit_alert",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-031",
+      "label": "scam",
+      "category": "fake_debit_alert",
+      "lang": "en",
+      "input_type": "call",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-035",
+      "label": "scam",
+      "category": "fake_govt_scheme",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-038",
+      "label": "scam",
+      "category": "fake_govt_scheme",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-039",
+      "label": "scam",
+      "category": "fake_govt_scheme",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-040",
+      "label": "scam",
+      "category": "fake_govt_scheme",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-042",
+      "label": "scam",
+      "category": "free_money_link",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-043",
+      "label": "scam",
+      "category": "free_money_link",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-048",
+      "label": "scam",
+      "category": "gas_bill_disconnection",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-049",
+      "label": "scam",
+      "category": "gas_bill_disconnection",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-050",
+      "label": "scam",
+      "category": "gas_bill_disconnection",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-051",
+      "label": "scam",
+      "category": "gas_bill_disconnection",
+      "lang": "gu",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-056",
+      "label": "scam",
+      "category": "investment_stock_group",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-057",
+      "label": "scam",
+      "category": "investment_stock_group",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-060",
+      "label": "scam",
+      "category": "job_offer",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-072",
+      "label": "scam",
+      "category": "mobile_tower_scam",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-073",
+      "label": "scam",
+      "category": "otp_forward_account_takeover",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-077",
+      "label": "scam",
+      "category": "part_time_job_task",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-084",
+      "label": "scam",
+      "category": "prize_lottery_kbc",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-087",
+      "label": "scam",
+      "category": "rbi_impersonation",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-091",
+      "label": "scam",
+      "category": "relative_emergency",
+      "lang": "hi",
+      "input_type": "call",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-093",
+      "label": "scam",
+      "category": "relative_emergency",
+      "lang": "hi",
+      "input_type": "call",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-095",
+      "label": "scam",
+      "category": "reward_points_apk",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-098",
+      "label": "scam",
+      "category": "sextortion",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-099",
+      "label": "scam",
+      "category": "sextortion",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-107",
+      "label": "genuine",
+      "category": "beneficiary_alert",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-108",
+      "label": "genuine",
+      "category": "card_alert",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-116",
+      "label": "genuine",
+      "category": "income_tax",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-117",
+      "label": "genuine",
+      "category": "income_tax",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-120",
+      "label": "genuine",
+      "category": "income_tax",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-123",
+      "label": "genuine",
+      "category": "income_tax",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-125",
+      "label": "genuine",
+      "category": "lpg_booking",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-126",
+      "label": "genuine",
+      "category": "lpg_booking",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-127",
+      "label": "genuine",
+      "category": "lpg_ekyc",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-128",
+      "label": "genuine",
+      "category": "otp",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-129",
+      "label": "genuine",
+      "category": "otp",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-130",
+      "label": "genuine",
+      "category": "otp",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-131",
+      "label": "genuine",
+      "category": "otp",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-132",
+      "label": "genuine",
+      "category": "otp",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-133",
+      "label": "genuine",
+      "category": "passport_seva",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-135",
+      "label": "genuine",
+      "category": "security_alert",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-136",
+      "label": "genuine",
+      "category": "uidai",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     }
+    ],
+    "not_checked": []
+   },
+   "full": {
+    "groups": {
+     "all": {
+      "missed": 14,
+      "caught": 83,
+      "not_checked": 6,
+      "left_alone": 23,
+      "false_alarm": 11,
+      "scams": 103,
+      "genuine": 34,
+      "caught_ci": [
+       0.719,
+       0.8706
+      ],
+      "false_alarm_ci": [
+       0.1913,
+       0.4916
+      ]
+     },
+     "hindi_english_hinglish": {
+      "missed": 14,
+      "caught": 83,
+      "left_alone": 23,
+      "false_alarm": 11,
+      "scams": 97,
+      "genuine": 34,
+      "caught_ci": [
+       0.7722,
+       0.912
+      ],
+      "false_alarm_ci": [
+       0.1913,
+       0.4916
+      ]
+     },
+     "other_indian_languages": {
+      "not_checked": 6,
+      "scams": 6,
+      "genuine": 0,
+      "caught": 0,
+      "caught_ci": [
+       0.0,
+       0.3903
+      ],
+      "false_alarm": 0,
+      "false_alarm_ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "verbatim_only": {
+      "caught": 64,
+      "missed": 11,
+      "left_alone": 21,
+      "false_alarm": 11,
+      "scams": 75,
+      "genuine": 32,
+      "caught_ci": [
+       0.7562,
+       0.9161
+      ],
+      "false_alarm_ci": [
+       0.2041,
+       0.5169
+      ]
+     },
+     "text": {
+      "missed": 13,
+      "caught": 61,
+      "not_checked": 6,
+      "left_alone": 23,
+      "false_alarm": 11,
+      "scams": 80,
+      "genuine": 34,
+      "caught_ci": [
+       0.6586,
+       0.8424
+      ],
+      "false_alarm_ci": [
+       0.1913,
+       0.4916
+      ]
+     },
+     "call": {
+      "caught": 22,
+      "missed": 1,
+      "scams": 23,
+      "genuine": 0,
+      "caught_ci": [
+       0.7901,
+       0.9923
+      ],
+      "false_alarm": 0,
+      "false_alarm_ci": [
+       0.0,
+       0.0
+      ]
+     },
+     "dev_half": {
+      "caught": 53,
+      "not_checked": 4,
+      "missed": 2,
+      "false_alarm": 5,
+      "left_alone": 9,
+      "scams": 59,
+      "genuine": 14,
+      "caught_ci": [
+       0.7954,
+       0.9526
+      ],
+      "false_alarm_ci": [
+       0.1634,
+       0.6124
+      ]
+     },
+     "test_half": {
+      "missed": 12,
+      "caught": 30,
+      "not_checked": 2,
+      "left_alone": 14,
+      "false_alarm": 6,
+      "scams": 44,
+      "genuine": 20,
+      "caught_ci": [
+       0.5344,
+       0.8
+      ],
+      "false_alarm_ci": [
+       0.1455,
+       0.519
+      ]
+     }
+    },
+    "by_category": {
+     "genuine:bank_notice": {
+      "left_alone": 1,
+      "false_alarm": 1
+     },
+     "genuine:bank_service_ack": {
+      "left_alone": 1
+     },
+     "genuine:beneficiary_alert": {
+      "left_alone": 1
+     },
+     "genuine:card_alert": {
+      "left_alone": 2
+     },
+     "genuine:debit_alert": {
+      "left_alone": 1
+     },
+     "genuine:electricity_bill": {
+      "false_alarm": 1
+     },
+     "genuine:emergency_alert_test": {
+      "false_alarm": 1,
+      "left_alone": 1
+     },
+     "genuine:epfo": {
+      "left_alone": 1
+     },
+     "genuine:income_tax": {
+      "left_alone": 6,
+      "false_alarm": 4
+     },
+     "genuine:lpg_booking": {
+      "left_alone": 1,
+      "false_alarm": 1
+     },
+     "genuine:lpg_ekyc": {
+      "left_alone": 1
+     },
+     "genuine:otp": {
+      "left_alone": 4,
+      "false_alarm": 1
+     },
+     "genuine:passport_seva": {
+      "left_alone": 1
+     },
+     "genuine:pm_kisan_credit": {
+      "left_alone": 1
+     },
+     "genuine:security_alert": {
+      "false_alarm": 1
+     },
+     "genuine:uidai": {
+      "left_alone": 1
+     },
+     "genuine:upi_alert": {
+      "false_alarm": 1
+     },
+     "scam:account_blocked": {
+      "missed": 1,
+      "caught": 1
+     },
+     "scam:army_olx_buyer": {
+      "caught": 3
+     },
+     "scam:courier_delivery_address": {
+      "caught": 4
+     },
+     "scam:credit_card": {
+      "caught": 1
+     },
+     "scam:customs_parcel": {
+      "caught": 2
+     },
+     "scam:digital_arrest": {
+      "caught": 5
+     },
+     "scam:e_challan": {
+      "caught": 3,
+      "not_checked": 1
+     },
+     "scam:electricity_disconnection": {
+      "caught": 4,
+      "not_checked": 2
+     },
+     "scam:fake_credit_sms": {
+      "caught": 1
+     },
+     "scam:fake_customer_care": {
+      "caught": 1
+     },
+     "scam:fake_debit_alert": {
+      "missed": 1,
+      "caught": 1
+     },
+     "scam:fake_govt_scheme": {
+      "missed": 4,
+      "caught": 5
+     },
+     "scam:free_money_link": {
+      "missed": 3
+     },
+     "scam:free_recharge": {
+      "caught": 4
+     },
+     "scam:gas_bill_disconnection": {
+      "caught": 3,
+      "not_checked": 2
+     },
+     "scam:income_tax_refund": {
+      "caught": 1,
+      "missed": 1
+     },
+     "scam:investment_stock_group": {
+      "caught": 3
+     },
+     "scam:job_offer": {
+      "missed": 2,
+      "caught": 1
+     },
+     "scam:kyc_pan_aadhaar_update": {
+      "caught": 8,
+      "not_checked": 1
+     },
+     "scam:loan_app": {
+      "caught": 2
+     },
+     "scam:mobile_tower_scam": {
+      "caught": 1
+     },
+     "scam:otp_forward_account_takeover": {
+      "caught": 2
+     },
+     "scam:part_time_job_task": {
+      "caught": 4
+     },
+     "scam:pension_life_certificate": {
+      "caught": 1
+     },
+     "scam:prize_lottery_kbc": {
+      "caught": 7
+     },
+     "scam:rbi_impersonation": {
+      "caught": 2
+     },
+     "scam:relative_emergency": {
+      "caught": 5
+     },
+     "scam:reward_points_apk": {
+      "caught": 2
+     },
+     "scam:scholarship": {
+      "caught": 1
+     },
+     "scam:sextortion": {
+      "caught": 4
+     },
+     "scam:telecom_disconnection_kyc": {
+      "caught": 1,
+      "missed": 1
+     },
+     "scam:wedding_invitation_apk": {
+      "missed": 1
+     }
+    },
+    "wrong": [
+     {
+      "id": "pub-001",
+      "label": "scam",
+      "category": "account_blocked",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-030",
+      "label": "scam",
+      "category": "fake_debit_alert",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-032",
+      "label": "scam",
+      "category": "fake_govt_scheme",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-035",
+      "label": "scam",
+      "category": "fake_govt_scheme",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-039",
+      "label": "scam",
+      "category": "fake_govt_scheme",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-040",
+      "label": "scam",
+      "category": "fake_govt_scheme",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-041",
+      "label": "scam",
+      "category": "free_money_link",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-042",
+      "label": "scam",
+      "category": "free_money_link",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-043",
+      "label": "scam",
+      "category": "free_money_link",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-054",
+      "label": "scam",
+      "category": "income_tax_refund",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-058",
+      "label": "scam",
+      "category": "job_offer",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-060",
+      "label": "scam",
+      "category": "job_offer",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-102",
+      "label": "scam",
+      "category": "telecom_disconnection_kyc",
+      "lang": "en",
+      "input_type": "call",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-103",
+      "label": "scam",
+      "category": "wedding_invitation_apk",
+      "lang": "hinglish",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "no_signs",
+      "outcome": "missed"
+     },
+     {
+      "id": "pub-105",
+      "label": "genuine",
+      "category": "bank_notice",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "suspicious",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-111",
+      "label": "genuine",
+      "category": "electricity_bill",
+      "lang": "hi",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "suspicious",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-112",
+      "label": "genuine",
+      "category": "emergency_alert_test",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "suspicious",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-118",
+      "label": "genuine",
+      "category": "income_tax",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "suspicious",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-119",
+      "label": "genuine",
+      "category": "income_tax",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "suspicious",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-120",
+      "label": "genuine",
+      "category": "income_tax",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "suspicious",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-123",
+      "label": "genuine",
+      "category": "income_tax",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "suspicious",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-126",
+      "label": "genuine",
+      "category": "lpg_booking",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-132",
+      "label": "genuine",
+      "category": "otp",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "scam",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-135",
+      "label": "genuine",
+      "category": "security_alert",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "dev",
+      "verdict": "suspicious",
+      "outcome": "false_alarm"
+     },
+     {
+      "id": "pub-137",
+      "label": "genuine",
+      "category": "upi_alert",
+      "lang": "en",
+      "input_type": "text",
+      "verbatim": true,
+      "half": "test",
+      "verdict": "suspicious",
+      "outcome": "false_alarm"
+     }
+    ],
+    "not_checked": [
+     {
+      "id": "pub-021",
+      "label": "scam",
+      "category": "e_challan",
+      "lang": "ml",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "unreadable",
+      "outcome": "not_checked"
+     },
+     {
+      "id": "pub-026",
+      "label": "scam",
+      "category": "electricity_disconnection",
+      "lang": "ta",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "test",
+      "verdict": "unreadable",
+      "outcome": "not_checked"
+     },
+     {
+      "id": "pub-027",
+      "label": "scam",
+      "category": "electricity_disconnection",
+      "lang": "te",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "unreadable",
+      "outcome": "not_checked"
+     },
+     {
+      "id": "pub-051",
+      "label": "scam",
+      "category": "gas_bill_disconnection",
+      "lang": "gu",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "unreadable",
+      "outcome": "not_checked"
+     },
+     {
+      "id": "pub-052",
+      "label": "scam",
+      "category": "gas_bill_disconnection",
+      "lang": "mr",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "test",
+      "verdict": "unreadable",
+      "outcome": "not_checked"
+     },
+     {
+      "id": "pub-069",
+      "label": "scam",
+      "category": "kyc_pan_aadhaar_update",
+      "lang": "ml",
+      "input_type": "text",
+      "verbatim": false,
+      "half": "dev",
+      "verdict": "unreadable",
+      "outcome": "not_checked"
+     }
+    ]
+   }
+  }
+ },
+ "notes": [
+  "7 Oct, fraud pack 1.6.0: the blind red team's fixes, plus fixes learned from the DEV half only: fake police and court notices, a fee to 'release' a payment, prize letters, a relative 'arrested' and money to 'clear his name', Hindi blackmail, 'I accidentally sent you a message, forward it', a call asking you to dial the code you received, a QR code named before 'scan it and receive', stock-group openers, and a told call is never a bank alert. A rule that a message asking for nothing counts against a scam was tested and rejected: it lost 8 catches."
+ ]
+}

@@ -175,8 +175,23 @@
       const consent = el("input", { type: "checkbox" });
       const answers = item.summary.answers;
       const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(answers)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+      // A tick per scheme once the card is made or the form filed here: the node then reports what people actually
+      // claimed, not only who was found eligible.
+      const doneRow = el("div", { class: "cta-row" });
+      api("/api/navigator/result", { answers }).then((r) => {
+        const ids = ["eligible", "likely"].flatMap((g) => r.groups[g] || []);
+        const byId = Object.fromEntries(r.schemes.map((sc) => [sc.id, sc]));
+        doneRow.replaceChildren(...ids.map((id) => el("button", { class: "secondary", type: "button", onclick: async (e) => {
+          try {
+            await api("/api/console/done", { scheme: id });
+            e.target.disabled = true;
+            e.target.textContent = `✓ ${byId[id].short}`;
+          } catch (err) { toast(err.message); }
+        } }, `${byId[id].short}: कार्ड / फ़ॉर्म बना · done`)));
+      }).catch(() => {});
       box.append(
         el("ul", {}, Object.entries(item.summary.groups || {}).map(([g, names]) => el("li", {}, `${g}: ${names.join(", ")}`))),
+        doneRow,
         el("label", { class: "consent" }, consent, "व्यक्ति ने रिकॉर्ड रखने की अनुमति दी · The person agrees to keep a record"),
         el("div", { class: "cta-row" },
           el("a", { class: "secondary", href: `/?answers=${encoded}&lang=${item.lang}`, target: "_blank", rel: "noopener" }, "ऐप में खोलें · Open in the app"),
@@ -235,7 +250,8 @@
 
   // ---------------------------------------------------------------- counters
   const LABELS = { checks: "जाँचें · Checks run", verdicts: "नतीजे · Verdicts", categories: "ठगी के प्रकार · Top categories",
-    schemes: "योजनाएँ मिलीं · Schemes identified", slips: "पर्चियाँ छपीं · Slips printed", languages: "भाषाएँ · Languages" };
+    schemes: "योजनाएँ मिलीं · Schemes identified", done: "कार्ड / फ़ॉर्म बने · Cards and forms done",
+    slips: "पर्चियाँ छपीं · Slips printed", languages: "भाषाएँ · Languages" };
   async function loadCounters() {
     const { month, export_rows: rows } = await api("/api/console/counters");
     const by = {};

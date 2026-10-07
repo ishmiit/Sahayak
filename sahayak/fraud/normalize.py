@@ -155,17 +155,49 @@ def extract_1600(text: str) -> list[str]:
     return [m.group(1) for m in _SERIES1600_RE.finditer(text)]
 
 
+def _amount(m: re.Match) -> float:
+    value = float(m.group(1).replace(",", "") + ("." + m.group(2) if m.group(2) else ""))
+    unit = (m.group(3) or "").lower()
+    if unit in ("lakh", "lac", "लाख"):
+        value *= 1e5
+    elif unit in ("crore", "cr", "करोड़", "करोड"):
+        value *= 1e7
+    return value
+
+
 def extract_amounts(text: str) -> list[float]:
-    out = []
-    for m in _AMOUNT_RE.finditer(text):
-        value = float(m.group(1).replace(",", "") + ("." + m.group(2) if m.group(2) else ""))
-        unit = (m.group(3) or "").lower()
-        if unit in ("lakh", "lac", "लाख"):
-            value *= 1e5
-        elif unit in ("crore", "cr", "करोड़", "करोड"):
-            value *= 1e7
-        out.append(value)
-    return out
+    return [_amount(m) for m in _AMOUNT_RE.finditer(text)]
+
+
+# Money at risk is what a message asks the reader to pay or send, not the prize, loan or "case" it names:
+# "you won ₹25 lakh, pay a ₹4,999 fee" puts ₹4,999 at risk. Each amount takes the nearest cue word in its
+# sentence; a fee wins a tie. Folded text: no nukta ("फीस"), anusvara for chandrabindu ("कमाएं").
+_SENTENCE_END = re.compile(r"[.!?।\n]")
+_PAY_CUE = re.compile(
+    r"(?<![a-z])(?:pay|paying|payment|send|transfer|deposit|fees?|charges?|fine|penalty|bhejo|bhejein|bhejiye|bhej|"
+    r"jama|bharo|bharein|bharna|shulk)(?![a-z])|भेज|जमा|भुगतान|शुल्क|फीस|जुर्माना|चार्ज")
+_BAIT_CUE = re.compile(
+    r"(?<![a-z])(?:won|win|winning|winner|prize|lottery|jackpot|reward|cashback|bonus|loan|limit|lucky|inaam|salary|"
+    r"earn|earning|income|profit|returns?)(?![a-z])|इनाम|जीत|लॉटरी|लोन|कमा|मुनाफ")
+
+
+def rupees_at_risk(norm: str) -> float:
+    demanded, plain = [], []
+    for m in _AMOUNT_RE.finditer(norm):
+        start = max((b.end() for b in _SENTENCE_END.finditer(norm, 0, m.start())), default=0)
+        after = _SENTENCE_END.search(norm, m.end())
+        end = after.start() if after else len(norm)
+        nearest = None  # (distance, kind)
+        for kind, cue in (("pay", _PAY_CUE), ("bait", _BAIT_CUE)):
+            for c in cue.finditer(norm, start, end):
+                d = m.start() - c.end() if c.end() <= m.start() else max(0, c.start() - m.end())
+                if nearest is None or d < nearest[0]:
+                    nearest = (d, kind)
+        if nearest is None:
+            plain.append(_amount(m))
+        elif nearest[1] == "pay":
+            demanded.append(_amount(m))
+    return max(demanded or plain or [0.0])
 
 
 def extract_upi_ids(text: str) -> list[str]:
@@ -188,6 +220,44 @@ def classify_sender(sender: str | None) -> str | None:
 
 
 # ---------------------------------------------------------------- language
+
+# Scripts Sahayak cannot read yet: its signals, patterns and model know Hindi, English and Hinglish only.
+# A message mostly in one of these gets "could not check", never "no scam signs".
+UNREAD_SCRIPTS = (
+    ("bn", "\u0980-\u09ff"),  # Bengali, Assamese
+    ("pa", "\u0a00-\u0a7f"),  # Gurmukhi (Punjabi)
+    ("gu", "\u0a80-\u0aff"),
+    ("or", "\u0b00-\u0b7f"),  # Odia
+    ("ta", "\u0b80-\u0bff"),
+    ("te", "\u0c00-\u0c7f"),
+    ("kn", "\u0c80-\u0cff"),
+    ("ml", "\u0d00-\u0d7f"),
+    ("ur", "\u0600-\u06ff\u0750-\u077f\ufb50-\ufdff\ufe70-\ufeff"),  # Arabic script: Urdu, Kashmiri, Sindhi
+    ("sat", "\u1c50-\u1c7f"),  # Ol Chiki (Santali)
+    ("mni", "\uabc0-\uabff"),  # Meetei Mayek (Manipuri)
+)
+_UNREAD_RE = [(code, re.compile(f"[{chars}]")) for code, chars in UNREAD_SCRIPTS]
+# Marathi shares Hindi's script but not its everyday words; two of these, and more than Hindi's, mean Marathi.
+_MARATHI_WORDS = frozenset("आहे आहेत नाही तुमचे तुमची तुमच्या तुम्ही आपले आपली आपल्या करा होईल जाईल झाले झाली केले "
+                           "आणि मध्ये साठी किंवा येथे लवकर".split())
+_HINDI_WORDS = frozenset("है हैं नहीं आपका आपके आपकी करें करो में और का की के को से".split())
+_DEV_WORD = re.compile(f"[{DEVANAGARI}]+")
+
+
+def unread_script(text: str) -> str | None:
+    """The script (or, for Marathi, the language) of a message Sahayak cannot read: at least 8 of its letters,
+    and a quarter of them, in a script it does not know; or Devanagari that reads as Marathi."""
+    letters = [c for c in text if c.isalpha()]
+    counts = [(code, sum(1 for c in letters if rx.match(c))) for code, rx in _UNREAD_RE]
+    unread = sum(n for _, n in counts)
+    if unread >= 8 and unread >= 0.25 * len(letters):
+        return max(counts, key=lambda cn: cn[1])[0]
+    words = _DEV_WORD.findall(text)
+    marathi = sum(w in _MARATHI_WORDS for w in words)
+    if marathi >= 2 and marathi > sum(w in _HINDI_WORDS for w in words):
+        return "mr"
+    return None
+
 
 _HINGLISH_MARKERS = {
     "hai", "hain", "aap", "aapka", "aapke", "aapki", "kar", "karo", "karein", "kare", "ke", "ki", "ka",
@@ -225,6 +295,7 @@ class Context:
     amounts: list[float] = field(default_factory=list)
     upi_ids: list[str] = field(default_factory=list)
     mixed_tokens: list[str] = field(default_factory=list)
+    unread: str | None = None  # the script of a message Sahayak cannot read (UNREAD_SCRIPTS)
 
 
 def build_context(text: str, sender: str | None = None, input_type: str = "text") -> Context:
@@ -252,4 +323,5 @@ def build_context(text: str, sender: str | None = None, input_type: str = "text"
         amounts=extract_amounts(norm),
         upi_ids=extract_upi_ids(norm),
         mixed_tokens=mixed_script_tokens(text),
+        unread=unread_script(text),
     )

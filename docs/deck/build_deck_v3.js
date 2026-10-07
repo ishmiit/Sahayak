@@ -1,4 +1,4 @@
-// Sahayak pitch deck v3 (finale): the prototype, its measured evidence, and the challenge's required sections
+// Sahayak pitch deck v3 (prototype round and jury round): the prototype, its measured evidence, and the challenge's required sections
 // (problem, technology differentiation, testing and validation, impact metrics, theme alignment, collaborations,
 // scalability, elevator pitch). Same design as v2. Sahayak's own numbers are read from bench/results/*.json; outside
 // numbers from docs/deck/facts_v3.json, each with its source on the slide. Slides that need results not yet in hand
@@ -17,9 +17,19 @@ const SHOT = (f) => path.join(ROOT, "docs", "deck", "img", f);  // top of each p
 const sb = R("scambench_v0_test.json"), sch = R("schemebench_v1.json"), fl = R("voicebench_fleurs_hi.json");
 const lat = R("voice_latency.json").summary;
 const field = RQ("field_v0.json"), parity = RQ("phone_parity.json");
+const blind = RQ("redteam_v1_blind.json"), llmb = RQ("llm_baseline.json");  // outside tests (7 Oct): shown when present
+const pub = RQ("public_v0.json");  // real published messages (7 Oct): the first set the team did not write
+// 95% Wilson interval: sound for small samples, where a bootstrap interval can reach 100%
+function wilson(k, n) {
+  if (!n) return [0, 0];
+  const z = 1.96, p = k / n, d = 1 + z * z / n;
+  const c = (p + z * z / (2 * n)) / d, h = z * Math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / d;
+  return [Math.max(0, c - h), Math.min(1, c + h)];
+}
 // Claims about the scam check follow the installed, signed pack: the Ayushman-fee signal arrives with fraud pack 1.4.0.
 const fraudPack = JSON.parse(fs.readFileSync(path.join(ROOT, "packs", "fraud.v1.json"), "utf8"));
 const hasSchemeFee = Boolean(fraudPack.signals.scheme_fee);
+const nSignals = Object.keys(fraudPack.signals).length;  // counted from the installed pack, never typed
 // The stand-alone app judges can open on their own phones. Its QR image is made from the same URL:
 //   python -c "import json, qrcode; qrcode.make(json.load(open('docs/deck/facts_v3.json'))['tryit_url'], border=2, box_size=12).save('docs/deck/img/tryit_qr.png')"
 const TRYIT = F.tryit_url, TRYIT_QR = SHOT("tryit_qr.png");
@@ -82,14 +92,14 @@ s.addText("Hundreds of millions of first-time account holders now get OTPs, UPI 
   s.addText(f.text, { x: x + .25, y: 3.7, w: 2.45, h: 1.15, fontFace: BF, fontSize: 12.5, color: MUTE, valign: "top", margin: 0 });
 });
 card(s, .6, 5.2, 12.1, 1.15, CARD2);
-s.addText("And every safety tool assumes the internet, a smartphone, English and the cloud: the four things the people most at risk are least likely to have, or trust.",
+s.addText("And most safety tools assume the internet, English, an app account and the cloud, and a person who already knows what a scam looks like: what the people most at risk are least likely to have, or trust.",
   { x: .9, y: 5.3, w: 11.5, h: .95, fontFace: BF, fontSize: 14, color: INK, valign: "middle", margin: 0 });
 sources(s, [F.fraud_2025, F.seniors_2025, F.upi_families, F.pension_awareness].map((f) => f.source).join("; "));
 s.addNotes("Losses were flat from 2024 to 2025 while complaints rose: the fraud is moving to the people least able to spot it. The pension figure is from LASI 2017–18, say so if asked.");
 
 /* 3 SOLUTION */
 s = P.addSlide(); bg(s); eye(s, "The solution"); title(s, "At the counter, and on the phone at home");
-s.addText("One small computer at a CSC or bank-agent counter. Phones join its Wi-Fi, which has no internet; after one visit, the same checks run on the phone itself.",
+s.addText("One small computer at a CSC or bank-agent counter; phones join its Wi-Fi, which has no internet. A phone that has opened Sahayak's secure web address once (the public site today; the node's own after a one-time HTTPS setup) runs the same checks with no node at all.",
   { x: .6, y: 1.9, w: 12.1, h: .55, fontFace: BF, fontSize: 15, color: MUTE, margin: 0 });
 cols3(s, [
   ["\"Is this a scam?\"", "Paste, speak, photograph or describe a message, a call or a UPI QR. A verdict in milliseconds, the three reasons, what to do now, and a ready 1930 complaint.", SAF],
@@ -119,7 +129,7 @@ s.addNotes("Real screenshots from the running prototype. The second one was take
 /* 5 HOW IT WORKS */
 s = P.addSlide(); bg(s); eye(s, "How it works"); title(s, "Technology and implementation");
 [["01", "Phone app", "A web app, no install, Hindi and English, every screen read aloud. After one visit it works offline on the phone."],
- ["02", "Fraud-Shield", "51 named signals in a signed content pack, a pattern matcher and a small classifier decide. Vetted templates explain; an optional local model may add a line, only through a safety gate."],
+ ["02", "Fraud-Shield", `${nSignals} named signals in a signed content pack, a pattern matcher and a small classifier decide. Vetted templates explain; an optional local model may add a line, only through a safety gate.`],
  ["03", "Benefits Navigator", "Scheme rules as data, each traced to its official page and date; yes / likely / unknown / no logic; asks only what can change the answer."],
  ["04", "Offline voice", "Speech in and out on the node (Vosk, Piper); amounts spoken as words; \"I heard …, is that right?\" before any answer is used."],
  ["05", "The node", "One mini-PC or laptop at a CSC. Zero-egress monitor, Ed25519-signed packs updated by USB, operator console, captive portal."],
@@ -132,6 +142,24 @@ s = P.addSlide(); bg(s); eye(s, "How it works"); title(s, "Technology and implem
     s.addText(c[2], { x: 4.9, y: y + .04, w: 7.6, h: .7, fontFace: BF, fontSize: 11.5, color: MUTE, valign: "middle", margin: 0 });
   });
 s.addNotes("The verdict never depends on a model alone; with the model off, everything still works, on the node and on the phone.");
+
+/* 5b FROM ROUND 1: what changed, and the measurement behind it */
+if (llmb && blind) {
+  const lt = llmb.sets.scambench_v0_test.llm, lbl = llmb.sets.redteam_v1_blind, lpub = llmb.sets.public_v0;
+  s = P.addSlide(); bg(s); eye(s, "What changed since round 1, and why"); title(s, "We tested the big-model idea, and chose rules");
+  cols3(s, [
+    ["Round 1 proposed", "A 14-billion-parameter language model, offline on a GPU server, deciding whether a message is a scam, with a fine-tuned finance model behind it.", SAF],
+    ["We built", `${nSignals} named signals, a pattern matcher and a small classifier decide, in about 2 ms on a laptop CPU, and name their reasons. A language model is optional: it may reword the explanation, through a safety gate, and never decides.`, GRN],
+    ["Because we measured", lpub
+      ? `A ${llmb.model.replace(":", " ")} model, asked zero-shot on ${lpub.n} real published messages, caught ${lpub.llm.caught} of ${lpub.llm.scams} scams (Sahayak ${lpub.sahayak.caught}) but flagged ${lpub.llm.false_alarms} of ${lpub.llm.genuine} genuine ones (Sahayak ${lpub.sahayak.false_alarms}), at ${lpub.llm_seconds.median} s a message on a GPU. Blind set: ${lbl.llm.false_alarms} of ${lbl.llm.genuine} genuine flagged (Sahayak ${lbl.sahayak.false_alarms}).`
+      : `A ${llmb.model.replace(":", " ")} model, asked zero-shot on 182 blind messages, caught ${lbl.llm.caught} of ${lbl.llm.scams} scams (Sahayak ${lbl.sahayak.caught}) but flagged ${lbl.llm.false_alarms} of ${lbl.llm.genuine} genuine ones (Sahayak ${lbl.sahayak.false_alarms}), at ${lbl.llm_seconds.median} s a message on a GPU. On the 60 test messages it flagged ${lt.false_alarms} of ${lt.genuine} genuine; Sahayak's frozen run flagged ${full.fp}.`, MINT],
+  ], 1.95, 3.55, 16);
+  card(s, .6, 5.75, 12.1, 1.05, CARD2);
+  s.addText(`${lpub ? `A warning that fires on ${Math.round(10 * lpub.llm.false_alarms / lpub.llm.genuine)} in 10 real genuine messages` : "A warning that fires on a third of genuine messages"} teaches people to ignore warnings, and the model cannot say what made it decide. Where a model earns its place: it caught ${lbl.other_languages.llm.caught} of ${lbl.other_languages.llm.scams} blind-test scams in languages Sahayak cannot read yet, so next it becomes a raise-only second opinion there.`,
+    { x: .9, y: 5.83, w: 11.5, h: .9, fontFace: BF, fontSize: 13, color: INK, valign: "middle", margin: 0, fit: "shrink" });
+  sources(s, "bench/results/llm_baseline.md, redteam_v1_blind.md (first runs, 7 Oct 2026); docs/APPLICATION_TO_PROTOTYPE.md");
+  s.addNotes("Say it before they ask: we promised a big model, we measured one, and we chose rules for the verdict because it was right more often on genuine messages, 1,000 times faster, and every verdict explains itself. The Crucible server was never connected to Sahayak; the change note says so.");
+}
 
 /* 6 DIFFERENTIATION */
 s = P.addSlide(); bg(s); eye(s, "Technology differentiation"); title(s, "What already exists, and what Sahayak adds");
@@ -150,23 +178,30 @@ sources(s, [F.airtel.source, F.truecaller.source, F.google_scam.source, F.mysche
 s.addNotes("We complement the network filters and the helplines; no one else checks the thing in front of the person, offline, and explains it.");
 
 /* 7 TESTING */
-s = P.addSlide(); bg(s); eye(s, "Testing and validation"); title(s, "It already works, and we measured it");
+s = P.addSlide(); bg(s); eye(s, "Testing and validation"); title(s, "Measured on real messages, not just our own");
 card(s, .6, 1.95, 12.1, 2.0, CARD);
-[[pct(full.recall), `scams caught (blocklist: ${pct(block.recall)})`, GRN],
+const pg = pub ? pub.first.systems.full.groups.hindi_english_hinglish : null, pbg = pub ? pub.first.systems.blocklist.groups.hindi_english_hinglish : null;
+const bg1 = blind ? blind.first.systems.full.groups.hindi_english_hinglish : null, bbg = blind ? blind.first.systems.blocklist.groups.hindi_english_hinglish : null;
+[pg ? [pct0(pg.caught / pg.scams), `of ${pg.scams} real published scams caught, first run (keyword blocklist ${pct0(pbg.caught / pbg.scams)})`, SAF] : null,
+ bg1 ? [pct0(bg1.caught / bg1.scams), `of scams caught in a blind test written by a separate AI model (blocklist ${pct0(bbg.caught / bbg.scams)})`, MINT] : null,
+ [pct0(full.recall), `of our own test scams caught (blocklist ${pct0(block.recall)})`, GRN],
  [`${sb.latency_ms_full.p50.toFixed(0)} ms`, "per verdict on a laptop CPU", SAF],
- [pct(fl.wer), "Hindi word error, real speakers", MINT],
- [`${lat.cached.p50} s`, "from mic release to spoken reply", GRN],
- parity ? [pct0((parity.fraud.cases - parity.fraud.mismatches) / parity.fraud.cases),
-   `of ${parity.fraud.cases.toLocaleString("en-IN")} messages: the phone gives the node's exact answer`, SAF]
-   : [`${sch.interview.median}`, "questions to find a person's schemes", SAF]].forEach((v, i) => {
+ [pct(fl.wer), "Hindi word error, adults reading aloud", MINT]].filter(Boolean).slice(0, 5).forEach((v, i) => {
   const x = .95 + i * 2.38;
   s.addText(v[0], { x, y: 2.25, w: 2.3, h: .8, fontFace: HF, fontSize: 28, bold: true, color: v[2], valign: "bottom", margin: 0, fit: "shrink" });
-  s.addText(v[1], { x, y: 3.1, w: 2.25, h: .7, fontFace: BF, fontSize: 11.5, color: MUTE, valign: "top", margin: 0 });
+  s.addText(v[1], { x, y: 3.1, w: 2.25, h: .75, fontFace: BF, fontSize: 11.5, color: MUTE, valign: "top", margin: 0 });
 });
-card(s, .6, 4.2, 12.1, field ? 1.2 : 1.6, CARD2);
+card(s, .6, 4.2, 12.1, field ? 1.2 : 2.5, CARD2);
 s.addText("How we know, and what it does not show", { x: .9, y: 4.32, w: 11.5, h: .4, fontFace: HF, fontSize: 14.5, bold: true, color: INK, margin: 0 });
-s.addText(`ScamBench v0 frozen test split (${sb.n} messages, 95% CI ${pct(fullCi.recall[0])}–${pct(fullCi.recall[1])}); SchemeBench: ${sch.rules.agree.toLocaleString("en-IN")} of ${sch.rules.decisions.toLocaleString("en-IN")} decisions match an independent re-derivation; Google FLEURS Hindi (${fl.utterances} recordings). Red team: ${rt.full.scams_flagged} of ${rt.full.scams} disguised scams caught on the first run (blocklist ${rt.blocklist.scams_flagged}). v0 messages were written by our team, so those numbers are optimistic; real messages collected with consent come next.`,
-  { x: .9, y: 4.75, w: 11.5, h: field ? .6 : .95, fontFace: BF, fontSize: 12, color: MUTE, valign: "top", margin: 0, fit: "shrink" });
+const wl = wilson(full.tp, full.tp + full.fn);
+const pt = pub && pub.latest ? [pub.first.systems.full.groups.test_half, pub.latest.systems.full.groups.test_half] : null;
+s.addText(
+  (pg ? `Real messages: ${pub.first.messages} that people received, published by the Income Tax portal, PIB Fact Check, courts and fact-checkers, scored once: ${pg.caught} of ${pg.scams} scams caught, ${pg.false_alarm} of ${pg.genuine} genuine flagged (blocklist ${pbg.false_alarm}). ` : "") +
+  (pt ? `Fixes then learned from half of them; on the other half, never read, scams caught went from ${pt[0].caught} to ${pt[1].caught} of ${pt[1].scams} and genuine flagged from ${pt[0].false_alarm} to ${pt[1].false_alarm} of ${pt[1].genuine}. ` : "") +
+  (bg1 ? `Blind red team, ${blind.first.messages} messages: ${bg1.caught} of ${bg1.scams} caught, ${bg1.false_alarm} of ${bg1.genuine} hard genuine flagged; other languages get "could not check", never a false green. ` : "") +
+  `Our own test split: ${full.tp} of ${full.tp + full.fn} (95% Wilson CI ${pct0(wl[0])}–${pct0(wl[1])}). ` +
+  `Not yet: messages from people's own phones, and real users.`,
+  { x: .9, y: 4.75, w: 11.5, h: field ? .6 : 1.85, fontFace: BF, fontSize: field ? 11 : 13, color: MUTE, valign: "top", margin: 0, fit: "shrink" });
 if (field) {
   const c = field.cards;
   card(s, .6, 5.6, 12.1, 1.25, CARD2);
@@ -182,7 +217,7 @@ card(s, .6, 1.95, 7.6, 1.6, CARD2);
 s.addText(F.vay_vandana.value, { x: .9, y: 2.05, w: 7.1, h: .75, fontFace: HF, fontSize: 30, bold: true, color: SAF, margin: 0, fit: "shrink" });
 s.addText(F.vay_vandana.text, { x: .9, y: 2.8, w: 7.1, h: .6, fontFace: BF, fontSize: 13.5, color: INK, margin: 0 });
 bullets(s, [
-  "Every benefits result leads with Ayushman Bharat; for anyone 70 or older it is the Vay Vandana card, ₹5 lakh of treatment a year whatever their income.",
+  "Every benefits result leads with Ayushman Bharat; for anyone 70 or older it is the Vay Vandana card: up to ₹5 lakh a year of hospital care whatever their income (shared with a spouse who is also 70 or more; not for outpatient visits).",
   "One question, their age, finds them; the slip tells the operator what to make.",
   `The CSC makes the card at the counter, and is paid ${F.csc_card_fee.value} per first-time card; the citizen pays nothing.`,
   hasSchemeFee ? "The scam check flags \"pay to get your Ayushman card\" messages; the node counts seniors found, every month, with no personal data."
@@ -197,13 +232,13 @@ s = P.addSlide(); bg(s); eye(s, "Impact metrics"); title(s, "From \"account open
 cols3(s, [
   ["Rupees at risk", "The node adds up the money asked for in messages it flags, every month: never called \"saved\", always shown to the district without personal data.", SAF],
   ["People found, health first", "People found eligible, by scheme, with seniors found for Ayushman Vay Vandana counted on their own; each slip lets the operator finish the form.", GRN],
-  ["Reported in time", `RBI compensation from ${F.rbi_compensation.value} needs a report within 5 days. Every scam verdict ends in a ready 1930 complaint, on the spot.`, MINT],
+  ["Reported in time", `From ${F.rbi_compensation.value}, RBI compensates small losses from stolen OTPs and PINs if reported within 5 days; Sahayak drafts the complaint on the spot. Money sent willingly is not compensated: there, stopping the payment is the only protection.`, MINT],
 ], 2.0, 2.75, 17);
 card(s, .6, 5.0, 12.1, 1.75, CARD2);
 s.addText(field ? "Measured with real people" : "Pilot target, not a result", { x: .9, y: 5.12, w: 11.5, h: .4, fontFace: HF, fontSize: 14.5, bold: true, color: INK, margin: 0 });
 s.addText(field
   ? `${field.people} people at ${field.meta.place}: right action after a verdict ${pct0(field.right_action_after_verdict.rate || 0)}; seniors 70+ shown Vay Vandana ${field.benefits.seniors_70_shown_pmjay.k} of ${field.benefits.seniors_70_shown_pmjay.n}; it worked on a phone away from the node ${field.offline_on_phone.k} of ${field.offline_on_phone.n} times.`
-  : "One district: about 20 villages and 50 CSC and bank-agent points, six months. Scams flagged and reported, people found eligible and cards made, all from the node's counters. A one-morning field test at a CSC (protocol and consent ready) comes first.",
+  : `One district: about 20 villages and 50 counters (nodes at 20 CSCs, the phone app at 30 bank-agent points), six months, ${F.pilot_budget ? F.pilot_budget.value + " line by line" : "₹35–40 lakh"}. Scams flagged, people found eligible and cards made (the operator ticks each), all from the node's counters. A one-morning field test at a CSC (protocol and consent ready) comes first.`,
   { x: .9, y: 5.55, w: 11.5, h: 1.1, fontFace: BF, fontSize: 12.5, color: MUTE, valign: "top", margin: 0 });
 sources(s, F.rbi_compensation.source);
 s.addNotes("Impact is economic (rupees at risk, entitlements claimed, cards made) and social (safety, dignity, trust).");
@@ -223,9 +258,9 @@ s.addText("Who pays", { x: 6.95, y: 2.15, w: 5.5, h: .45, fontFace: HF, fontSize
 s.addText(F.node_cost.value, { x: 6.95, y: 2.65, w: 5.5, h: .6, fontFace: HF, fontSize: 24, bold: true, color: INK, margin: 0, fit: "shrink" });
 s.addText(`once per node (${F.node_cost.text.replace(/^for a node: /, "")}); each check costs nothing.`, { x: 6.95, y: 3.25, w: 5.5, h: .5, fontFace: BF, fontSize: 12, color: MUTE, margin: 0 });
 bullets(s, [
-  `Banks: from ${F.rbi_compensation.value} they share the cost of compensating fraud losses, so a loss prevented is money kept.`,
-  `The CSC operator: paid about ${F.csc_card_fee.value} per first-time Ayushman card or e-Shram registration Sahayak sends to the counter; ${F.vle_income.value} of rural operators earn under ₹500 a month.`,
-  "The district: a signed monthly count of scams seen and people found eligible, to fund against.",
+  "Banks: financial-inclusion or CSR budgets for their agent points, as customer education; fewer small-fraud payouts (shared with RBI from 1 Jan 2027) are a bonus, not the case.",
+  `The CSC network: paid about ${F.csc_card_fee.value} per first-time Ayushman card or e-Shram registration Sahayak sends to the counter (how much reaches the operator varies); ${F.vle_income.value} of rural operators earn under ₹500 a month.`,
+  "The State Health Agency and the district: Vay Vandana card drives at the CSCs, funded against a signed monthly count of cards made.",
 ], { x: 6.95, y: 3.85, w: 5.5, h: 2.8 });
 sources(s, [F.cscs.source, F.node_cost.source, F.rbi_compensation.source, F.csc_card_fee.source, F.vle_income.source].join("; "));
 s.addNotes("The operator's incentive matters: most rural operators earn very little, and every slip is a paid service at the counter.");
@@ -262,7 +297,7 @@ s.addNotes("Honest: the technology is built; the partnerships are what this chal
 s = P.addSlide(); bg(s); eye(s, "Team and the ask"); title(s, "Builders who ship, asking for one district");
 card(s, .6, 2.0, 5.55, 4.4, CARD);
 s.addText("Roshan Raj", { x: .95, y: 2.25, w: 5, h: .5, fontFace: HF, fontSize: 21, bold: true, color: INK, margin: 0 });
-s.addText("Systems and AI-infrastructure engineer · Manipal Institute of Technology · 7 patents pending", { x: .95, y: 2.75, w: 5, h: .6, fontFace: BF, fontSize: 12.5, color: GRN, margin: 0 });
+s.addText("Systems and AI-infrastructure engineer · Manipal Institute of Technology", { x: .95, y: 2.75, w: 5, h: .6, fontFace: BF, fontSize: 12.5, color: GRN, margin: 0 });
 s.addText("Ishmiit Singh", { x: .95, y: 3.6, w: 5, h: .5, fontFace: HF, fontSize: 21, bold: true, color: INK, margin: 0 });
 s.addText("Co-builder: product, content and evidence", { x: .95, y: 4.1, w: 5, h: .4, fontFace: BF, fontSize: 12.5, color: GRN, margin: 0 });
 s.addText("Together: the node, the scam shield, the scheme navigator, offline voice, the phone engine, the operator console and the benchmarks behind every number in this deck.",

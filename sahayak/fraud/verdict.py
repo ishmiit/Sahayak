@@ -60,13 +60,22 @@ def pick_category(fired: list[Fired], pack: dict[str, Any]) -> str:
     return max(totals, key=lambda c: (totals[c], cats[c]["priority"]))
 
 
-def build_card(fired: list[Fired], pack: dict[str, Any], level: str | None = None) -> dict[str, Any]:
+def build_card(fired: list[Fired], pack: dict[str, Any], level: str | None = None,
+               unread: str | None = None) -> dict[str, Any]:
+    """`unread`: the script of a message Sahayak cannot read. Finding no signs in it means nothing, so the
+    card says "could not check" instead (packs from 1.5.0); signs it did find still count."""
     risk, hard = score(fired, pack)
     level = level or level_for(risk, hard, pack)
-    category = pick_category(fired, pack) if level != "no_signs" else None
+    if level == "no_signs" and unread and "unreadable" in pack["verdicts"]:
+        level = "unreadable"
+    category = pick_category(fired, pack) if level not in ("no_signs", "unreadable") else None
     defs, cats = pack["signals"], pack["categories"]
+    language = pack["unreadable"]["scripts"].get(unread) if level == "unreadable" else None
 
-    if level == "no_signs":
+    if level == "unreadable":
+        reasons = [{"id": "unread_script", "text": _fill(pack["unreadable"]["reason"], {}), "weight": 0.0}]
+        actions = pack["unreadable"]["actions"]
+    elif level == "no_signs":
         shown = [f for f in fired if f.weight < 0 and defs[f.id].get("show", True)]
         shown.sort(key=lambda f: f.weight)
         reasons = [{"id": f.id, "text": _fill(defs[f.id]["reason"], f.evidence), "weight": f.weight} for f in shown[:2]]
@@ -87,6 +96,7 @@ def build_card(fired: list[Fired], pack: dict[str, Any], level: str | None = Non
     cat_name = cats[category]["name"] if category else None
     headline = {
         lang: verdict_text["headline"][lang].replace("{category}", cat_name[lang] if cat_name else "")
+        .replace("{language}", language[lang] if language else "")
         for lang in LANGS
     }
     return {

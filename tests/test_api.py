@@ -1,4 +1,5 @@
 """Node API: routes, validation, privacy headers, and explain with no model available."""
+import pytest
 from fastapi.testclient import TestClient
 
 from sahayak.server import app
@@ -52,3 +53,13 @@ def test_fake_scheme_example_raises_the_flag_the_app_uses_to_offer_real_benefits
     card = client.post("/api/check", json={"text": ex["text"], "sender": ex["sender"]}).json()
     assert card["verdict"] == "scam"
     assert "govt_scheme_bait" in {s["id"] for s in card["signals"]}
+
+
+def test_a_message_sahayak_cannot_read_gets_could_not_check_and_a_plain_explanation():
+    from sahayak.packs import get_pack
+    if "unreadable" not in get_pack("fraud").data["verdicts"]:
+        pytest.skip("fraud pack older than 1.5.0")
+    card = client.post("/api/check", json={"text": "உங்கள் வங்கி கணக்கு முடக்கப்படும். உங்களுக்கு வந்த OTP எண்ணை சொல்லுங்கள்."}).json()
+    assert card["verdict"] == "unreadable" and "Tamil" in card["headline"]["en"]
+    out = client.post("/api/explain", json={"id": card["id"]})
+    assert out.status_code == 200 and out.json()["source"] == "template"

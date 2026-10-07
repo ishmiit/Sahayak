@@ -60,6 +60,7 @@ _CONTRADICTS = {
     "no_signs": re.compile(r"100% safe|completely safe|definitely genuine|guaranteed safe|पूरी तरह सुरक्षित|पक्का असली"
                            r"|it'?s a scam|is a scam|this is fraud|यह ठगी है|धोखा है"),
 }
+_CONTRADICTS["unreadable"] = _CONTRADICTS["no_signs"]  # it could not be read: neither safe nor a scam
 _DIGIT_RUN = re.compile(r"\d[\d\s-]{3,}\d")
 _DEV_LETTER = re.compile(f"[{DEVANAGARI}]")
 _LATIN_LETTER = re.compile(r"[A-Za-z]")

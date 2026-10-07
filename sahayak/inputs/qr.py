@@ -10,7 +10,7 @@ from __future__ import annotations
 import re
 from urllib.parse import parse_qs, unquote, urlsplit
 
-import numpy as np
+from .image import ImageError, load
 
 # words that claim the scan will bring money in: what a payment QR can never do
 _RECEIVE_CLAIM = re.compile(
@@ -28,13 +28,10 @@ class QRError(ValueError):
 def decode(image: bytes) -> str:
     """The text inside the first QR code found in a photo or screenshot."""
     import cv2
-    img = cv2.imdecode(np.frombuffer(image, np.uint8), cv2.IMREAD_GRAYSCALE)
-    if img is None:
-        raise QRError("not an image")
-    h, w = img.shape[:2]
-    if max(h, w) > 1600:  # phone photos are large; QR finding is faster and as good when smaller
-        scale = 1600 / max(h, w)
-        img = cv2.resize(img, (int(w * scale), int(h * scale)), interpolation=cv2.INTER_AREA)
+    try:
+        img = load(image, color=False, longest=1600)
+    except ImageError as e:
+        raise QRError(str(e)) from None
     detector = cv2.QRCodeDetector()
     for candidate in (img, cv2.resize(img, None, fx=2, fy=2, interpolation=cv2.INTER_NEAREST)):
         text, _, _ = detector.detectAndDecode(candidate)

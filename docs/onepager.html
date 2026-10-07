@@ -1,41 +1,41 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><style>
 @page { size: A4; margin: 12mm 13mm; }
-body { font-family: "Segoe UI", "Nirmala UI", sans-serif; color: #1b1f1d; font-size: 9.4pt; line-height: 1.34; margin: 0; }
+body { font-family: "Segoe UI", "Nirmala UI", sans-serif; color: #1b1f1d; font-size: 8.9pt; line-height: 1.3; margin: 0; }
 h1 { font-size: 22pt; margin: 0; color: #0e7c57; } h1 small { font-size: 12pt; color: #4b524e; font-weight: 600; }
-.tag { font-size: 11pt; font-weight: 700; margin: 2px 0 8px; }
-h2 { font-size: 10.5pt; margin: 9px 0 4px; color: #0e7c57; text-transform: uppercase; letter-spacing: .04em; }
+.tag { font-size: 11pt; font-weight: 700; margin: 2px 0 6px; }
+h2 { font-size: 10.5pt; margin: 7px 0 3px; color: #0e7c57; text-transform: uppercase; letter-spacing: .04em; }
 .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .box { border: 1px solid #d9d3c6; border-radius: 8px; padding: 7px 10px; background: #faf8f3; }
 .box b { color: #0e7c57; }
-table { width: 100%; border-collapse: collapse; } th, td { text-align: left; vertical-align: top; padding: 3px 6px; border-bottom: 1px solid #e2ddd2; }
-th { width: 22%; color: #4b524e; }
-.shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; } .shots img { width: 100%; border-radius: 6px; border: 1px solid #d9d3c6; height: 140px; object-fit: cover; object-position: top; }
+table { width: 100%; border-collapse: collapse; } th, td { text-align: left; vertical-align: top; padding: 2px 6px; border-bottom: 1px solid #e2ddd2; }
+th { width: 17%; color: #4b524e; }
+.shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 6px; } .shots img { width: 100%; border-radius: 6px; border: 1px solid #d9d3c6; height: 84px; object-fit: cover; object-position: top; }
 ul { margin: 2px 0; padding-left: 16px; } li { margin: 1px 0; }
-.foot { margin-top: 8px; font-size: 8.5pt; color: #4b524e; }
+.foot { margin-top: 6px; font-size: 8.3pt; color: #4b524e; }
 </style></head><body>
 <h1>Sahayak <small>· सहायक · Ideas for India 2026</small></h1>
 <div class="tag">An offline scam shield and benefits guide for people new to digital money, in Hindi and English, by voice or touch.</div>
 <div class="cols">
- <div class="box"><b>"Is this a scam?"</b> Paste, speak, photograph or describe a message, a call or a UPI QR code. A verdict in milliseconds, the three reasons behind it, what to do next, and a ready-to-file 1930 complaint. A QR card always says: scanning sends money, it never brings money in.</div>
- <div class="box"><b>"What am I owed?"</b> A short spoken interview finds which of 12 central schemes (pensions, PMSBY, PMJJBY, APY, PM-KISAN, PM-JAY 70+, e-Shram, PM-SYM, Jan Dhan) a person can get, with the papers, the office, what to say at the counter, and a printed slip with a QR for the CSC operator.</div>
+ <div class="box"><b>"Is this a scam?"</b> Paste, speak, photograph or describe a message, a call or a UPI QR code. In milliseconds: Scam, Suspicious, No scam signs (never "safe"), or Could not check (a language it cannot read yet: safe-default advice, no false green). Then the reasons, what to do (money lost: call 1930; an attempt: report on Chakshu) and a complaint draft. A QR card says: scanning sends money, never brings it in.</div>
+ <div class="box"><b>"What am I owed?"</b> A short spoken interview finds which of 12 central schemes a person can get, health first: Ayushman Bharat pays up to ₹5 lakh a year for hospital admission (not OPD); at 70+, the Vay Vandana card (cover shared with a 70+ spouse). Then pensions, PMSBY, PMJJBY, APY, PM-KISAN, e-Shram, PM-SYM, Jan Dhan: the papers, the office, what to say, and a printed slip with a QR for the CSC operator.</div>
 </div>
 <h2>How it works</h2>
 <ul>
  <li><b>One node at a CSC or bank-agent counter</b> (a laptop or mini-PC). Phones join its Wi-Fi, which has no internet; the app is a cached web page, no install.</li>
- <li><b>At home, too:</b> after one visit the phone keeps its own scam check and benefits interview, with no node or internet; results lead with health cover (Ayushman; Vay Vandana for 70+).</li>
- <li><b>Named signals decide, not a model:</b> 51 signals in a signed content pack (lookalike links, .bank.in rule, UPI "scan to receive", OTP asks, digital arrest…), a pattern matcher and a small classifier. Vetted templates explain each verdict; an optional local LLM may add a line only through a safety gate (off in the demo).</li>
- <li><b>Scheme rules as data</b>, each traced to its official page and date; answers with yes / likely / unknown / no, asking only questions that can still change the result.</li>
+ <li><b>At home, too:</b> a phone that has opened Sahayak's secure web address once (the public site today; the node's own after a one-time HTTPS setup) keeps its own scam check and benefits interview, with no node or internet.</li>
+ <li><b>Named signals decide, not a model:</b> 59 signals in a signed content pack (lookalike links, .bank.in rule, UPI "scan to receive", OTP asks, digital arrest, "pay for your Ayushman card"…), a pattern matcher and a small classifier. Vetted templates explain each verdict; an optional local LLM (off by default) may add a line only through a safety gate.</li>
+ <li><b>Scheme rules as data</b>, each traced to its official page and date; yes / likely / unknown / no; asks only what can change a result.</li>
  <li><b>Offline voice</b> both ways on the node; amounts spoken as words; "I heard …, is that right?" before any answer is used.</li>
- <li><b>An operator console:</b> "Ask the agent" queue, assisted checks read aloud, consented encrypted case log, 58 mm slips, impact counters with no personal data.</li>
+ <li><b>Operator console:</b> "Ask the agent" queue, assisted checks read aloud, case log, 58 mm slips, counters with no personal data.</li>
 </ul>
 <h2>Measured, not claimed</h2>
-<table><tr><th>Scams caught</th><td>91.9% (95% CI 82.1%–100.0%) vs 51.4% for a keyword blocklist; false alarms 8.7% vs 43.5%</td></tr><tr><th>Verdict time</th><td>2 ms median on a laptop CPU</td></tr><tr><th>Scheme rules</th><td>2,400 / 2,400 decisions match an independent re-derivation; median 5 questions, never more than 7</td></tr><tr><th>Hindi speech</th><td>15.4% word error on Google FLEURS Hindi (418 recordings); reply audio 0.65 s after the mic is released</td></tr><tr><th>Screenshots</th><td>same scam decision as the typed message on 51 / 55 rendered SMS screenshots, read offline</td></tr><tr><th>Red team</th><td>46 / 52 disguised scams flagged on the first run (blocklist 33 / 52); 52 / 52 after the fixes it found</td></tr><tr><th>Offline</th><td>0 outbound connections or outside DNS lookups by the node, counted live by an audit hook; firewall blocks the rest</td></tr><tr><th>On the phone</th><td>the node&#x27;s exact answer on 1,453 scam checks and 7,983 benefits cases (0 mismatches)</td></tr></table>
+<table><tr><th>Real messages</th><td>137 that people received, as published by the Income Tax portal, PIB Fact Check, courts and fact-checkers, scored once. Hindi, English, Hinglish: 67 / 97 scams caught (69%), 11 / 34 genuine flagged; keyword blocklist 62 and 17. Lower than on our own messages: the honest number</td></tr><tr><th>Scams caught</th><td>34 / 37 (91.9%; 95% Wilson CI 79%–97%) on a frozen test split of 60 messages our team wrote, vs 51.4% for a keyword blocklist; false alarms 2 / 23 (8.7%) vs 43.5%; 2 ms a verdict on a laptop CPU</td></tr><tr><th>Blind red team</th><td>182 messages by a separate AI model that never saw the code, scored once. Hindi, English, Hinglish: 92 / 103 scams caught, 14 / 59 hard genuine flagged (blocklist 51 and 25). Other languages: 5 / 15 caught, 10 &quot;could not check&quot;, 0 false greens</td></tr><tr><th>An AI model instead?</th><td>qwen2.5:3b, zero-shot on the same 137: 99 / 103 scams caught but 21 / 34 genuine flagged (62%), 2.13 s a message on a GPU. Sahayak: 67 / 103 and 11 / 34 (32%), 1.7 ms</td></tr><tr><th>Scheme rules</th><td>2,400 / 2,400 decisions match a re-derivation by the same author (a second person&#x27;s check is to come); median 5 questions, never more than 7</td></tr><tr><th>Hindi speech</th><td>15.4% word error on Google FLEURS Hindi (418 recordings of adults reading sentences aloud), offline; reply audio 0.65 s after the mic is released</td></tr><tr><th>Screenshots</th><td>same scam decision as the typed message on 51 / 55 rendered SMS screenshots, read offline</td></tr><tr><th>Under load</th><td>30 phones doing a whole visit at once, 300 checks at once and 5,000 in a row: 0 errors; 360 hostile inputs, 0 unexpected answers (Apple M3)</td></tr><tr><th>Offline</th><td>0 outbound connections or outside DNS lookups, counted live by an audit hook; a firewall blocks the rest</td></tr><tr><th>On the phone</th><td>the node&#x27;s exact answer on 1,490 scam checks and 7,983 benefits cases (0 mismatches)</td></tr></table>
 <div class="shots"><img src="file:///Users/rosh/Personal/Hackathons/Optum%20-%20Inclusive%20Innovation%20for%20Bharat%20Hackathon/Project/Sahayak/docs/deck/img/03_result_kyc_hi.png"><img src="file:///Users/rosh/Personal/Hackathons/Optum%20-%20Inclusive%20Innovation%20for%20Bharat%20Hackathon/Project/Sahayak/docs/deck/img/09_benefits_result_widow_hi.png"><img src="file:///Users/rosh/Personal/Hackathons/Optum%20-%20Inclusive%20Innovation%20for%20Bharat%20Hackathon/Project/Sahayak/docs/deck/img/13_qr_cashback_hi.png"></div>
 <h2>Privacy and safety</h2>
 <ul>
  <li>Messages, voices and answers stay in the node's memory for at most 15 minutes; nothing typed or said is written to disk.</li>
- <li>Case log only with consent, no names or numbers, encrypted, deleted after 30 days; one "delete everything" button. Counters hold counts only.</li>
- <li>Green means "no signs found, still verify", never "safe". Every amount shown comes from a signed pack. Content updates are Ed25519-signed; an altered pack is refused.</li>
+ <li>Case log only with consent: no names or numbers, encrypted, deleted after 30 days, one "delete everything" button.</li>
+ <li>Green means "no signs found, still verify", never "safe"; a language it cannot read gets a grey "could not check". Every amount shown comes from a signed pack. Content updates are Ed25519-signed; an altered pack is refused.</li>
 </ul>
-<div class="foot"><b>Team:</b> Roshan Raj, Ishmiit Singh · <b>Caveats:</b> ScamBench v0 was written by our team (optimistic); v1 adds real messages with consent. Full method and limits: docs/TESTING_REPORT.md. Hindi voices and the optional language model are licensed for non-commercial use.</div>
+<div class="foot"><b>Team:</b> Roshan Raj, Ishmiit Singh · <b>Try it:</b> roshworldwide.github.io/optum-v2 · <b>Dates:</b> prototype due 8 Oct 2026; Grand Jury Round, Delhi, 14 Oct · <b>Caveats:</b> ScamBench v0 and our red team were written by our team (optimistic); the blind set was written for the test, not received by real people; v1 adds real messages with consent; no field test with real users yet. Method and limits: docs/TESTING_REPORT.md. Hindi voices and the optional language model are licensed for non-commercial use.</div>
 </body></html>

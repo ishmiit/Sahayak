@@ -82,6 +82,12 @@ def collect() -> dict[str, set[str]]:
             out[lang].update(cat.get("actions", {}).get(lang, []))
     for lang in ("hi", "en"):
         out[lang].update(fraud.get("no_signs", {}).get("actions", {}).get(lang, []))
+    unreadable = fraud.get("unreadable", {})  # "could not check": its reason, actions and one headline per language
+    bilingual(unreadable.get("reason", {}), out)
+    for lang in ("hi", "en"):
+        out[lang].update(unreadable.get("actions", {}).get(lang, []))
+        for name in unreadable.get("scripts", {}).values():
+            out[lang].add(fraud["verdicts"]["unreadable"]["headline"][lang].replace("{language}", name[lang]))
     schemes = get_pack("schemes").data
     for key in ("questions", "schemes", "amount_note", "fraud_note", "decision_note"):
         bilingual(schemes[key], out)

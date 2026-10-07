@@ -1,7 +1,7 @@
 {
   "pack": "schemes",
-  "version": "1.0.0",
-  "date": "2026-10-02",
+  "version": "1.1.0",
+  "date": "2026-10-07",
   "notes": "Benefits Navigator rules for 12 central schemes, written from the official pages under 'sources'. Rules are data: sahayak/navigator/engine.py only evaluates them. Every amount the app shows comes from this file. Amounts are the central government's share; states may add more.",
   "review": {
     "rules_written_by": "build agent, from the sources listed (each source opened on the 'checked' date)",
@@ -14,8 +14,8 @@
     "en": "Amounts are the central government's share. Your state may add more."
   },
   "fraud_note": {
-    "hi": "योजना के नाम पर कोई OTP या पैसे माँगे, या लिंक या ऐप भेजे, तो वह ठगी है। सरकारी फ़ॉर्म के लिए दलाल को पैसे न दें। ठगी हो तो 1930 पर कॉल करें।",
-    "en": "If anyone asks for an OTP or money, or sends a link or app, in the name of a scheme, it is a scam. Do not pay agents for government forms. If you are cheated, call 1930."
+    "hi": "योजना के नाम पर कोई फ़ोन, मैसेज या लिंक से OTP या पैसे माँगे, तो वह ठगी है। आधार का OTP सिर्फ़ काउंटर पर आमने-सामने बताएं, जब आपका कार्ड आपके सामने बन रहा हो। सरकारी फ़ॉर्म के लिए दलाल को पैसे न दें। पैसे गए हों, तो 1930 पर कॉल करें।",
+    "en": "If anyone calls, texts or sends a link in a scheme's name and asks for an OTP or money, it is a scam. Tell an Aadhaar OTP only face to face at the counter, while your card is being made in front of you. Do not pay agents for government forms. If you lose money, call 1930."
   },
   "decision_note": {
     "hi": "यह सलाह है, फ़ैसला नहीं। आख़िरी फ़ैसला दफ़्तर करेगा।",
@@ -158,8 +158,8 @@
       ]},
       "benefit": {"hi": "60 से 79 साल तक ₹200 हर महीने, 80 साल से ₹500 हर महीने।", "en": "₹200 a month from 60 to 79; ₹500 a month from 80."},
       "benefit_now": [
-        {"when": {"age": [60, 79]}, "hi": "₹200 हर महीने", "en": "₹200 a month"},
-        {"when": {"age": [80, null]}, "hi": "₹500 हर महीने", "en": "₹500 a month"}
+        {"when": {"age": [60, 79]}, "hi": "केंद्र से ₹200 हर महीने; राज्य इसमें और जोड़ सकता है", "en": "₹200 a month from the centre; your state may add more"},
+        {"when": {"age": [80, null]}, "hi": "केंद्र से ₹500 हर महीने; राज्य इसमें और जोड़ सकता है", "en": "₹500 a month from the centre; your state may add more"}
       ],
       "documents": [
         {"hi": "आधार कार्ड", "en": "Aadhaar card"},
@@ -174,7 +174,7 @@
         "check": {"hi": "नमस्ते। {age_phrase} क्या मुझे वृद्धावस्था पेंशन (IGNOAPS) मिल सकती है? कृपया देखें कि मेरा परिवार BPL सूची में है या नहीं।", "en": "Namaste. {age_phrase} Can I get the old-age pension (IGNOAPS)? Please check whether my family is on the BPL list."}
       },
       "check_how": {"hi": "ग्राम पंचायत या ब्लॉक ऑफ़िस में पूछें कि आपका परिवार BPL सूची में है या नहीं।", "en": "Ask at the gram panchayat or block office whether your family is on the BPL list."},
-      "notes": [{"hi": "एक से ज़्यादा पेंशन दिखें, तो दफ़्तर में पूछें कि किसके लिए आवेदन करें।", "en": "If more than one pension shows, ask the office which one to apply for."}],
+      "notes": [{"hi": "इनमें से एक ही पेंशन मिलती है। एक से ज़्यादा दिखें, तो दफ़्तर में पूछें कि आपके लिए कौन-सी सही है।", "en": "A person gets only one of these pensions. If more than one shows, ask the office which suits you."}],
       "sources": ["nsap_nagaland", "nsap_meghalaya"]
     },
     {
@@ -188,7 +188,7 @@
       ]},
       "benefit": {"hi": "₹300 हर महीने। 80 साल होने पर ₹500 हर महीने।", "en": "₹300 a month. ₹500 a month once you turn 80."},
       "benefit_now": [
-        {"when": {"age": [40, 79]}, "hi": "₹300 हर महीने", "en": "₹300 a month"}
+        {"when": {"age": [40, 79]}, "hi": "केंद्र से ₹300 हर महीने; राज्य इसमें और जोड़ सकता है", "en": "₹300 a month from the centre; your state may add more"}
       ],
       "documents": [
         {"hi": "आधार कार्ड", "en": "Aadhaar card"},
@@ -204,7 +204,7 @@
         "check": {"hi": "नमस्ते। मेरे पति का देहांत हो चुका है। {age_phrase} क्या मुझे विधवा पेंशन (IGNWPS) मिल सकती है? कृपया देखें कि मेरा परिवार BPL सूची में है या नहीं।", "en": "Namaste. My husband has died. {age_phrase} Can I get the widow pension (IGNWPS)? Please check whether my family is on the BPL list."}
       },
       "check_how": {"hi": "ग्राम पंचायत या ब्लॉक ऑफ़िस में पूछें कि आपका परिवार BPL सूची में है या नहीं।", "en": "Ask at the gram panchayat or block office whether your family is on the BPL list."},
-      "notes": [{"hi": "एक से ज़्यादा पेंशन दिखें, तो दफ़्तर में पूछें कि किसके लिए आवेदन करें।", "en": "If more than one pension shows, ask the office which one to apply for."}],
+      "notes": [{"hi": "इनमें से एक ही पेंशन मिलती है। एक से ज़्यादा दिखें, तो दफ़्तर में पूछें कि आपके लिए कौन-सी सही है।", "en": "A person gets only one of these pensions. If more than one shows, ask the office which suits you."}],
       "sources": ["nsap_meghalaya", "nsap_nagaland"]
     },
     {
@@ -218,7 +218,7 @@
       ]},
       "benefit": {"hi": "₹300 हर महीने। 80 साल होने पर ₹500 हर महीने।", "en": "₹300 a month. ₹500 a month once you turn 80."},
       "benefit_now": [
-        {"when": {"age": [18, 79]}, "hi": "₹300 हर महीने", "en": "₹300 a month"}
+        {"when": {"age": [18, 79]}, "hi": "केंद्र से ₹300 हर महीने; राज्य इसमें और जोड़ सकता है", "en": "₹300 a month from the centre; your state may add more"}
       ],
       "documents": [
         {"hi": "आधार कार्ड", "en": "Aadhaar card"},
@@ -234,7 +234,7 @@
         "check": {"hi": "नमस्ते। मेरे पास 80% या ज़्यादा विकलांगता का प्रमाण-पत्र है। क्या मुझे विकलांगता पेंशन (IGNDPS) मिल सकती है? कृपया देखें कि मेरा परिवार BPL सूची में है या नहीं।", "en": "Namaste. I have a disability certificate of 80% or more. Can I get the disability pension (IGNDPS)? Please check whether my family is on the BPL list."}
       },
       "check_how": {"hi": "ग्राम पंचायत या ब्लॉक ऑफ़िस में पूछें कि आपका परिवार BPL सूची में है या नहीं।", "en": "Ask at the gram panchayat or block office whether your family is on the BPL list."},
-      "notes": [{"hi": "एक से ज़्यादा पेंशन दिखें, तो दफ़्तर में पूछें कि किसके लिए आवेदन करें।", "en": "If more than one pension shows, ask the office which one to apply for."}],
+      "notes": [{"hi": "इनमें से एक ही पेंशन मिलती है। एक से ज़्यादा दिखें, तो दफ़्तर में पूछें कि आपके लिए कौन-सी सही है।", "en": "A person gets only one of these pensions. If more than one shows, ask the office which suits you."}],
       "sources": ["nsap_meghalaya", "nsap_nagaland"]
     },
     {
@@ -374,15 +374,15 @@
     {
       "id": "pmjay", "short": "PM-JAY", "family": "health",
       "name": {"hi": "आयुष्मान भारत (PM-JAY)", "en": "Ayushman Bharat (PM-JAY)"},
-      "what": {"hi": "सूचीबद्ध अस्पतालों में हर साल ₹5 लाख तक का मुफ़्त इलाज।", "en": "Free hospital treatment up to ₹5 lakh a year at empanelled hospitals."},
+      "what": {"hi": "सूचीबद्ध अस्पताल में भर्ती होने पर हर साल ₹5 लाख तक मुफ़्त इलाज। बिना भर्ती के इलाज (OPD) इसमें नहीं।", "en": "Free treatment when admitted to a listed hospital, up to ₹5 lakh a year. Outpatient visits (OPD) are not covered."},
       "rule": {"any": [
         {"age": [70, null], "say": {"hi": "उम्र 70 साल या ज़्यादा — आमदनी कुछ भी हो", "en": "Age 70 or more — whatever the income"}},
         {"fact": "pmjay_list", "say": {"hi": "परिवार का नाम PM-JAY सूची में (SECC 2011 या राज्य की सूची)", "en": "Family's name on the PM-JAY list (SECC 2011 or the state's list)"}}
       ]},
-      "benefit": {"hi": "परिवार को हर साल ₹5 लाख तक मुफ़्त इलाज। 70 साल या ज़्यादा: अपने लिए हर साल ₹5 लाख (आयुष्मान वय वंदना कार्ड); परिवार पहले से जुड़ा हो, तो यह उसके ऊपर से।", "en": "Free treatment up to ₹5 lakh a year per family. Age 70 or more: ₹5 lakh a year for yourself (Ayushman Vay Vandana card), on top of any family cover."},
+      "benefit": {"hi": "परिवार को हर साल ₹5 लाख तक अस्पताल में मुफ़्त इलाज। 70 साल या ज़्यादा: हर साल ₹5 लाख तक और (आयुष्मान वय वंदना कार्ड), जो सिर्फ़ परिवार के 70+ लोगों में बँटता है।", "en": "Free hospital treatment up to ₹5 lakh a year per family. Age 70 or more: up to ₹5 lakh a year more (Ayushman Vay Vandana card), shared only with family members who are also 70 or more."},
       "benefit_now": [
-        {"when": {"age": [70, null]}, "hi": "आपके लिए ₹5 लाख का इलाज हर साल", "en": "₹5 lakh of treatment a year, for you"},
-        {"when": {"age": [0, 69]}, "hi": "परिवार को ₹5 लाख का इलाज हर साल", "en": "₹5 lakh of treatment a year, for the family"}
+        {"when": {"age": [70, null]}, "hi": "अस्पताल में इलाज: हर साल ₹5 लाख तक, आपके लिए (70+ पति या पत्नी के साथ साझा)", "en": "Hospital care up to ₹5 lakh a year, for you (shared with a spouse who is 70+)"},
+        {"when": {"age": [0, 69]}, "hi": "अस्पताल में इलाज: परिवार को हर साल ₹5 लाख तक", "en": "Hospital care up to ₹5 lakh a year, for the family"}
       ],
       "documents": [
         {"hi": "आधार कार्ड (e-KYC के लिए)", "en": "Aadhaar card (for e-KYC)"},
