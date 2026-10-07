@@ -133,7 +133,7 @@ Then open `http://<node-address>:8000` on a phone on the same Wi-Fi. The node pr
 - **Signing packs.** Each team member who signs keeps their own key (`SAHAYAK_SIGNER=<name>`, private key in
   `~/.sahayak/keys/<name>.key`); the node trusts every public key in `packs/keys/`. `python scripts/sign_packs.py --only
   <pack>` re-signs what you changed.
-- **Tests.** `python -m pytest` (360 tests; the voice and OCR tests use the installed models, and the JavaScript
+- **Tests.** `python -m pytest` (421 tests; the voice and OCR tests use the installed models, and the JavaScript
   parity tests need `node`).
 
 Settings are environment variables (`SAHAYAK_*`); see `sahayak/config.py`.

@@ -2,7 +2,7 @@
 
 The application (Inclusive Innovation for Bharat, Roshan Raj) described the idea and a clickable demo. The prototype
 submitted for the 8 October 2026 deadline is working software: a node, a phone web app and an operator console, with
-360 automated tests and a benchmark behind every number. Building it changed some choices. Each change below gives its
+421 automated tests and a benchmark behind every number. Building it changed some choices. Each change below gives its
 reason; most come from a measurement.
 
 Dates: prototype due 8 Oct 2026; Grand Jury Round in Delhi, in person, on 14 Oct; Grand Finale and National Summit on
