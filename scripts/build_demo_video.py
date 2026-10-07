@@ -30,13 +30,22 @@ FONTS = Path("C:/Windows/Fonts")
 BG, INK, INK2, GREEN, RED = (243, 240, 232), (27, 31, 29), (75, 82, 78), (14, 124, 87), (190, 40, 40)
 
 
+# Segoe UI on Windows, Arial on macOS, DejaVu on Linux; never Pillow's tiny bitmap font.
+FONT_FILES = {
+    False: ("segoeui.ttf", "DejaVuSans.ttf", "/System/Library/Fonts/Supplemental/Arial.ttf",
+            "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"),
+    True: ("segoeuib.ttf", "DejaVuSans-Bold.ttf", "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+           "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"),
+}
+
+
 def font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont:
-    for name in (("segoeuib.ttf", "DejaVuSans-Bold.ttf") if bold else ("segoeui.ttf", "DejaVuSans.ttf")):
+    for name in FONT_FILES[bold]:
         try:
             return ImageFont.truetype(str(FONTS / name) if (FONTS / name).exists() else name, size)
         except OSError:
             continue
-    return ImageFont.load_default()
+    return ImageFont.load_default(size)  # Pillow 10.1+: a scalable font
 
 
 def wrap(draw: ImageDraw.ImageDraw, text: str, f, width: int) -> list[str]:
@@ -133,18 +142,25 @@ def load(name: str) -> dict:
 
 def segments() -> list[dict]:
     sb = load("scambench_v0_test.json")["systems"]
-    sch, fl, red = load("schemebench_v1.json"), load("voicebench_fleurs_hi.json"), load("redteam_v0.json")
+    sch, fl = load("schemebench_v1.json"), load("voicebench_fleurs_hi.json")
     full, block = sb["full"]["flagged"], sb["blocklist"]["flagged"]
-    rt, rt_after = red["first"]["systems"], (red.get("latest") or red["first"])["systems"]["full"]
     pct = lambda x: f"{100 * x:.0f} percent"  # noqa: E731
+    pub = load("public_v0.json")["first"]["systems"]
+    pf, pb = pub["full"]["groups"]["hindi_english_hinglish"], pub["blocklist"]["groups"]["hindi_english_hinglish"]
+    bl = load("redteam_v1_blind.json")["first"]["systems"]
+    bf, bb = bl["full"]["groups"]["hindi_english_hinglish"], bl["blocklist"]["groups"]["hindi_english_hinglish"]
+    pub_n = load("public_v0.json")["first"]["messages"]
     evidence = [
-        ("Scams caught", f"{100 * full['recall']:.1f}% vs {100 * block['recall']:.1f}% for a keyword blocklist; false alarms "
-                         f"{100 * full['false_alarm_rate']:.1f}% vs {100 * block['false_alarm_rate']:.1f}%"),
-        ("Scheme rules", f"{sch['rules']['agree']:,} / {sch['rules']['decisions']:,} decisions match an independent re-derivation"),
+        ("Real messages", f"{pf['caught']} of {pf['scams']} scams caught, {pf['false_alarm']} of {pf['genuine']} genuine "
+                          f"flagged (keyword blocklist: {pb['caught']} and {pb['false_alarm']})"),
+        ("Blind red team", f"{bf['caught']} of {bf['scams']} scams caught, {bf['false_alarm']} of {bf['genuine']} genuine "
+                           f"flagged (blocklist: {bb['caught']} and {bb['false_alarm']})"),
+        ("Our test set", f"{100 * full['recall']:.1f}% of scams caught vs {100 * block['recall']:.1f}% for a blocklist; "
+                         f"false alarms {100 * full['false_alarm_rate']:.1f}% vs {100 * block['false_alarm_rate']:.1f}%"),
+        ("Scheme rules", f"{sch['rules']['agree']:,} / {sch['rules']['decisions']:,} decisions match a re-derivation by "
+                         "the same author"),
         ("Hindi speech", f"{100 * fl['wer']:.1f}% word error on Google FLEURS Hindi, offline"),
-        ("Red team", f"{rt['full']['scams_flagged']} / {rt['full']['scams']} disguised scams caught on the first run "
-                     f"(blocklist {rt['blocklist']['scams_flagged']}); {rt_after['scams_flagged']} / {rt_after['scams']} after fixes"),
-        ("Offline", "0 connections from Sahayak to the internet, counted live on the node"),
+        ("Offline", "0 connections from Sahayak to the internet, counted live"),
     ]
     return [
         {"card": card("Sahayak", ["An offline scam shield and benefits guide for people new to digital money.",
@@ -180,15 +196,18 @@ def segments() -> list[dict]:
          "caption": "One laptop at the counter. Phones join its Wi-Fi. Every connection Sahayak tries to the internet is counted: zero.",
          "say": "Everything runs on one laptop at the counter. Phones join its Wi-Fi, which has no internet. The node counts "
                 "every connection Sahayak tries to make to the internet, live. The count is zero."},
-        {"card": evidence_card(evidence, "Our test messages were written by our team, so these numbers are optimistic; next we "
-                                         "test on real messages collected with consent. Method and limits: docs/TESTING_REPORT.md."),
-         "say": f"Measured, not claimed. On our held-out test set Sahayak caught {pct(full['recall'])} of scams, against "
-                f"{pct(block['recall'])} for a keyword blocklist, with far fewer false alarms. The scheme rules match an "
-                f"independent re-derivation on all {sch['rules']['decisions']:,} decisions. Offline Hindi speech recognition "
-                f"has a {100 * fl['wer']:.0f} percent word error rate on Google's public test set. And of "
-                f"{rt['full']['scams']} scams disguised to slip past it, Sahayak caught {rt['full']['scams_flagged']} on the "
-                f"first run, and all of them after the fixes they revealed. Our test messages were written by our own team, "
-                "so next we test on real messages, collected with consent."},
+        {"card": evidence_card(evidence, f"Real messages: {pub_n} that people in India received, as published by the "
+                                         "government, banks and fact-checkers, scored once. Blind red team: written by a "
+                                         "separate AI model that never saw the code. Our test set: written by our team. "
+                                         "Method and limits: docs/TESTING_REPORT.md."),
+         "say": f"Measured, not claimed. On {pub_n} real messages that people in India received, published by the "
+                f"government, banks and fact-checkers, Sahayak caught {pf['caught']} of {pf['scams']} scams in Hindi, "
+                f"English and Hinglish, and flagged {pf['false_alarm']} of {pf['genuine']} genuine messages; a keyword "
+                f"blocklist caught {pb['caught']} and flagged {pb['false_alarm']}. Real messages are harder than our own: "
+                f"on the test set our team wrote, it caught {pct(full['recall'])}. On a blind red team written by a separate "
+                f"AI model, it caught {bf['caught']} of {bf['scams']}. The scheme rules agree with a re-derivation on all "
+                f"{sch['rules']['decisions']:,} decisions, and nothing leaves the node: the count is zero. Next: messages "
+                "from people's own phones, collected with consent, and a field test at a service centre."},
         {"card": card("Sahayak", ["Offline. Private. In the language people speak.", "Team: Roshan Raj and Ishmiit Singh"],
                       kicker="Thank you"),
          "say": "Sahayak. Offline, private, and in the language people speak. From Roshan Raj and Ishmiit Singh. Thank you."},

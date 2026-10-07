@@ -45,7 +45,8 @@ def fold(text: str) -> str:
 def _defang(text: str) -> str:
     text = re.sub(r"\bhxxp(s?)://", r"http\1://", text)
     text = re.sub(r"\s*[\[({]\s*(?:\.|dot)\s*[\])}]\s*", ".", text)
-    return re.sub(rf"(?<=[a-z0-9])\s+dot\s+(?=(?:{_TLDS})\b)", ".", text)
+    text = re.sub(rf"(?<=[a-z0-9])\s+dot\s+(?=(?:{_TLDS})\b)", ".", text)
+    return _SPACED_DOT.sub(_join_spaced, text)
 
 
 # Digits written for letters inside words: "0TP", "bl0cked", "upd4te". Only in words that are mostly
@@ -83,6 +84,19 @@ _TLDS = (
     "io|ly|gl|cc|tk|ml|ga|cf|gq|app|page|biz|ws|to|gd|su|ru|cn|support|help|monster|cyou|sbs|cfd|quest|"
     "bond|win|loan|cam|today|store|space|website|fun|pw|at|id|gy|ae|be|st|us|uk|sh|sbi|bank|gov|nic|fin"
 )
+
+# A link split with spaces around its dot so filters miss it ("dlvry-in . help/pay", "remove the spaces"). Joined
+# only when it cannot be a sentence ending: the name has a hyphen or a digit, or the ending carries a path.
+_SPACED_DOT = re.compile(rf"(?<![a-z0-9-])([a-z0-9][a-z0-9-]*)\s+\.\s+((?:{_TLDS})\b)(/?)")
+
+
+def _join_spaced(m: re.Match) -> str:
+    name, tld, slash = m.group(1), m.group(2), m.group(3)
+    if any(c.isalpha() for c in name) and (slash or "-" in name or any(c.isdigit() for c in name)):
+        return f"{name}.{tld}{slash}"
+    return m.group(0)
+
+
 _URL_RE = re.compile(
     r"(?:https?://|www\.)[^\s<>\"'()]+"
     r"|\b\d{1,3}(?:\.\d{1,3}){3}(?::\d{2,5})?/[^\s<>\"'()]*"
@@ -130,9 +144,13 @@ _TOLLFREE_RE = re.compile(r"(?<!\d)(18[06]0[\s-]?\d{3}[\s-]?\d{3,4})(?!\d)")
 _SERIES1600_RE = re.compile(r"(?<!\d)(1600\d{6})(?!\d)")
 _DLT_SENDER_RE = re.compile(r"^[a-z]{2}-[a-z0-9]{3,9}(?:-[pstg])?$", re.I)
 
+# An amount: the currency first ("₹500", "Rs 2 lakh", "रुपये 500"), or the number first ("500 रुपये", "10 हजार रुपये",
+# "2 lakh rupees", "499/-"), as Hindi writes it. Groups 1-3 and 4-6: the number, its paise, its unit.
 _AMOUNT_RE = re.compile(
     r"(?:₹|\brs\.?|\binr|\brupees?|रु\.?|रुपये|रुपए)\s?(\d{1,3}(?:,\d{2,3})+|\d+)(?:\.(\d{1,2}))?"
-    r"(?:\s*(lakh|lac|crore|cr|लाख|करोड़|करोड))?",
+    r"(?:\s*(lakh|lac|crore|cr|thousand|लाख|करोड़|करोड|हजार))?"
+    r"|(?<![\d.,])(\d{1,3}(?:,\d{2,3})+|\d+)(?:\.(\d{1,2}))?\s?(?:(lakh|lac|crore|cr|thousand|लाख|करोड़|करोड|हजार)\s?)?"
+    r"(?:rupees?\b|rs\b\.?|inr\b|रुपये|रुपए|रूपए|रूपये|रुपया|रूपया|रुपयों|/-)",
     re.IGNORECASE,
 )
 _UPI_RE = re.compile(r"(?<![\w.@-])([a-z0-9][a-z0-9._-]{1,255}@[a-z][a-z0-9]{1,63})(?![\w@]|\.[a-z])", re.IGNORECASE)
@@ -156,12 +174,15 @@ def extract_1600(text: str) -> list[str]:
 
 
 def _amount(m: re.Match) -> float:
-    value = float(m.group(1).replace(",", "") + ("." + m.group(2) if m.group(2) else ""))
-    unit = (m.group(3) or "").lower()
+    whole, paise, unit = m.group(1, 2, 3) if m.group(1) else m.group(4, 5, 6)
+    value = float(whole.replace(",", "") + ("." + paise if paise else ""))
+    unit = (unit or "").lower()
     if unit in ("lakh", "lac", "लाख"):
         value *= 1e5
     elif unit in ("crore", "cr", "करोड़", "करोड"):
         value *= 1e7
+    elif unit in ("thousand", "हजार"):
+        value *= 1e3
     return value
 
 

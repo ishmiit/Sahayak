@@ -97,6 +97,13 @@ def test_answer_matching(question, text, want):
     assert found is not None and found["answer"] == want
 
 
+def test_housework_is_not_domestic_work():
+    # "घरेलू काम" is also a homemaker's own housework: it must not pick the informal-worker answer (voice pack 1.0.1)
+    assert match(q("work", "single", WORK), "मैं घरेलू काम करती हूँ", "hi") is None
+    assert match(q("work", "single", WORK), "मैं दूसरों के घरों में काम करती हूँ", "hi")["answer"] == "unorganised"
+    assert match(q("work", "single", WORK), "मैं गृहिणी हूँ", "hi")["answer"] == "not_working"
+
+
 def test_no_guessing():
     assert match(q("bank", "single", YN), "", "hi") is None
     assert match(q("ration", "single", RATION), "मौसम अच्छा है", "hi") is None

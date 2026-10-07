@@ -33,7 +33,7 @@
       const head = $("#nd-headline");
       head.textContent = own > 0 ? "⚠ Sahayak ने इंटरनेट से जुड़ने की कोशिश की · Sahayak tried to reach the internet"
         : e.machine.external === 0 ? "इंटरनेट पर कुछ नहीं गया · Nothing went to the internet"
-          : "Sahayak ने इंटरनेट पर कुछ नहीं भेजा · Sahayak sent nothing to the internet (this machine itself is online)";
+          : "Sahayak ने इंटरनेट पर कुछ नहीं भेजा (यह मशीन ख़ुद इंटरनेट से जुड़ी है) · Sahayak sent nothing to the internet (this machine itself is online)";
       head.className = own > 0 ? "warn-text" : "";
       const fw = e.firewall;
       const f = $("#nd-firewall");

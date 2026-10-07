@@ -39,6 +39,20 @@ OTP, PIN or real account is used at any point.
 5. **People.** The VLE invites 20–30 adults who use or are starting to use a bank account or UPI: aim for half
    women, a third aged 55 or more, a few who read little. Nobody is paid to say good things; a cup of tea is fine.
 
+## Short version: two hours, 10–12 people
+
+For a morning squeezed in before the jury round, or a first visit to a new centre. Same consent, same sheets, same
+scoring script; fewer people and tasks.
+
+- **People:** 10–12 adults the operator invites (still aim for a mix of ages, some women, a few who read little).
+- **Team:** two people are enough: one facilitates, one records. The operator hosts if they can.
+- **With each person (8–10 minutes):** consent; age band, phone and reading; **two cards** (one scam, one genuine,
+  shuffled), each judged first without Sahayak and then with it; the benefits interview only for people 55 or older
+  or who ask for it; the three questions. The call task, their own message (only with the separate consent) and the
+  at-home task once, on your own phone, if time allows.
+- **Report counts, not percentages** ("9 of 11 chose the right action"): with a dozen people a percentage claims more
+  than the morning showed. `python bench/eval_field.py --report` works the same with fewer rows.
+
 ## Roles
 
 - **Host (VLE or operator):** welcomes people in their language, runs the assisted checks on the console.

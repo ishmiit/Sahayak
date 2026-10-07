@@ -22,18 +22,18 @@ The benefits guide asks a few questions, one per screen, and finds which of twel
 
 A photo of a UPI QR code shows who the money goes to, and how much. Sahayak always says it plainly: scanning a QR code sends money. It never brings money in.
 
-**6. At the counter** (66–79 s)
+**6. At the counter** (66–78 s)
 
 At a common service centre, the operator sees an ask-the-agent queue, opens the same check to read it aloud, keeps an encrypted case log only with consent, and sees impact counters that hold no personal data.
 
-**7. Zero internet** (79–90 s)
+**7. Zero internet** (78–89 s)
 
 Everything runs on one laptop at the counter. Phones join its Wi-Fi, which has no internet. The node counts every connection Sahayak tries to make to the internet, live. The count is zero.
 
-**8. Evidence** (90–125 s)
+**8. Evidence** (89–129 s)
 
-Measured, not claimed. On our held-out test set Sahayak caught 92 percent of scams, against 51 percent for a keyword blocklist, with far fewer false alarms. The scheme rules match an independent re-derivation on all 2,400 decisions. Offline Hindi speech recognition has a 15 percent word error rate on Google's public test set. And of 52 scams disguised to slip past it, Sahayak caught 46 on the first run, and all of them after the fixes they revealed. Our test messages were written by our own team, so next we test on real messages, collected with consent.
+Measured, not claimed. On 137 real messages that people in India received, published by the government, banks and fact-checkers, Sahayak caught 67 of 97 scams in Hindi, English and Hinglish, and flagged 11 of 34 genuine messages; a keyword blocklist caught 62 and flagged 17. Real messages are harder than our own: on the test set our team wrote, it caught 92 percent. On a blind red team written by a separate AI model, it caught 92 of 103. The scheme rules agree with a re-derivation on all 2,400 decisions, and nothing leaves the node: the count is zero. Next: messages from people's own phones, collected with consent, and a field test at a service centre.
 
-**9. Card** (125–132 s)
+**9. Card** (129–136 s)
 
 Sahayak. Offline, private, and in the language people speak. From Roshan Raj and Ishmiit Singh. Thank you.

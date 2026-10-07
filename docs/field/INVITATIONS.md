@@ -1,7 +1,7 @@
 # Invitations for the field morning (copy into WhatsApp or SMS)
 
 Fill the brackets. Send the operator's message first; ask the operator to send the second one to people who come
-to the centre (or to read it out). Nobody is paid to praise the app; tea is fine. (Hindi to be checked by a native
+to the centre (or to read it out). Nobody is paid to praise the app; tea is fine. For the short version (`FIELD_TEST_PROTOCOL.md`), say 2 hours and 10–12 people (2 घंटे, 10–12 लोग) instead. (Hindi to be checked by a native
 speaker.)
 
 ## To the CSC operator or bank agent

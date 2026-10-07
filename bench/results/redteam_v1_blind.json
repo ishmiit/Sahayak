@@ -1951,7 +1951,7 @@
   "date": "2026-10-07",
   "messages": 182,
   "packs": {
-   "fraud": "1.6.0",
+   "fraud": "1.7.0",
    "scam_patterns": "1.0.0",
    "fraud_model": "1.0.0"
   },
@@ -3156,15 +3156,14 @@
    "full": {
     "groups": {
      "all": {
-      "caught": 102,
+      "caught": 108,
       "left_alone": 59,
       "not_checked": 15,
-      "missed": 6,
       "scams": 118,
       "genuine": 64,
       "caught_ci": [
-       0.7911,
-       0.9148
+       0.851,
+       0.9533
       ],
       "false_alarm": 0,
       "false_alarm_ci": [
@@ -3173,14 +3172,13 @@
       ]
      },
      "hindi_english_hinglish": {
-      "caught": 97,
+      "caught": 103,
       "left_alone": 59,
-      "missed": 6,
       "scams": 103,
       "genuine": 59,
       "caught_ci": [
-       0.8787,
-       0.973
+       0.964,
+       1.0
       ],
       "false_alarm": 0,
       "false_alarm_ci": [
@@ -3206,15 +3204,14 @@
     },
     "by_input_type": {
      "call": {
-      "caught": 19,
+      "caught": 22,
       "left_alone": 8,
       "not_checked": 3,
-      "missed": 3,
       "scams": 25,
       "genuine": 8,
       "caught_ci": [
-       0.5657,
-       0.885
+       0.7004,
+       0.9583
       ],
       "false_alarm": 0,
       "false_alarm_ci": [
@@ -3238,15 +3235,14 @@
       ]
      },
      "text": {
-      "caught": 75,
+      "caught": 78,
       "left_alone": 47,
       "not_checked": 12,
-      "missed": 3,
       "scams": 85,
       "genuine": 52,
       "caught_ci": [
-       0.7968,
-       0.9348
+       0.8396,
+       0.9595
       ],
       "false_alarm": 0,
       "false_alarm_ci": [
@@ -3378,15 +3374,13 @@
       "caught": 1
      },
      "scam:call_forwarding": {
-      "caught": 1,
-      "missed": 1
-     },
-     "scam:courier_customs": {
-      "missed": 1,
       "caught": 2
      },
+     "scam:courier_customs": {
+      "caught": 3
+     },
      "scam:credit_card_otp": {
-      "missed": 1
+      "caught": 1
      },
      "scam:crypto": {
       "caught": 2
@@ -3452,7 +3446,7 @@
      },
      "scam:pilgrimage_booking": {
       "not_checked": 1,
-      "missed": 1
+      "caught": 1
      },
      "scam:qr_army_buyer": {
       "caught": 1
@@ -3489,7 +3483,7 @@
       "caught": 1
      },
      "scam:rent_property_advance": {
-      "missed": 2
+      "caught": 2
      },
      "scam:reward_points": {
       "caught": 2
@@ -3517,62 +3511,7 @@
       "caught": 2
      }
     },
-    "wrong": [
-     {
-      "id": "rt1-026",
-      "label": "scam",
-      "category": "courier_customs",
-      "lang": "hi",
-      "input_type": "text",
-      "verdict": "no_signs",
-      "outcome": "missed"
-     },
-     {
-      "id": "rt1-071",
-      "label": "scam",
-      "category": "rent_property_advance",
-      "lang": "en",
-      "input_type": "call",
-      "verdict": "no_signs",
-      "outcome": "missed"
-     },
-     {
-      "id": "rt1-100",
-      "label": "scam",
-      "category": "credit_card_otp",
-      "lang": "en",
-      "input_type": "call",
-      "verdict": "no_signs",
-      "outcome": "missed"
-     },
-     {
-      "id": "rt1-120",
-      "label": "scam",
-      "category": "pilgrimage_booking",
-      "lang": "en",
-      "input_type": "text",
-      "verdict": "no_signs",
-      "outcome": "missed"
-     },
-     {
-      "id": "rt1-157",
-      "label": "scam",
-      "category": "call_forwarding",
-      "lang": "en",
-      "input_type": "call",
-      "verdict": "no_signs",
-      "outcome": "missed"
-     },
-     {
-      "id": "rt1-158",
-      "label": "scam",
-      "category": "rent_property_advance",
-      "lang": "hi",
-      "input_type": "text",
-      "verdict": "no_signs",
-      "outcome": "missed"
-     }
-    ],
+    "wrong": [],
     "not_checked": [
      {
       "id": "rt1-021",
@@ -3714,6 +3653,7 @@
   }
  },
  "notes": [
-  "7 Oct, fraud pack 1.6.0: fixes for the first run's errors (a bank's SMS-BLOCK footer beside its toll-free number, calm family requests, the writer's own bank, the delivery code given at the door, invitations to come in person or bring papers, power cuts for maintenance, discounts on bank cards, Hinglish and Hindi blackmail, gold-trading pitches, donation appeals to a personal UPI ID, job fees, money 'sent by mistake'). Each change was measured on every set before it was kept: 0 lost catches, 0 new false alarms. Two diagnosis groups (USSD call forwarding; spaced-out links and booking advances) did not finish and their misses remain."
+  "7 Oct, fraud pack 1.6.0: fixes for the first run's errors (a bank's SMS-BLOCK footer beside its toll-free number, calm family requests, the writer's own bank, the delivery code given at the door, invitations to come in person or bring papers, power cuts for maintenance, discounts on bank cards, Hinglish and Hindi blackmail, gold-trading pitches, donation appeals to a personal UPI ID, job fees, money 'sent by mistake'). Each change was measured on every set before it was kept: 0 lost catches, 0 new false alarms. Two diagnosis groups (USSD call forwarding; spaced-out links and booking advances) did not finish and their misses remain.",
+  "7 Oct, fraud pack 1.7.0: a call-forwarding code (*401*, **21*, also said aloud: rt1-157), an advance or token for something you cannot see first (rt1-071 rent, rt1-120 helicopter seats, rt1-158 plot), a fee through a link for a failed delivery and a link split with spaces (rt1-026), and 'confirmation code' read out on a call (rt1-100). Each rule was also tested on new wordings and genuine look-alikes (tests/test_signals_1_7.py) and measured on every set: no catch lost, no new false alarm."
  ]
 }

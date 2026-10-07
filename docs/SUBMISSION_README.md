@@ -19,13 +19,13 @@ teams selected at the jury round
 
 | File | What it is |
 | --- | --- |
-| `01_Sahayak_Demo_Video.mp4` | 2 min 12 s: the problem, the five main flows on screen, the measured results |
+| `01_Sahayak_Demo_Video.mp4` | 2 min 16 s: the problem, the five main flows on screen, the measured results, real messages first |
 | `02_Sahayak_Pitch_Deck.pdf` / `.pptx` | The pitch deck in the challenge's outline, with the measured results |
 | `03_Sahayak_OnePager.pdf` | Everything on one A4 page |
 | `04_Application_to_Prototype.pdf` | What changed since the application, and why each change was made |
 | `05_Sahayak_Testing_Report.pdf` | How every number was measured, with confidence intervals and limits |
 | `06_Sahayak_Jury_Kit.pdf` | Printable test cards (messages, UPI QR codes, benefit personas) with an answer key |
-| `07_Sahayak_Source_Code.zip` | The full source: node, phone app, console, content packs, benchmarks, 421 tests |
+| `07_Sahayak_Source_Code.zip` | The full source: node, phone app, console, content packs, benchmarks, 486 tests |
 | `screenshots/`, `clips/` | 16 phone screenshots and 5 silent screen recordings |
 
 ## See it in 2 minutes
@@ -51,7 +51,7 @@ To try it on a phone with no node at all, open **https://roshworldwide.github.io
 
 Open `http://<node-address>:8000` on a phone on the same Wi-Fi (or `http://127.0.0.1:8000` on the same computer). The
 operator console is `/app/console.html` and the node's status page is `/app/node.html`. After the models are downloaded,
-the internet can be switched off: everything keeps working. `python -m pytest` runs the 421 tests.
+the internet can be switched off: everything keeps working. `python -m pytest` runs the 486 tests.
 
 ## Try it in 5 minutes
 
@@ -69,7 +69,7 @@ refuses them.
 
 | Area | Result |
 | --- | --- |
-| Real published messages (PublicBench v0: 137 messages people in India received, as published by the Income Tax portal, PIB Fact Check, courts and fact-checkers; gathered by an AI research agent that never saw the code; scored once on 7 Oct) | In Hindi, English and Hinglish: 67 of 97 scams caught (69%) vs 62 for a keyword blocklist; 11 of 34 genuine messages flagged (32%) vs 17. The 6 scams in other languages: "could not check", no false green. Lower than on our own messages, and the honest number. After fixes learned from half of the set, the unread half went from 28 to 30 of 44 scams caught, false alarms unchanged |
+| Real published messages (PublicBench v0: 137 messages people in India received, as published by the Income Tax portal, PIB Fact Check, courts and fact-checkers; gathered by an AI research agent that never saw the code; scored once on 7 Oct) | In Hindi, English and Hinglish: 67 of 97 scams caught (69%) vs 62 for a keyword blocklist; 11 of 34 genuine messages flagged (32%) vs 17. The 6 scams in other languages: "could not check", no false green. Lower than on our own messages, and the honest number. After fixes learned from half of the set, the unread half went from 28 to 31 of 44 scams caught, false alarms unchanged |
 | Scam detection (frozen test split, 60 messages written by our team) | 34 of 37 scams caught (91.9%; 95% Wilson CI 79–97%) vs 51.4% for a keyword blocklist; 2 of 23 genuine messages flagged (8.7%) vs 43.5% |
 | Blind red team (182 messages written by a separate AI model that never saw the code, scored once on 7 Oct) | In Hindi, English and Hinglish: 92 of 103 scams caught (89%) vs 51 for the blocklist; 14 of 59 hard genuine messages flagged (24%) vs 25. Other Indian languages: 5 of 15 scams still caught, the other 10 "could not check"; no false green |
 | An AI model as the judge (qwen2.5:3b, zero-shot) | On the 137 real messages: 99 of 103 scams caught but 21 of 34 genuine messages flagged (62%), 2.1 s a message on a GPU; Sahayak 67 and 11, 1.7 ms. On the blind set: 108 of 118 and 24 of 64; Sahayak 97 and 15 |

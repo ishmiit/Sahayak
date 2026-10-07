@@ -1756,7 +1756,7 @@
   "date": "2026-10-07",
   "messages": 137,
   "packs": {
-   "fraud": "1.6.0",
+   "fraud": "1.7.0",
    "scam_patterns": "1.0.0",
    "fraud_model": "1.0.0"
   },
@@ -2679,16 +2679,16 @@
    "full": {
     "groups": {
      "all": {
-      "missed": 14,
-      "caught": 83,
+      "missed": 11,
+      "caught": 86,
       "not_checked": 6,
       "left_alone": 23,
       "false_alarm": 11,
       "scams": 103,
       "genuine": 34,
       "caught_ci": [
-       0.719,
-       0.8706
+       0.7515,
+       0.8943
       ],
       "false_alarm_ci": [
        0.1913,
@@ -2696,15 +2696,15 @@
       ]
      },
      "hindi_english_hinglish": {
-      "missed": 14,
-      "caught": 83,
+      "missed": 11,
+      "caught": 86,
       "left_alone": 23,
       "false_alarm": 11,
       "scams": 97,
       "genuine": 34,
       "caught_ci": [
-       0.7722,
-       0.912
+       0.8083,
+       0.9355
       ],
       "false_alarm_ci": [
        0.1913,
@@ -2727,15 +2727,15 @@
       ]
      },
      "verbatim_only": {
-      "caught": 64,
-      "missed": 11,
+      "caught": 67,
+      "missed": 8,
       "left_alone": 21,
       "false_alarm": 11,
       "scams": 75,
       "genuine": 32,
       "caught_ci": [
-       0.7562,
-       0.9161
+       0.8034,
+       0.945
       ],
       "false_alarm_ci": [
        0.2041,
@@ -2743,16 +2743,16 @@
       ]
      },
      "text": {
-      "missed": 13,
-      "caught": 61,
+      "missed": 10,
+      "caught": 64,
       "not_checked": 6,
       "left_alone": 23,
       "false_alarm": 11,
       "scams": 80,
       "genuine": 34,
       "caught_ci": [
-       0.6586,
-       0.8424
+       0.6995,
+       0.873
       ],
       "false_alarm_ci": [
        0.1913,
@@ -2775,16 +2775,15 @@
       ]
      },
      "dev_half": {
-      "caught": 53,
+      "caught": 55,
       "not_checked": 4,
-      "missed": 2,
       "false_alarm": 5,
       "left_alone": 9,
       "scams": 59,
       "genuine": 14,
       "caught_ci": [
-       0.7954,
-       0.9526
+       0.8382,
+       0.9733
       ],
       "false_alarm_ci": [
        0.1634,
@@ -2792,16 +2791,16 @@
       ]
      },
      "test_half": {
-      "missed": 12,
-      "caught": 30,
+      "missed": 11,
+      "caught": 31,
       "not_checked": 2,
       "left_alone": 14,
       "false_alarm": 6,
       "scams": 44,
       "genuine": 20,
       "caught_ci": [
-       0.5344,
-       0.8
+       0.5578,
+       0.8184
       ],
       "false_alarm_ci": [
        0.1455,
@@ -2904,8 +2903,8 @@
       "caught": 1
      },
      "scam:fake_govt_scheme": {
-      "missed": 4,
-      "caught": 5
+      "caught": 8,
+      "missed": 1
      },
      "scam:free_money_link": {
       "missed": 3
@@ -2997,17 +2996,6 @@
       "outcome": "missed"
      },
      {
-      "id": "pub-032",
-      "label": "scam",
-      "category": "fake_govt_scheme",
-      "lang": "en",
-      "input_type": "text",
-      "verbatim": true,
-      "half": "test",
-      "verdict": "no_signs",
-      "outcome": "missed"
-     },
-     {
       "id": "pub-035",
       "label": "scam",
       "category": "fake_govt_scheme",
@@ -3015,28 +3003,6 @@
       "input_type": "text",
       "verbatim": false,
       "half": "test",
-      "verdict": "no_signs",
-      "outcome": "missed"
-     },
-     {
-      "id": "pub-039",
-      "label": "scam",
-      "category": "fake_govt_scheme",
-      "lang": "hi",
-      "input_type": "text",
-      "verbatim": true,
-      "half": "dev",
-      "verdict": "no_signs",
-      "outcome": "missed"
-     },
-     {
-      "id": "pub-040",
-      "label": "scam",
-      "category": "fake_govt_scheme",
-      "lang": "hi",
-      "input_type": "text",
-      "verbatim": true,
-      "half": "dev",
       "verdict": "no_signs",
       "outcome": "missed"
      },
@@ -3322,6 +3288,7 @@
   }
  },
  "notes": [
-  "7 Oct, fraud pack 1.6.0: the blind red team's fixes, plus fixes learned from the DEV half only: fake police and court notices, a fee to 'release' a payment, prize letters, a relative 'arrested' and money to 'clear his name', Hindi blackmail, 'I accidentally sent you a message, forward it', a call asking you to dial the code you received, a QR code named before 'scan it and receive', stock-group openers, and a told call is never a bank alert. A rule that a message asking for nothing counts against a scam was tested and rejected: it lost 8 catches."
+  "7 Oct, fraud pack 1.6.0: the blind red team's fixes, plus fixes learned from the DEV half only: fake police and court notices, a fee to 'release' a payment, prize letters, a relative 'arrested' and money to 'clear his name', Hindi blackmail, 'I accidentally sent you a message, forward it', a call asking you to dial the code you received, a QR code named before 'scan it and receive', stock-group openers, and a told call is never a bank alert. A rule that a message asking for nothing counts against a scam was tested and rejected: it lost 8 catches.",
+  "7 Oct, fraud pack 1.7.0: rules for the last live-demo traps, learned from the blind red team and the DEV half only: a call-forwarding code (*401*, **21*, also said aloud), an advance or token for something you cannot see first (keys by courier, no site visit, a ticket on WhatsApp), a fee through a link for a failed delivery, a link split with spaces ('remove the spaces'), a free-scheme post that says click on the photo, and 'confirmation code' read out on a call; fewer false alarms from brands' own short links and India Post's customs-duty notice. Measured on every set before adoption: no catch lost, no new false alarm."
  ]
 }

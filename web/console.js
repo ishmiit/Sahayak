@@ -231,7 +231,7 @@
   // ---------------------------------------------------------------- case log
   async function loadCases() {
     const { entries, keep_days: days } = await api("/api/console/caselog");
-    $("#c-cases-note").textContent = `सिर्फ़ अनुमति से, बिना नाम-नंबर, ${days} दिन बाद अपने-आप मिटता है · Only with consent, no names or numbers, deleted automatically after ${days} days. Encrypted on this node.`;
+    $("#c-cases-note").textContent = `सिर्फ़ अनुमति से, बिना नाम-नंबर, ${days} दिन बाद अपने-आप मिटता है; इस नोड पर एन्क्रिप्ट करके रखा जाता है · Only with consent, no names or numbers, deleted automatically after ${days} days. Encrypted on this node.`;
     $("#c-cases").replaceChildren(...(entries.length ? entries.map((e) => {
       const tr = document.createElement("tr");
       const schemes = e.schemes ? Object.entries(e.schemes).map(([g, n]) => `${g}: ${n.join(", ")}`).join("; ") : "";
@@ -296,7 +296,7 @@
       const box = (n, label) => el("div", { class: `bign ${n === 0 ? "zero" : n > 0 ? "nonzero" : ""}` }, el("span", {}, String(n ?? "?")), el("small", {}, label));
       $("#c-status").replaceChildren(
         box(e.sahayak.external_connects, "Sahayak के बाहरी कनेक्शन · outbound connections by Sahayak"),
-        box(e.sahayak.external_lookups, "बाहरी DNS सवाल · outside DNS lookups by Sahayak"),
+        box(e.sahayak.external_lookups, "Sahayak के बाहरी DNS सवाल · outside DNS lookups by Sahayak"),
         box(e.machine.external, "इस मशीन के इंटरनेट कनेक्शन · internet connections, whole machine"));
     } catch { /* ignore */ }
   }

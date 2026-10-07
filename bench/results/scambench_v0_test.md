@@ -67,3 +67,8 @@ call set give the same verdict on every message as before the change (356 messag
 not an unbiased estimate.
 
 7 Oct, fraud pack 1.6.0 (the fixes from the blind red team and the dev half of PublicBench, PROGRESS.md D31–D37): test split recall 97.3% (36/37), false alarms 0/23; no message in any benchmark set lost its catch or became a false alarm. Same caveat: not an unbiased estimate. The fair estimate of these fixes is PublicBench's unread test half (`bench/results/public_v0.md`): scams caught 28 → 30 of 44, genuine flagged 6 → 6 of 20.
+
+7 Oct, fraud pack 1.7.0 (call-forwarding codes, advances for deals you cannot see, redelivery fees through a link, links
+split with spaces, free-scheme posts that say "click on the photo"; PROGRESS.md D38): the test split is unchanged, recall
+97.3% (36/37), false alarms 0/23; no message in any benchmark set lost its catch or became a false alarm. On
+PublicBench's unread test half, across both packs: scams caught 28 → 31 of 44, genuine flagged 6 → 6 of 20.

@@ -222,7 +222,7 @@ s.addText("Three things to try", { x: 5.15, y: 2.05, w: 7.5, h: .5, fontFace: HF
   s.addText(c[1], { x: 6.15, y: y + .56, w: 6.4, h: .42, fontFace: BF, fontSize: 17, color: MUTE, valign: "middle", margin: 0 });
 });
 s.addText("No install, no account. Tap EN for English.", { x: 5.15, y: 6.36, w: 7.58, h: .42, fontFace: BF, fontSize: 16, color: MUTE, valign: "middle", margin: 0 });
-s.addNotes(`Stop talking and let them try; walk round with the demo phone for anyone whose phone will not load it, and never debug a judge's phone. Check before Delhi which fraud pack the public site serves: until it is rebuilt with the 7 Oct packs it has no "${V("unreadable")}" verdict, so do not try a message in another Indian language there; show that on the node.`);
+s.addNotes(`Stop talking and let them try; walk round with the demo phone for anyone whose phone will not load it, and never debug a judge's phone. The public site was rebuilt on 7 Oct with the node's packs (fraud ${fraudPack.version}), "${V("unreadable")}" included; before Delhi, open phone-packs/fraud.json on the site and check it matches the node page.`);
 
 /* 4 HOW IT WORKS, and the round-1 change, measured */
 s = P.addSlide(); bg(s); eye(s, "How it works, and what changed since round 1"); title(s, "How it works, and why rules decide");
@@ -267,15 +267,15 @@ s.addText(`scams caught (${pct0(pH.caught / pH.scams)})`, { x: .88, y: HY + 1.26
 s.addText(big(num(pH.false_alarm), ` of ${num(pH.genuine)}`, SAF, 44), { x: 3.68, y: HY + .52, w: 2.6, h: .72, fontFace: HF, valign: "middle", margin: 0 });
 s.addText(`genuine flagged (${pct0(pH.false_alarm / pH.genuine)})`, { x: 3.68, y: HY + 1.26, w: 2.7, h: .4, fontFace: BF, fontSize: 17, bold: true, color: INK, valign: "middle", margin: 0 });
 s.addText([
-  { text: `${num(pub.first.messages)} messages published by the Income Tax portal, PIB Fact Check, courts and fact-checkers, gathered by an AI research agent that never saw the code.`, options: { breakLine: true } },
+  { text: `${num(pub.first.messages)} messages published by the Income Tax portal, PIB Fact Check, courts and fact-checkers; gathered by an AI agent that never saw the code.`, options: { breakLine: true } },
   { text: `Keyword blocklist: ${of(pHB.caught, pHB.scams)} caught, ${of(pHB.false_alarm, pHB.genuine)} flagged. Other languages: ${of(pO.not_checked || 0, pO.scams)} scams “${V("unreadable")}”, ${num(pOtherGreens)} green.`, options: { breakLine: true } },
-  { text: pTest ? `Fixes learned from one half only. The unread half: ${of(pTest[1].caught, pTest[1].scams)} caught (first run ${num(pTest[0].caught)}), ${of(pTest[1].false_alarm || 0, pTest[1].genuine)} flagged (first run ${num(pTest[0].false_alarm || 0)}).`
+  { text: pTest ? `Fixes learned from one half only. The unread half: ${of(pTest[1].caught, pTest[1].scams)} caught (was ${num(pTest[0].caught)}), ${of(pTest[1].false_alarm || 0, pTest[1].genuine)} flagged (was ${num(pTest[0].false_alarm || 0)}).`
       : "Fixes may learn from one half only; the other half stays unread.", options: { color: INK } }],
-  { x: 6.4, y: HY + .5, w: 6.15, h: HH - .58, fontFace: BF, fontSize: 14, color: MUTE, valign: "top", margin: 0, paraSpaceAfter: 3 });
+  { x: 6.4, y: HY + .5, w: 6.15, h: HH - .58, fontFace: BF, fontSize: 13, color: MUTE, valign: "top", margin: 0, paraSpaceAfter: 3 });
 const TW = 3.94, TY = HY + HH + .12, TH6 = 2.0, tx = (i) => .6 + i * (TW + .155);
 tile(s, tx(0), TY, TW, TH6, { label: `Blind red team (${day(blind.first.date)})`, color: MINT, n: num(heh.caught), rest: ` of ${num(heh.scams)}`,
   what: "scams caught",
-  detail: `${num(blind.first.messages)} messages written by a separate AI model that never saw the code. Genuine flagged: ${of(heh.false_alarm, heh.genuine)}.` });
+  detail: `${num(blind.first.messages)} by an AI model that never saw the code; ${of(heh.false_alarm, heh.genuine)} genuine flagged.` });
 tile(s, tx(1), TY, TW, TH6, { label: `Our own set, frozen (${day(sb.date)})`, color: GRN, n: num(full.tp), rest: ` of ${num(sbScams)}`,
   what: `scams caught · 95% CI ${Math.round(100 * sbCi[0])}–${pct0(sbCi[1])}`,
   detail: `Genuine flagged: ${of(full.fp, sbGenuine)}. A ${modelShort}: ${of(lt.llm.caught, lt.llm.scams)} caught, ${of(lt.llm.false_alarms, lt.llm.genuine)} flagged.` });
@@ -329,7 +329,7 @@ s.addText(fromFile
   { x: 9.14, y: 3.38, w: 3.3, h: 1.15, fontFace: BF, fontSize: 15, color: MUTE, valign: "top", margin: 0 });
 s.addText(bullets(fromFile ? [budget.perCounter, budget.after].filter(Boolean)
   : [`A node: ${F.node_cost.value} once; a check costs nothing.`,
-     `After the pilot: not settled. To test: the district, a bank's financial-inclusion or CSR budget, and the operator's ${F.csc_card_fee.value} per first-time Ayushman card.`], INK),
+     `After the pilot: not settled. To test: the district, a bank's financial-inclusion or CSR budget, and the CSC network's ${F.csc_card_fee.value} per first-time Ayushman card.`], INK),
   { x: 9.14, y: 4.6, w: 3.3, h: 2.1, fontFace: BF, fontSize: 15, valign: "top", margin: 0 });
 sources(s, `${F.vay_vandana.source}; ${F.csc_card_fee.source}; budget: ${fromFile ? "the team's line-item estimate, 7 Oct 2026 (appendix)" : `the round-1 application; node: ${F.node_cost.source}`}.`);
 s.addNotes(`Health first is in the product, not only on this slide: every benefits result for someone 70+ leads with the Vay Vandana card, hospital care only, not OPD. The CSC network is paid ${F.csc_card_fee.value} per first-time card; the citizen pays nothing. The counts are what a pilot would report; none are results yet. ${fromFile ? "Who pays in month seven: give the 30-second answer in the budget appendix (section 2). Nobody has agreed to pay; the payers are hypotheses to test; the coordinator and content upkeep have no payer yet. Say that before a judge finds it." : "Who pays after the pilot is not settled: say so, and name what we will test."} RBI's compensation from ${F.rbi_compensation.value} covers credentials taken from the customer or payments under coercion, reported within 5 days; money a person sends willingly is not covered, so do not pitch fraud-loss savings to banks.`);

@@ -2,7 +2,7 @@
 
 The application (Inclusive Innovation for Bharat, Roshan Raj) described the idea and a clickable demo. The prototype
 submitted for the 8 October 2026 deadline is working software: a node, a phone web app and an operator console, with
-421 automated tests and a benchmark behind every number. Building it changed some choices. Each change below gives its
+486 automated tests and a benchmark behind every number. Building it changed some choices. Each change below gives its
 reason; most come from a measurement.
 
 Dates: prototype due 8 Oct 2026; Grand Jury Round in Delhi, in person, on 14 Oct; Grand Finale and National Summit on
@@ -54,7 +54,7 @@ after the fixes it found).
 portal, PIB Fact Check, courts and fact-checkers, scored once: in Hindi, English and Hinglish, 67 of 97 scams caught
 (69%) and 11 of 34 genuine messages flagged (32%), against 62 and 17 for a keyword blocklist; lower than on our own
 messages, and the number we lead with. Fixes learned from half of those messages lifted the other, unread half from
-28 to 30 of 44 scams caught (fraud pack 1.6.0). Also a blind red team of 182 messages written by a separate AI model that never saw the code, scored
+28 to 31 of 44 scams caught (fraud packs 1.6.0 and 1.7.0). Also a blind red team of 182 messages written by a separate AI model that never saw the code, scored
 once. In Hindi, English and Hinglish, 92 of 103 scams were caught (89%) and 14 of 59 hard genuine messages flagged
 (24%); a keyword blocklist caught 51 and flagged 25. In other Indian languages, 5 of 15 scams were still caught and the
 other 10 got "Could not check", with no false green. A stress test on the dev Mac found four faults on its first run

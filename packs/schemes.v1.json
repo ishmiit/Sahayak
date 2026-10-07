@@ -1,6 +1,6 @@
 {
   "pack": "schemes",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "date": "2026-10-07",
   "notes": "Benefits Navigator rules for 12 central schemes, written from the official pages under 'sources'. Rules are data: sahayak/navigator/engine.py only evaluates them. Every amount the app shows comes from this file. Amounts are the central government's share; states may add more.",
   "review": {
@@ -68,7 +68,7 @@
     {
       "id": "age", "kind": "age", "short": {"hi": "उम्र", "en": "Age"},
       "text": {"hi": "आपकी उम्र कितनी है?", "en": "How old are you?"},
-      "help": {"hi": "पूरे साल में बताएँ। ठीक उम्र नहीं पता, तो नीचे से चुनें।", "en": "In completed years. Not sure? Pick a range below."},
+      "help": {"hi": "जितने साल पूरे हो चुके हैं, वही बताएँ। ठीक उम्र नहीं पता, तो नीचे से चुनें।", "en": "In completed years. Not sure? Pick a range below."},
       "bands": [
         {"id": "lt18", "range": [0, 17], "label": {"hi": "18 से कम", "en": "Under 18"}, "phrase": {"hi": "मेरी उम्र 18 साल से कम है।", "en": "I am under 18."}},
         {"id": "18_40", "range": [18, 40], "label": {"hi": "18–40", "en": "18–40"}, "phrase": {"hi": "मेरी उम्र 18 से 40 साल के बीच है।", "en": "I am between 18 and 40."}},
@@ -96,7 +96,7 @@
       "help": {"hi": "इससे पता चलता है कि परिवार गरीबी रेखा (BPL) से नीचे है या नहीं।", "en": "This tells us whether the family is below the poverty line (BPL)."},
       "options": [
         {"id": "aay", "sets": {"bpl": "L"}, "label": {"hi": "अंत्योदय (AAY)", "en": "Antyodaya (AAY)"}},
-        {"id": "bpl_phh", "sets": {"bpl": "L"}, "label": {"hi": "BPL या प्राथमिकता (PHH)", "en": "BPL or priority household (PHH)"}},
+        {"id": "bpl_phh", "sets": {"bpl": "L"}, "label": {"hi": "BPL, प्राथमिकता या पात्र गृहस्थी (PHH)", "en": "BPL or priority household (PHH)"}},
         {"id": "apl", "sets": {"bpl": "F"}, "label": {"hi": "APL या सामान्य", "en": "APL or general"}},
         {"id": "none", "sets": {}, "label": {"hi": "कोई राशन कार्ड नहीं", "en": "No ration card"}},
         {"id": "dont_know", "sets": {}, "label": {"hi": "पता नहीं", "en": "Don't know"}}
@@ -119,10 +119,10 @@
       "options": [
         {"id": "farmer_land", "sets": {"farmer_land": "L", "unorganised": "F", "epf_esic_nps": "F"}, "label": {"hi": "किसान — परिवार के नाम खेती की ज़मीन है", "en": "Farmer — the family owns farm land"}},
         {"id": "farm_labour", "sets": {"farmer_land": "F", "unorganised": "T", "epf_esic_nps": "F"}, "label": {"hi": "खेत मज़दूर या बिना ज़मीन का किसान", "en": "Farm labourer or landless farmer"}},
-        {"id": "unorganised", "sets": {"farmer_land": "F", "unorganised": "T", "epf_esic_nps": "F"}, "label": {"hi": "दिहाड़ी, निर्माण, घरेलू काम, रेहड़ी-पटरी, घर से काम, छोटी दुकान, ड्राइवर या डिलीवरी", "en": "Daily wage, construction, domestic work, street vending, home-based work, small shop, driver or delivery"}},
+        {"id": "unorganised", "sets": {"farmer_land": "F", "unorganised": "T", "epf_esic_nps": "F"}, "label": {"hi": "दिहाड़ी, निर्माण, दूसरों के घरों में काम, रेहड़ी-पटरी, घर बैठे कमाई का काम, छोटी दुकान, ड्राइवर या डिलीवरी", "en": "Daily wage, construction, domestic work, street vending, home-based work, small shop, driver or delivery"}},
         {"id": "salaried_pf", "sets": {"farmer_land": "F", "unorganised": "F", "epf_esic_nps": "T"}, "label": {"hi": "नौकरी, जिसमें PF या ESIC कटता है", "en": "A job with PF or ESIC"}},
         {"id": "government", "sets": {"farmer_land": "F", "unorganised": "F", "epf_esic_nps": "T"}, "label": {"hi": "सरकारी नौकरी या सरकारी पेंशन", "en": "Government job or government pension"}},
-        {"id": "not_working", "sets": {"farmer_land": "F", "unorganised": "F", "epf_esic_nps": "F"}, "label": {"hi": "अभी काम नहीं (गृहिणी, छात्र, सेवानिवृत्त)", "en": "Not working now (homemaker, student, retired)"}}
+        {"id": "not_working", "sets": {"farmer_land": "F", "unorganised": "F", "epf_esic_nps": "F"}, "label": {"hi": "अभी काम नहीं (गृहिणी, छात्र, रिटायर)", "en": "Not working now (homemaker, student, retired)"}}
       ]
     },
     {
@@ -138,8 +138,8 @@
     },
     {
       "id": "kisan", "kind": "single", "short": {"hi": "PM-KISAN रोक", "en": "PM-KISAN exclusion"},
-      "text": {"hi": "क्या परिवार में (पति, पत्नी या 18 से कम उम्र के बच्चे) कोई इनमें से है?", "en": "Does anyone in your family (husband, wife or children under 18) fit any of these?"},
-      "help": {"hi": "पिछले साल इनकम टैक्स भरा · सरकारी नौकरी, अभी या पहले (मल्टी-टास्किंग / ग्रुप D को छोड़कर) · ₹10,000 महीना या ज़्यादा की सरकारी पेंशन · डॉक्टर, इंजीनियर, वकील, CA या आर्किटेक्ट की प्रैक्टिस · मंत्री, सांसद, विधायक, मेयर या ज़िला पंचायत अध्यक्ष (अभी या पहले)", "en": "Paid income tax last year · Government job, now or retired (except multi-tasking / Group D staff) · Government pension of ₹10,000 a month or more · Practising doctor, engineer, lawyer, CA or architect · Minister, MP, MLA, mayor or district panchayat chair (now or before)"},
+      "text": {"hi": "क्या आपके परिवार (पति, पत्नी या 18 साल से कम उम्र के बच्चे) में किसी पर नीचे दी गई कोई बात लागू होती है?", "en": "Does anyone in your family (husband, wife or children under 18) fit any of these?"},
+      "help": {"hi": "पिछले साल इनकम टैक्स भरा · सरकारी नौकरी, अभी या रिटायर (मल्टी-टास्किंग / ग्रुप D को छोड़कर) · ₹10,000 महीना या ज़्यादा की सरकारी पेंशन · डॉक्टर, इंजीनियर, वकील, CA या आर्किटेक्ट की प्रैक्टिस · मंत्री, सांसद, विधायक, मेयर या ज़िला पंचायत अध्यक्ष (अभी या पहले)", "en": "Paid income tax last year · Government job, now or retired (except multi-tasking / Group D staff) · Government pension of ₹10,000 a month or more · Practising doctor, engineer, lawyer, CA or architect · Minister, MP, MLA, mayor or district panchayat chair (now or before)"},
       "options": [
         {"id": "yes", "sets": {"kisan_excluded": "T"}, "label": {"hi": "हाँ, कोई है", "en": "Yes, someone does"}},
         {"id": "no", "sets": {"kisan_excluded": "F"}, "label": {"hi": "नहीं, कोई नहीं", "en": "No, nobody"}},
@@ -151,15 +151,15 @@
     {
       "id": "ignoaps", "short": "IGNOAPS", "family": "pension",
       "name": {"hi": "वृद्धावस्था पेंशन (IGNOAPS)", "en": "Old-age pension (IGNOAPS)"},
-      "what": {"hi": "60 साल या ज़्यादा उम्र के गरीब (BPL) परिवारों के लोगों को हर महीने पेंशन।", "en": "A monthly pension for people aged 60 or more from below-poverty-line (BPL) families."},
+      "what": {"hi": "गरीब (BPL) परिवारों के 60 साल या ज़्यादा उम्र के लोगों को हर महीने पेंशन।", "en": "A monthly pension for people aged 60 or more from below-poverty-line (BPL) families."},
       "rule": {"all": [
         {"age": [60, null], "say": {"hi": "उम्र 60 साल या ज़्यादा", "en": "Age 60 or more"}},
         {"fact": "bpl", "say": {"hi": "परिवार गरीबी रेखा से नीचे (BPL)", "en": "Family below the poverty line (BPL)"}}
       ]},
       "benefit": {"hi": "60 से 79 साल तक ₹200 हर महीने, 80 साल से ₹500 हर महीने।", "en": "₹200 a month from 60 to 79; ₹500 a month from 80."},
       "benefit_now": [
-        {"when": {"age": [60, 79]}, "hi": "केंद्र से ₹200 हर महीने; राज्य इसमें और जोड़ सकता है", "en": "₹200 a month from the centre; your state may add more"},
-        {"when": {"age": [80, null]}, "hi": "केंद्र से ₹500 हर महीने; राज्य इसमें और जोड़ सकता है", "en": "₹500 a month from the centre; your state may add more"}
+        {"when": {"age": [60, 79]}, "hi": "केंद्र सरकार से ₹200 हर महीने; आपका राज्य इसमें और जोड़ सकता है", "en": "₹200 a month from the centre; your state may add more"},
+        {"when": {"age": [80, null]}, "hi": "केंद्र सरकार से ₹500 हर महीने; आपका राज्य इसमें और जोड़ सकता है", "en": "₹500 a month from the centre; your state may add more"}
       ],
       "documents": [
         {"hi": "आधार कार्ड", "en": "Aadhaar card"},
@@ -180,7 +180,7 @@
     {
       "id": "ignwps", "short": "IGNWPS", "family": "pension",
       "name": {"hi": "विधवा पेंशन (IGNWPS)", "en": "Widow pension (IGNWPS)"},
-      "what": {"hi": "40 से 79 साल की गरीब (BPL) परिवारों की विधवा महिलाओं को हर महीने पेंशन।", "en": "A monthly pension for widows aged 40 to 79 from BPL families."},
+      "what": {"hi": "गरीब (BPL) परिवारों की 40 से 79 साल की विधवा महिलाओं को हर महीने पेंशन।", "en": "A monthly pension for widows aged 40 to 79 from BPL families."},
       "rule": {"all": [
         {"fact": "widow", "say": {"hi": "विधवा", "en": "Widow"}},
         {"age": [40, 79], "say": {"hi": "उम्र 40 से 79 साल", "en": "Age 40 to 79"}},
@@ -188,7 +188,7 @@
       ]},
       "benefit": {"hi": "₹300 हर महीने। 80 साल होने पर ₹500 हर महीने।", "en": "₹300 a month. ₹500 a month once you turn 80."},
       "benefit_now": [
-        {"when": {"age": [40, 79]}, "hi": "केंद्र से ₹300 हर महीने; राज्य इसमें और जोड़ सकता है", "en": "₹300 a month from the centre; your state may add more"}
+        {"when": {"age": [40, 79]}, "hi": "केंद्र सरकार से ₹300 हर महीने; आपका राज्य इसमें और जोड़ सकता है", "en": "₹300 a month from the centre; your state may add more"}
       ],
       "documents": [
         {"hi": "आधार कार्ड", "en": "Aadhaar card"},
@@ -218,7 +218,7 @@
       ]},
       "benefit": {"hi": "₹300 हर महीने। 80 साल होने पर ₹500 हर महीने।", "en": "₹300 a month. ₹500 a month once you turn 80."},
       "benefit_now": [
-        {"when": {"age": [18, 79]}, "hi": "केंद्र से ₹300 हर महीने; राज्य इसमें और जोड़ सकता है", "en": "₹300 a month from the centre; your state may add more"}
+        {"when": {"age": [18, 79]}, "hi": "केंद्र सरकार से ₹300 हर महीने; आपका राज्य इसमें और जोड़ सकता है", "en": "₹300 a month from the centre; your state may add more"}
       ],
       "documents": [
         {"hi": "आधार कार्ड", "en": "Aadhaar card"},
@@ -334,12 +334,12 @@
         {"hi": "मोबाइल नंबर", "en": "Mobile number"},
         {"hi": "नॉमिनी का नाम और उससे रिश्ता", "en": "Nominee's name and relationship"}
       ],
-      "where": {"hi": "जिस बैंक या डाकघर में आपका बचत खाता है", "en": "The bank branch or post office where you have your savings account"},
+      "where": {"hi": "जिस बैंक शाखा या डाकघर में आपका बचत खाता है, वहीं", "en": "The bank branch or post office where you have your savings account"},
       "counter": {
         "default": {"hi": "नमस्ते। {age_phrase} मुझे अटल पेंशन योजना (APY) में जुड़ना है। मैंने कभी इनकम टैक्स नहीं भरा।", "en": "Namaste. {age_phrase} I want to join the Atal Pension Yojana (APY). I have never paid income tax."},
         "check": {"hi": "नमस्ते। {age_phrase} क्या मैं अटल पेंशन योजना (APY) में जुड़ने के योग्य हूँ?", "en": "Namaste. {age_phrase} Can I join the Atal Pension Yojana (APY)?"}
       },
-      "notes": [{"hi": "1 अक्टूबर 2022 से, जिसने कभी इनकम टैक्स भरा है, वह नया खाता नहीं खोल सकता।", "en": "Since 1 October 2022, anyone who has ever paid income tax cannot open a new account."}],
+      "notes": [{"hi": "1 अक्टूबर 2022 से, जिसने कभी इनकम टैक्स भरा है, वह अटल पेंशन योजना में नया खाता नहीं खोल सकता।", "en": "Since 1 October 2022, anyone who has ever paid income tax cannot open a new account."}],
       "sources": ["pfrda_apy_faq", "pib_jansuraksha_2023"]
     },
     {
@@ -348,7 +348,7 @@
       "what": {"hi": "ज़मीन वाले किसान परिवारों को हर साल ₹6,000, सीधे बैंक खाते में।", "en": "₹6,000 a year for landholding farmer families, straight to the bank account."},
       "rule": {"all": [
         {"fact": "farmer_land", "say": {"hi": "परिवार के नाम खेती की ज़मीन (भूलेख में दर्ज)", "en": "Farm land in the family's name (in the land records)"}},
-        {"not": {"fact": "kisan_excluded"}, "say": {"hi": "परिवार में कोई रोक वाली श्रेणी नहीं (टैक्स, सरकारी नौकरी, बड़ी पेंशन, पेशेवर, पदाधिकारी)", "en": "No one in the family in an excluded group (tax, government job, large pension, professional, office-holder)"}}
+        {"not": {"fact": "kisan_excluded"}, "say": {"hi": "परिवार में कोई भी रोक वाली श्रेणी में नहीं (टैक्स, सरकारी नौकरी, बड़ी पेंशन, डॉक्टर-वकील जैसा पेशा, मंत्री-विधायक जैसा पद)", "en": "No one in the family in an excluded group (tax, government job, large pension, professional, office-holder)"}}
       ]},
       "benefit": {"hi": "हर साल ₹6,000 — ₹2,000 की तीन बराबर किस्तें, सीधे बैंक खाते में।", "en": "₹6,000 a year — three equal instalments of ₹2,000, straight to the bank account."},
       "benefit_now": [
@@ -366,7 +366,7 @@
       },
       "check_how": {"hi": "CSC केंद्र पर पूछें कि परिवार का कोई सदस्य रोक वाली श्रेणी में आता है या नहीं।", "en": "Ask at a CSC centre whether anyone in the family falls in an excluded group."},
       "notes": [
-        {"hi": "पैसा परिवार (पति, पत्नी और नाबालिग बच्चे) को एक बार ही मिलता है।", "en": "The money is paid once per family (husband, wife and minor children)."},
+        {"hi": "पूरे परिवार (पति, पत्नी और नाबालिग बच्चे) में यह पैसा एक ही व्यक्ति को मिलता है, हर सदस्य को अलग-अलग नहीं।", "en": "The money is paid once per family (husband, wife and minor children)."},
         {"hi": "1 फ़रवरी 2019 के बाद मिली ज़मीन वाले मामलों की जाँच हो रही है।", "en": "Cases where land was acquired after 1 February 2019 are being verified."}
       ],
       "sources": ["pmkisan_home"]
@@ -374,7 +374,7 @@
     {
       "id": "pmjay", "short": "PM-JAY", "family": "health",
       "name": {"hi": "आयुष्मान भारत (PM-JAY)", "en": "Ayushman Bharat (PM-JAY)"},
-      "what": {"hi": "सूचीबद्ध अस्पताल में भर्ती होने पर हर साल ₹5 लाख तक मुफ़्त इलाज। बिना भर्ती के इलाज (OPD) इसमें नहीं।", "en": "Free treatment when admitted to a listed hospital, up to ₹5 lakh a year. Outpatient visits (OPD) are not covered."},
+      "what": {"hi": "योजना से जुड़े अस्पताल में भर्ती होने पर हर साल ₹5 लाख तक मुफ़्त इलाज। बिना भर्ती के इलाज (OPD) इसमें नहीं।", "en": "Free treatment when admitted to a listed hospital, up to ₹5 lakh a year. Outpatient visits (OPD) are not covered."},
       "rule": {"any": [
         {"age": [70, null], "say": {"hi": "उम्र 70 साल या ज़्यादा — आमदनी कुछ भी हो", "en": "Age 70 or more — whatever the income"}},
         {"fact": "pmjay_list", "say": {"hi": "परिवार का नाम PM-JAY सूची में (SECC 2011 या राज्य की सूची)", "en": "Family's name on the PM-JAY list (SECC 2011 or the state's list)"}}
@@ -389,7 +389,7 @@
         {"hi": "राशन कार्ड (परिवार की सूची के लिए)", "en": "Ration card (for the family list)"},
         {"hi": "मोबाइल नंबर", "en": "Mobile number"}
       ],
-      "where": {"hi": "CSC केंद्र, सूचीबद्ध अस्पताल, आयुष्मान ऐप, या 14555 पर कॉल", "en": "A CSC centre, an empanelled hospital, the Ayushman app, or call 14555"},
+      "where": {"hi": "CSC केंद्र, योजना से जुड़ा अस्पताल, आयुष्मान ऐप, या 14555 पर कॉल", "en": "A CSC centre, an empanelled hospital, the Ayushman app, or call 14555"},
       "counter": {
         "default": {"hi": "नमस्ते। {age_phrase} मुझे आयुष्मान वय वंदना कार्ड बनवाना है।", "en": "Namaste. {age_phrase} I want to get the Ayushman Vay Vandana card."},
         "check": {"hi": "नमस्ते। क्या मेरे परिवार का नाम आयुष्मान भारत (PM-JAY) की सूची में है? यह मेरा आधार कार्ड है।", "en": "Namaste. Is my family on the Ayushman Bharat (PM-JAY) list? Here is my Aadhaar card."}
@@ -406,7 +406,7 @@
       "what": {"hi": "असंगठित मज़दूरों का मुफ़्त सरकारी पंजीकरण — 12 अंकों का UAN कार्ड, जिससे योजनाएँ आप तक पहुँचती हैं।", "en": "Free government registration for unorganised workers — a 12-digit UAN card that brings schemes to you."},
       "rule": {"all": [
         {"age": [16, 59], "say": {"hi": "उम्र 16 से 59 साल", "en": "Age 16 to 59"}},
-        {"fact": "unorganised", "say": {"hi": "असंगठित काम (दिहाड़ी, घरेलू, रेहड़ी-पटरी, खेत मज़दूरी…)", "en": "Unorganised work (daily wage, domestic, street vending, farm labour…)"}},
+        {"fact": "unorganised", "say": {"hi": "असंगठित काम (दिहाड़ी, दूसरों के घरों में काम, रेहड़ी-पटरी, खेत मज़दूरी…)", "en": "Unorganised work (daily wage, domestic, street vending, farm labour…)"}},
         {"not": {"fact": "epf_esic_nps"}, "say": {"hi": "EPFO या ESIC के सदस्य नहीं", "en": "Not a member of EPFO or ESIC"}}
       ]},
       "benefit": {"hi": "पंजीकरण मुफ़्त है और कार्ड कभी ख़त्म नहीं होता। सरकार इसी सूची से असंगठित मज़दूरों तक योजनाएँ और मुसीबत के समय मदद पहुँचाती है।", "en": "Registration is free and the card never expires. The government uses this list to reach unorganised workers with schemes and with help in emergencies."},
@@ -430,7 +430,7 @@
       "what": {"hi": "18 से 40 साल के असंगठित मज़दूरों (कमाई ₹15,000 महीना या कम) के लिए पेंशन — जितना आप जमा करें, उतना ही सरकार जोड़ती है।", "en": "A pension for unorganised workers aged 18 to 40 earning ₹15,000 a month or less — the government matches what you pay."},
       "rule": {"all": [
         {"age": [18, 40], "say": {"hi": "उम्र 18 से 40 साल", "en": "Age 18 to 40"}},
-        {"fact": "unorganised", "say": {"hi": "असंगठित काम (दिहाड़ी, घरेलू, रेहड़ी-पटरी, खेत मज़दूरी…)", "en": "Unorganised work (daily wage, domestic, street vending, farm labour…)"}},
+        {"fact": "unorganised", "say": {"hi": "असंगठित काम (दिहाड़ी, दूसरों के घरों में काम, रेहड़ी-पटरी, खेत मज़दूरी…)", "en": "Unorganised work (daily wage, domestic, street vending, farm labour…)"}},
         {"fact": "income_le_15k", "say": {"hi": "महीने की कमाई ₹15,000 या कम", "en": "Monthly income ₹15,000 or less"}},
         {"not": {"fact": "epf_esic_nps"}, "say": {"hi": "EPFO, ESIC या सरकारी NPS के सदस्य नहीं", "en": "Not a member of EPFO, ESIC or government-funded NPS"}}
       ]},

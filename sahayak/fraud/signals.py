@@ -210,6 +210,22 @@ _SHARE_TO_CONTACTS_HI = re.compile(
 _OR_ELSE = re.compile(
     r"(?<![a-z])(?:warna|varna|vrna|otherwise|or\s+else|(?:nahi|nahin|nai)\s+(?:\w+\s+)?toh?)(?![a-z])"
     r"|वरना|अन्यथा|(?:नहीं|नही)\s+(?:\S+\s+)?तो(?![ऀ-ॿ])")
+# A code that forwards your calls to someone else: "*401*<number>" (Jio), "**21*<number>#", "*21*", "**61*", "**62*",
+# "**67*", "*004*", or the same said aloud ("star 4 0 1 star"). Whoever gets your calls gets your OTP calls too.
+# "##002#" cancels all forwarding and is advice, not this.
+_CALL_FORWARD = re.compile(
+    r"(?<![\d*#])\*{1,2}\s?(?:401|21|61|62|67|004)\s?\*(?=\s?\+?\d)"
+    r"|(?<![a-z])star\s+(?:star\s+)?(?:4\s*0\s*1|four\s+(?:zero|o)\s+one|2\s*1|two\s+one|6\s*[127]|six\s+(?:one|two|seven)|0\s*0\s*4|zero\s+zero\s+four)\s+star(?![a-z])"
+    r"|स्टार\s+(?:स्टार\s+)?(?:4\s*0\s*1|2\s*1|6\s*[127])\s+स्टार")
+# Asked to pay: the instruction, not a receipt ("book now by paying 50% advance", "pay two months' rent plus
+# deposit", "₹21,000 टोकन देकर बुक करें"); "advance of ₹3,100 received" is not an ask.
+_PAY_ASK = re.compile(
+    r"(?<![a-z])(?:pay|paying|transfer|send|book\s+now|deposit\s+(?:rs|₹|\d))(?![a-z])"
+    r"|(?<![a-z])(?:bhejo|bhejein|bhej\s+do|jama\s+kar\w*|de\s+do|dekar)(?![a-z])|देकर|भेजें|भेज\s+दें|जमा\s+करें|भुगतान\s+करें")
+_DELIVERY_FEE = re.compile(
+    r"(?<![a-z])(?:fee|fees|charge|charges|duty|redelivery\s+charge)(?![a-z])|शुल्क|फीस|चार्ज")
+# The government named as the giver: with "free" and "click", a forwarded scheme post ("free" alone is not a scheme).
+_GOVT_CLAIM = re.compile(r"(?<![a-z])(?:government|govt|sarkar|sarkari|ministry)(?![a-z])|सरकार|मंत्रालय")
 _PRIZE_EXCLUDE = re.compile(r"reward\s+points|loyalty\s+points|earned\s+\d+\s+points|cashback\s+points")
 _NO_FEE = re.compile(r"(?:\bno|without|zero|free|बिना|कोई)\s+$")  # "No registration fee", "बिना शुल्क"
 _EARN_RATE = re.compile(r"earn\w*\s+(?:upto\s+|up to\s+)?(?:rs\.?|₹|inr)?\s?\d[\d,]*\s*(?:/-)?\s*(?:per day|daily|/day|a day|per hour|per task|weekly|per week)")
@@ -440,6 +456,12 @@ class SignalEngine:
             fire("link_apk", domain=apk.group(0))
         if links and not nonofficial:
             fire("official_link", domain=official[0].host)
+        # "remove the spaces and open", "स्पेस हटाकर खोलें": a link written apart on purpose. On once the pack defines it.
+        if "link_hiding" in self.defs and "link_hiding_terms" in L and nonofficial:
+            for m in L["link_hiding_terms"].finditer(n):
+                if not self.advisory_context(n, m):
+                    fire("link_hiding", phrase=m.group(0))
+                    break
 
         # --- who sent it
         if ctx.sender_kind == "mobile" and org_claim:
@@ -501,6 +523,13 @@ class SignalEngine:
         couriers, seized = L["courier_terms"].finditer(n), L["seized_terms"].finditer(n)
         if couriers and seized and _near(couriers, seized, 80) and not self.advisory_context(n, seized[0]):
             fire("courier_seized")
+        # A small fee for a parcel's delivery or address update, paid through a link: the redelivery scam ("address
+        # incomplete, pay ₹5 to redeliver"). Couriers do not collect fees through an SMS link; a COD amount on a
+        # tracking link has no failed delivery. On once the pack defines delivery_fee and delivery_problem.
+        if ("delivery_fee" in self.defs and "delivery_problem" in L and couriers and nonofficial
+                and L["delivery_problem"].search(n)
+                and any(not self.advisory_context(n, f) for f in _DELIVERY_FEE.finditer(n))):
+            fire("delivery_fee")
         if L["secrecy"].search(n):
             fire("secrecy")
 
@@ -539,6 +568,14 @@ class SignalEngine:
                     break
         if L["loan"].search(n):
             fire("loan_offer")
+        # An advance, token or deposit for something you cannot see first: a flat whose "officer" owner will courier
+        # the keys, a plot with "no site visit needed", a helicopter seat whose ticket comes on WhatsApp. On once the
+        # pack defines unseen_advance, advance_ask and unseen_terms.
+        if "unseen_advance" in self.defs and "advance_ask" in L and "unseen_terms" in L:
+            asks = [m for m in L["advance_ask"].finditer(n) if not self.advisory_context(n, m)]
+            if (asks and L["unseen_terms"].search(n) and (ctx.amounts or ctx.upi_ids or "upi" in n)
+                    and any(_PAY_ASK.search(_sentence(n, a.start(), a.end())) for a in asks)):
+                fire("unseen_advance", phrase=asks[0].group(0))
 
         # --- impersonation stories
         kyc, kyc_threat = L["kyc_terms"].finditer(n), L["kyc_threat_terms"].finditer(n)
@@ -585,6 +622,15 @@ class SignalEngine:
         install = L["install_terms"].finditer(n)
         if L["scheme_terms"].search(n) and (nonofficial or install or apk):
             fire("govt_scheme_bait")
+        # A forwarded "free scheme" or "free registration" post that says click the photo or see the details, with no
+        # official link: the link sits in the image. On once the pack defines scheme_click and click_terms.
+        elif ("scheme_click" in self.defs and "click_terms" in L and "free_terms" in L and not links
+                and L["free_terms"].search(n)
+                and (any(not L["free_terms"].search(m.group(0)) for m in L["scheme_terms"].finditer(n))
+                     or _GOVT_CLAIM.search(n))
+                and any(not self.advisory_context(n, c) and not self.negated(n, c.start(), c.end())
+                        for c in L["click_terms"].finditer(n))):
+            fire("scheme_click")
         # Money sent to a phone number, UPI ID or link to get a scheme or card. Ayushman and e-Shram cards are
         # free; a fee paid at the counter has no number or link and is not this. On once the fraud pack defines
         # scheme_fee (pack 1.4.0, scripts/pack_update_1_4.py); web/checker.js mirrors it.
@@ -608,6 +654,12 @@ class SignalEngine:
                     and not self.L["advisory"].search(_sentence(n, m.start(), m.end()))):
                 fire("remote_access")
                 break
+        # Dial a code that forwards your calls. On once the pack defines call_forwarding.
+        if "call_forwarding" in self.defs:
+            for m in _CALL_FORWARD.finditer(n):
+                if not self.advisory_context(n, m):
+                    fire("call_forwarding", code=m.group(0)[:32])
+                    break
         if "link_apk" not in fired and nonofficial and any(not self.negated(n, i.start(), i.end()) for i in install):
             fire("app_install")
         if ctx.mixed_tokens:
@@ -615,7 +667,8 @@ class SignalEngine:
 
         # --- signs of a genuine message (lower the score, never to "safe")
         requests = {"otp_request", "personal_info_request", "upi_receive", "remote_access", "link_apk",
-                    "advance_fee", "job_fee", "contact_mobile", "kyc_threat", "digital_arrest"}
+                    "advance_fee", "job_fee", "contact_mobile", "kyc_threat", "digital_arrest", "call_forwarding",
+                    "unseen_advance", "delivery_fee"}
         asked = bool(requests & fired.keys())
         advisory = L["advisory"].search(n)
         negated_share = any(self.negated(n, v.start(), v.end()) for v in L["share_verbs"].finditer(n))

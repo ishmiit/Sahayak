@@ -78,7 +78,7 @@ def blind_section(rb: dict) -> list[str]:
     ]
     if rb.get("latest"):
         lo = rb["latest"]["systems"]["full"]["groups"]["hindi_english_hinglish"]
-        out += [f"**After the first run** (post-freeze log in the results file): {'; '.join(rb.get('notes', []))} Re-scored on fraud "
+        out += [f"**After the first run** (post-freeze log in the results file): {' '.join(rb.get('notes', []))} Re-scored on fraud "
                 f"pack {rb['latest']['packs']['fraud']}: {frac(lo.get('caught', 0), lo['scams'])} scams caught and "
                 f"{frac(lo.get('false_alarm', 0), lo['genuine'])} false alarms in Hindi / English / Hinglish. These messages "
                 "shaped the fixes, so this is not an unbiased test; the first run stays the number to quote.", ""]

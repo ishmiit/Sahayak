@@ -7,8 +7,11 @@ of the text for diagnosis. Cases:
 
   - every line of bench/scambench/scambench_v0.jsonl, bench/redteam/redteam_v0.jsonl (with its sender) and
     bench/callbench/calls_v0.jsonl (input_type "call");
-  - every message string in tests/test_signals.py, test_redteam.py, test_inputs.py and test_api.py (read
-    with `ast`, so new test messages join automatically);
+  - every line of the blind red-team set bench/redteam/redteam_v1_blind.jsonl (a QR item through analyse(), as
+    /api/qr does) and the dev half of PublicBench (bench/public/; the test half stays out of every tool but its
+    scorer, see bench/eval_public_v0.py);
+  - every message string in tests/test_signals.py, test_signals_1_6.py, test_signals_1_7.py, test_redteam.py,
+    test_inputs.py and test_api.py (read with `ast`, so new test messages join automatically);
   - every example and QR example in packs/demo.v1.json (a QR goes through analyse(), then its check_text
     through the check with input_type "qr", as /api/qr does);
   - hand-written adversarial messages (Devanagari and other digits, homoglyphs, zero-width characters,
@@ -24,6 +27,7 @@ from __future__ import annotations
 
 import argparse
 import ast
+import hashlib
 import json
 import math
 import os
@@ -42,7 +46,8 @@ from sahayak.fraud.pipeline import check_message_full  # noqa: E402
 from sahayak.inputs.qr import analyse, rupees  # noqa: E402
 from sahayak.packs import get_pack  # noqa: E402
 
-TEST_FILES = ("test_signals.py", "test_redteam.py", "test_inputs.py", "test_api.py")
+TEST_FILES = ("test_signals.py", "test_signals_1_6.py", "test_signals_1_7.py", "test_redteam.py", "test_inputs.py",
+              "test_api.py")
 
 
 def jsonable(x):
@@ -58,6 +63,11 @@ def jsonable(x):
 
 def read_jsonl(path: Path) -> list[dict]:
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+
+
+def dev_half(item_id: str) -> bool:
+    """bench/eval_public_v0.py half(): only PublicBench's dev half may be used outside its scorer."""
+    return int(hashlib.sha256(item_id.encode()).hexdigest()[:8], 16) % 2 == 0
 
 
 # ---------------------------------------------------------------- messages used in the tests
@@ -408,6 +418,17 @@ def build() -> dict:
         triples.append(("redteam", (r["text"], r.get("sender"), "text")))
     for r in read_jsonl(ROOT / "bench" / "callbench" / "calls_v0.jsonl"):
         triples.append(("callbench", (r["text"], None, "call")))
+    blind_qr = []
+    for r in read_jsonl(ROOT / "bench" / "redteam" / "redteam_v1_blind.jsonl"):
+        if r.get("input_type") == "qr":
+            blind_qr.append(r["text"])
+        else:
+            triples.append(("redteam_v1", (r["text"], r.get("sender"), r.get("input_type", "text"))))
+    public = ROOT / "bench" / "public" / "public_messages_v0.jsonl"
+    if public.exists():
+        for r in read_jsonl(public):
+            if dev_half(r["id"]):
+                triples.append(("public_dev", (r["text"], r.get("sender"), r.get("input_type", "text"))))
     test_cases, test_payloads, test_amounts = from_tests()
     triples += [("tests", c) for c in test_cases]
     demo = get_pack("demo").data
@@ -421,7 +442,7 @@ def build() -> dict:
     bench_texts = [t for src, (t, _, _) in triples if src in ("scambench", "redteam", "callbench")]
     triples += [("fuzz", (t, None, "text")) for t in fuzz(bench_texts, 600)]
 
-    qr_payloads = [ex["payload"] for ex in demo.get("qr_examples", [])] + test_payloads + QR_PAYLOADS
+    qr_payloads = [ex["payload"] for ex in demo.get("qr_examples", [])] + test_payloads + QR_PAYLOADS + blind_qr
     cases, seen = [], set()
     for payload in dict.fromkeys(qr_payloads):
         try:

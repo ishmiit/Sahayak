@@ -75,8 +75,9 @@ def main() -> int:
         f"A scam check takes {f['check_ms_median']} ms (median) and {f['check_ms_p95']} ms (95th percentile) in Node on the "
         "build laptop; a phone is several times slower and still far under the time a person notices.",
         "",
-        "The cases: every ScamBench, red-team and call-bench message, every message in the test files, the demo "
-        "examples and QR codes, adversarial and fuzzed text (Unicode, homoglyphs, emoji, Hindi digits, long text); and "
+        "The cases: every ScamBench, red-team (our own and the blind set) and call-bench message, the dev half of "
+        "PublicBench, every message in the test files, the demo examples and QR codes, adversarial and fuzzed text "
+        "(Unicode, homoglyphs, emoji, Hindi digits, long text); and "
         "the 200 SchemeBench personas replayed through the interview, 5,000 random answer sets, invalid answers and two "
         "extra rule packs that reach every branch of the engine.",
         "",

@@ -67,8 +67,9 @@ Added on 7 Oct:
   genuine messages flagged (32%); a keyword blocklist caught 62 and flagged 17. The 6 scams in other languages got
   "could not check". Real messages are harder than our own, and this is the number we lead with. The set is split in
   two by a fixed hash: fixes may learn from one half, and the other half stays unread to measure them fairly. After
-  the fixes (fraud pack 1.6.0), the unread half went from 28 to 30 of 44 scams caught, with genuine messages flagged
-  unchanged at 6 of 20: fixing specific misses generalises only a little, which is why real messages at scale come next.
+  the fixes (fraud packs 1.6.0 and 1.7.0), the unread half went from 28 to 31 of 44 scams caught, with genuine messages
+  flagged unchanged at 6 of 20: fixing specific misses generalises only a little, which is why real messages at scale
+  come next.
 - **Blind red team.** 182 messages written by a separate AI model that never saw the code, scored once on fraud pack 1.5.0. In Hindi,
   English and Hinglish: 92 of 103 scams caught (89%) and 14 of 59 hard genuine messages flagged (24%); a keyword
   blocklist caught 51 and flagged 25. In other Indian languages: 5 of 15 scams still caught, the other 10 "could not
@@ -109,6 +110,11 @@ python -m sahayak                       # the node: http://<this-machine>:8000 o
 Then open `http://<node-address>:8000` on a phone on the same Wi-Fi. The node prints the operator console PIN
 (or set `SAHAYAK_CONSOLE_PIN`). The status page is `/app/node.html`.
 
+Before a demo or a day at the counter, `python scripts/demo_day.py` checks the packs and their signatures, the voices
+and the speech cache, starts the node if needed, gives it every jury-kit card and compares the answers, reads the
+zero-egress counters and the firewall, and prints READY (or what to fix) with the phone address, a QR code and the
+console PIN. Running it day to day, updating the scam rules and looking after signing keys: `docs/OPERATIONS.md`.
+
 - **Language model (optional, off by default).** Every verdict is explained by vetted Hindi and English templates. A
   local model can add an extra sentence in English, checked by the safety gate: run llama.cpp's `llama-server` with
   `qwen2.5:3b` on port 8081 and set `SAHAYAK_LLM=llamacpp` (or `SAHAYAK_LLM=ollama` with Ollama, which checks the
@@ -133,7 +139,7 @@ Then open `http://<node-address>:8000` on a phone on the same Wi-Fi. The node pr
 - **Signing packs.** Each team member who signs keeps their own key (`SAHAYAK_SIGNER=<name>`, private key in
   `~/.sahayak/keys/<name>.key`); the node trusts every public key in `packs/keys/`. `python scripts/sign_packs.py --only
   <pack>` re-signs what you changed.
-- **Tests.** `python -m pytest` (421 tests; the voice and OCR tests use the installed models, and the JavaScript
+- **Tests.** `python -m pytest` (486 tests; the voice and OCR tests use the installed models, and the JavaScript
   parity tests need `node`).
 
 Settings are environment variables (`SAHAYAK_*`); see `sahayak/config.py`.
@@ -173,11 +179,13 @@ web/                the phone app (with its own scam check and benefits engine),
                     recorder (vanilla JS, no build step)
 packs/              signed content packs: fraud signals, scheme rules, voice data, demo examples
 bench/              ScamBench, SchemeBench, VoiceBench, OCR, call and phone-parity benches, red teams (ours and a blind
-                    one), the AI-model baseline, the stress test, field scoring, and results
-scripts/            models, speech cache, pack signing and updates, screenshots, offline phone check, stand-alone build,
-                    firewall scripts
+                    one), PublicBench (real published messages), the AI-model baseline, the stress test, field scoring,
+                    the consented-message kit (scambench/COLLECTING.md, redact_messages.py, eval_scambench_v1.py),
+                    and results
+scripts/            models, speech cache, pack signing and updates, the demo-day preflight, screenshots, offline phone
+                    check, stand-alone build, firewall scripts
 tests/              pytest suite; tests/js/ holds the phone-versus-node parity harness
-docs/               testing report, one-pager, jury kit, pitch decks (v3 for the prototype round and the 14 Oct
-                    jury round), field kit (field/), screenshots, demo clips and narrated draft video (video/)
+docs/               testing report, operations runbook, one-pager, jury kit, pitch decks (v3 for the prototype round and
+                    the 14 Oct jury round), field kit (field/), screenshots, demo clips and narrated draft video (video/)
 PROGRESS.md         what is built, what is left, and every decision taken while building
 ```
