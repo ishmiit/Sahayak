@@ -126,16 +126,19 @@ if (stress) {
 const P = new pptx();
 P.defineLayout({ name: "W", width: 13.33, height: 7.5 }); P.layout = "W"; P.author = "Roshan Raj, Ishmiit Singh";
 P.title = "Sahayak: Grand Jury Round, Ideas for India 2026";
-const BG = "0B0F14", CARD = "152017", CARD2 = "1B2A20", BORDER = "2C4636";
-const INK = "EEF3EE", MUTE = "9DB0A4", FAINT = "6E8579";
-const GRN = "27C08A", SAF = "FF9E3D", MINT = "4FE3B0";
+// Rosh 27, dark appearance (as web/styles.css): Obsidian canvas, Graphite cards, Pearl labels, Bay Blue tint,
+// Champagne for highlighted figures, the system's positive green.
+const BG = "101010", CARD = "1C1C20", CARD2 = "26262B", BORDER = "34343A";
+const INK = "F5F5F7", MUTE = "B4B4B8", FAINT = "7E7E84";
+const GRN = "6FA8FF", SAF = "E2C28A", MINT = "4FD68A";
+const FLAG = ["FF9933", "FFFFFF", "138808"];  // the tricolour dots in each slide's corner
 const HF = "Arial", BF = "Calibri", DF = "Nirmala UI";  // DF: Devanagari, for Hindi text
 function shadow() { return { type: "outer", color: "000000", opacity: .4, blur: 10, offset: 3, angle: 90 }; }
 function bg(s) {
   s.background = { color: BG };
-  s.addShape(P.ShapeType.ellipse, { x: 12.55, y: .42, w: .12, h: .12, fill: { color: SAF }, line: { type: "none" } });
-  s.addShape(P.ShapeType.ellipse, { x: 12.75, y: .42, w: .12, h: .12, fill: { color: INK }, line: { type: "none" } });
-  s.addShape(P.ShapeType.ellipse, { x: 12.95, y: .42, w: .12, h: .12, fill: { color: GRN }, line: { type: "none" } });
+  s.addShape(P.ShapeType.ellipse, { x: 12.55, y: .42, w: .12, h: .12, fill: { color: FLAG[0] }, line: { type: "none" } });
+  s.addShape(P.ShapeType.ellipse, { x: 12.75, y: .42, w: .12, h: .12, fill: { color: FLAG[1] }, line: { type: "none" } });
+  s.addShape(P.ShapeType.ellipse, { x: 12.95, y: .42, w: .12, h: .12, fill: { color: FLAG[2] }, line: { type: "none" } });
 }
 function eye(s, t) {
   s.addShape(P.ShapeType.ellipse, { x: .62, y: .66, w: .15, h: .15, fill: { color: GRN }, line: { type: "none" } });
@@ -198,7 +201,7 @@ card(s, 4.8, 2.05, 5.3, 4.75, CARD);
 s.addText("DEMO PERSONA · NOT A REAL PERSON", { x: 5.08, y: 2.2, w: 4.8, h: .34, fontFace: HF, fontSize: 13, bold: true, color: SAF, charSpacing: 1, valign: "middle", margin: 0 });
 s.addText(`Aged ${persona.answers.age}, with a BPL ration card and a bank account`, { x: 5.08, y: 2.56, w: 4.85, h: .7, fontFace: HF, fontSize: 18, bold: true, color: INK, valign: "top", margin: 0 });
 s.addText(`An SMS arrives from ${kyc.sender}:`, { x: 5.08, y: 3.3, w: 4.8, h: .32, fontFace: BF, fontSize: 16, color: MUTE, valign: "middle", margin: 0 });
-s.addShape(P.ShapeType.roundRect, { x: 5.08, y: 3.66, w: 4.75, h: 1.52, rectRadius: .1, fill: { color: "26372B" }, line: { type: "none" } });
+s.addShape(P.ShapeType.roundRect, { x: 5.08, y: 3.66, w: 4.75, h: 1.52, rectRadius: .1, fill: { color: CARD2 }, line: { type: "none" } });
 s.addText(kyc.text, { x: 5.22, y: 3.7, w: 4.5, h: 1.44, fontFace: DF, fontSize: 16, color: INK, valign: "middle", margin: 0 });
 s.addText("And is likely owed:", { x: 5.08, y: 5.27, w: 4.8, h: .32, fontFace: BF, fontSize: 16, color: MUTE, valign: "middle", margin: 0 });
 s.addText(`The Ayushman Vay Vandana card: ${lowerFirst(pmjay70.en)}.`, { x: 5.08, y: 5.62, w: 4.85, h: 1.1, fontFace: BF, fontSize: 17, bold: true, color: GRN, valign: "top", margin: 0 });
@@ -221,8 +224,8 @@ s.addText("Three things to try", { x: 5.15, y: 2.05, w: 7.5, h: .5, fontFace: HF
   s.addText(c[0], { x: 6.15, y: y + .1, w: 6.4, h: .46, fontFace: HF, fontSize: 20, bold: true, color: INK, valign: "middle", margin: 0 });
   s.addText(c[1], { x: 6.15, y: y + .56, w: 6.4, h: .42, fontFace: BF, fontSize: 17, color: MUTE, valign: "middle", margin: 0 });
 });
-s.addText("No install, no account. Tap EN for English.", { x: 5.15, y: 6.36, w: 7.58, h: .42, fontFace: BF, fontSize: 16, color: MUTE, valign: "middle", margin: 0 });
-s.addNotes(`Stop talking and let them try; walk round with the demo phone for anyone whose phone will not load it, and never debug a judge's phone. The public site was rebuilt on 7 Oct with the node's packs (fraud ${fraudPack.version}), "${V("unreadable")}" included; before Delhi, open phone-packs/fraud.json on the site and check it matches the node page.`);
+s.addText("No install, no account. Tap EN for English, or “Paste and check” a copied message.", { x: 5.15, y: 6.36, w: 7.58, h: .42, fontFace: BF, fontSize: 15, color: MUTE, valign: "middle", margin: 0 });
+s.addNotes(`Stop talking and let them try; walk round with the demo phone for anyone whose phone will not load it, and never debug a judge's phone. The public site was rebuilt on 8 Oct with the node's packs and the redesigned app (fraud ${fraudPack.version}), "${V("unreadable")}" included; before Delhi, open phone-packs/fraud.json on the site and check it matches the node page.`);
 
 /* 4 HOW IT WORKS, and the round-1 change, measured */
 s = P.addSlide(); bg(s); eye(s, "How it works, and what changed since round 1"); title(s, "How it works, and why rules decide");

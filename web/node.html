@@ -3,17 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0e7c57">
+<meta name="theme-color" content="#F4F3F0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101010" media="(prefers-color-scheme: dark)">
 <title>Sahayak node · सहायक नोड</title>
 <link rel="icon" href="/app/icons/icon.svg" type="image/svg+xml">
+<link rel="preload" href="/app/fonts/symbols.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/app/styles.css">
+<link rel="stylesheet" href="/app/console.css">
 </head>
-<body class="node-page">
-<header class="topbar">
-  <span class="brand-text"><b>सहायक नोड · Sahayak node</b><small id="nd-version">…</small></span>
+<body class="node-page console-page">
+<header class="topbar no-print">
+  <div class="topbar-inner">
+    <span class="brand">
+      <span class="brand-mark" aria-hidden="true"><span class="ms">verified_user</span></span>
+      <span class="brand-text"><b>सहायक नोड · Sahayak node</b><small id="nd-version">…</small></span>
+    </span>
+  </div>
 </header>
 <main class="node-main">
   <section class="screen node-panel egress" aria-live="polite">
+    <p class="overline">Zero egress · बिना इंटरनेट</p>
     <h2 id="nd-headline">…</h2>
     <div class="big-numbers">
       <div class="bign"><span id="nd-connects">…</span><small>Sahayak के बाहरी कनेक्शन<br>outbound connections by Sahayak</small></div>
@@ -28,26 +37,30 @@
   </section>
 
   <section class="screen node-panel sticker" id="nd-sticker">
-    <h2>फ़ोन जोड़ें · Connect a phone</h2>
+    <h2><span class="ms" aria-hidden="true">qr_code_2</span>फ़ोन जोड़ें · Connect a phone</h2>
     <div class="qrs">
       <figure id="nd-wifi" hidden><img alt="Wi-Fi QR"><figcaption></figcaption></figure>
       <figure><img id="nd-app-qr" alt="App QR"><figcaption id="nd-app-url"></figcaption></figure>
     </div>
     <p class="note">1. Wi-Fi से जुड़ें (इसमें इंटरनेट नहीं है)। 2. ऐप खोलें। · 1. Join the Wi-Fi (it has no internet). 2. Open the app.</p>
-    <button class="secondary no-print" id="nd-print" type="button">स्टिकर प्रिंट करें · Print sticker</button>
+    <button class="secondary no-print" id="nd-print" type="button"><span class="ms" aria-hidden="true">print</span>स्टिकर प्रिंट करें · Print sticker</button>
   </section>
 
-  <section class="screen node-panel wide">
-    <h2>सामग्री पैक · Content packs</h2>
+  <section class="screen node-panel tables">
+    <h2><span class="ms" aria-hidden="true">inventory_2</span>सामग्री पैक · Content packs</h2>
     <p class="meta" id="nd-signed-mode"></p>
-    <table class="nd-table"><thead><tr><th>Pack</th><th>Version</th><th>Date</th><th>Signed</th><th>SHA-256</th></tr></thead>
-      <tbody id="nd-packs"></tbody></table>
+    <div class="table-wrap">
+      <table class="nd-table"><thead><tr><th>Pack</th><th>Version</th><th>Date</th><th>Signed</th><th>SHA-256</th></tr></thead>
+        <tbody id="nd-packs"></tbody></table>
+    </div>
   </section>
 
-  <section class="screen node-panel wide">
-    <h2>मॉडल · Models</h2>
-    <table class="nd-table"><thead><tr><th>Model</th><th>Size</th><th>SHA-256 / digest</th></tr></thead>
-      <tbody id="nd-models"></tbody></table>
+  <section class="screen node-panel tables">
+    <h2><span class="ms" aria-hidden="true">memory</span>मॉडल · Models</h2>
+    <div class="table-wrap">
+      <table class="nd-table"><thead><tr><th>Model</th><th>Size</th><th>SHA-256 / digest</th></tr></thead>
+        <tbody id="nd-models"></tbody></table>
+    </div>
   </section>
 </main>
 <script src="/app/node.js" defer></script>

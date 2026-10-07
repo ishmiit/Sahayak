@@ -41,16 +41,19 @@ const pct0 = (x) => `${Math.round(100 * x)}%`;
 
 const P = new pptx();
 P.defineLayout({ name: "W", width: 13.33, height: 7.5 }); P.layout = "W"; P.author = "Roshan Raj, Ishmiit Singh";
-const BG = "0B0F14", CARD = "152017", CARD2 = "1B2A20", BORDER = "2C4636";
-const INK = "EEF3EE", MUTE = "9DB0A4", FAINT = "6E8579";
-const GRN = "27C08A", SAF = "FF9E3D", MINT = "4FE3B0";
+// Rosh 27, dark appearance (as web/styles.css): Obsidian canvas, Graphite cards, Pearl labels, Bay Blue tint,
+// Champagne for highlighted figures, the system's positive green.
+const BG = "101010", CARD = "1C1C20", CARD2 = "26262B", BORDER = "34343A";
+const INK = "F5F5F7", MUTE = "B4B4B8", FAINT = "7E7E84";
+const GRN = "6FA8FF", SAF = "E2C28A", MINT = "4FD68A";
+const FLAG = ["FF9933", "FFFFFF", "138808"];  // the tricolour dots in each slide's corner
 const HF = "Arial", BF = "Calibri";
 function shadow() { return { type: "outer", color: "000000", opacity: .4, blur: 10, offset: 3, angle: 90 }; }
 function bg(s) {
   s.background = { color: BG };
-  s.addShape(P.ShapeType.ellipse, { x: 12.55, y: .42, w: .12, h: .12, fill: { color: SAF }, line: { type: "none" } });
-  s.addShape(P.ShapeType.ellipse, { x: 12.75, y: .42, w: .12, h: .12, fill: { color: INK }, line: { type: "none" } });
-  s.addShape(P.ShapeType.ellipse, { x: 12.95, y: .42, w: .12, h: .12, fill: { color: GRN }, line: { type: "none" } });
+  s.addShape(P.ShapeType.ellipse, { x: 12.55, y: .42, w: .12, h: .12, fill: { color: FLAG[0] }, line: { type: "none" } });
+  s.addShape(P.ShapeType.ellipse, { x: 12.75, y: .42, w: .12, h: .12, fill: { color: FLAG[1] }, line: { type: "none" } });
+  s.addShape(P.ShapeType.ellipse, { x: 12.95, y: .42, w: .12, h: .12, fill: { color: FLAG[2] }, line: { type: "none" } });
 }
 function eye(s, t) {
   s.addShape(P.ShapeType.ellipse, { x: .62, y: .66, w: .14, h: .14, fill: { color: GRN }, line: { type: "none" } });

@@ -27,10 +27,13 @@ VIDEO = ROOT / "docs" / "video"
 OUT = VIDEO / "Sahayak_demo_draft.mp4"
 W, H, FPS, RATE = 1920, 1080, 25, 48000
 FONTS = Path("C:/Windows/Fonts")
-BG, INK, INK2, GREEN, RED = (243, 240, 232), (27, 31, 29), (75, 82, 78), (14, 124, 87), (190, 40, 40)
+# Rosh 27, light appearance (as web/styles.css): page, label, secondary label, Bay Blue tint, hairline, device bezel
+BG, INK, INK2, TINT, SEP, BEZEL = (244, 243, 240), (11, 11, 12), (94, 94, 95), (31, 95, 214), (226, 225, 221), (11, 11, 12)
+GEIST, GEIST_MONO = ROOT / "web" / "fonts" / "geist-latin.woff2", ROOT / "web" / "fonts" / "geist-mono-latin.woff2"
 
 
-# Segoe UI on Windows, Arial on macOS, DejaVu on Linux; never Pillow's tiny bitmap font.
+# Geist, the app's own typeface (web/fonts); else Segoe UI on Windows, Arial on macOS, DejaVu on Linux; never Pillow's
+# tiny bitmap font.
 FONT_FILES = {
     False: ("segoeui.ttf", "DejaVuSans.ttf", "/System/Library/Fonts/Supplemental/Arial.ttf",
             "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"),
@@ -39,7 +42,13 @@ FONT_FILES = {
 }
 
 
-def font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont:
+def font(size: int, bold: bool = False, mono: bool = False) -> ImageFont.FreeTypeFont:
+    try:
+        f = ImageFont.truetype(str(GEIST_MONO if mono else GEIST), size)
+        f.set_variation_by_axes([600 if mono else 700 if bold else 400])
+        return f
+    except (OSError, ValueError):
+        pass
     for name in FONT_FILES[bold]:
         try:
             return ImageFont.truetype(str(FONTS / name) if (FONTS / name).exists() else name, size)
@@ -68,14 +77,35 @@ def text_block(draw, xy, text, f, width, fill=INK, gap=1.3) -> int:
     return y
 
 
-def card(title: str, lines: list[str], kicker: str = "", accent=GREEN) -> Image.Image:
+def mark(im: Image.Image, xy: tuple[int, int], size: int) -> None:
+    """Sahayak's mark, as in the app's top bar: a silk-gradient squircle with the shield glyph from web/fonts."""
+    n = size * 2  # drawn at twice the size, then scaled down for smooth edges
+    t = np.clip((np.arange(n)[:, None] + np.arange(n)[None, :]) / (2 * n - 2), 0, 1)
+    stops = np.array([[126, 93, 69], [169, 141, 95], [146, 122, 114], [79, 80, 105]], dtype=float)
+    pos = np.array([0, .3, .6, 1])
+    rgb = np.stack([np.interp(t, pos, stops[:, c]) for c in range(3)], axis=-1).astype(np.uint8)
+    tile = Image.fromarray(rgb, "RGB").convert("RGBA")
+    mask = Image.new("L", (n, n), 0)
+    ImageDraw.Draw(mask).rounded_rectangle([0, 0, n - 1, n - 1], int(n * .3), fill=255)
+    tile.putalpha(mask)
+    try:
+        glyph = ImageFont.truetype(str(ROOT / "web" / "fonts" / "symbols.woff2"), int(n * .6))
+        glyph.set_variation_by_axes([1, 500])  # FILL 1, weight 500
+        ImageDraw.Draw(tile).text((n / 2, n / 2), "\ue8e8", font=glyph, fill=(255, 255, 255, 255), anchor="mm")  # verified_user
+    except (OSError, ValueError):
+        pass
+    tile = tile.resize((size, size), Image.LANCZOS)
+    im.paste(tile, xy, tile)
+
+
+def card(title: str, lines: list[str], kicker: str = "", accent=TINT) -> Image.Image:
     im = Image.new("RGB", (W, H), BG)
     d = ImageDraw.Draw(im)
-    d.rectangle([0, 0, W, 14], fill=accent)
-    y = 250
+    mark(im, (160, 120), 88)
+    y = 270
     if kicker:
-        d.text((160, y), kicker.upper(), font=font(34, True), fill=accent)
-        y += 70
+        d.text((160, y), kicker.upper(), font=font(30, mono=True), fill=accent)
+        y += 66
     y = text_block(d, (160, y), title, font(84, True), W - 320, gap=1.15) + 40
     for line in lines:
         y = text_block(d, (160, y), line, font(44), W - 320, fill=INK2) + 18
@@ -85,14 +115,13 @@ def card(title: str, lines: list[str], kicker: str = "", accent=GREEN) -> Image.
 def evidence_card(rows: list[tuple[str, str]], note: str) -> Image.Image:
     im = Image.new("RGB", (W, H), BG)
     d = ImageDraw.Draw(im)
-    d.rectangle([0, 0, W, 14], fill=GREEN)
-    d.text((160, 110), "MEASURED, NOT CLAIMED", font=font(34, True), fill=GREEN)
+    d.text((160, 110), "MEASURED, NOT CLAIMED", font=font(30, mono=True), fill=TINT)
     y = 190
     for head, body in rows:
         d.text((160, y), head, font=font(46, True), fill=INK)
         y2 = text_block(d, (620, y + 4), body, font(40), W - 780, fill=INK2, gap=1.25)
         y = max(y + 70, y2) + 26
-        d.line([160, y - 14, W - 160, y - 14], fill=(217, 211, 198), width=2)
+        d.line([160, y - 14, W - 160, y - 14], fill=SEP, width=2)
     text_block(d, (160, y + 10), note, font(32), W - 320, fill=INK2)
     return im
 
@@ -105,12 +134,11 @@ class ClipFrames:
             self.frames = [f.to_image() for f in c.decode(video=0)]
         self.base = Image.new("RGB", (W, H), BG)
         d = ImageDraw.Draw(self.base)
-        d.rectangle([0, 0, W, 14], fill=GREEN)
         fw, fh = self.frames[0].size
         if fh > fw:  # phone: the screen on the left, the caption on the right
             scale = 1000 / fh
             self.size, self.pos = (int(fw * scale), 1000), (260, 50)
-            d.rounded_rectangle([self.pos[0] - 14, 36, self.pos[0] + self.size[0] + 14, 1064], 36, fill=(30, 33, 32))
+            d.rounded_rectangle([self.pos[0] - 14, 36, self.pos[0] + self.size[0] + 14, 1064], 48, fill=BEZEL)
             d.text((900, 300), title, font=font(64, True), fill=INK)
             text_block(d, (900, 410), caption, font(42), 860, fill=INK2)
         else:  # desktop: the screen above, the caption below

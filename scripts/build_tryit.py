@@ -24,7 +24,9 @@ sys.path.insert(0, str(ROOT))
 from sahayak.packs import get_pack  # noqa: E402
 
 WEB = ROOT / "web"
-APP_FILES = ("styles.css", "app.js", "mic.js", "recorder.js", "checker.js", "navigator.js", "icons/icon.svg")
+APP_FILES = ("styles.css", "app.js", "mic.js", "recorder.js", "checker.js", "navigator.js", "icons/icon.svg", "icons/icon-192.png", "icons/icon-512.png",
+             "fonts/geist-latin.woff2", "fonts/geist-latin-ext.woff2", "fonts/geist-mono-latin.woff2", "fonts/symbols.woff2",
+             "fonts/LICENSE.txt")
 PACKS = ("fraud", "scam_patterns", "fraud_model", "schemes", "demo")  # the same list the node serves
 
 
@@ -33,6 +35,7 @@ def main() -> None:
     if out.exists():
         shutil.rmtree(out)
     (out / "app" / "icons").mkdir(parents=True)
+    (out / "app" / "fonts").mkdir()
     (out / "phone-packs").mkdir()
 
     for f in APP_FILES:

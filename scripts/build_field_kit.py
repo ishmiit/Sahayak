@@ -26,23 +26,27 @@ sys.path.insert(0, str(ROOT))
 
 from sahayak.packs import get_pack  # noqa: E402
 
+sys.path.insert(0, str(ROOT / "scripts"))
+import docstyle as D  # noqa: E402  (Rosh 27 type and colours, as in the app)
+
 E = html.escape
 OUT = ROOT / "docs" / "field" / "Sahayak_Field_Morning_Kit.pdf"
 
-CSS = """
-@page { size: A4; margin: 11mm 12mm; }
-body { font-family: "Segoe UI", "Nirmala UI", "Noto Sans", sans-serif; color: #1b1f1d; font-size: 10pt; line-height: 1.35; margin: 0; }
-h1 { font-size: 18pt; color: #0e7c57; margin: 0 0 4px; } h2 { font-size: 12pt; color: #0e7c57; margin: 10px 0 4px; }
-.page { page-break-after: always; } .page:last-child { page-break-after: auto; }
-table { border-collapse: collapse; width: 100%; } th, td { border: 1px solid #c9c2b4; padding: 3px 5px; text-align: left; vertical-align: top; }
-th { background: #f1ede4; font-size: 8.6pt; }
-ol, ul { margin: 2px 0; padding-left: 18px; } li { margin: 1px 0; }
-.consent { font-size: 12.5pt; line-height: 1.5; } .consent h1 { display: none; } .consent h2 { font-size: 14pt; }
-.card { border: 1.5px solid #0e7c57; border-radius: 8px; padding: 7px 9px; height: 132mm; box-sizing: border-box; margin-bottom: 6mm; }
-.card h3 { margin: 0 0 4px; font-size: 11pt; } .pid { float: right; font-weight: 700; }
-.card td { height: 6.2mm; font-size: 8.4pt; } .opts { color: #4b524e; font-size: 8pt; }
-.box { display: inline-block; width: 11mm; border-bottom: 1px solid #555; }
-.small { font-size: 8.4pt; color: #4b524e; }
+CSS = f"""
+@page {{ size: A4; margin: 11mm 12mm; }}
+{D.fonts_css(OUT.parent)}{D.BASE}
+body {{ font-size: 10pt; line-height: 1.35; }}
+h1 {{ font-size: 18pt; margin: 0 0 4px; letter-spacing: -.03em; }} h2 {{ font-size: 12pt; margin: 10px 0 4px; }}
+.page {{ page-break-after: always; }} .page:last-child {{ page-break-after: auto; }}
+table {{ border-collapse: collapse; width: 100%; }} th, td {{ border: 1px solid {D.SEP_STRONG}; padding: 3px 5px; text-align: left; vertical-align: top; }}
+th {{ background: {D.PAGE}; font-size: 8.6pt; color: {D.LABEL2}; }}
+ol, ul {{ margin: 2px 0; padding-left: 18px; }} li {{ margin: 1px 0; }}
+.consent {{ font-size: 12.5pt; line-height: 1.5; }} .consent h1 {{ display: none; }} .consent h2 {{ font-size: 14pt; }}
+.card {{ border: 1.5px solid {D.TINT}; border-radius: 14px; padding: 7px 9px; height: 132mm; box-sizing: border-box; margin-bottom: 6mm; }}
+.card h3 {{ margin: 0 0 4px; font-size: 11pt; }} .pid {{ float: right; font: 600 10pt/1.4 {D.MONO}; color: {D.TINT}; }}
+.card td {{ height: 6.2mm; font-size: 8.4pt; }} .opts {{ color: {D.LABEL2}; font-size: 8pt; }}
+.box {{ display: inline-block; width: 11mm; border-bottom: 1px solid #555; }}
+.small {{ font-size: 8.4pt; color: {D.LABEL2}; }}
 """
 
 

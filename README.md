@@ -139,7 +139,7 @@ console PIN. Running it day to day, updating the scam rules and looking after si
 - **Signing packs.** Each team member who signs keeps their own key (`SAHAYAK_SIGNER=<name>`, private key in
   `~/.sahayak/keys/<name>.key`); the node trusts every public key in `packs/keys/`. `python scripts/sign_packs.py --only
   <pack>` re-signs what you changed.
-- **Tests.** `python -m pytest` (486 tests; the voice and OCR tests use the installed models, and the JavaScript
+- **Tests.** `python -m pytest` (490 tests; the voice and OCR tests use the installed models, and the JavaScript
   parity tests need `node`).
 
 Settings are environment variables (`SAHAYAK_*`); see `sahayak/config.py`.

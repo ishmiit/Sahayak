@@ -12,9 +12,13 @@ from __future__ import annotations
 
 import html
 import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "scripts"))
+import docstyle as D  # noqa: E402  (Rosh 27 type and colours, as in the app)
+
 R = lambda f: json.loads((ROOT / "bench" / "results" / f).read_text(encoding="utf-8"))  # noqa: E731
 pct = lambda x: f"{100 * x:.1f}%"  # noqa: E731
 pct0 = lambda x: f"{round(100 * x)}%"  # noqa: E731
@@ -101,22 +105,27 @@ def main() -> None:
         rows.append(("On the phone", f"the node's exact answer on {ph['fraud']['cases']:,} scam checks and {ph['navigator']['cases']:,} "
                      f"benefits cases ({ph['fraud']['mismatches'] + ph['navigator']['mismatches']} mismatches)"))
     table = "".join(f"<tr><th>{html.escape(a)}</th><td>{html.escape(b)}</td></tr>" for a, b in rows)
-    page = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><style>
-@page {{ size: A4; margin: 12mm 13mm; }}
-body {{ font-family: "Segoe UI", "Nirmala UI", sans-serif; color: #1b1f1d; font-size: 8.9pt; line-height: 1.3; margin: 0; }}
-h1 {{ font-size: 22pt; margin: 0; color: #0e7c57; }} h1 small {{ font-size: 12pt; color: #4b524e; font-weight: 600; }}
-.tag {{ font-size: 11pt; font-weight: 700; margin: 2px 0 6px; }}
-h2 {{ font-size: 10.5pt; margin: 7px 0 3px; color: #0e7c57; text-transform: uppercase; letter-spacing: .04em; }}
-.cols {{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }}
-.box {{ border: 1px solid #d9d3c6; border-radius: 8px; padding: 7px 10px; background: #faf8f3; }}
-.box b {{ color: #0e7c57; }}
-table {{ width: 100%; border-collapse: collapse; }} th, td {{ text-align: left; vertical-align: top; padding: 2px 6px; border-bottom: 1px solid #e2ddd2; }}
-th {{ width: 17%; color: #4b524e; }}
-.shots {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 6px; }} .shots img {{ width: 100%; border-radius: 6px; border: 1px solid #d9d3c6; height: 84px; object-fit: cover; object-position: top; }}
+    docs = ROOT / "docs"
+    css = f"""@page {{ size: A4; margin: 12mm 13mm; }}
+{D.fonts_css(docs)}{D.BASE}
+body {{ font-size: 8.6pt; line-height: 1.32; }}
+h1 {{ display: flex; align-items: baseline; gap: 8px; font-size: 22pt; line-height: 1.1; margin: 0; letter-spacing: -.035em; }}
+h1 .mark {{ align-self: center; }}
+h1 small {{ font-size: 11pt; color: {D.LABEL2}; font-weight: 500; letter-spacing: 0; }}
+.tag {{ font-size: 10.5pt; font-weight: 600; margin: 4px 0 7px; letter-spacing: -.01em; }}
+h2 {{ font: 500 7.6pt/1 {D.MONO}; margin: 9px 0 4px; color: {D.TINT}; text-transform: uppercase; letter-spacing: .09em; }}
+.cols {{ display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }}
+.box {{ border-radius: 12px; padding: 8px 11px; background: {D.PAGE}; }}
+.box b {{ color: {D.LABEL}; }}
+table {{ width: 100%; border-collapse: collapse; }} th, td {{ text-align: left; vertical-align: top; padding: 2.4px 6px; border-bottom: 1px solid {D.SEP}; }}
+th {{ width: 17%; color: {D.LABEL2}; font-weight: 600; }}
+.shots {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 7px; }}
+.shots img {{ width: 100%; border-radius: 10px; border: 1px solid {D.SEP}; height: 104px; object-fit: cover; object-position: 50% 22%; }}  /* the verdict, below the app's top bar */
 ul {{ margin: 2px 0; padding-left: 16px; }} li {{ margin: 1px 0; }}
-.foot {{ margin-top: 6px; font-size: 8.3pt; color: #4b524e; }}
-</style></head><body>
-<h1>Sahayak <small>· सहायक · Ideas for India 2026</small></h1>
+.foot {{ margin-top: 7px; font-size: 8pt; color: {D.LABEL2}; }} .foot b {{ color: {D.LABEL}; }}
+"""
+    page = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><style>{css}</style></head><body>
+<h1>{D.mark(docs, "1.15em")}Sahayak <small>· सहायक · Ideas for India 2026</small></h1>
 <div class="tag">An offline scam shield and benefits guide for people new to digital money, in Hindi and English, by voice or touch.</div>
 <div class="cols">
  <div class="box"><b>"Is this a scam?"</b> Paste, speak, photograph or describe a message, a call or a UPI QR code. In milliseconds: Scam, Suspicious, No scam signs (never "safe"), or Could not check (a language it cannot read yet: safe-default advice, no false green). Then the reasons, what to do (money lost: call 1930; an attempt: report on Chakshu) and a complaint draft. A QR card says: scanning sends money, never brings it in.</div>
@@ -142,7 +151,7 @@ ul {{ margin: 2px 0; padding-left: 16px; }} li {{ margin: 1px 0; }}
 </ul>
 <div class="foot"><b>Team:</b> Roshan Raj, Ishmiit Singh · {f'<b>Try it:</b> {html.escape(tryit)} · ' if tryit else ''}<b>Dates:</b> prototype due 8 Oct 2026; Grand Jury Round, Delhi, 14 Oct · <b>Caveats:</b> ScamBench v0 and our red team were written by our team (optimistic); the blind set was written for the test, not received by real people; v1 adds real messages with consent; no field test with real users yet. Method and limits: docs/TESTING_REPORT.md. Hindi voices and the optional language model are licensed for non-commercial use.</div>
 </body></html>"""
-    out_html = ROOT / "docs" / "onepager.html"
+    out_html = docs / "onepager.html"
     out_html.write_text(page, encoding="utf-8")
     from playwright.sync_api import sync_playwright
     with sync_playwright() as p:

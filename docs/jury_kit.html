@@ -1,27 +1,41 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><style>
 @page { size: A4; margin: 12mm; }
-body { font-family: "Segoe UI", "Nirmala UI", sans-serif; color: #1b1f1d; font-size: 10.5pt; margin: 0; }
-h1 { color: #0e7c57; font-size: 24pt; margin: 0 0 4px; } h2 { color: #0e7c57; font-size: 15pt; margin: 0 0 8px; }
+@font-face { font-family: "Geist"; font-weight: 100 900; src: url("../web/fonts/geist-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Geist"; font-weight: 100 900; src: url("../web/fonts/geist-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Geist Mono"; font-weight: 100 900; src: url("../web/fonts/geist-mono-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F; }
+
+body { font-family: "Geist", "Noto Sans Devanagari", "Kohinoor Devanagari", "Nirmala UI", "Segoe UI", sans-serif; color: #0B0B0C; margin: 0; letter-spacing: -.003em; -webkit-font-smoothing: antialiased;
+  font-synthesis-weight: none; }
+h1, h2, h3 { font-weight: 700; letter-spacing: -.02em; }
+b, strong, th { font-weight: 650; }
+a { color: #0056AA; }
+
+body { font-size: 10.5pt; line-height: 1.4; }
+h1 { display: flex; align-items: center; gap: 10px; font-size: 24pt; margin: 0 0 6px; letter-spacing: -.035em; }
+h2 { font-size: 15pt; margin: 0 0 10px; }
 .page { page-break-after: always; } .page:last-child { page-break-after: auto; }
-.lead { font-size: 12pt; margin: 4px 0 14px; }
-ol li { margin: 8px 0; font-size: 12pt; } .box { border: 1px solid #d9d3c6; border-radius: 10px; padding: 10px 14px; background: #faf8f3; margin: 10px 0; }
+.lead { font-size: 12pt; margin: 4px 0 14px; color: #5E5E5F; }
+ol { padding-left: 22px; } ol li { margin: 8px 0; font-size: 12pt; }
+.box { border-radius: 16px; padding: 12px 16px; background: #F4F3F0; margin: 10px 0; }
 .tryit { overflow: hidden; } .tryit img { float: right; width: 30mm; height: 30mm; margin: 0 0 4px 12px; image-rendering: pixelated; }
-.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.card { border: 1.5px dashed #9aa39e; border-radius: 12px; padding: 10px 12px; break-inside: avoid; }
-.tag { display: inline-block; font-weight: 700; color: #fff; background: #0e7c57; border-radius: 6px; padding: 1px 8px; margin-right: 6px; }
-.kind { font-size: 8.5pt; color: #4b524e; text-transform: uppercase; letter-spacing: .05em; }
-.phone { background: #eceae4; border-radius: 10px; padding: 8px; margin-top: 6px; }
-.sender { font-weight: 600; font-size: 9.5pt; color: #4b524e; margin-bottom: 4px; }
-.bubble { background: #fff; border-radius: 10px; padding: 8px 10px; font-size: 11pt; line-height: 1.4; white-space: pre-wrap; }
+.grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; }
+.card { border: 1.5px dashed #C9C8C4; border-radius: 18px; padding: 11px 13px; break-inside: avoid; }
+.tag { display: inline-block; font: 600 9pt/1.5 "Geist Mono", "SF Mono", Menlo, Consolas, monospace; color: #fff; background: #1F5FD6; border-radius: 999px; padding: 0 9px; margin-right: 6px; }
+.kind { font: 500 8pt/1 "Geist Mono", "SF Mono", Menlo, Consolas, monospace; color: #5E5E5F; text-transform: uppercase; letter-spacing: .08em; }
+.phone { background: #F4F3F0; border-radius: 16px; padding: 9px; margin-top: 7px; }
+.sender { font-weight: 600; font-size: 9.5pt; color: #5E5E5F; margin-bottom: 5px; }
+.bubble { background: #fff; border-radius: 14px; padding: 9px 11px; font-size: 11pt; line-height: 1.45; white-space: pre-wrap; overflow-wrap: anywhere; }
 .qr { text-align: center; } .qr img { width: 62mm; height: 62mm; image-rendering: pixelated; }
-.warn { font-size: 9pt; color: #9a2a1d; }
-table { border-collapse: collapse; width: 100%; } th, td { text-align: left; vertical-align: top; padding: 4px 6px; border-bottom: 1px solid #e2ddd2; font-size: 9.5pt; }
-.persona td:first-child { color: #4b524e; width: 55%; }
-</style></head><body><div class="page"><h1>Try Sahayak yourself</h1>
+.warn { font-size: 9pt; color: #A60035; }
+.box.warn { background: #FAE9EC; }
+table { border-collapse: collapse; width: 100%; } th, td { text-align: left; vertical-align: top; padding: 4px 6px; border-bottom: 1px solid #E2E1DD; font-size: 9.5pt; }
+th { color: #5E5E5F; }
+.persona td:first-child { color: #5E5E5F; width: 55%; }
+</style></head><body><div class="page"><h1><img class="mark" src="../web/icons/icon.svg" alt="" style="width:1.1em;height:1.1em;vertical-align:-.14em;border-radius:22%">Try Sahayak yourself</h1>
 <div class="lead">Sahayak runs on the laptop at our stand. Its Wi-Fi has no internet. Nothing you type, say or photograph leaves it.</div>
 <ol>
 <li><b>Join the Wi-Fi</b> named on the node's sticker, then scan the sticker's QR code (or open any web address): the app opens. No install.</li>
-<li><b>Check a message.</b> Tap "Is this a scam?", then type a card's message, say it with the mic, or choose <i>Screenshot</i> and photograph the card.</li>
+<li><b>Check a message.</b> Tap "Check a message", then type a card's message, say it with the mic, or choose <i>Screenshot</i> and photograph the card.</li>
 <li><b>Check a UPI QR.</b> Choose <i>QR code</i> and photograph a Q card. Sahayak shows who the money would go to and how much.</li>
 <li><b>Find benefits.</b> Tap "What am I owed?" and answer as one of the P cards. Print the slip if a printer is attached.</li>
 <li><b>Try to fool it.</b> Write your own message, in Hindi, English or Hinglish. Tell us what it got wrong; we log every miss.</li>

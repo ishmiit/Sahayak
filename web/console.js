@@ -15,6 +15,9 @@
     node.append(...kids.flat(2).filter((kid) => kid != null && kid !== false));
     return node;
   }
+  // A Material Symbols glyph (web/fonts/symbols.woff2), hidden from screen readers.
+  const icon = (name) => el("span", { class: "ms", "aria-hidden": "true" }, name);
+  const VERDICT_ICON = { scam: "gpp_bad", suspicious: "warning", no_signs: "verified_user", unreadable: "help" };
 
   async function api(path, body, method) {
     const res = await fetch(path, {
@@ -71,16 +74,16 @@
   function verdictCard(card, lang, ticket) {
     const other = lang === "hi" ? "en" : "hi";
     const box = el("div", {},
-      el("div", { class: `verdict ${card.verdict}` }, el("div", {},
-        el("div", { class: "v-label" }, card.label[lang]), el("div", { class: "v-label-2" }, card.label[other]))),
+      el("div", { class: `verdict ${card.verdict}` }, el("span", { class: "v-glyph", "aria-hidden": "true" }, icon(VERDICT_ICON[card.verdict])),
+        el("div", {}, el("div", { class: "v-label" }, card.label[lang]), el("div", { class: "v-label-2" }, card.label[other]))),
       el("h3", {}, card.headline[lang]),
-      el("ul", { class: "reasons" }, card.reasons.map((r) => el("li", {}, r.text[lang], el("span", { class: "en" }, r.text[other])))),
-      el("ol", { class: "actions" }, card.actions[lang].map((a, i) => el("li", {}, a, el("span", { class: "en" }, card.actions[other][i])))));
+      el("ul", { class: "reasons" }, card.reasons.map((r) => el("li", { class: r.hard ? "hard" : "" }, el("span", {}, r.text[lang]), el("span", { class: "en" }, r.text[other])))),
+      el("ol", { class: "actions" }, card.actions[lang].map((a, i) => el("li", {}, el("span", {}, a), el("span", { class: "en" }, card.actions[other][i])))));
     const consent = el("input", { type: "checkbox" });
     let printed = false;
     const actions = el("div", { class: "cta-row" },
-      el("button", { class: "secondary", type: "button", onclick: () => speak(`${card.label[lang]}. ${card.headline[lang]} ${card.actions[lang].join(" ")}`, lang) }, "पढ़कर सुनाएँ · Read aloud"),
-      el("button", { class: "primary", type: "button", onclick: () => { printFraud(card, lang); printed = true; } }, "58 mm स्लिप · Print slip"),
+      el("button", { class: "secondary", type: "button", onclick: () => speak(`${card.label[lang]}. ${card.headline[lang]} ${card.actions[lang].join(" ")}`, lang) }, icon("volume_up"), "पढ़कर सुनाएँ · Read aloud"),
+      el("button", { class: "primary", type: "button", onclick: () => { printFraud(card, lang); printed = true; } }, icon("print"), "58 mm स्लिप · Print slip"),
       el("button", { class: "secondary", type: "button", onclick: async () => {
         try {
           await api("/api/console/caselog", { consent: consent.checked, entry: {
@@ -88,8 +91,8 @@
             rupees_at_risk: card.extracted.rupees_at_risk, lang, slip_printed: printed } });
           toast("केस लॉग में रखा · Saved to the case log");
         } catch (e) { toast(e.message); }
-      } }, "केस लॉग में रखें · Save to case log"),
-      ticket ? el("button", { class: "ghost", type: "button", onclick: () => finish(ticket) }, "पूरा हुआ · Done") : null);
+      } }, icon("list_alt"), "केस लॉग में रखें · Save to case log"),
+      ticket ? el("button", { class: "ghost", type: "button", onclick: () => finish(ticket) }, icon("task_alt"), "पूरा हुआ · Done") : null);
     box.append(el("label", { class: "consent" }, consent, "व्यक्ति ने रिकॉर्ड रखने की अनुमति दी · The person agrees to keep a record"), actions);
     return box;
   }
@@ -156,7 +159,7 @@
       el("span", { class: "ticket" }, item.ticket),
       el("div", {}, el("b", {}, item.kind === "check" ? "मैसेज जाँच · Message check" : "योजनाएँ · Benefits"),
         el("div", { class: "meta" }, `${item.at} · ${item.lang === "hi" ? "हिंदी" : "English"} · ${what}`)),
-      el("button", { class: "primary", type: "button", onclick: () => serve(item) }, "बुलाएँ · Serve"));
+      el("button", { class: "primary", type: "button", onclick: () => serve(item) }, icon("campaign"), "बुलाएँ · Serve"));
   }
 
   async function serve(item) {
@@ -194,15 +197,15 @@
         doneRow,
         el("label", { class: "consent" }, consent, "व्यक्ति ने रिकॉर्ड रखने की अनुमति दी · The person agrees to keep a record"),
         el("div", { class: "cta-row" },
-          el("a", { class: "secondary", href: `/?answers=${encoded}&lang=${item.lang}`, target: "_blank", rel: "noopener" }, "ऐप में खोलें · Open in the app"),
-          el("button", { class: "primary", type: "button", onclick: () => printBenefits(answers, item.lang).catch((e) => toast(e.message)) }, "58 mm स्लिप · Print slip"),
+          el("a", { class: "secondary", href: `/?answers=${encoded}&lang=${item.lang}`, target: "_blank", rel: "noopener" }, icon("open_in_new"), "ऐप में खोलें · Open in the app"),
+          el("button", { class: "primary", type: "button", onclick: () => printBenefits(answers, item.lang).catch((e) => toast(e.message)) }, icon("print"), "58 mm स्लिप · Print slip"),
           el("button", { class: "secondary", type: "button", onclick: async () => {
             try {
               await api("/api/console/caselog", { consent: consent.checked, entry: { kind: "benefits", schemes: item.summary.groups, lang: item.lang } });
               toast("केस लॉग में रखा · Saved to the case log");
             } catch (e) { toast(e.message); }
-          } }, "केस लॉग में रखें · Save to case log"),
-          el("button", { class: "ghost", type: "button", onclick: () => finish(item.ticket) }, "पूरा हुआ · Done")));
+          } }, icon("list_alt"), "केस लॉग में रखें · Save to case log"),
+          el("button", { class: "ghost", type: "button", onclick: () => finish(item.ticket) }, icon("task_alt"), "पूरा हुआ · Done")));
     }
     loadQueue();
   }

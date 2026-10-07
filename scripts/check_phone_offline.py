@@ -38,7 +38,7 @@ def main() -> int:
 
     def shot(page, name: str) -> None:
         if args.shots:
-            page.screenshot(path=str(args.shots / f"{name}.png"), full_page=True)
+            page.screenshot(path=str(args.shots / f"{name}.png"), full_page=True, animations="disabled")  # screens fade in
 
     with sync_playwright() as p:
         browser = getattr(p, args.browser).launch()

@@ -23,7 +23,7 @@ Prototype for Ideas for India 2026 · generated 2026-10-07 by `scripts/build_tes
 | Zero egress | Sahayak's own process opens no outbound connection and makes no outside DNS lookup (counted by an audit hook on every socket); the firewall scripts block everything but the local network | `/app/node.html`, `tests/test_node.py` |
 | Privacy of the impact export | messages full of names, phone numbers and UPI IDs leave no trace in the export; counts under 5 are masked | `tests/test_console.py` |
 | Signed content | an altered pack is refused; an unsigned one is refused in strict mode | `tests/test_node.py` |
-| Automated tests | 485 tests pass, 1 skipped | `python -m pytest` |
+| Automated tests | 489 tests pass, 1 skipped | `python -m pytest` |
 
 ## 1. Scam detection: ScamBench v0
 

@@ -56,7 +56,7 @@ def main() -> int:
             width = page.evaluate("document.documentElement.scrollWidth")
             if width > PHONE["viewport"]["width"]:
                 overflow.append(f"{name}: page is {width}px wide")
-            page.screenshot(path=str(out / f"{name}.png"), full_page=True)
+            page.screenshot(path=str(out / f"{name}.png"), full_page=True, animations="disabled")  # screens fade in
             print(f"{name}: ok (scrollWidth {width}px)")
             ctx.close()
         browser.close()
