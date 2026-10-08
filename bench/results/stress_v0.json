@@ -1,0 +1,160 @@
+{
+ "date": "2026-10-07",
+ "machine": "Apple M3, 8 cores, 16 GB",
+ "load": [
+  {
+   "scenario": "session",
+   "n": 30,
+   "wall_s": 6.69,
+   "rss_before_mb": 581.1,
+   "rss_after_mb": 1123.3,
+   "endpoints": {
+    "page": {
+     "n": 30,
+     "p50_ms": 43,
+     "p95_ms": 57,
+     "max_ms": 70,
+     "errors": 0
+    },
+    "health": {
+     "n": 30,
+     "p50_ms": 69,
+     "p95_ms": 194,
+     "max_ms": 310,
+     "errors": 0
+    },
+    "examples": {
+     "n": 30,
+     "p50_ms": 46,
+     "p95_ms": 308,
+     "max_ms": 467,
+     "errors": 0
+    },
+    "check": {
+     "n": 90,
+     "p50_ms": 66,
+     "p95_ms": 338,
+     "max_ms": 507,
+     "errors": 0
+    },
+    "explain": {
+     "n": 90,
+     "p50_ms": 66,
+     "p95_ms": 267,
+     "max_ms": 440,
+     "errors": 0
+    },
+    "nav next": {
+     "n": 182,
+     "p50_ms": 62,
+     "p95_ms": 340,
+     "max_ms": 823,
+     "errors": 0
+    },
+    "nav result": {
+     "n": 30,
+     "p50_ms": 86,
+     "p95_ms": 249,
+     "max_ms": 512,
+     "errors": 0
+    },
+    "speech (new)": {
+     "n": 30,
+     "p50_ms": 2903,
+     "p95_ms": 4714,
+     "max_ms": 4856,
+     "errors": 0
+    }
+   }
+  },
+  {
+   "scenario": "burst",
+   "n": 300,
+   "wall_s": 2.4,
+   "rss_before_mb": 1123.3,
+   "rss_after_mb": 1136.7,
+   "endpoints": {
+    "check": {
+     "n": 300,
+     "p50_ms": 1045,
+     "p95_ms": 2179,
+     "max_ms": 2333,
+     "errors": 0
+    }
+   }
+  },
+  {
+   "scenario": "tts",
+   "n": 20,
+   "wall_s": 3.28,
+   "rss_before_mb": 1136.7,
+   "rss_after_mb": 1184.5,
+   "endpoints": {
+    "speech (new)": {
+     "n": 20,
+     "p50_ms": 1865,
+     "p95_ms": 3282,
+     "max_ms": 3282,
+     "errors": 0
+    }
+   }
+  },
+  {
+   "scenario": "asr",
+   "n": 10,
+   "wall_s": 0.27,
+   "rss_before_mb": 1184.5,
+   "rss_after_mb": 1303.7,
+   "endpoints": {
+    "recognise": {
+     "n": 10,
+     "p50_ms": 226,
+     "p95_ms": 271,
+     "max_ms": 271,
+     "errors": 0
+    }
+   }
+  },
+  {
+   "scenario": "soak",
+   "n": 5000,
+   "wall_s": 9.87,
+   "rss_before_mb": 1303.7,
+   "rss_after_mb": 1302.0,
+   "endpoints": {
+    "check": {
+     "n": 5000,
+     "p50_ms": 38,
+     "p95_ms": 47,
+     "max_ms": 163,
+     "errors": 0
+    }
+   }
+  }
+ ],
+ "fuzz": {
+  "cases": 360,
+  "unexpected": [],
+  "path_leaks": 0,
+  "memory_growth_mb": {
+   "/api/qr bomb": 0.0,
+   "/api/ocr bomb": 0.0,
+   "/api/qr 200 MB body": -189.8,
+   "/api/asr 200 MB body": -236.5,
+   "/api/check 200 MB body": -61.7
+  },
+  "pin_lockout_after": 5,
+  "node_alive_after": true,
+  "security_headers_missing": []
+ },
+ "phone": {
+  "cpu_slowdown": 6,
+  "network": "400 ms RTT, 400 kbit/s",
+  "first_visit_s": 6.4,
+  "offline_ready_s": 6.4,
+  "first_check_s": 1.04,
+  "second_check_s": 0.88,
+  "benefits_result_s": 2.44,
+  "js_errors": []
+ }
+}

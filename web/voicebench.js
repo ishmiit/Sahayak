@@ -55,7 +55,9 @@
     const bar = document.createElement("span"); bar.className = "mic-bar";
     const meter = document.createElement("span"); meter.className = "mic-meter"; meter.append(bar);
     const label = document.createElement("span"); label.className = "mic-label"; label.textContent = "दबाकर रखें और पढ़ें / Hold and read";
-    const btn = document.createElement("button"); btn.type = "button"; btn.className = "mic"; btn.append(label, meter);
+    const glyph = document.createElement("span"); glyph.className = "mic-glyph"; glyph.setAttribute("aria-hidden", "true");
+    glyph.innerHTML = '<span class="ms">mic</span>';  // static markup only
+    const btn = document.createElement("button"); btn.type = "button"; btn.className = "mic"; btn.append(glyph, label, meter);
     if (!Mic || !Mic.canListen) {
       btn.classList.add("off");
       label.textContent = "माइक के लिए https या localhost चाहिए / The mic needs https or localhost";

@@ -15,7 +15,7 @@ opencv-python-headless>=4.8  # reads UPI QR codes and screenshots from photos
 # Offline voice (models: python scripts/get_models.py). If `srt` (a vosk dependency) fails to
 # build on Windows, install it first with SETUPTOOLS_USE_DISTUTILS=stdlib.
 sherpa-onnx>=1.13
-vosk>=0.3.45
+vosk>=0.3.44    # 0.3.45 has no wheel for Apple Silicon Macs; 0.3.44 is the newest there and works the same
 av>=12          # decodes recordings from a phone's recorder app (m4a, amr, ogg)
 soundfile>=0.12 # VoiceBench evaluation only
 

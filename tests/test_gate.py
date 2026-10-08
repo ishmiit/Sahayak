@@ -28,6 +28,14 @@ def test_no_signs_template_passes():
     assert check_card_text(card).passed
 
 
+@pytest.mark.parametrize("script", sorted(PACK.get("unreadable", {}).get("scripts", {})))
+def test_could_not_check_template_passes(script):
+    card = build_card([], PACK, unread=script)
+    assert card["verdict"] == "unreadable"
+    result = check_card_text(card)
+    assert result.passed, [c for c in result.checks if not c["passed"]]
+
+
 def ok(en, hi="यह ठगी है। किसी को OTP न बताएं।", verdict="scam", message=""):
     return check_texts({"en": en, "hi": hi}, verdict, message)
 

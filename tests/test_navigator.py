@@ -98,13 +98,13 @@ def test_widow_on_antyodaya_card():
     assert r["groups"]["eligible"] == ["pmsby"]
     assert r["groups"]["check"] == ["pmjay"]  # under 70: the family list decides
     oap = status(FULL, "ignoaps")
-    assert oap["benefit_now"]["en"] == "₹200 a month"
+    assert oap["benefit_now"]["en"] == "₹200 a month from the centre; your state may add more"
     assert "I am 67 years old." in oap["counter"]["en"]
 
 
 def test_old_age_amount_rises_at_80_and_widow_pension_stops_at_79():
     a = dict(FULL, age=81)
-    assert status(a, "ignoaps")["benefit_now"]["en"] == "₹500 a month"
+    assert status(a, "ignoaps")["benefit_now"]["en"] == "₹500 a month from the centre; your state may add more"
     assert status(a, "ignwps")["status"] == "not_eligible"
 
 

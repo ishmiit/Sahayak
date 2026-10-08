@@ -74,6 +74,8 @@ def explain(message: str, card: dict[str, Any], fired: list[Fired] | None = None
         "explanation": template_explanation(card), "source": "template", "model": None,
         "tokens_per_s": None, "seconds": None, "safety": None, "card": card,
     }
+    if card["verdict"] == "unreadable":  # the model cannot read those languages either
+        return result
     try:
         llm = backend.chat_json(SYSTEM, _prompt(message, card), SCHEMA, max_tokens=360, temperature=0.2,
                                 timeout=timeout)

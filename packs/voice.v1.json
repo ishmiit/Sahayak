@@ -1,7 +1,7 @@
 {
   "pack": "voice",
-  "version": "1.0.0",
-  "date": "2026-10-02",
+  "version": "1.0.1",
+  "date": "2026-10-07",
   "notes": "Everything the voice layer needs that is language data, not code: number words both ways (amounts are spoken as words, ages are heard as words), how to say acronyms and web addresses, which numbers are read digit by digit, and the spoken keywords that map an answer to a Benefits Navigator option. Hindi spellings include the variants the offline recogniser produces.",
   "numbers": {
     "hi": ["शून्य", "एक", "दो", "तीन", "चार", "पाँच", "छह", "सात", "आठ", "नौ", "दस",
@@ -72,7 +72,7 @@
     "work": {
       "farmer_land": {"hi": ["किसान", "खेती", "अपनी ज़मीन", "अपनी जमीन", "ज़मीन है", "जमीन है", "खेत है"], "en": ["farmer", "farming", "own land", "my land"]},
       "farm_labour": {"hi": ["खेत मज़दूर", "खेत मजदूर", "खेतिहर", "खेत में मज़दूरी", "खेत में मजदूरी", "बिना ज़मीन", "बिना जमीन", "ज़मीन नहीं", "जमीन नहीं"], "en": ["farm labour", "farm labourer", "farm worker", "landless"]},
-      "unorganised": {"hi": ["दिहाड़ी", "दिहाडी", "मज़दूरी", "मजदूरी", "मज़दूर", "मजदूर", "निर्माण", "घरेलू", "रेहड़ी", "रेहडी", "पटरी", "ठेला", "सब्ज़ी", "सब्जी", "दुकान", "ड्राइवर", "डिलीवरी", "सिलाई", "कारीगर", "रिक्शा"], "en": ["daily wage", "labour", "labourer", "construction", "domestic", "vendor", "shop", "driver", "delivery", "tailor", "rickshaw"]},
+      "unorganised": {"hi": ["दिहाड़ी", "दिहाडी", "मज़दूरी", "मजदूरी", "मज़दूर", "मजदूर", "निर्माण", "रेहड़ी", "रेहडी", "पटरी", "ठेला", "सब्ज़ी", "सब्जी", "दुकान", "ड्राइवर", "डिलीवरी", "सिलाई", "कारीगर", "रिक्शा", "घरों में", "दूसरों के घर", "कामवाली", "बर्तन"], "en": ["daily wage", "labour", "labourer", "construction", "domestic", "vendor", "shop", "driver", "delivery", "tailor", "rickshaw"]},
       "salaried_pf": {"hi": ["पीएफ", "पी एफ", "ईएसआईसी", "ई एस आई सी", "कंपनी", "फैक्ट्री", "प्राइवेट नौकरी", "नौकरी"], "en": ["pf", "esic", "company", "factory", "salary", "job"]},
       "government": {"hi": ["सरकारी", "सरकारी नौकरी", "सरकारी पेंशन"], "en": ["government", "govt"]},
       "not_working": {"hi": ["काम नहीं", "कुछ नहीं करता", "कुछ नहीं करती", "गृहिणी", "घर पर", "घर संभालती", "छात्र", "पढ़ाई", "पढाई", "सेवानिवृत्त", "रिटायर", "बेरोज़गार", "बेरोजगार"], "en": ["not working", "homemaker", "housewife", "student", "retired", "unemployed", "no work"]}

@@ -4,11 +4,13 @@ Only counts are stored: never names, numbers, message text or anything a person 
 month is a small JSON object in %USERPROFILE%/.sahayak/data/counters.json:
 
   checks       scam checks completed, by input type (text, call, voice, ocr, qr)
-  verdicts     scam / suspicious / no_signs
+  verdicts     scam / suspicious / no_signs / unreadable (a language Sahayak cannot read yet)
   categories   scam categories (the export shows the top five)
-  rupees_at_risk  sum of amounts named or requested in messages judged Scam ("at risk", never "saved")
+  rupees_at_risk  sum of the money asked for in messages judged Scam ("at risk", never "saved"; a prize or loan named is not counted)
   schemes      people found eligible or likely eligible, by scheme
   slips        slips printed: fraud, scheme
+  done         cards made and forms filed at the counter, by scheme (the operator ticks each one): what was
+               actually claimed, not only who was found eligible
   escalations  "Ask the agent" requests
   languages    sessions by language
 
@@ -28,7 +30,7 @@ from pathlib import Path
 
 from ..config import get_settings
 
-FIELDS = ("checks", "verdicts", "categories", "schemes", "slips", "languages")
+FIELDS = ("checks", "verdicts", "categories", "schemes", "done", "slips", "languages")
 SMALL = 5
 _lock = threading.Lock()
 _seen: OrderedDict[str, float] = OrderedDict()  # navigator sessions already counted (memory only)
@@ -97,6 +99,11 @@ def record_navigator(session: str | None, result: dict, lang: str | None = None)
         changes.append(("languages", lang, 1))
     if changes:
         _bump(changes)
+
+
+def record_done(scheme: str) -> None:
+    """The operator made the card or filed the form for one scheme (an Ayushman card, an e-Shram registration…)."""
+    _bump([("done", scheme, 1)])
 
 
 def record_slip(kind: str) -> None:

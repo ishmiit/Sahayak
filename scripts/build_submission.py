@@ -11,34 +11,42 @@ python scripts/build_submission.py
 from __future__ import annotations
 
 import shutil
+import sys
 import zipfile
 from pathlib import Path
 
 import markdown
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "scripts"))
+import docstyle as D  # noqa: E402  (Rosh 27 type and colours, as in the app)
 OUT = ROOT.parent / "Sahayak_Submission"
 LIMIT = 25 * 1024 * 1024
-SKIP_DIRS = {"__pycache__", ".pytest_cache", ".sahayak-test", ".git", "node_modules", "console"}
+SKIP_DIRS = {"__pycache__", ".pytest_cache", ".sahayak-test", ".git", "node_modules", "console", "dist"}  # dist: built sites
 SKIP_PATHS = {Path("docs/video"), Path("docs/screenshots")}  # shipped beside the zip
 
-CSS = """
-@page { size: A4; margin: 16mm 15mm; }
-body { font-family: "Segoe UI", "Nirmala UI", sans-serif; color: #1b1f1d; font-size: 9.5pt; line-height: 1.4; }
-h1 { color: #0e7c57; font-size: 19pt; margin: 0 0 8px; } h2 { color: #0e7c57; font-size: 13pt; margin: 18px 0 6px; }
-h3 { font-size: 11pt; margin: 14px 0 4px; }
-table { border-collapse: collapse; width: 100%; margin: 6px 0 10px; } th, td { border: 1px solid #d9d3c6; padding: 4px 6px;
-  text-align: left; vertical-align: top; font-size: 8.6pt; } th { background: #f1eee6; }
-code { background: #f1eee6; padding: 0 3px; border-radius: 3px; font-size: 9pt; }
-pre { background: #f1eee6; padding: 8px 10px; border-radius: 6px; font-size: 9pt; white-space: pre-wrap; }
-a { color: #0e7c57; }
+def css(html_dir: Path) -> str:
+    return f"""
+@page {{ size: A4; margin: 16mm 15mm; }}
+{D.fonts_css(html_dir)}{D.BASE}
+body {{ font-size: 9.5pt; line-height: 1.45; }}
+h1 {{ font-size: 20pt; margin: 0 0 10px; letter-spacing: -.03em; }}
+h2 {{ font-size: 13pt; margin: 20px 0 6px; padding-top: 10px; border-top: 1px solid {D.SEP}; }}
+h3 {{ font-size: 11pt; margin: 14px 0 4px; letter-spacing: -.01em; }}
+table {{ border-collapse: collapse; width: 100%; margin: 6px 0 10px; }}
+th, td {{ border-bottom: 1px solid {D.SEP}; padding: 5px 7px; text-align: left; vertical-align: top; font-size: 8.6pt; }}
+th {{ background: {D.PAGE}; color: {D.LABEL2}; }}
+code {{ font-family: {D.MONO}; background: {D.PAGE}; padding: 0 4px; border-radius: 5px; font-size: 8.6pt; }}
+pre {{ font-family: {D.MONO}; background: {D.PAGE}; padding: 10px 12px; border-radius: 12px; font-size: 8.6pt; white-space: pre-wrap; }}
+pre code {{ padding: 0; background: none; }}
+blockquote {{ margin: 8px 0; padding: 8px 14px; border-radius: 12px; background: {D.TINT_SOFT}; }}
 """
 
 
 def md_to_pdf(src: Path, dst: Path, page) -> None:
     body = markdown.markdown(src.read_text(encoding="utf-8"), extensions=["tables", "fenced_code"])
     tmp = dst.with_suffix(".html")
-    tmp.write_text(f'<!doctype html><html><head><meta charset="utf-8"><style>{CSS}</style></head><body>{body}</body></html>',
+    tmp.write_text(f'<!doctype html><html><head><meta charset="utf-8"><style>{css(tmp.parent)}</style></head><body>{body}</body></html>',
                    encoding="utf-8")
     page.goto(tmp.as_uri(), wait_until="load")
     page.pdf(path=str(dst), format="A4", print_background=True,
@@ -53,7 +61,7 @@ def source_zip(dst: Path) -> int:
             rel = path.relative_to(ROOT)
             if path.is_dir() or SKIP_DIRS & set(rel.parts) or any(rel.is_relative_to(p) for p in SKIP_PATHS):
                 continue
-            if path.suffix in (".pyc", ".key", ".log"):
+            if path.suffix in (".pyc", ".key", ".log") or path.name.endswith("_corpus.json"):  # corpora: rebuilt by the tests
                 continue
             z.write(path, Path("sahayak") / rel)
             n += 1
@@ -77,10 +85,13 @@ def main() -> int:
     (docs / "submission").mkdir(exist_ok=True)  # the same PDFs, kept in the repo
     for name in ("00_START_HERE.pdf", "04_Application_to_Prototype.pdf", "05_Sahayak_Testing_Report.pdf"):
         shutil.copy2(OUT / name, docs / "submission" / name)
+    # the newest deck that has both its slides and its PDF (v3 for the finale, else v2)
+    deck = next(v for v in ("v3", "v2") if (docs / "deck" / f"Sahayak_Pitch_Deck_{v}.pdf").exists()
+                and (docs / "deck" / f"Sahayak_Pitch_Deck_{v}.pptx").exists())
     copies = {
         docs / "video" / "Sahayak_demo_draft.mp4": "01_Sahayak_Demo_Video.mp4",
-        docs / "deck" / "Sahayak_Pitch_Deck_v2.pdf": "02_Sahayak_Pitch_Deck.pdf",
-        docs / "deck" / "Sahayak_Pitch_Deck_v2.pptx": "02_Sahayak_Pitch_Deck.pptx",
+        docs / "deck" / f"Sahayak_Pitch_Deck_{deck}.pdf": "02_Sahayak_Pitch_Deck.pdf",
+        docs / "deck" / f"Sahayak_Pitch_Deck_{deck}.pptx": "02_Sahayak_Pitch_Deck.pptx",
         docs / "Sahayak_OnePager.pdf": "03_Sahayak_OnePager.pdf",
         docs / "Sahayak_Jury_Kit.pdf": "06_Sahayak_Jury_Kit.pdf",
     }

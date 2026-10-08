@@ -15,6 +15,9 @@
     node.append(...kids.flat(2).filter((kid) => kid != null && kid !== false));
     return node;
   }
+  // A Material Symbols glyph (web/fonts/symbols.woff2), hidden from screen readers.
+  const icon = (name) => el("span", { class: "ms", "aria-hidden": "true" }, name);
+  const VERDICT_ICON = { scam: "gpp_bad", suspicious: "warning", no_signs: "verified_user", unreadable: "help" };
 
   async function api(path, body, method) {
     const res = await fetch(path, {
@@ -71,16 +74,16 @@
   function verdictCard(card, lang, ticket) {
     const other = lang === "hi" ? "en" : "hi";
     const box = el("div", {},
-      el("div", { class: `verdict ${card.verdict}` }, el("div", {},
-        el("div", { class: "v-label" }, card.label[lang]), el("div", { class: "v-label-2" }, card.label[other]))),
+      el("div", { class: `verdict ${card.verdict}` }, el("span", { class: "v-glyph", "aria-hidden": "true" }, icon(VERDICT_ICON[card.verdict])),
+        el("div", {}, el("div", { class: "v-label" }, card.label[lang]), el("div", { class: "v-label-2" }, card.label[other]))),
       el("h3", {}, card.headline[lang]),
-      el("ul", { class: "reasons" }, card.reasons.map((r) => el("li", {}, r.text[lang], el("span", { class: "en" }, r.text[other])))),
-      el("ol", { class: "actions" }, card.actions[lang].map((a, i) => el("li", {}, a, el("span", { class: "en" }, card.actions[other][i])))));
+      el("ul", { class: "reasons" }, card.reasons.map((r) => el("li", { class: r.hard ? "hard" : "" }, el("span", {}, r.text[lang]), el("span", { class: "en" }, r.text[other])))),
+      el("ol", { class: "actions" }, card.actions[lang].map((a, i) => el("li", {}, el("span", {}, a), el("span", { class: "en" }, card.actions[other][i])))));
     const consent = el("input", { type: "checkbox" });
     let printed = false;
     const actions = el("div", { class: "cta-row" },
-      el("button", { class: "secondary", type: "button", onclick: () => speak(`${card.label[lang]}. ${card.headline[lang]} ${card.actions[lang].join(" ")}`, lang) }, "पढ़कर सुनाएँ · Read aloud"),
-      el("button", { class: "primary", type: "button", onclick: () => { printFraud(card, lang); printed = true; } }, "58 mm स्लिप · Print slip"),
+      el("button", { class: "secondary", type: "button", onclick: () => speak(`${card.label[lang]}. ${card.headline[lang]} ${card.actions[lang].join(" ")}`, lang) }, icon("volume_up"), "पढ़कर सुनाएँ · Read aloud"),
+      el("button", { class: "primary", type: "button", onclick: () => { printFraud(card, lang); printed = true; } }, icon("print"), "58 mm स्लिप · Print slip"),
       el("button", { class: "secondary", type: "button", onclick: async () => {
         try {
           await api("/api/console/caselog", { consent: consent.checked, entry: {
@@ -88,8 +91,8 @@
             rupees_at_risk: card.extracted.rupees_at_risk, lang, slip_printed: printed } });
           toast("केस लॉग में रखा · Saved to the case log");
         } catch (e) { toast(e.message); }
-      } }, "केस लॉग में रखें · Save to case log"),
-      ticket ? el("button", { class: "ghost", type: "button", onclick: () => finish(ticket) }, "पूरा हुआ · Done") : null);
+      } }, icon("list_alt"), "केस लॉग में रखें · Save to case log"),
+      ticket ? el("button", { class: "ghost", type: "button", onclick: () => finish(ticket) }, icon("task_alt"), "पूरा हुआ · Done") : null);
     box.append(el("label", { class: "consent" }, consent, "व्यक्ति ने रिकॉर्ड रखने की अनुमति दी · The person agrees to keep a record"), actions);
     return box;
   }
@@ -156,7 +159,7 @@
       el("span", { class: "ticket" }, item.ticket),
       el("div", {}, el("b", {}, item.kind === "check" ? "मैसेज जाँच · Message check" : "योजनाएँ · Benefits"),
         el("div", { class: "meta" }, `${item.at} · ${item.lang === "hi" ? "हिंदी" : "English"} · ${what}`)),
-      el("button", { class: "primary", type: "button", onclick: () => serve(item) }, "बुलाएँ · Serve"));
+      el("button", { class: "primary", type: "button", onclick: () => serve(item) }, icon("campaign"), "बुलाएँ · Serve"));
   }
 
   async function serve(item) {
@@ -175,19 +178,34 @@
       const consent = el("input", { type: "checkbox" });
       const answers = item.summary.answers;
       const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(answers)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+      // A tick per scheme once the card is made or the form filed here: the node then reports what people actually
+      // claimed, not only who was found eligible.
+      const doneRow = el("div", { class: "cta-row" });
+      api("/api/navigator/result", { answers }).then((r) => {
+        const ids = ["eligible", "likely"].flatMap((g) => r.groups[g] || []);
+        const byId = Object.fromEntries(r.schemes.map((sc) => [sc.id, sc]));
+        doneRow.replaceChildren(...ids.map((id) => el("button", { class: "secondary", type: "button", onclick: async (e) => {
+          try {
+            await api("/api/console/done", { scheme: id });
+            e.target.disabled = true;
+            e.target.textContent = `✓ ${byId[id].short}`;
+          } catch (err) { toast(err.message); }
+        } }, `${byId[id].short}: कार्ड / फ़ॉर्म बना · done`)));
+      }).catch(() => {});
       box.append(
         el("ul", {}, Object.entries(item.summary.groups || {}).map(([g, names]) => el("li", {}, `${g}: ${names.join(", ")}`))),
+        doneRow,
         el("label", { class: "consent" }, consent, "व्यक्ति ने रिकॉर्ड रखने की अनुमति दी · The person agrees to keep a record"),
         el("div", { class: "cta-row" },
-          el("a", { class: "secondary", href: `/?answers=${encoded}&lang=${item.lang}`, target: "_blank", rel: "noopener" }, "ऐप में खोलें · Open in the app"),
-          el("button", { class: "primary", type: "button", onclick: () => printBenefits(answers, item.lang).catch((e) => toast(e.message)) }, "58 mm स्लिप · Print slip"),
+          el("a", { class: "secondary", href: `/?answers=${encoded}&lang=${item.lang}`, target: "_blank", rel: "noopener" }, icon("open_in_new"), "ऐप में खोलें · Open in the app"),
+          el("button", { class: "primary", type: "button", onclick: () => printBenefits(answers, item.lang).catch((e) => toast(e.message)) }, icon("print"), "58 mm स्लिप · Print slip"),
           el("button", { class: "secondary", type: "button", onclick: async () => {
             try {
               await api("/api/console/caselog", { consent: consent.checked, entry: { kind: "benefits", schemes: item.summary.groups, lang: item.lang } });
               toast("केस लॉग में रखा · Saved to the case log");
             } catch (e) { toast(e.message); }
-          } }, "केस लॉग में रखें · Save to case log"),
-          el("button", { class: "ghost", type: "button", onclick: () => finish(item.ticket) }, "पूरा हुआ · Done")));
+          } }, icon("list_alt"), "केस लॉग में रखें · Save to case log"),
+          el("button", { class: "ghost", type: "button", onclick: () => finish(item.ticket) }, icon("task_alt"), "पूरा हुआ · Done")));
     }
     loadQueue();
   }
@@ -216,7 +234,7 @@
   // ---------------------------------------------------------------- case log
   async function loadCases() {
     const { entries, keep_days: days } = await api("/api/console/caselog");
-    $("#c-cases-note").textContent = `सिर्फ़ अनुमति से, बिना नाम-नंबर, ${days} दिन बाद अपने-आप मिटता है · Only with consent, no names or numbers, deleted automatically after ${days} days. Encrypted on this node.`;
+    $("#c-cases-note").textContent = `सिर्फ़ अनुमति से, बिना नाम-नंबर, ${days} दिन बाद अपने-आप मिटता है; इस नोड पर एन्क्रिप्ट करके रखा जाता है · Only with consent, no names or numbers, deleted automatically after ${days} days. Encrypted on this node.`;
     $("#c-cases").replaceChildren(...(entries.length ? entries.map((e) => {
       const tr = document.createElement("tr");
       const schemes = e.schemes ? Object.entries(e.schemes).map(([g, n]) => `${g}: ${n.join(", ")}`).join("; ") : "";
@@ -235,7 +253,8 @@
 
   // ---------------------------------------------------------------- counters
   const LABELS = { checks: "जाँचें · Checks run", verdicts: "नतीजे · Verdicts", categories: "ठगी के प्रकार · Top categories",
-    schemes: "योजनाएँ मिलीं · Schemes identified", slips: "पर्चियाँ छपीं · Slips printed", languages: "भाषाएँ · Languages" };
+    schemes: "योजनाएँ मिलीं · Schemes identified", done: "कार्ड / फ़ॉर्म बने · Cards and forms done",
+    slips: "पर्चियाँ छपीं · Slips printed", languages: "भाषाएँ · Languages" };
   async function loadCounters() {
     const { month, export_rows: rows } = await api("/api/console/counters");
     const by = {};
@@ -280,7 +299,7 @@
       const box = (n, label) => el("div", { class: `bign ${n === 0 ? "zero" : n > 0 ? "nonzero" : ""}` }, el("span", {}, String(n ?? "?")), el("small", {}, label));
       $("#c-status").replaceChildren(
         box(e.sahayak.external_connects, "Sahayak के बाहरी कनेक्शन · outbound connections by Sahayak"),
-        box(e.sahayak.external_lookups, "बाहरी DNS सवाल · outside DNS lookups by Sahayak"),
+        box(e.sahayak.external_lookups, "Sahayak के बाहरी DNS सवाल · outside DNS lookups by Sahayak"),
         box(e.machine.external, "इस मशीन के इंटरनेट कनेक्शन · internet connections, whole machine"));
     } catch { /* ignore */ }
   }

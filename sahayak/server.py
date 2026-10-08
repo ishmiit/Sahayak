@@ -52,9 +52,16 @@ egress.install()  # count every outbound attempt this process makes (it should n
 
 
 def _warm_model() -> None:
-    """Load the models in the background so the first explanation, the first spoken
-    sentence and the first recognised answer are not cold starts."""
+    """Load the models in the background so the first check, the first explanation, the first
+    spoken sentence and the first recognised answer are not cold starts."""
     def _warm() -> None:
+        try:
+            # Compile the signal lexicons, fit the pattern matcher and load the scheme rules, so the
+            # first person's check takes milliseconds too (nothing is counted: this is not api_check).
+            check_message_full("warm up", input_type="text")
+            get_navigator()
+        except Exception:  # noqa: BLE001 - warm-up is best effort
+            pass
         try:
             speaker = get_speaker()
             for lang, voices in speaker.voices().items():
@@ -87,6 +94,48 @@ async def lifespan(_app: FastAPI):
 
 app = FastAPI(title="Sahayak node", version=__version__, docs_url=None, redoc_url=None, openapi_url=None,
               lifespan=lifespan)
+
+
+# Starlette reads a whole request body into memory before an endpoint can look at its size, so a phone
+# on the node's Wi-Fi could send 200 MB and the node would hold all of it. This refuses a body larger
+# than its endpoint could ever accept: from the declared length, or as soon as a streamed body passes it.
+MAX_JSON_BYTES = 256 * 1024
+
+
+def body_limit(path: str) -> int:
+    if path in ("/api/qr", "/api/ocr"):
+        return MAX_IMAGE_BYTES
+    if path == "/api/asr" or path.startswith("/api/voicebench/"):
+        return MAX_AUDIO_BYTES
+    return MAX_JSON_BYTES
+
+
+class BodyLimit:
+    def __init__(self, app):
+        self.app = app
+
+    async def __call__(self, scope, receive, send):
+        if scope["type"] != "http":
+            await self.app(scope, receive, send)
+            return
+        limit = body_limit(scope["path"])
+        declared = dict(scope["headers"]).get(b"content-length")
+        if declared is not None and (not declared.isdigit() or int(declared) > limit):
+            await JSONResponse({"detail": "request too large"}, status_code=413)(scope, receive, send)
+            return
+        seen = 0
+
+        async def counted():
+            nonlocal seen
+            message = await receive()
+            seen += len(message.get("body", b""))
+            if seen > limit:
+                raise HTTPException(status_code=413, detail="request too large")
+            return message
+        await self.app(scope, counted, send)
+
+
+app.add_middleware(BodyLimit)  # added before the headers middleware, so its refusals get those headers too
 
 
 @app.middleware("http")
@@ -519,6 +568,20 @@ def api_console_case(check_id: str, request: Request) -> dict[str, Any]:
     return found[1]
 
 
+class DoneRequest(BaseModel):
+    scheme: str = Field(min_length=2, max_length=20)
+
+
+@app.post("/api/console/done")
+def api_console_done(req: DoneRequest, request: Request) -> dict[str, Any]:
+    """The operator made the card or filed the form for a scheme: counted, so the node reports what was claimed."""
+    require_console(request)
+    if req.scheme not in {s["id"] for s in get_pack("schemes").data["schemes"]}:
+        raise HTTPException(status_code=422, detail=f"unknown scheme '{req.scheme}'")
+    counters.record_done(req.scheme)
+    return {"ok": True}
+
+
 class CaseRequest(BaseModel):
     consent: bool
     entry: dict[str, Any]
@@ -633,6 +696,24 @@ def lan_addresses() -> list[str]:
     return out
 
 
+# ---------------------------------------------------------------- packs for the phone
+# The phone app carries its own copy of the scam check and the benefits interview (web/checker.js,
+# web/navigator.js), so it keeps working at home, away from the node. It needs the same packs the node
+# uses; the node has already verified their signatures, and the phone's service worker caches them.
+
+PHONE_PACKS = ("fraud", "scam_patterns", "fraud_model", "schemes", "demo")
+
+
+@app.get("/phone-packs/{name}.json", include_in_schema=False)
+def phone_pack(name: str) -> JSONResponse:
+    if name not in PHONE_PACKS:
+        raise HTTPException(status_code=404, detail="no such pack")
+    pack = get_pack(name)
+    return JSONResponse({"name": pack.name, "version": pack.version, "date": pack.date, "sha256": pack.sha256,
+                         "signed_by": pack.signed_by, "data": pack.data},
+                        headers={"Cache-Control": "no-cache"})  # revalidated on every visit to the node
+
+
 # ---------------------------------------------------------------- the phone app
 
 settings = get_settings()
@@ -655,7 +736,7 @@ app.mount("/app", StaticFiles(directory=settings.web_dir), name="app")
 
 @app.exception_handler(404)
 async def not_found(request: Request, exc: Exception) -> JSONResponse:
-    if request.url.path.startswith("/api/"):
+    if request.url.path.startswith(("/api/", "/phone-packs/")):
         detail = getattr(exc, "detail", "Not found")
         return JSONResponse({"detail": detail}, status_code=404)
     # Captive-portal probes and unknown paths land on the app.

@@ -27,16 +27,34 @@ VIDEO = ROOT / "docs" / "video"
 OUT = VIDEO / "Sahayak_demo_draft.mp4"
 W, H, FPS, RATE = 1920, 1080, 25, 48000
 FONTS = Path("C:/Windows/Fonts")
-BG, INK, INK2, GREEN, RED = (243, 240, 232), (27, 31, 29), (75, 82, 78), (14, 124, 87), (190, 40, 40)
+# Rosh 27, light appearance (as web/styles.css): page, label, secondary label, Bay Blue tint, hairline, device bezel
+BG, INK, INK2, TINT, SEP, BEZEL = (244, 243, 240), (11, 11, 12), (94, 94, 95), (31, 95, 214), (226, 225, 221), (11, 11, 12)
+GEIST, GEIST_MONO = ROOT / "web" / "fonts" / "geist-latin.woff2", ROOT / "web" / "fonts" / "geist-mono-latin.woff2"
 
 
-def font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont:
-    for name in (("segoeuib.ttf", "DejaVuSans-Bold.ttf") if bold else ("segoeui.ttf", "DejaVuSans.ttf")):
+# Geist, the app's own typeface (web/fonts); else Segoe UI on Windows, Arial on macOS, DejaVu on Linux; never Pillow's
+# tiny bitmap font.
+FONT_FILES = {
+    False: ("segoeui.ttf", "DejaVuSans.ttf", "/System/Library/Fonts/Supplemental/Arial.ttf",
+            "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"),
+    True: ("segoeuib.ttf", "DejaVuSans-Bold.ttf", "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+           "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"),
+}
+
+
+def font(size: int, bold: bool = False, mono: bool = False) -> ImageFont.FreeTypeFont:
+    try:
+        f = ImageFont.truetype(str(GEIST_MONO if mono else GEIST), size)
+        f.set_variation_by_axes([600 if mono else 700 if bold else 400])
+        return f
+    except (OSError, ValueError):
+        pass
+    for name in FONT_FILES[bold]:
         try:
             return ImageFont.truetype(str(FONTS / name) if (FONTS / name).exists() else name, size)
         except OSError:
             continue
-    return ImageFont.load_default()
+    return ImageFont.load_default(size)  # Pillow 10.1+: a scalable font
 
 
 def wrap(draw: ImageDraw.ImageDraw, text: str, f, width: int) -> list[str]:
@@ -59,14 +77,35 @@ def text_block(draw, xy, text, f, width, fill=INK, gap=1.3) -> int:
     return y
 
 
-def card(title: str, lines: list[str], kicker: str = "", accent=GREEN) -> Image.Image:
+def mark(im: Image.Image, xy: tuple[int, int], size: int) -> None:
+    """Sahayak's mark, as in the app's top bar: a silk-gradient squircle with the shield glyph from web/fonts."""
+    n = size * 2  # drawn at twice the size, then scaled down for smooth edges
+    t = np.clip((np.arange(n)[:, None] + np.arange(n)[None, :]) / (2 * n - 2), 0, 1)
+    stops = np.array([[126, 93, 69], [169, 141, 95], [146, 122, 114], [79, 80, 105]], dtype=float)
+    pos = np.array([0, .3, .6, 1])
+    rgb = np.stack([np.interp(t, pos, stops[:, c]) for c in range(3)], axis=-1).astype(np.uint8)
+    tile = Image.fromarray(rgb, "RGB").convert("RGBA")
+    mask = Image.new("L", (n, n), 0)
+    ImageDraw.Draw(mask).rounded_rectangle([0, 0, n - 1, n - 1], int(n * .3), fill=255)
+    tile.putalpha(mask)
+    try:
+        glyph = ImageFont.truetype(str(ROOT / "web" / "fonts" / "symbols.woff2"), int(n * .6))
+        glyph.set_variation_by_axes([1, 500])  # FILL 1, weight 500
+        ImageDraw.Draw(tile).text((n / 2, n / 2), "\ue8e8", font=glyph, fill=(255, 255, 255, 255), anchor="mm")  # verified_user
+    except (OSError, ValueError):
+        pass
+    tile = tile.resize((size, size), Image.LANCZOS)
+    im.paste(tile, xy, tile)
+
+
+def card(title: str, lines: list[str], kicker: str = "", accent=TINT) -> Image.Image:
     im = Image.new("RGB", (W, H), BG)
     d = ImageDraw.Draw(im)
-    d.rectangle([0, 0, W, 14], fill=accent)
-    y = 250
+    mark(im, (160, 120), 88)
+    y = 270
     if kicker:
-        d.text((160, y), kicker.upper(), font=font(34, True), fill=accent)
-        y += 70
+        d.text((160, y), kicker.upper(), font=font(30, mono=True), fill=accent)
+        y += 66
     y = text_block(d, (160, y), title, font(84, True), W - 320, gap=1.15) + 40
     for line in lines:
         y = text_block(d, (160, y), line, font(44), W - 320, fill=INK2) + 18
@@ -76,14 +115,13 @@ def card(title: str, lines: list[str], kicker: str = "", accent=GREEN) -> Image.
 def evidence_card(rows: list[tuple[str, str]], note: str) -> Image.Image:
     im = Image.new("RGB", (W, H), BG)
     d = ImageDraw.Draw(im)
-    d.rectangle([0, 0, W, 14], fill=GREEN)
-    d.text((160, 110), "MEASURED, NOT CLAIMED", font=font(34, True), fill=GREEN)
+    d.text((160, 110), "MEASURED, NOT CLAIMED", font=font(30, mono=True), fill=TINT)
     y = 190
     for head, body in rows:
         d.text((160, y), head, font=font(46, True), fill=INK)
         y2 = text_block(d, (620, y + 4), body, font(40), W - 780, fill=INK2, gap=1.25)
         y = max(y + 70, y2) + 26
-        d.line([160, y - 14, W - 160, y - 14], fill=(217, 211, 198), width=2)
+        d.line([160, y - 14, W - 160, y - 14], fill=SEP, width=2)
     text_block(d, (160, y + 10), note, font(32), W - 320, fill=INK2)
     return im
 
@@ -96,12 +134,11 @@ class ClipFrames:
             self.frames = [f.to_image() for f in c.decode(video=0)]
         self.base = Image.new("RGB", (W, H), BG)
         d = ImageDraw.Draw(self.base)
-        d.rectangle([0, 0, W, 14], fill=GREEN)
         fw, fh = self.frames[0].size
         if fh > fw:  # phone: the screen on the left, the caption on the right
             scale = 1000 / fh
             self.size, self.pos = (int(fw * scale), 1000), (260, 50)
-            d.rounded_rectangle([self.pos[0] - 14, 36, self.pos[0] + self.size[0] + 14, 1064], 36, fill=(30, 33, 32))
+            d.rounded_rectangle([self.pos[0] - 14, 36, self.pos[0] + self.size[0] + 14, 1064], 48, fill=BEZEL)
             d.text((900, 300), title, font=font(64, True), fill=INK)
             text_block(d, (900, 410), caption, font(42), 860, fill=INK2)
         else:  # desktop: the screen above, the caption below
@@ -133,18 +170,25 @@ def load(name: str) -> dict:
 
 def segments() -> list[dict]:
     sb = load("scambench_v0_test.json")["systems"]
-    sch, fl, red = load("schemebench_v1.json"), load("voicebench_fleurs_hi.json"), load("redteam_v0.json")
+    sch, fl = load("schemebench_v1.json"), load("voicebench_fleurs_hi.json")
     full, block = sb["full"]["flagged"], sb["blocklist"]["flagged"]
-    rt, rt_after = red["first"]["systems"], (red.get("latest") or red["first"])["systems"]["full"]
     pct = lambda x: f"{100 * x:.0f} percent"  # noqa: E731
+    pub = load("public_v0.json")["first"]["systems"]
+    pf, pb = pub["full"]["groups"]["hindi_english_hinglish"], pub["blocklist"]["groups"]["hindi_english_hinglish"]
+    bl = load("redteam_v1_blind.json")["first"]["systems"]
+    bf, bb = bl["full"]["groups"]["hindi_english_hinglish"], bl["blocklist"]["groups"]["hindi_english_hinglish"]
+    pub_n = load("public_v0.json")["first"]["messages"]
     evidence = [
-        ("Scams caught", f"{100 * full['recall']:.1f}% vs {100 * block['recall']:.1f}% for a keyword blocklist; false alarms "
-                         f"{100 * full['false_alarm_rate']:.1f}% vs {100 * block['false_alarm_rate']:.1f}%"),
-        ("Scheme rules", f"{sch['rules']['agree']:,} / {sch['rules']['decisions']:,} decisions match an independent re-derivation"),
+        ("Real messages", f"{pf['caught']} of {pf['scams']} scams caught, {pf['false_alarm']} of {pf['genuine']} genuine "
+                          f"flagged (keyword blocklist: {pb['caught']} and {pb['false_alarm']})"),
+        ("Blind red team", f"{bf['caught']} of {bf['scams']} scams caught, {bf['false_alarm']} of {bf['genuine']} genuine "
+                           f"flagged (blocklist: {bb['caught']} and {bb['false_alarm']})"),
+        ("Our test set", f"{100 * full['recall']:.1f}% of scams caught vs {100 * block['recall']:.1f}% for a blocklist; "
+                         f"false alarms {100 * full['false_alarm_rate']:.1f}% vs {100 * block['false_alarm_rate']:.1f}%"),
+        ("Scheme rules", f"{sch['rules']['agree']:,} / {sch['rules']['decisions']:,} decisions match a re-derivation by "
+                         "the same author"),
         ("Hindi speech", f"{100 * fl['wer']:.1f}% word error on Google FLEURS Hindi, offline"),
-        ("Red team", f"{rt['full']['scams_flagged']} / {rt['full']['scams']} disguised scams caught on the first run "
-                     f"(blocklist {rt['blocklist']['scams_flagged']}); {rt_after['scams_flagged']} / {rt_after['scams']} after fixes"),
-        ("Offline", "0 connections from Sahayak to the internet, counted live on the node"),
+        ("Offline", "0 connections from Sahayak to the internet, counted live"),
     ]
     return [
         {"card": card("Sahayak", ["An offline scam shield and benefits guide for people new to digital money.",
@@ -180,15 +224,18 @@ def segments() -> list[dict]:
          "caption": "One laptop at the counter. Phones join its Wi-Fi. Every connection Sahayak tries to the internet is counted: zero.",
          "say": "Everything runs on one laptop at the counter. Phones join its Wi-Fi, which has no internet. The node counts "
                 "every connection Sahayak tries to make to the internet, live. The count is zero."},
-        {"card": evidence_card(evidence, "Our test messages were written by our team, so these numbers are optimistic; next we "
-                                         "test on real messages collected with consent. Method and limits: docs/TESTING_REPORT.md."),
-         "say": f"Measured, not claimed. On our held-out test set Sahayak caught {pct(full['recall'])} of scams, against "
-                f"{pct(block['recall'])} for a keyword blocklist, with far fewer false alarms. The scheme rules match an "
-                f"independent re-derivation on all {sch['rules']['decisions']:,} decisions. Offline Hindi speech recognition "
-                f"has a {100 * fl['wer']:.0f} percent word error rate on Google's public test set. And of "
-                f"{rt['full']['scams']} scams disguised to slip past it, Sahayak caught {rt['full']['scams_flagged']} on the "
-                f"first run, and all of them after the fixes they revealed. Our test messages were written by our own team, "
-                "so next we test on real messages, collected with consent."},
+        {"card": evidence_card(evidence, f"Real messages: {pub_n} that people in India received, as published by the "
+                                         "government, banks and fact-checkers, scored once. Blind red team: written by a "
+                                         "separate AI model that never saw the code. Our test set: written by our team. "
+                                         "Method and limits: docs/TESTING_REPORT.md."),
+         "say": f"Measured, not claimed. On {pub_n} real messages that people in India received, published by the "
+                f"government, banks and fact-checkers, Sahayak caught {pf['caught']} of {pf['scams']} scams in Hindi, "
+                f"English and Hinglish, and flagged {pf['false_alarm']} of {pf['genuine']} genuine messages; a keyword "
+                f"blocklist caught {pb['caught']} and flagged {pb['false_alarm']}. Real messages are harder than our own: "
+                f"on the test set our team wrote, it caught {pct(full['recall'])}. On a blind red team written by a separate "
+                f"AI model, it caught {bf['caught']} of {bf['scams']}. The scheme rules agree with a re-derivation on all "
+                f"{sch['rules']['decisions']:,} decisions, and nothing leaves the node: the count is zero. Next: messages "
+                "from people's own phones, collected with consent, and a field test at a service centre."},
         {"card": card("Sahayak", ["Offline. Private. In the language people speak.", "Team: Roshan Raj and Ishmiit Singh"],
                       kicker="Thank you"),
          "say": "Sahayak. Offline, private, and in the language people speak. From Roshan Raj and Ishmiit Singh. Thank you."},

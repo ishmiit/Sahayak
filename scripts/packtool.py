@@ -32,13 +32,13 @@ def _dump(value: Any, indent: int) -> str:
 
 
 def save(path: str | Path, pack: dict[str, Any]) -> None:
-    """Write the pack and, when the team's signing key is on this machine, re-sign it: the node
-    refuses a pack whose bytes no longer match its signature."""
+    """Write the pack and, when this machine's signing key (SAHAYAK_SIGNER, default the team key) is here,
+    re-sign it: the node refuses a pack whose bytes no longer match its signature."""
     path = Path(path)
     path.write_text(_dump(pack, 0) + "\n", encoding="utf-8")
     from sahayak.config import get_settings
-    from sahayak.signing import KEY_NAME, load_or_create_private_key, sig_path, sign_file
-    key_file = get_settings().home / "keys" / f"{KEY_NAME}.key"
+    from sahayak.signing import load_or_create_private_key, sig_path, sign_file, signer_name
+    key_file = get_settings().home / "keys" / f"{signer_name()}.key"
     if key_file.exists():
         sign_file(path, load_or_create_private_key(key_file))
     elif sig_path(path).exists():

@@ -17,9 +17,8 @@ import threading
 import time
 from functools import lru_cache
 
-import numpy as np
-
 from ..config import get_settings
+from .image import load
 
 MODEL_FILES = ("craft_mlt_25k.pth", "devanagari.pth", "english_g2.pth")
 _DEVANAGARI = re.compile(r"[ऀ-ॿ]")
@@ -76,14 +75,7 @@ class Reader:
         return self._readers
 
     def read(self, image: bytes) -> dict:
-        import cv2
-        img = cv2.imdecode(np.frombuffer(image, np.uint8), cv2.IMREAD_COLOR)
-        if img is None:
-            raise ValueError("not an image")
-        h, w = img.shape[:2]
-        if max(h, w) > 1800:
-            scale = 1800 / max(h, w)
-            img = cv2.resize(img, (int(w * scale), int(h * scale)), interpolation=cv2.INTER_AREA)
+        img = load(image, color=True, longest=1800)  # ImageError is a ValueError: the API answers 422
         t0 = time.perf_counter()
         with self._lock:
             hi, en = self._load()

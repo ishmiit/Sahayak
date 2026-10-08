@@ -1,7 +1,7 @@
 """Content packs: versioned JSON files holding everything that changes without a code change.
 
-Each pack carries `pack`, `version` and `date`. The loader records a SHA-256 of the exact
-bytes so the node's status screen (and the README) can show what is installed, and checks the
+Each pack carries `pack`, `version` and `date`. The loader records a SHA-256 of the bytes (line
+endings as LF) so the node's status screen (and the README) can show what is installed, and checks the
 pack's Ed25519 signature (`<file>.sig`) against the team's public keys in packs/keys/. An
 altered pack is refused outright; an unsigned one is refused when SAHAYAK_REQUIRE_SIGNED=1.
 
@@ -21,7 +21,7 @@ from pathlib import Path
 from typing import Any
 
 from .config import get_settings
-from .signing import PackSignatureError, sig_path, verify
+from .signing import PackSignatureError, canonical, sig_path, verify
 
 
 @dataclass(frozen=True)
@@ -56,7 +56,7 @@ def load_pack_file(path: Path) -> Pack:
         name=data["pack"],
         version=data["version"],
         date=data["date"],
-        sha256=hashlib.sha256(raw).hexdigest(),
+        sha256=hashlib.sha256(canonical(raw)).hexdigest(),  # the same on Windows (CRLF) and elsewhere (LF)
         path=path,
         data=data,
         signed_by=signer,

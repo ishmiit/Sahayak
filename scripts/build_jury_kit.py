@@ -28,6 +28,9 @@ from sahayak.navigator.engine import get_navigator  # noqa: E402
 from sahayak.navigator.slip import qr_data_uri  # noqa: E402
 from sahayak.packs import get_pack  # noqa: E402
 
+sys.path.insert(0, str(ROOT / "scripts"))
+import docstyle as D  # noqa: E402  (Rosh 27 type and colours, as in the app)
+
 E = html.escape
 VERDICT = {"scam": "Scam", "suspicious": "Suspicious", "no_signs": "No signs found"}
 RED_TEAM = ("rt-007", "rt-025", "rt-042")  # digits for letters; a warning wrapped around the ask; "6 number wala"
@@ -80,34 +83,45 @@ def personas() -> list[dict]:
     return out
 
 
-CSS = """
-@page { size: A4; margin: 12mm; }
-body { font-family: "Segoe UI", "Nirmala UI", sans-serif; color: #1b1f1d; font-size: 10.5pt; margin: 0; }
-h1 { color: #0e7c57; font-size: 24pt; margin: 0 0 4px; } h2 { color: #0e7c57; font-size: 15pt; margin: 0 0 8px; }
-.page { page-break-after: always; } .page:last-child { page-break-after: auto; }
-.lead { font-size: 12pt; margin: 4px 0 14px; }
-ol li { margin: 8px 0; font-size: 12pt; } .box { border: 1px solid #d9d3c6; border-radius: 10px; padding: 10px 14px; background: #faf8f3; margin: 10px 0; }
-.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.card { border: 1.5px dashed #9aa39e; border-radius: 12px; padding: 10px 12px; break-inside: avoid; }
-.tag { display: inline-block; font-weight: 700; color: #fff; background: #0e7c57; border-radius: 6px; padding: 1px 8px; margin-right: 6px; }
-.kind { font-size: 8.5pt; color: #4b524e; text-transform: uppercase; letter-spacing: .05em; }
-.phone { background: #eceae4; border-radius: 10px; padding: 8px; margin-top: 6px; }
-.sender { font-weight: 600; font-size: 9.5pt; color: #4b524e; margin-bottom: 4px; }
-.bubble { background: #fff; border-radius: 10px; padding: 8px 10px; font-size: 11pt; line-height: 1.4; white-space: pre-wrap; }
-.qr { text-align: center; } .qr img { width: 62mm; height: 62mm; image-rendering: pixelated; }
-.warn { font-size: 9pt; color: #9a2a1d; }
-table { border-collapse: collapse; width: 100%; } th, td { text-align: left; vertical-align: top; padding: 4px 6px; border-bottom: 1px solid #e2ddd2; font-size: 9.5pt; }
-.persona td:first-child { color: #4b524e; width: 55%; }
+CSS = f"""
+@page {{ size: A4; margin: 12mm; }}
+{D.fonts_css(ROOT / "docs")}{D.BASE}
+body {{ font-size: 10.5pt; line-height: 1.4; }}
+h1 {{ display: flex; align-items: center; gap: 10px; font-size: 24pt; margin: 0 0 6px; letter-spacing: -.035em; }}
+h2 {{ font-size: 15pt; margin: 0 0 10px; }}
+.page {{ page-break-after: always; }} .page:last-child {{ page-break-after: auto; }}
+.lead {{ font-size: 12pt; margin: 4px 0 14px; color: {D.LABEL2}; }}
+ol {{ padding-left: 22px; }} ol li {{ margin: 8px 0; font-size: 12pt; }}
+.box {{ border-radius: 16px; padding: 12px 16px; background: {D.PAGE}; margin: 10px 0; }}
+.tryit {{ overflow: hidden; }} .tryit img {{ float: right; width: 30mm; height: 30mm; margin: 0 0 4px 12px; image-rendering: pixelated; }}
+.grid {{ display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; }}
+.card {{ border: 1.5px dashed {D.SEP_STRONG}; border-radius: 18px; padding: 11px 13px; break-inside: avoid; }}
+.tag {{ display: inline-block; font: 600 9pt/1.5 {D.MONO}; color: #fff; background: {D.TINT}; border-radius: 999px; padding: 0 9px; margin-right: 6px; }}
+.kind {{ font: 500 8pt/1 {D.MONO}; color: {D.LABEL2}; text-transform: uppercase; letter-spacing: .08em; }}
+.phone {{ background: {D.PAGE}; border-radius: 16px; padding: 9px; margin-top: 7px; }}
+.sender {{ font-weight: 600; font-size: 9.5pt; color: {D.LABEL2}; margin-bottom: 5px; }}
+.bubble {{ background: #fff; border-radius: 14px; padding: 9px 11px; font-size: 11pt; line-height: 1.45; white-space: pre-wrap; overflow-wrap: anywhere; }}
+.qr {{ text-align: center; }} .qr img {{ width: 62mm; height: 62mm; image-rendering: pixelated; }}
+.warn {{ font-size: 9pt; color: {D.ALARM_INK}; }}
+.box.warn {{ background: {D.ALARM_SOFT}; }}
+table {{ border-collapse: collapse; width: 100%; }} th, td {{ text-align: left; vertical-align: top; padding: 4px 6px; border-bottom: 1px solid {D.SEP}; font-size: 9.5pt; }}
+th {{ color: {D.LABEL2}; }}
+.persona td:first-child {{ color: {D.LABEL2}; width: 55%; }}
 """
 
 
 def build() -> str:
     msgs, qrs, people = messages(), qr_cards(), personas()
-    p1 = f"""<div class="page"><h1>Try Sahayak yourself</h1>
+    url = json.loads((ROOT / "docs" / "deck" / "facts_v3.json").read_text(encoding="utf-8")).get("tryit_url")
+    tryit = (f'<div class="box tryit"><img src="{qr_data_uri(url)}" alt="QR code for {E(url)}"><b>No laptop? Try it on your own '
+             f'phone.</b> Scan this code or open <b>{E(url.replace("https://", ""))}</b>. Check a card, then switch on airplane mode '
+             "and check another: it still works, because the scam check and the benefits interview run on the phone itself, from the "
+             "same signed packs as the node. Voice input and screenshot reading need the node.</div>") if url else ""
+    p1 = f"""<div class="page"><h1>{D.mark(ROOT / "docs", "1.1em")}Try Sahayak yourself</h1>
 <div class="lead">Sahayak runs on the laptop at our stand. Its Wi-Fi has no internet. Nothing you type, say or photograph leaves it.</div>
 <ol>
 <li><b>Join the Wi-Fi</b> named on the node's sticker, then scan the sticker's QR code (or open any web address): the app opens. No install.</li>
-<li><b>Check a message.</b> Tap "Is this a scam?", then type a card's message, say it with the mic, or choose <i>Screenshot</i> and photograph the card.</li>
+<li><b>Check a message.</b> Tap "Check a message", then type a card's message, say it with the mic, or choose <i>Screenshot</i> and photograph the card.</li>
 <li><b>Check a UPI QR.</b> Choose <i>QR code</i> and photograph a Q card. Sahayak shows who the money would go to and how much.</li>
 <li><b>Find benefits.</b> Tap "What am I owed?" and answer as one of the P cards. Print the slip if a printer is attached.</li>
 <li><b>Try to fool it.</b> Write your own message, in Hindi, English or Hinglish. Tell us what it got wrong; we log every miss.</li>
@@ -115,6 +129,7 @@ def build() -> str:
 </ol>
 <div class="box"><b>What to look for.</b> A verdict in milliseconds with the reasons in Hindi and English; "No signs found" never says "safe";
 every amount comes from a signed pack; the app always asks "I heard …, is that right?" before using a spoken answer.</div>
+{tryit}
 <div class="box warn"><b>About the QR cards:</b> they use the UPI handle @sahayakdemo, which does not exist. A real UPI app will refuse them,
 so they can never pay anyone. Scan them only with Sahayak.</div>
 <p>The answer key is on the last page. It was produced by running Sahayak itself on every card.</p></div>"""

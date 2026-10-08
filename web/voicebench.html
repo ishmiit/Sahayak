@@ -3,14 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0e7c57">
+<meta name="theme-color" content="#F4F3F0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101010" media="(prefers-color-scheme: dark)">
 <title>VoiceBench recorder · सहायक</title>
 <link rel="icon" href="/app/icons/icon.svg" type="image/svg+xml">
+<link rel="preload" href="/app/fonts/symbols.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/app/styles.css">
 </head>
 <body>
 <header class="topbar">
-  <span class="brand-text"><b>सहायक VoiceBench</b><small>RECORDER</small></span>
+  <div class="topbar-inner">
+    <span class="brand">
+      <span class="brand-mark" aria-hidden="true"><span class="ms">graphic_eq</span></span>
+      <span class="brand-text"><b>सहायक VoiceBench</b><small>RECORDER</small></span>
+    </span>
+  </div>
 </header>
 <main>
   <!-- 1. consent -->
@@ -23,7 +30,7 @@
       <li>आपका नाम नहीं लिया जाता। रिकॉर्डिंग इसी नोड पर रहती है, इंटरनेट पर नहीं जाती। / No name is taken. Recordings stay on this node and never go online.</li>
       <li>आप कभी भी अपनी रिकॉर्डिंग मिटवा सकते हैं। / You can have your recordings deleted at any time.</li>
     </ul>
-    <label class="have"><input type="checkbox" id="vb-agree"> मैं सहमत हूँ / I agree</label>
+    <label class="vb-agree"><input type="checkbox" id="vb-agree"> मैं सहमत हूँ / I agree</label>
     <button class="primary big" id="vb-next1" type="button" disabled>आगे / Next</button>
   </section>
 
@@ -56,7 +63,7 @@
     <h2 id="vb-text" class="vb-text"></h2>
     <div id="vb-mic" class="mic-slot"></div>
     <div class="cta-row">
-      <button class="secondary" id="vb-play" type="button" disabled>सुनें / Play back</button>
+      <button class="tinted" id="vb-play" type="button" disabled>सुनें / Play back</button>
       <button class="primary" id="vb-ok" type="button" disabled>ठीक है, आगे / Next</button>
     </div>
     <p class="meta" id="vb-status"></p>

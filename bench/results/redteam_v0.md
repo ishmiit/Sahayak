@@ -71,12 +71,12 @@ Sahayak's misses on the first run:
 ## Post-freeze log
 
 - 6 Oct, fraud pack 1.3.0: digits read as letters inside words (0TP, bl0cked, upd4te); written-out links undone (hxxp://, [.], (dot), ' dot xyz'); OTP stand-ins added ('6 digit number', 'verification number', 'number wala', 'code you receive'); awareness phrasing about what police never do ('no police', 'arrests anyone'). Kept by design: a shop offer on a bit.ly link stays Suspicious (a short link hides where it goes), and a debit alert asking you to call or SMS a mobile number is flagged even under a bank header (scammers copy exactly that). ScamBench train, dev and test unchanged.
+- 7 Oct, fraud pack 1.6.0: rt-061 (a debit alert ending 'call 1800... or SMS BLOCK to <long code>') is no longer flagged: a bank's SMS-block line beside its toll-free number is not a number to call (PROGRESS.md D37). rt-065 stays flagged on purpose.
 
-Re-scored 2026-10-06 after the changes above: 52 / 52 disguised scams flagged, 20 / 22 genuine messages left alone. These messages informed the fixes, so the re-score is not an unbiased test; the first run above stays the number to quote.
+Re-scored 2026-10-07 after the changes above: 52 / 52 disguised scams flagged, 21 / 22 genuine messages left alone. These messages informed the fixes, so the re-score is not an unbiased test; the first run above stays the number to quote.
 
 Still missed:
 
-- rt-061 (genuine_txn_alert, read as scam)
 - rt-065 (genuine_short_link_promo, read as suspicious)
 
 **What this does not show.** The set is small and written by the same team as the rules, so it finds blind spots rather than measuring a rate; a red team from outside the team is the next step.

@@ -1,44 +1,114 @@
-/* Operator console: a laptop layout on the same tokens as the app. */
+/* Operator console: the desktop pattern of Rosh 27 (toolbar, floating glass sidebar, content column)
+   on the same tokens as the phone app (styles.css). */
+.console-page .topbar-inner { max-width: none; padding-right: 10px; }
+.console-page .brand { cursor: default; }
+.console-page .brand-text b { font-size: 1.0625rem; }
+.console-page #c-logout { margin-left: auto; }
 .console-page main { max-width: none; }
-.c-login { max-width: 420px; margin: 40px auto; padding: 0 16px; }
-.c-login input { width: 100%; font-size: 1.6rem; text-align: center; letter-spacing: .3em; padding: 14px; border-radius: 14px;
-  border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); }
-.c-app { display: grid; grid-template-columns: 240px 1fr; min-height: calc(100vh - 60px); }
-.c-nav { display: flex; flex-direction: column; gap: 6px; padding: 16px; border-right: 1.5px solid var(--line); background: var(--surface-2); }
-.c-nav button { text-align: left; min-height: 48px; padding: 10px 12px; border-radius: 12px; border: 1.5px solid transparent;
-  background: none; font-weight: 700; color: var(--ink-2); }
-.c-nav button.on { background: var(--surface); border-color: var(--line); color: var(--ink); }
-.c-nav .count { display: inline-grid; place-items: center; min-width: 24px; height: 24px; padding: 0 6px; border-radius: 99px;
-  background: var(--saffron); color: #fff; font-size: .75rem; margin-left: 4px; }
-.c-main { padding: 20px 24px 40px; max-width: 1100px; }
-.c-main h2 { margin-top: 0; }
-.c-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 10px; }
-.c-row label { display: grid; gap: 4px; font-size: .85rem; font-weight: 700; color: var(--ink-2); }
-.c-row select, .c-row input { min-height: 44px; padding: 8px 10px; border-radius: 10px; border: 1.5px solid var(--line);
-  background: var(--surface); color: var(--ink); font-size: .95rem; }
-.c-queue { list-style: none; padding: 0; margin: 0 0 16px; display: grid; gap: 10px; }
-.c-queue li { display: grid; grid-template-columns: 90px 1fr auto; gap: 12px; align-items: center; padding: 12px 14px;
-  background: var(--surface); border: 1.5px solid var(--line); border-radius: 14px; }
-.c-queue .ticket { font-size: 1.5rem; font-weight: 900; color: var(--saffron); }
-.c-queue .serving { border-color: var(--saffron); background: var(--warn-soft); }
-.c-queue .empty { grid-template-columns: 1fr; color: var(--ink-2); }
-.c-card { margin-top: 16px; padding: 16px; background: var(--surface); border: 1.5px solid var(--line); border-radius: var(--radius); }
-.c-card h3 { margin: 0 0 8px; color: var(--ink); }
-.c-card .verdict { margin-bottom: 10px; }
-.c-card .consent { display: flex; align-items: center; gap: 10px; margin: 12px 0; font-weight: 600; }
-.c-card .consent input { width: 22px; height: 22px; accent-color: var(--brand); }
-.c-counters { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 16px; }
-.c-counters .box { padding: 14px; background: var(--surface); border: 1.5px solid var(--line); border-radius: 14px; }
-.c-counters .box h4 { margin: 0 0 6px; font-size: .8rem; color: var(--ink-2); text-transform: uppercase; letter-spacing: .04em; }
-.c-counters .box .n { font-size: 2rem; font-weight: 900; }
-.c-counters .box ul { margin: 6px 0 0; padding-left: 18px; font-size: .88rem; }
-.ref { margin-bottom: 12px; padding: 12px 14px; background: var(--surface); border: 1.5px solid var(--line); border-radius: 14px; }
-.ref h4 { margin: 0 0 6px; }
-.ref .seen { font-size: .78rem; color: var(--ink-2); font-weight: 600; margin-left: 6px; }
-.ref ol { margin: 0; padding-left: 20px; }
-.ref .en { display: block; color: var(--ink-2); font-size: .82rem; }
-#c-delete-all { margin-top: 16px; }
-@media (max-width: 760px) { .c-app { grid-template-columns: 1fr; } .c-nav { flex-direction: row; flex-wrap: wrap; border-right: 0; } }
+.console-page .meta { font-family: var(--font); font-size: .875rem; }
+.primary.small, .secondary.small, .tinted.small, .ghost.small, .danger.small { min-height: 40px; padding: 6px 16px; border-radius: 20px; font-size: .9375rem; }
+
+/* ---------------------------------------------------------------- PIN */
+.c-login { max-width: 460px; margin: 6vh auto 0; padding: 0 16px 40px; }
+.c-login-card { padding: 28px 24px; border-radius: 30px; background: var(--card); box-shadow: var(--e2); text-align: center; }
+.c-login-glyph { display: inline-grid; place-items: center; width: 72px; height: 72px; border-radius: 36px; background: var(--tint-soft); color: var(--tint); }
+.c-login-glyph .ms { font-size: 36px; font-variation-settings: "FILL" 1, "wght" 400; }
+.c-login h1 { margin: 18px 0 8px; font-size: 1.625rem; line-height: 1.25; letter-spacing: var(--trk-t2); }
+.c-login .sub { font-size: .9375rem; }
+.c-login input {
+  font-size: 1.75rem; font-weight: 600; text-align: center; letter-spacing: .4em; min-height: 64px; border-radius: 20px;
+  font-variant-numeric: tabular-nums;
+}
+.c-login .meta { text-align: center; color: var(--alarm-ink); font-weight: 600; }
+
+/* ---------------------------------------------------------------- shell */
+.c-app { display: grid; grid-template-columns: 284px minmax(0, 1fr); gap: 4px; align-items: start; padding: 0 12px 40px; }
+.c-nav {
+  position: sticky; top: 88px; display: flex; flex-direction: column; gap: 2px; padding: 10px;
+  border-radius: 24px; background: var(--glass);
+  -webkit-backdrop-filter: blur(22px) saturate(180%); backdrop-filter: blur(22px) saturate(180%);
+  box-shadow: inset 0 1px 0 var(--rim), inset 0 0 0 1px var(--edge), 0 0 0 1px var(--fill-4), var(--e3);
+}
+.c-nav button {
+  display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 8px 12px; border: 0; border-radius: 14px;
+  background: none; color: var(--label); text-align: left; font-size: .9375rem; font-weight: 500; line-height: 1.3;
+  transition: background .15s;
+}
+.c-nav button:hover { background: var(--fill-3); }
+.c-nav button .ms { color: var(--label-2); }
+.c-nav-label { flex: 1; min-width: 0; }
+.c-nav button.on { background: var(--fill-2); font-weight: 650; }
+.c-nav button.on .ms { color: var(--tint); font-variation-settings: "FILL" 1, "wght" 400; }
+.c-nav .count {
+  display: inline-grid; place-items: center; min-width: 26px; height: 26px; padding: 0 8px; border-radius: 13px;
+  background: var(--tint-fill); color: var(--on-tint); font-size: .8125rem; font-weight: 700; font-variant-numeric: tabular-nums;
+}
+.c-main { padding: 10px 16px 40px 24px; max-width: 1180px; }
+.c-tab { animation: screen-in .4s var(--ease-enter); }
+.c-main h2 { margin: 8px 0 6px; font-size: 1.75rem; line-height: 1.2; font-weight: 700; letter-spacing: var(--trk-t1); }
+.c-main > .c-tab > .meta { margin: 0 0 20px; }
+.c-main p > .secondary { margin-top: 4px; }
+
+/* ---------------------------------------------------------------- cards and fields */
+.c-card { margin-top: 16px; padding: 22px; border-radius: 26px; background: var(--card); box-shadow: var(--e1); }
+.c-card.flush { padding: 6px 8px; }
+.c-card h3 { margin: 0 0 14px; font-size: 1.25rem; font-weight: 700; color: var(--label); letter-spacing: var(--trk-t3); }
+.c-card .verdict { margin-bottom: 16px; }
+.c-card > div > h3 { margin: 18px 4px 12px; }
+.c-card .reasons, .c-card .actions { margin-bottom: 14px; box-shadow: inset 0 0 0 1px var(--sep); }
+.c-card .consent {
+  display: flex; align-items: center; gap: 12px; min-height: 52px; margin: 16px 0 0; padding: 0 16px; border-radius: 18px;
+  background: var(--fill-3); font-weight: 600; cursor: pointer;
+}
+.c-card .consent input { flex: none; width: 22px; height: 22px; margin: 0; accent-color: var(--tint-fill); }
+.c-card .cta-row { margin-top: 16px; }
+.c-card .cta-row > * { flex: 1 1 auto; }
+.c-card > ul { margin: 0 0 8px; padding-left: 20px; line-height: 1.7; }
+.c-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 14px; }
+.c-row label { display: grid; gap: 6px; min-width: 180px; font-size: .875rem; font-weight: 600; color: var(--label-2); }
+.c-row label.grow { flex: 1; }
+.c-row select { min-height: 48px; padding: 10px 14px; border-radius: 14px; cursor: pointer; }
+.c-row input { min-height: 48px; padding: 10px 14px; border-radius: 14px; }
+
+/* ---------------------------------------------------------------- queue */
+.c-queue { list-style: none; margin: 0; padding: 0; border-radius: 26px; background: var(--card); box-shadow: var(--e1); overflow: hidden; }
+.c-queue li { position: relative; display: grid; grid-template-columns: 112px minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 16px 18px; }
+.c-queue li + li::after { content: ""; position: absolute; top: 0; left: 18px; right: 0; height: 1px; background: var(--sep); }
+.c-queue .ticket { font-size: 2rem; font-weight: 800; line-height: 1; letter-spacing: -.03em; color: var(--tint); font-variant-numeric: tabular-nums; }
+.c-queue li > div .meta { margin: 4px 0 0; font-size: .8125rem; }
+.c-queue .serving { background: var(--tint-soft); }
+.c-queue .serving .ticket::after { content: "campaign"; margin-left: 8px; font: normal 1.25rem/1 var(--icons); vertical-align: middle; }
+.c-queue .empty { grid-template-columns: 1fr; justify-items: center; gap: 10px; padding: 40px 18px; color: var(--label-2); text-align: center; }
+.c-queue .empty::before {
+  content: "inbox"; display: grid; place-items: center; width: 72px; height: 72px; border-radius: 36px; background: var(--fill-2);
+  font: normal 2.25rem/1 var(--icons); font-variation-settings: "FILL" 0, "wght" 300; color: var(--label-2);
+}
+
+/* ---------------------------------------------------------------- counters and reference */
+.c-counters { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; margin-bottom: 8px; }
+.c-counters .box { padding: 20px; border-radius: 26px; background: var(--card); box-shadow: var(--e1); }
+.c-counters .box h4 { margin: 0 0 10px; font-size: .8125rem; font-weight: 600; line-height: 1.4; color: var(--label-2); }
+.c-counters .box .n { font-size: 2.5rem; font-weight: 700; line-height: 1.05; letter-spacing: -.035em; font-variant-numeric: tabular-nums; }
+.c-counters .box ul { margin: 0; padding: 0; list-style: none; font-size: .9375rem; font-variant-numeric: tabular-nums; }
+.c-counters .box li { padding: 6px 0; box-shadow: inset 0 -1px 0 var(--sep); }
+.c-counters .box li:last-child { box-shadow: none; }
+.c-reference { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 12px; }
+.ref { padding: 20px; border-radius: 26px; background: var(--card); box-shadow: var(--e1); }
+.ref h4 { margin: 0 0 12px; font-size: 1.0625rem; line-height: 1.35; font-weight: 700; }
+.ref .seen { display: inline-flex; margin-left: 8px; padding: 2px 10px; border-radius: 12px; background: var(--caution-soft); color: var(--caution-ink); font-size: .75rem; font-weight: 650; vertical-align: 2px; }
+.ref ol { margin: 0; padding-left: 22px; display: grid; gap: 8px; }
+.ref .en { display: block; color: var(--label-2); font-size: .8125rem; }
+#c-delete-all { margin-top: 18px; }
+#c-status { margin-top: 18px; }
+
+@media (max-width: 860px) {
+  .c-app { grid-template-columns: 1fr; padding: 0 12px 32px; }
+  .c-nav { position: static; flex-direction: row; flex-wrap: wrap; }
+  .c-nav button { flex: 1 1 auto; }
+  .c-main { padding: 16px 4px 32px; }
+  .c-queue li { grid-template-columns: 1fr auto; }
+  .c-queue li > div { grid-column: 1 / -1; grid-row: 2; }
+}
 
 /* 58 mm thermal printer: about 48 mm printable, black on white, nothing else on the page */
 .print58 { display: none; }
@@ -47,7 +117,7 @@
   body.console-page * { visibility: hidden; }
   body.console-page .print58, body.console-page .print58 * { visibility: visible; }
   body.console-page .print58 { display: block; position: absolute; left: 0; top: 0; width: 54mm; color: #000; background: #fff;
-    font: 9pt/1.35 "Noto Sans Devanagari", "Nirmala UI", sans-serif; }
+    font: 9pt/1.35 "Geist", "Noto Sans Devanagari", "Nirmala UI", sans-serif; }
   .print58 h1 { font-size: 11pt; margin: 0 0 1mm; }
   .print58 .big { font-size: 14pt; font-weight: 900; margin: 1mm 0; }
   .print58 ul, .print58 ol { margin: 0 0 1mm; padding-left: 4mm; }

@@ -1,0 +1,21 @@
+{
+ "date": "2026-10-07",
+ "packs": {
+  "fraud": "1.7.0",
+  "scam_patterns": "1.0.0",
+  "fraud_model": "1.0.0",
+  "schemes": "1.1.1"
+ },
+ "fraud": {
+  "cases": 1841,
+  "comparisons": 41861,
+  "mismatches": 0,
+  "check_ms_median": 0.154,
+  "check_ms_p95": 0.404
+ },
+ "navigator": {
+  "cases": 7983,
+  "comparisons": 28629,
+  "mismatches": 0
+ }
+}

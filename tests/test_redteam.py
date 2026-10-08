@@ -11,9 +11,9 @@ from sahayak.fraud.normalize import fold
 ROOT = Path(__file__).resolve().parent.parent
 ROWS = [json.loads(line) for line in (ROOT / "bench" / "redteam" / "redteam_v0.jsonl").read_text(encoding="utf-8").splitlines()
         if line.strip()]
-# Flagged on purpose (see bench/results/redteam_v0.md): a short link hides where it goes, and a debit alert
-# that asks you to call or SMS a mobile number is what scammers copy.
-BY_DESIGN = {"rt-061", "rt-065"}
+# Flagged on purpose (see bench/results/redteam_v0.md): a short link hides where it goes. (rt-061, a debit alert
+# ending "call 1800 1234 or SMS BLOCK to <mobile>", left this set with the SMS-block exemption in signals.py.)
+BY_DESIGN = {"rt-065"}
 
 
 @pytest.mark.parametrize("row", ROWS, ids=[r["id"] for r in ROWS])

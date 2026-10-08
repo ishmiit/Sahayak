@@ -71,6 +71,39 @@ def test_bad_images():
     assert client.get("/api/demo/qr/nope").status_code == 404
 
 
+def _png_declaring(width: int, height: int) -> bytes:
+    """A valid PNG of one-colour rows: under 1 MB on the wire however large it says it is."""
+    import struct
+    import zlib
+
+    def chunk(kind, data):
+        return struct.pack(">I", len(data)) + kind + data + struct.pack(">I", zlib.crc32(kind + data) & 0xFFFFFFFF)
+    rows = zlib.compress(b"".join(b"\x00" + b"\x00" * width for _ in range(height)), 9)
+    return (b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", struct.pack(">IIBBBBB", width, height, 8, 0, 0, 0, 0))
+            + chunk(b"IDAT", rows) + chunk(b"IEND", b""))
+
+
+@pytest.mark.parametrize("path", ["/api/qr", "/api/ocr"])
+def test_images_that_could_hurt_the_node_are_refused_before_decoding(path):
+    assert client.post(path, content=b"").status_code == 422  # was a crash (500) in the decoder
+    bomb = _png_declaring(12000, 12000)  # 144 megapixels in about 140 KB
+    assert len(bomb) < 1_000_000
+    r = client.post(path, content=bomb)
+    assert r.status_code == 422 and "too large" in r.json()["detail"]
+
+
+def test_request_bodies_larger_than_any_endpoint_takes_are_refused_unread():
+    assert client.post("/api/check", content=b"x" * (300 * 1024), headers={"Content-Type": "application/json"}).status_code == 413
+    assert client.post("/api/qr", content=b"x" * (9 * 1024 * 1024)).status_code == 413
+
+    def stream(n, size=64 * 1024):  # no declared length: counted as it arrives
+        for _ in range(n):
+            yield b"x" * size
+    assert client.post("/api/asr", content=stream(40)).status_code == 413
+    assert client.post("/api/check", content=stream(5), headers={"Content-Type": "application/json"}).status_code == 413
+    assert client.post("/api/check", json={"text": "आपका KYC आज बंद होगा, लिंक खोलें"}).status_code == 200
+
+
 # ---------------------------------------------------------------- screenshots
 
 def test_screenshot_is_read_offline():

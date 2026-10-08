@@ -12,7 +12,7 @@ from typing import Any
 
 from ..packs import get_pack
 from .classifier import get_classifier
-from .normalize import build_context
+from .normalize import build_context, rupees_at_risk
 from .patterns import get_matcher
 from .signals import Fired, get_engine
 from .verdict import build_card
@@ -52,20 +52,20 @@ def check_message_full(text: str, sender: str | None = None, input_type: str = "
         if p >= clf.threshold:
             fired.append(Fired("classifier_flag", float(defs["classifier_flag"]["weight"]), False, {}))
 
-    card = build_card(fired, pack.data)
+    card = build_card(fired, pack.data, unread=ctx.unread)
     card.update({
         "id": uuid.uuid4().hex[:12],
         "input_type": input_type,
         "lang_detected": ctx.lang,
         "explainer": "template",
         "model_scores": scores,
-        "helplines": pack.data["helplines"] if card["verdict"] != "no_signs" else [],
+        "helplines": pack.data["helplines"] if card["verdict"] in ("scam", "suspicious") else [],
         "extracted": {
             "links": [u.raw for u in ctx.urls],
             "mobiles": ctx.mobiles,
             "upi_ids": ctx.upi_ids,
             "amounts": ctx.amounts,
-            "rupees_at_risk": max(ctx.amounts) if ctx.amounts and card["verdict"] == "scam" else 0.0,
+            "rupees_at_risk": rupees_at_risk(ctx.norm) if card["verdict"] == "scam" else 0.0,
         },
         "pack": {"name": pack.name, "version": pack.version, "sha256": pack.sha256[:12]},
     })

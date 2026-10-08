@@ -1,0 +1,3226 @@
+{
+ "date": "2026-10-07",
+ "model": "qwen2.5:3b",
+ "hardware": "Apple M3 (Darwin arm64)",
+ "fraud_pack": "1.5.0",
+ "sets": {
+  "scambench_v0_test": {
+   "n": 60,
+   "llm": {
+    "scams": 37,
+    "caught": 36,
+    "caught_ci": [
+     0.8618,
+     0.9952
+    ],
+    "genuine": 23,
+    "false_alarms": 7,
+    "false_alarm_ci": [
+     0.156,
+     0.5087
+    ]
+   },
+   "sahayak": {
+    "scams": 37,
+    "caught": 36,
+    "caught_ci": [
+     0.8618,
+     0.9952
+    ],
+    "genuine": 23,
+    "false_alarms": 0,
+    "false_alarm_ci": [
+     0.0,
+     0.1431
+    ]
+   },
+   "sahayak_could_not_check": 0,
+   "llm_unparsed": 0,
+   "llm_seconds": {
+    "median": 1.64,
+    "p95": 2.21,
+    "max": 2.39
+   },
+   "sahayak_ms_median": 1.05,
+   "items": [
+    {
+     "id": "sb-0001",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is requesting an immediate action (updating PAN card) via a provided link, which is suspicious and not typical of legitimate financial institutions. Legitimate alerts would typically provi"
+    },
+    {
+     "id": "sb-0002",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is attempting to extort money by threatening the closure of an account unless the recipient takes action, which is common in scams. It also contains a suspicious link that could lead to ph"
+    },
+    {
+     "id": "sb-0008",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains instructions to link an Aadhaar number with a non-Aadhaar related service (bank account), which is unusual and suspicious. It also directs the recipient to a site that appears to "
+    },
+    {
+     "id": "sb-0010",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is requesting sensitive personal and financial information (document photo) via an unverified phone number (11122), which is a common tactic used in scams to trick individuals into sharing"
+    },
+    {
+     "id": "sb-0011",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message does not come from a recognized authority and includes an unverified URL for e-KYC verification."
+    },
+    {
+     "id": "sb-0016",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "OTP for unknown purposes should not be provided over the phone. It is recommended to verify such requests through official channels like logging into your Amazon account."
+    },
+    {
+     "id": "sb-0019",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is requesting sensitive information (verification code) and involves an unauthorized action (stopping auto-debit), which are common tactics used in scams. Genuine messages would not reques"
+    },
+    {
+     "id": "sb-0027",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "There are no official channels for approving refunds through third-party apps like PhonePe without prior communication and verification from the electricity provider. The message does not provide any "
+    },
+    {
+     "id": "sb-0030",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "Unexpected requests for UPI PIN and receiving money without prior communication are suspicious indicators of a potential scam. Genuine messages related to payments typically involve more standard comm"
+    },
+    {
+     "id": "sb-0032",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message appears to be an attempt to trick the recipient into sending money back. It contains elements of urgency and impersonation, which are common tactics used in scams."
+    },
+    {
+     "id": "sb-0040",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is an unsolicited offer with a suspicious link that appears to be for winning money. Such offers are often fraudulent and designed to trick recipients into revealing personal information."
+    },
+    {
+     "id": "sb-0049",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "Messages threatening victims and asking for immediate payment are common tactics used by scammers. This message is an attempt to scare the recipient into sending money."
+    },
+    {
+     "id": "sb-0051",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "This message contains elements of a phishing attempt and does not align with any known customs procedures. It instructs recipients to keep their camera on during a call, which is unusual and suspiciou"
+    },
+    {
+     "id": "sb-0057",
+     "label": "scam",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "scam",
+     "llm_reason": "The message appears to be from Blue Dart, a legitimate courier service provider, providing information about an undelivered shipment and offering payment options. The URL provided is not verified but "
+    },
+    {
+     "id": "sb-0068",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is from an unknown sender and appears to be attempting to extort money by threatening service disruption if the recipient does not contact them via WhatsApp. It also contains a phone numbe"
+    },
+    {
+     "id": "sb-0082",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is an advertisement for a fraudulent investment opportunity, which is not consistent with legitimate financial communications from banks, government entities, or trusted sources."
+    },
+    {
+     "id": "sb-0083",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is promoting an investment opportunity with unclear details and no official branding, which is suspicious for scams. Additionally, the sender is unknown."
+    },
+    {
+     "id": "sb-0084",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is an advertisement for a financial investment opportunity that promises guaranteed returns without disclosing the risks involved. Such offers are often fraudulent and should be approached"
+    },
+    {
+     "id": "sb-0102",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains an offer for a Kisan Credit Card loan with a fee request, which is unusual and not typically associated with legitimate government or financial institution communications. The pre"
+    },
+    {
+     "id": "sb-0109",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "Unexpected requests for approval of actions, especially regarding financial transactions, are often scams. Genuine customer support would likely provide more context and possibly offer to escalate the"
+    },
+    {
+     "id": "sb-0111",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message instructs the recipient to download an application from the Play Store (QuickSupport) for a refund process. This is unusual and not typically how refunds are handled, especially without pr"
+    },
+    {
+     "id": "sb-0112",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains an extortion attempt with a threat of releasing private content, which is not a legitimate action from any official source. It also requests for payment in order to prevent the re"
+    },
+    {
+     "id": "sb-0113",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains an ultimatum to send money, which is a common tactic used in scams. It also threatens harm to the recipient's family if the demand is not met."
+    },
+    {
+     "id": "sb-0117",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is promoting an APK download for the PM Kisan scheme, which is unusual and not how such schemes are typically advertised. It also lacks any official branding or verification that would be "
+    },
+    {
+     "id": "sb-0118",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is promoting an APK download for the PM-Kisan scheme, which appears to be a phishing attempt. Genuine government notifications would not include instructions to download software from an u"
+    },
+    {
+     "id": "sb-0119",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is promoting a free laptop scheme that requires immediate action and registration, which is often used in scams to trick recipients into sharing personal information."
+    },
+    {
+     "id": "sb-0121",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is requesting payment for a form that appears to be related to government benefits, but the sender and link are unknown and suspicious. Genuine messages from the government typically have "
+    },
+    {
+     "id": "sb-0125",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message does not come from a recognized source and asks for personal information such as bank details, which is suspicious."
+    },
+    {
+     "id": "sb-0126",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "OTP requests for Aadhaar seeding are typically sent via official government channels and not through SMS from unknown senders. The message appears to be attempting to bypass the usual secure OTP deliv"
+    },
+    {
+     "id": "sb-0127",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message does not come from a known sender and requests for urgent money transfer via an unverified service (GPay). Such messages are often fraudulent attempts to trick recipients into transferring"
+    },
+    {
+     "id": "sb-0128",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message requests for money transfer and does not sound like a genuine communication from the sender's family member. It lacks personal details that would be expected in a real emergency situation."
+    },
+    {
+     "id": "sb-0136",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "Unofficial links and requests for downloading apps are common tactics in scams. The message does not come from a known official source and advises installing an APK file, which is risky."
+    },
+    {
+     "id": "sb-0137",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is requesting the recipient to download an APK file from an unknown source, which is suspicious and indicative of a scam. Genuine messages do not request sensitive information in such a ma"
+    },
+    {
+     "id": "sb-0139",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "Unexpected request for software installation and personal information from an unknown source is often associated with scams. The message does not provide any official context or legitimacy."
+    },
+    {
+     "id": "sb-0140",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is requesting users to download an APK file, which is suspicious as it could be a phishing attempt. Genuine notifications from official bodies do not require such actions."
+    },
+    {
+     "id": "sb-0144",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "Unexpected messages about scholarships typically require no payment and should not ask for money from parents."
+    },
+    {
+     "id": "sb-0148",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message about government-provided free solar panels with an instruction to pay a booking fee is likely fraudulent. Free solar panel offers from the government are typically communicated through of"
+    },
+    {
+     "id": "sb-0153",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains an instruction not to share the OTP, which is a common practice but in this case, it's part of a phishing attempt to get the user to reveal their OTP."
+    },
+    {
+     "id": "sb-0156",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "OTP messages from banks typically do not include instructions on what to do with the OTP, such as 'Do not disclose it to anyone.' This instruction is suspicious and indicative of a potential phishing "
+    },
+    {
+     "id": "sb-0157",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains an Aadhaar OTP, which is a legitimate security measure used by the government to authenticate Aadhaar card holders for various services."
+    },
+    {
+     "id": "sb-0163",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "OTP messages from legitimate services typically do not include the account number within the message body. The inclusion of '728193' (which appears to be part of an account number) is unusual and susp"
+    },
+    {
+     "id": "sb-0164",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains suspicious details such as an unusual A/c number (XX7781) and the mention of VPA ravi@okaxis, which is not a standard UPI address. The call to 18001234 also seems out of place for"
+    },
+    {
+     "id": "sb-0196",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be a real government and shop notice, informing about an order status."
+    },
+    {
+     "id": "sb-0198",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be from a telecom service provider (Jio) confirming a successful recharge transaction with details about validity and data plan."
+    },
+    {
+     "id": "sb-0199",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be from Airtel, informing about an upcoming expiration of the plan and providing instructions on how to recharge. This is consistent with official communication from telecom ser"
+    },
+    {
+     "id": "sb-0202",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "This message appears to be from Jio, informing about the availability of their True 5G service in the user's area. It is a legitimate communication related to telecom services."
+    },
+    {
+     "id": "sb-0209",
+     "label": "genuine",
+     "lang": "hinglish",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be an invitation for someone to meet at the train station, which could be from a family member or friend. The use of 'Beta' (meaning 'son' in Hindi) suggests it might be address"
+    },
+    {
+     "id": "sb-0210",
+     "label": "genuine",
+     "lang": "hinglish",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be from a family member (mum) informing about a change in medication and suggesting a video call, which is consistent with normal communication."
+    },
+    {
+     "id": "sb-0212",
+     "label": "genuine",
+     "lang": "hinglish",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be from someone wishing a happy birthday, which is a common and genuine type of communication."
+    },
+    {
+     "id": "sb-0214",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "This appears to be a genuine notification from an employer regarding a meeting schedule change."
+    },
+    {
+     "id": "sb-0217",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "This appears to be a genuine message regarding an upcoming community meeting with instructions on what is expected from attendees."
+    },
+    {
+     "id": "sb-0226",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "This appears to be a real government message from Cyber Dost, which is providing advice and warning against scams."
+    },
+    {
+     "id": "sb-0227",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be from NPCI (National Payments Corporation of India), which is the issuer and promotes UPI payments. The content advises on how to receive money without entering PIN, which ali"
+    },
+    {
+     "id": "sb-0232",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message is offering an unsecured pre-approved personal loan, which is unusual and often part of fraudulent activities. Genuine offers for loans would typically come from banks themselves or truste"
+    },
+    {
+     "id": "sb-0235",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "This appears to be a genuine government notice for an eye check-up camp."
+    },
+    {
+     "id": "sb-0244",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "This message appears to be a legitimate bank alert regarding SIP (Systematic Investment Plan) processing for an investment in Axis Bluechip Fund. The message includes details such as the amount, fund "
+    },
+    {
+     "id": "sb-0245",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "This appears to be a genuine message from a school regarding payment of fees."
+    },
+    {
+     "id": "sb-0248",
+     "label": "genuine",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message instructs recipients to call a number printed on their passbook, which is a common security measure. However, the sender's name 'VM-BOBTXN-S' and the content of the message appear suspicio"
+    },
+    {
+     "id": "sb-0249",
+     "label": "genuine",
+     "lang": "hinglish",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "This appears to be a genuine message from someone inviting the recipient to join them for work at a specific time. The use of 'Arre yaar' is common in India and indicates friendliness, which aligns wi"
+    },
+    {
+     "id": "sb-0254",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message is not from a legitimate bank (no recognizable SBI logo) and advises to never share the card PIN, which is a common tactic used in phishing attempts."
+    }
+   ],
+   "fraud_pack": "1.5.0"
+  },
+  "redteam_v1_blind": {
+   "n": 182,
+   "llm": {
+    "scams": 118,
+    "caught": 108,
+    "caught_ci": [
+     0.851,
+     0.9533
+    ],
+    "genuine": 64,
+    "false_alarms": 24,
+    "false_alarm_ci": [
+     0.2667,
+     0.4975
+    ]
+   },
+   "sahayak": {
+    "scams": 118,
+    "caught": 97,
+    "caught_ci": [
+     0.7432,
+     0.8806
+    ],
+    "genuine": 64,
+    "false_alarms": 15,
+    "false_alarm_ci": [
+     0.1475,
+     0.3513
+    ]
+   },
+   "sahayak_could_not_check": 14,
+   "llm_unparsed": 0,
+   "llm_seconds": {
+    "median": 2.24,
+    "p95": 3.11,
+    "max": 4.33
+   },
+   "sahayak_ms_median": 1.76,
+   "items": [
+    {
+     "id": "rt1-001",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The sender is requesting the receiver to forward a code meant for someone else, which is unusual and could be an attempt to gain unauthorized access."
+    },
+    {
+     "id": "rt1-002",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message is from an unknown sender asking for payment details, which is unusual and not typical of legitimate communication. The sender requests to see a product in person without prior contact."
+    },
+    {
+     "id": "rt1-003",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be for paying an invoice related to medicines, which is consistent with government or healthcare-related payments. The sender and the purpose of the payment are clear."
+    },
+    {
+     "id": "rt1-004",
+     "label": "scam",
+     "lang": "bn",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message appears to be from a bank, but the URL provided (kyc-update-bank . in/wb) is not a legitimate link for updating KYC details. Legitimate banks would use their official URLs and may not incl"
+    },
+    {
+     "id": "rt1-005",
+     "label": "genuine",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message is asking for personal information (OTP) and suggests sharing it with someone, which is against best practices. It also mentions a bank that does not exist in India."
+    },
+    {
+     "id": "rt1-006",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message describes an attempt to sell an app for institutional trading which promises guaranteed IPO shares from a special quota. This is highly suspicious and not aligned with real SEBI-registered"
+    },
+    {
+     "id": "rt1-007",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message contains instructions to pay an overdue loan, but the payment details provided are suspicious and do not match legitimate communication channels. The threat of photo editing and spreading "
+    },
+    {
+     "id": "rt1-008",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains instructions to provide personal information (a phone number) and potentially sensitive details (a verification code), which is common in phishing attempts. The caller claims to b"
+    },
+    {
+     "id": "rt1-009",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message does not come from a known legitimate source and involves an unknown sender requesting payment, which is suspicious."
+    },
+    {
+     "id": "rt1-010",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message describes a legitimate police communication regarding passport verification, which is consistent with official government procedures. The mention of an Aadhaar and address proof also align"
+    },
+    {
+     "id": "rt1-011",
+     "label": "scam",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "scam",
+     "llm_reason": "The message appears to be from the Ayushman Vay Vandana Card scheme, which is a real government initiative for senior citizens in India. The details provided include information about card approval an"
+    },
+    {
+     "id": "rt1-012",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message promotes a Bitcoin mining app that requires an initial deposit to start. The offer of earning money by referring others and the promise of withdrawal through UPI are common tactics used in"
+    },
+    {
+     "id": "rt1-013",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "suspicious",
+     "llm_reason": "The message describes a typical family situation where a brother is asking for help with money due to delayed salary. This aligns with common scenarios and can be considered genuine."
+    },
+    {
+     "id": "rt1-014",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains instructions that are likely part of a phishing attempt rather than an official communication from Airtel regarding eSIM migration."
+    },
+    {
+     "id": "rt1-015",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains instructions to transfer money, which is unusual and suspicious. Additionally, the caller's claim of being an old friend who needs help transferring funds without knowing their nu"
+    },
+    {
+     "id": "rt1-016",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains information about a refund processed to a user's account, which is consistent with legitimate business communications."
+    },
+    {
+     "id": "rt1-017",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be for payment, which is a common and expected use of UPI QR codes. The sender (Annapurna Sweets) and the product mentioned are specific details that would typically appear in l"
+    },
+    {
+     "id": "rt1-018",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "genuine",
+     "sahayak": "scam",
+     "llm_reason": "The message appears to be from the India Post GDS (General Delivery Service) and contains details about merit list for recruitment. It includes instructions on how to verify the information, which is "
+    },
+    {
+     "id": "rt1-019",
+     "label": "scam",
+     "lang": "mr",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains suspicious links and requests for personal information, which are common tactics used in phishing attempts. Additionally, the sender number is not verified by the user."
+    },
+    {
+     "id": "rt1-020",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains urgent language and requests for personal information (GPay account) which is common in phishing attempts. It also lacks verification details and appears to be from an unknown sen"
+    },
+    {
+     "id": "rt1-021",
+     "label": "scam",
+     "lang": "ur",
+     "llm": "scam",
+     "sahayak": "unreadable",
+     "llm_reason": "The message appears to be an advertisement for a travel package, but the sender number +917006419253 is not recognized and does not belong to any known legitimate organization. The message contains su"
+    },
+    {
+     "id": "rt1-022",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is offering an unexpected commission for completing tasks and requests payment in the form of a deposit, which is suspicious and not aligned with legitimate task completion platforms. It a"
+    },
+    {
+     "id": "rt1-023",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be a real bank alert, informing about a successful credit of Rs. 300.00 to the account XX1290 for LPG subsidy. It includes details such as the date and consumer number which are"
+    },
+    {
+     "id": "rt1-024",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is promoting an unofficial application (apk) for the official government calculator, which is not provided by any legitimate government body. It also asks recipients to forward it to depar"
+    },
+    {
+     "id": "rt1-025",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is promoting an app download for AADHAAR update, which appears to be a phishing attempt. It also threatens account freezing if the update is not done, which is a common tactic in scams."
+    },
+    {
+     "id": "rt1-026",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be from a delivery service provider, providing instructions for rescheduling a delivery and updating the status. It includes contact information (dlvry-in) which is consistent w"
+    },
+    {
+     "id": "rt1-027",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "Messages related to refunds typically do not include the sender's name as JD-AMAZON-S. This appears to be an attempt to trick recipients into believing they are receiving a legitimate refund notificat"
+    },
+    {
+     "id": "rt1-028",
+     "label": "genuine",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains instructions to pay for a gas cylinder before it arrives, which is unusual and not typically how such deliveries are handled. It also suggests sharing the delivery acknowledgement"
+    },
+    {
+     "id": "rt1-029",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains suspicious elements such as an offer to call a specific number for blocking the card, which is often used in scams. Genuine alerts from banks usually do not include instructions t"
+    },
+    {
+     "id": "rt1-030",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains suspicious UPI QR code and the offer is too good to be true, which is a common tactic used in scams. Additionally, there's no official contact information provided for verificatio"
+    },
+    {
+     "id": "rt1-031",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message describes an offer for a car or cash prize from 'Naaptol', which is suspicious and does not align with known legitimate government or company announcements. The caller requesting payment b"
+    },
+    {
+     "id": "rt1-032",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is asking for a UPI PIN and involves entering personal information, which can be used in phishing attempts. It also mentions receiving money without specifying from whom the funds will com"
+    },
+    {
+     "id": "rt1-033",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message appears to be an attempt to collect bank details for a government scholarship, which is unusual and not how such notifications are typically handled. It also contains contact information t"
+    },
+    {
+     "id": "rt1-034",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains a URL that redirects to an unrelated website (indiapost.in-redelivery.top) and is not part of any official IndiaPost communication. Genuine alerts from IndiaPost would typically i"
+    },
+    {
+     "id": "rt1-035",
+     "label": "scam",
+     "lang": "kn",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains an attachment (KA_Traffic_Challan.apk) that is not from a legitimate source and appears to be part of a phishing attempt. It also includes instructions to download the file, which"
+    },
+    {
+     "id": "rt1-036",
+     "label": "genuine",
+     "lang": "hinglish",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be from Delhivery, a known courier service in India. It contains details of an order and instructions for payment using a UPI QR code, which is consistent with legitimate commun"
+    },
+    {
+     "id": "rt1-037",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains instructions to approve a payment request from an unknown source (Flipkart Refund Desk) using a UPI app, which is suspicious and could be a phishing attempt."
+    },
+    {
+     "id": "rt1-038",
+     "label": "genuine",
+     "lang": "ta",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message contains instructions to contact CBI (Central Bureau for Investigation) and Singkatthura Police, which is not a legitimate procedure. It also requests payment without providing any officia"
+    },
+    {
+     "id": "rt1-039",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message contains information about an insurance policy that has been suspended, and instructions to pay taxes (GST and TDS) before receiving the bonus. This is highly unusual and suspicious, as le"
+    },
+    {
+     "id": "rt1-040",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains instructions to provide personal information and follow suspicious steps related to SIM swapping which is a common scam tactic. It also includes an instruction to send SMS with sp"
+    },
+    {
+     "id": "rt1-041",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message describes actions that Jio (Reliance Jio, an Indian telecom company) does not take, such as asking users to dial codes like *401* or install apps for KYC. The message advises users to repo"
+    },
+    {
+     "id": "rt1-042",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be from the Bank of Baroda regarding KYC updation requirements as per RBI guidelines. It includes official bank details and does not contain suspicious links or requests for per"
+    },
+    {
+     "id": "rt1-043",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains an OTP which is used for transaction verification, and it comes from a legitimate bank (HDFC Bank). The details such as the merchant name (AMAZON PAY INDIA), amount, card ending d"
+    },
+    {
+     "id": "rt1-044",
+     "label": "genuine",
+     "lang": "hi",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be from the Indian government regarding the PM-KISAN scheme. It includes details such as the amount and the website for more information, which are consistent with official comm"
+    },
+    {
+     "id": "rt1-045",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is offering credit card reward points redemption and contains suspicious links (hdfcrewards.in-redeem.top) that could lead to phishing websites. Genuine redemption messages from banks or c"
+    },
+    {
+     "id": "rt1-046",
+     "label": "scam",
+     "lang": "te",
+     "llm": "scam",
+     "sahayak": "unreadable",
+     "llm_reason": "The message contains fabricated information about an incident and is attempting to elicit a response from the recipient, which is not consistent with real police notifications or alerts."
+    },
+    {
+     "id": "rt1-047",
+     "label": "scam",
+     "lang": "ml",
+     "llm": "scam",
+     "sahayak": "unreadable",
+     "llm_reason": "The message appears to be an attempt to trick the recipient into believing they have won a prize. It contains contact information and asks for personal details, which are common tactics used in scams."
+    },
+    {
+     "id": "rt1-048",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains instructions related to a summons from the Supreme Court and requests for sensitive information such as scanning a QR code. Such messages are often fraudulent, especially when the"
+    },
+    {
+     "id": "rt1-049",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains an offer to pay money to a store, which is unusual and does not align with typical UPI QR code messages. There's no mention of the sender or any verification needed."
+    },
+    {
+     "id": "rt1-050",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains suspicious language and does not match typical bank communication practices. It requests immediate action, including calling a phone number provided in the message itself, which i"
+    },
+    {
+     "id": "rt1-051",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains false information about personal loans and insurance details, which is not consistent with known banking practices. It also includes instructions to pay fees before receiving the "
+    },
+    {
+     "id": "rt1-052",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains information about a store's inventory and instructions on how to place an order, which is consistent with legitimate business communication."
+    },
+    {
+     "id": "rt1-053",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains information about a SIM change at an Airtel store and includes security instructions for the user."
+    },
+    {
+     "id": "rt1-054",
+     "label": "genuine",
+     "lang": "bn",
+     "llm": "genuine",
+     "sahayak": "unreadable",
+     "llm_reason": "The message appears to be from the West Bengal Government regarding a financial transaction related to the Lakshmi Bhandar scheme. It does not request for any personal information or payment, which is"
+    },
+    {
+     "id": "rt1-055",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is attempting to solicit money for a charitable cause, but the sender's number (7347902118) does not appear to be associated with any known legitimate organization. The message also lacks "
+    },
+    {
+     "id": "rt1-056",
+     "label": "genuine",
+     "lang": "hinglish",
+     "llm": "genuine",
+     "sahayak": "suspicious",
+     "llm_reason": "This appears to be a genuine message from a utility company (Bijli office) informing about planned maintenance and requesting customers to call for further information. It includes details like the ti"
+    },
+    {
+     "id": "rt1-057",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains suspicious elements such as asking for UPI PIN, mentioning fees that are not standard, and promoting an unverified prize. It does not contain any recognizable branding from a legi"
+    },
+    {
+     "id": "rt1-058",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message appears to be from the Election Commission but contains suspicious elements such as asking for an OTP which is not typical and could lead to identity theft. Genuine messages from official "
+    },
+    {
+     "id": "rt1-059",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be an official communication from BESCOM (Bharat Electronics Limited), informing about unpaid electricity bills and providing payment options. It includes details such as accoun"
+    },
+    {
+     "id": "rt1-060",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message contains suspicious instructions to pay money via an unverified link. Genuine messages typically provide clear and secure ways for verification without requiring immediate payment."
+    },
+    {
+     "id": "rt1-061",
+     "label": "genuine",
+     "lang": "te",
+     "llm": "genuine",
+     "sahayak": "unreadable",
+     "llm_reason": "The message appears to be from the TGSPDCL (Telangana and Hyderabad State Power Distribution Corporation Limited), which is a real government entity. It contains details about an electricity bill paym"
+    },
+    {
+     "id": "rt1-062",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "This message appears to be an alert about a fraudulent video call related to digital arrests, which is likely part of a cybersecurity campaign by the Indian government. The message provides contact in"
+    },
+    {
+     "id": "rt1-063",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message describes an attempt to trick the recipient into transferring money through unauthorized channels, which is a common tactic used in scams. The caller asks for personal information and dire"
+    },
+    {
+     "id": "rt1-064",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is offering an unexplained cashback and asks for scanning a QR code, which can be a common tactic used by scammers to trick users into sharing personal information."
+    },
+    {
+     "id": "rt1-065",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message contains an offer to call a specific number for verification, which is often used in scams. Genuine messages do not include such instructions."
+    },
+    {
+     "id": "rt1-066",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message appears to be an attempt to lure recipients into downloading an APK file, which could contain malware. It also contains urgent and specific information about a wedding that is not plausibl"
+    },
+    {
+     "id": "rt1-067",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message describes a scenario involving an attempt to transfer funds under false pretenses and involves law enforcement, which is suspicious and not typical of legitimate communications. The caller"
+    },
+    {
+     "id": "rt1-068",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains an urgent call to action (calling the provided helpline) and mentions changing of password, which is suspicious as it does not provide any verification steps for the recipient. Ge"
+    },
+    {
+     "id": "rt1-069",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message appears to be an attempt by UIDAI (Unique Identification Authority of India) to inform the user that their Aadhaar card is outdated and will become inactive on October 15th. However, it co"
+    },
+    {
+     "id": "rt1-070",
+     "label": "scam",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "suspicious",
+     "llm_reason": "The message appears to be from NHAI (National Highways Authority of India), offering an annual pass with a promotional discount. The link provided is for activating the offer, which is consistent with"
+    },
+    {
+     "id": "rt1-071",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The sender is asking for immediate payment via UPI for a property rental, which is unusual and suspicious. Additionally, the fact that they have an Aadhaar copy does not necessarily mean it's legitima"
+    },
+    {
+     "id": "rt1-072",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message describes a series of events where the caller attempts to extort money by threatening to expose recorded footage and charging for deletion. This behavior is characteristic of scams, as it "
+    },
+    {
+     "id": "rt1-073",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message is offering a job at an Amazon Warehouse in Bhiwandi without requiring an interview, which seems too good to be true. It also includes a phone number that appears to be for the sender and "
+    },
+    {
+     "id": "rt1-074",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message appears to be from the Income Tax Department, but it contains suspicious elements such as asking for bank account details and mobile OTP via WhatsApp. Such requests are often used in scams"
+    },
+    {
+     "id": "rt1-075",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains elements of phishing and extortion, including instructions to transfer money to an account under the pretext of legal action. It also includes details that are not consistent with"
+    },
+    {
+     "id": "rt1-076",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains an OTP which is a common practice by banks for security purposes and includes a warning against sharing the OTP, which aligns with bank protocols."
+    },
+    {
+     "id": "rt1-077",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is offering part-time income opportunities that require sharing of SIM cards and net banking, which are suspicious. It also requests joining Telegram for payouts without providing clear in"
+    },
+    {
+     "id": "rt1-078",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains an APK file attachment which is unusual and suspicious, especially without any prior communication about needing to download something related to land registry documents."
+    },
+    {
+     "id": "rt1-079",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains details about an Indane refill booking, including a confirmation code and cash memo amount, which is consistent with official communication from the IndianOil company."
+    },
+    {
+     "id": "rt1-080",
+     "label": "scam",
+     "lang": "gu",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains an offer for free WhatsApp group membership with high returns, which is suspicious and indicative of a scam. Genuine offers would not include such exaggerated claims."
+    },
+    {
+     "id": "rt1-081",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The caller requests for money transfer via GPay and threatens to file an FIR if the request is not met, which are common tactics used in scams. The sender's number is unknown and the caller's voice do"
+    },
+    {
+     "id": "rt1-082",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is promoting a fraudulent railway recruitment process and asks for personal information via WhatsApp, which is suspicious. Genuine notices from official channels would not request sensitiv"
+    },
+    {
+     "id": "rt1-083",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be from a legitimate bank (SBI) regarding a transaction, which is consistent with real government and shop notices."
+    },
+    {
+     "id": "rt1-084",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains an attempt to sell fraudulent investment opportunities, which is not aligned with legitimate communication from the sender. The content appears suspicious and does not match known"
+    },
+    {
+     "id": "rt1-085",
+     "label": "genuine",
+     "lang": "mr",
+     "llm": "scam",
+     "sahayak": "unreadable",
+     "llm_reason": "The message appears to be from the Maharashtra government, but it contains an unexpected request for personal information (OTP) and suggests payment without providing details of how to proceed. Genuin"
+    },
+    {
+     "id": "rt1-086",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message is an alert from SBI regarding fraudulent activities and provides instructions on how to report such incidents, which is consistent with legitimate security measures."
+    },
+    {
+     "id": "rt1-087",
+     "label": "scam",
+     "lang": "or",
+     "llm": "genuine",
+     "sahayak": "unreadable",
+     "llm_reason": "The message appears to be an official communication from a financial institution in India regarding the status of an e-wallet account and instructions for completing it. It includes contact informatio"
+    },
+    {
+     "id": "rt1-088",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message is offering an unsecured personal loan with terms that seem too good to be true and does not provide any contact information for applying the offer, which is unusual for legitimate financi"
+    },
+    {
+     "id": "rt1-089",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be from India Post regarding an Aadhaar enrolment and update camp. It includes details about the event, such as date, time, location, and fees, which are consistent with officia"
+    },
+    {
+     "id": "rt1-090",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be from a legitimate insurance company (Bharat Suraksha General Insurance) providing information about an upcoming expiry of two-wheeler insurance. It includes contact details f"
+    },
+    {
+     "id": "rt1-091",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains an OTP related to Aadhaar, which is a legitimate government service in India used for authentication and verification purposes."
+    },
+    {
+     "id": "rt1-092",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains details of an insurance premium due from the LIC (Life Insurance Corporation), which is a legitimate and recognized entity in India."
+    },
+    {
+     "id": "rt1-093",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is offering a large prize in the name of a lottery and requests for a WhatsApp call to claim the prize. This type of offer often comes from fraudulent sources, especially those with vague "
+    },
+    {
+     "id": "rt1-094",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message requests for money transfer and suggests transferring the amount to multiple recipients via screenshots, which is suspicious and not aligned with known communication patterns from legitima"
+    },
+    {
+     "id": "rt1-095",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is from an unknown sender asking for personal information via WhatsApp, which is suspicious. It also contains a phone number that appears to be used for support but lacks credibility."
+    },
+    {
+     "id": "rt1-096",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains suspicious elements such as an unknown sender, instructions to scan a QR code and enter personal information (UPI PIN), and mentions of a government entity (RBI) without additiona"
+    },
+    {
+     "id": "rt1-097",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message appears to be for payment, but the sender is unknown and involves a government program. It's common for such payments to require verification through official channels like an OTP sent via"
+    },
+    {
+     "id": "rt1-098",
+     "label": "scam",
+     "lang": "bn",
+     "llm": "scam",
+     "sahayak": "unreadable",
+     "llm_reason": "The message contains instructions to contact an unknown source (likely the Block Office) and provides details that seem suspiciously tailored for phishing, including asking for personal information su"
+    },
+    {
+     "id": "rt1-099",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains details of a gas bill from Mahanagar Gas, which is a real government service notification."
+    },
+    {
+     "id": "rt1-100",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "Unexpected calls from banks are often scams, especially when they involve offering free limit increases and requesting personal information over the phone."
+    },
+    {
+     "id": "rt1-101",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message describes an attempt to obtain personal information (OTP) over the phone, which is suspicious and not how government pension offices typically operate. The caller also mentioned updating t"
+    },
+    {
+     "id": "rt1-102",
+     "label": "scam",
+     "lang": "ta",
+     "llm": "scam",
+     "sahayak": "unreadable",
+     "llm_reason": "The message appears to be an attempt to solicit personal information and financial details from the recipient, which is suspicious. It also contains elements that are not typical of legitimate communi"
+    },
+    {
+     "id": "rt1-103",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains elements that are clearly fraudulent and not from a legitimate law enforcement agency. It includes instructions to pay a fine for accessing child sexual abuse material, which is a"
+    },
+    {
+     "id": "rt1-104",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message contains instructions to contact an unknown number, which is suspicious. Additionally, the mention of 'किसान सम्मान निधि' (Agriculture Welfare Fund) without further verification or context"
+    },
+    {
+     "id": "rt1-105",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains an APK attachment which is suspicious and not typically found in legitimate government notices."
+    },
+    {
+     "id": "rt1-106",
+     "label": "scam",
+     "lang": "mr",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message appears to be an attempt to extort money by threatening the recipient with service disruption if they do not pay for their bill, which is suspicious and indicative of fraud."
+    },
+    {
+     "id": "rt1-107",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is an advertisement for a free recharge scheme, which often comes with suspicious links and requests to forward the message. It also lacks official branding and does not provide contact in"
+    },
+    {
+     "id": "rt1-108",
+     "label": "scam",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "scam",
+     "llm_reason": "The message is a delivery notification for a Blue Dart delivery, which is coming from their official service. It includes a dialing instruction that customers can use to reschedule the delivery."
+    },
+    {
+     "id": "rt1-109",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is offering a personal loan with no CIBIL check, which is highly suspicious and not aligned with standard lending practices. The link provided in the message appears to be for a fake docum"
+    },
+    {
+     "id": "rt1-110",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains elements that are suspicious and not consistent with official communication from RBI. It requests payment of a processing fee, which is unusual for such notifications."
+    },
+    {
+     "id": "rt1-111",
+     "label": "genuine",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message appears to be an advertisement for a lucky draw promotion from Gupta Garments, but it lacks the necessary details and verification that would typically accompany such official communicatio"
+    },
+    {
+     "id": "rt1-112",
+     "label": "scam",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "suspicious",
+     "llm_reason": "The message contains an OTP for Aadhaar authentication and includes contact information for the UIDAI (Unique Identification Authority of India) to cancel the request if not initiated by the user. Thi"
+    },
+    {
+     "id": "rt1-113",
+     "label": "genuine",
+     "lang": "hi",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be from the Election Commission of India, informing about voter card delivery. It includes contact information for helpline and is in official language."
+    },
+    {
+     "id": "rt1-114",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "Messages for SIM reactivation and KYC verification typically come from official government sources with clear instructions. The message provided lacks the necessary details to confirm its authenticity"
+    },
+    {
+     "id": "rt1-115",
+     "label": "genuine",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message advises against scanning a QR code sent by an unknown person, warning of fraud. It also provides a helpline number (1930) for reporting cyber threats. However, the content is misleading ab"
+    },
+    {
+     "id": "rt1-116",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message appears to be from an unauthorized source and requests personal information (contact details) for a service that is not provided by the Jal Board. It also contains incorrect contact number"
+    },
+    {
+     "id": "rt1-117",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is asking for immediate action to re-verify through Paytm, which could be a phishing attempt. Genuine KYC processes do not require users to take immediate actions via third-party apps like"
+    },
+    {
+     "id": "rt1-118",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The caller did not request for sensitive information such as OTPs, PINs, or card numbers, which is unusual and suspicious. They also provided their own contact number without verifying the recipient's"
+    },
+    {
+     "id": "rt1-119",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains instructions to enter a UPI PIN, which is suspicious as it does not provide the QR code for verification. Additionally, there's no legitimate process of entering a UPI PIN in such"
+    },
+    {
+     "id": "rt1-120",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message is offering an urgent booking opportunity for a heli service with instructions to pay via UPI and share the ticket details on WhatsApp, which are common tactics used in scams. Genuine offe"
+    },
+    {
+     "id": "rt1-121",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains an offer of a gift and personal information exchange, which is unusual and not typical in legitimate communications. The sender asks for personal details and financial transaction"
+    },
+    {
+     "id": "rt1-122",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains suspicious instructions to scan a QR code and enter personal information, which is often associated with scams. It also includes an offer that seems too good to be true (Rs 2 back"
+    },
+    {
+     "id": "rt1-123",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is promoting a fake e-PAN (Electronic Permanent Account Number) launch, which does not exist. It also contains a suspicious link and asks for Aadhaar number and OTP, which are typically us"
+    },
+    {
+     "id": "rt1-124",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "Revealing one's OTP over the phone is highly risky as it can be used for fraudulent activities such as account hijacking. OTPs should only be shared via SMS and not over voice calls."
+    },
+    {
+     "id": "rt1-125",
+     "label": "genuine",
+     "lang": "hi",
+     "llm": "genuine",
+     "sahayak": "scam",
+     "llm_reason": "The message appears to be an official communication from the Gram Panchayat of Rampur village, providing details about an upcoming card-making camp. It includes contact information and instructions fo"
+    },
+    {
+     "id": "rt1-126",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains instructions that could lead to financial loss and is attempting to trick the recipient into providing sensitive information, which is characteristic of scams."
+    },
+    {
+     "id": "rt1-127",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains a link that directs the recipient to an external website, which could be used for phishing. Additionally, it requests immediate action and personal information (bank account detai"
+    },
+    {
+     "id": "rt1-128",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "Unexpected job offers from unknown sources are often scams. The requirement to pay upfront for training kits or other expenses is a common tactic used in fraudulent messages."
+    },
+    {
+     "id": "rt1-129",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is from an unknown sender claiming to be from the Indian Army, asking for personal information (card details) and payment. This appears suspicious as legitimate official communications wou"
+    },
+    {
+     "id": "rt1-130",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "This appears to be a genuine bank alert message from Kotak Bank, detailing an incoming transaction."
+    },
+    {
+     "id": "rt1-131",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be from a legitimate electricity distribution company (MSEDCL) and includes details such as bill amount, due date, payment options, and contact information. It also contains an "
+    },
+    {
+     "id": "rt1-132",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message appears to be threatening account blockage without prompt action, which is a common tactic used in phishing attempts. Genuine alerts from banks typically do not include instructions for im"
+    },
+    {
+     "id": "rt1-133",
+     "label": "scam",
+     "lang": "pa",
+     "llm": "scam",
+     "sahayak": "unreadable",
+     "llm_reason": "The message contains an offer to transfer money, which is unusual and suspicious. It also includes personal information such as phone numbers and bank details that are not typically shared in legitima"
+    },
+    {
+     "id": "rt1-134",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains information about a walk-in interview for a job role at Orbit BPO Services. However, the details provided such as date (Fri 9 Oct 2026), time (11 AM), and location (Sector 62, Noi"
+    },
+    {
+     "id": "rt1-135",
+     "label": "scam",
+     "lang": "ta",
+     "llm": "scam",
+     "sahayak": "unreadable",
+     "llm_reason": "The message appears to be an advertisement for a money transfer service, offering discounts and incentives. However, it does not provide clear information about the legitimacy of the sender or recipie"
+    },
+    {
+     "id": "rt1-136",
+     "label": "scam",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "suspicious",
+     "llm_reason": "The message appears to be from a legitimate company (Talent Bridge HR) offering employment opportunities. However, it's important to verify all information through official channels before making any "
+    },
+    {
+     "id": "rt1-137",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "scam",
+     "llm_reason": "The message contains valid bank transaction details and instructions for dispute resolution, which is consistent with genuine banking communications."
+    },
+    {
+     "id": "rt1-138",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains grammatical errors, the domain provided in the URL (https://echallan-parivahan.gov-in.org.in/pay) is not legitimate and does not match official government channels. It also includ"
+    },
+    {
+     "id": "rt1-139",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains details about an order from Flipkart, which is a legitimate e-commerce platform. It includes a tracking link and advises not to share OTP over the phone, which is consistent with "
+    },
+    {
+     "id": "rt1-140",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message appears to be an attempt to extort money by threatening power disconnection if the bill is not paid, which is often used in scams rather than legitimate communication from electricity offi"
+    },
+    {
+     "id": "rt1-141",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains suspicious and illegal content regarding packages containing prohibited items like passports, debit cards, and MDMA. It also includes instructions to call an unknown number which "
+    },
+    {
+     "id": "rt1-142",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message appears to be an alert for prepaid Smart Meter balance, but the URL provided (smartmeter-recharge.online/up) is not from a known and trusted utility company. It could potentially lead to f"
+    },
+    {
+     "id": "rt1-143",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "genuine",
+     "sahayak": "scam",
+     "llm_reason": "The message contains information about a government initiative for cyber security, which is provided by the sender. It includes instructions on how to download an app and encourages recipients to shar"
+    },
+    {
+     "id": "rt1-144",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be from the Delhi Traffic Police, which is a legitimate government body in India."
+    },
+    {
+     "id": "rt1-145",
+     "label": "scam",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "scam",
+     "llm_reason": "The message appears to be from HDFC Bank, which is a legitimate financial institution. It contains details about a KYC (Know Your Customer) re-verification process mandated by the Reserve Bank of Indi"
+    },
+    {
+     "id": "rt1-146",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be from the Income Tax Department (ITD) and contains details of an ITR refund, which is consistent with official communication."
+    },
+    {
+     "id": "rt1-147",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains an APK link (PM_KISAN_eKYC.apk) which is unusual and not typically associated with official government notifications. The presence of the APK could be a phishing attempt to instal"
+    },
+    {
+     "id": "rt1-148",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message appears to be an attempt to trick users into downloading an APK file, which could contain malware. It also mentions that customers with eKYC completed can receive their next cylinder, impl"
+    },
+    {
+     "id": "rt1-149",
+     "label": "genuine",
+     "lang": "hi",
+     "llm": "genuine",
+     "sahayak": "scam",
+     "llm_reason": "The message appears to be from a family member providing instructions related to rent payment. It includes personal details and is requesting further action, which aligns with typical communication pa"
+    },
+    {
+     "id": "rt1-150",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains an offer for points redemption, which appears to be fraudulent. It requests personal and financial information such as debit card details, which should not be shared with unknown "
+    },
+    {
+     "id": "rt1-151",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message describes an attempt to obtain personal information and involves transferring calls, which are suspicious activities. Additionally, the caller asks for further action on WhatsApp video, wh"
+    },
+    {
+     "id": "rt1-152",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message appears to be for payment, but the sender is unknown and does not match any known government UPI QR codes. The language and context are suspicious."
+    },
+    {
+     "id": "rt1-153",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains confidential information about an ongoing money laundering investigation and requests for a secure video conference statement, which is suspicious without further verification fro"
+    },
+    {
+     "id": "rt1-154",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be an attempt to solicit donations for a specific individual, which is not uncommon in real-life situations. However, the use of UPI QR code and request for donation without cle"
+    },
+    {
+     "id": "rt1-155",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be from the NSP (National Scholarship Portal) of India, informing about scholarship credit. It includes details like the amount and the official source (scholarships.gov.in)."
+    },
+    {
+     "id": "rt1-156",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be an attempt to lure investors into participating in an IPO, which is often used by scammers. It does not contain the official details and contact information typically found i"
+    },
+    {
+     "id": "rt1-157",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "Unexpected calls requesting sensitive information like phone codes are often associated with scams. The caller did not provide enough context or verification steps that would be expected from a legiti"
+    },
+    {
+     "id": "rt1-158",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains an offer for a property with a discount, but the sender's number is not recognized and the content appears to be too good to be true without proper verification. It lacks details "
+    },
+    {
+     "id": "rt1-159",
+     "label": "scam",
+     "lang": "ml",
+     "llm": "scam",
+     "sahayak": "unreadable",
+     "llm_reason": "The message is offering a reward of ₹25 lakh to mobile numbers and includes instructions to pay an additional fee (₹8,500 GST) for claiming the reward. This appears suspicious as legitimate government"
+    },
+    {
+     "id": "rt1-160",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message appears to be an attempt to initiate a fraudulent call and is not from a known legitimate source. It contains casual language that could indicate it's part of a phishing attempt."
+    },
+    {
+     "id": "rt1-161",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains urgent instructions to transfer money via UPI from one unknown number to another without verifying the sender. It also includes personal information like your mother's phone numbe"
+    },
+    {
+     "id": "rt1-162",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is requesting recipients to scan a QR code and provide their UPI PIN, which is suspicious as it does not come from a known legitimate source. It also mentions an amount being refunded with"
+    },
+    {
+     "id": "rt1-163",
+     "label": "genuine",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message is requesting for money transfer to an unknown account without providing any verification of the sender's identity and includes urgent language which is often used in fraudulent communicat"
+    },
+    {
+     "id": "rt1-164",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is an advertisement for earning money by liking and commenting on YouTube videos, which is suspicious and not aligned with legitimate online activities. It also includes instructions to se"
+    },
+    {
+     "id": "rt1-165",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains an urgent request to purchase and send a gift card, which is unusual and not aligned with typical communication methods from legitimate entities. There's no mention of the sender'"
+    },
+    {
+     "id": "rt1-166",
+     "label": "genuine",
+     "lang": "hi",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains information about an upcoming appointment related to government services and is from a known contact (आशा दीदी). The tone and content are consistent with official communications."
+    },
+    {
+     "id": "rt1-167",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains instructions to transfer money to an account, which seems suspicious and does not align with typical communication from the RBI or any legitimate financial institution. It also me"
+    },
+    {
+     "id": "rt1-168",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be a real bank alert about pension crediting from the State Bank of India (SBI). It includes details such as the amount, date of transaction, and instructions for submitting Lif"
+    },
+    {
+     "id": "rt1-169",
+     "label": "genuine",
+     "lang": "gu",
+     "llm": "scam",
+     "sahayak": "unreadable",
+     "llm_reason": "The message appears to be an advertisement for a discount offer, but the sender's number (+919824107356) is not recognized and does not belong to a known legitimate merchant or organization. The messa"
+    },
+    {
+     "id": "rt1-170",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "This message appears to be an attempt to extort money by threatening to freeze an investment account unless capital gains tax is paid. Such requests are often fraudulent and not issued by legitimate f"
+    },
+    {
+     "id": "rt1-171",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains promotional content for an online sale without providing any official branding or verification details that would typically be expected in legitimate marketing communications from"
+    },
+    {
+     "id": "rt1-172",
+     "label": "genuine",
+     "lang": "hinglish",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be an official communication from the Reserve Bank of India (RBI), advising recipients not to share OTPs, PINs, CVVs, or passwords with anyone. It also advises against clicking "
+    },
+    {
+     "id": "rt1-173",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains an offer for employment from Reliance Retail Ltd. However, it does not provide any official contact information, and the amount mentioned (₹4,850) is unusually high for training k"
+    },
+    {
+     "id": "rt1-174",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains information about a cyber crime recovery process, but the sender's number is not verified and requests for personal details via WhatsApp which is suspicious."
+    },
+    {
+     "id": "rt1-175",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is attempting to lure individuals into participating in an IPO subscription through an institutional wallet with the promise of guaranteed allotment and potential gains. It also requests f"
+    },
+    {
+     "id": "rt1-176",
+     "label": "genuine",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message does not come from an official source related to Swastik Motors and lacks important details such as the company's contact information. It also requests personal documents which is unusual "
+    },
+    {
+     "id": "rt1-177",
+     "label": "genuine",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The caller asks for personal information such as the Aadhaar copy and expects you to pay fees. This is unusual and not typically how interviews are conducted by legitimate companies."
+    },
+    {
+     "id": "rt1-178",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be from a genuine source, Mrs. Kulkarni, regarding a rental property in Baner. The sender's number is provided and seems legitimate."
+    },
+    {
+     "id": "rt1-179",
+     "label": "scam",
+     "lang": "te",
+     "llm": "scam",
+     "sahayak": "unreadable",
+     "llm_reason": "The message contains offers that are too good to be true, such as free money and high interest loans. It also includes contact information for further communication."
+    },
+    {
+     "id": "rt1-180",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains an offer for an unofficial security app that is not provided by the official bank. It also includes a suspicious link and does not mention any legitimate ICICI Bank services."
+    },
+    {
+     "id": "rt1-181",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The caller is requesting to install an app and provide access to their bank account details, which are red flags for scams involving financial transactions."
+    },
+    {
+     "id": "rt1-182",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message contains suspicious elements such as threatening language (pension will be stopped), and it asks the recipient to submit online from an unverified link. Genuine government communications w"
+    }
+   ],
+   "other_languages": {
+    "llm": {
+     "scams": 15,
+     "caught": 14,
+     "caught_ci": [
+      0.7018,
+      0.9881
+     ],
+     "genuine": 5,
+     "false_alarms": 3,
+     "false_alarm_ci": [
+      0.2307,
+      0.8824
+     ]
+    },
+    "sahayak": {
+     "scams": 15,
+     "caught": 5,
+     "caught_ci": [
+      0.1518,
+      0.5829
+     ],
+     "genuine": 5,
+     "false_alarms": 1,
+     "false_alarm_ci": [
+      0.0362,
+      0.6245
+     ]
+    }
+   },
+   "fraud_pack": "1.5.0"
+  },
+  "public_v0": {
+   "n": 137,
+   "llm": {
+    "scams": 103,
+    "caught": 99,
+    "caught_ci": [
+     0.9044,
+     0.9848
+    ],
+    "genuine": 34,
+    "false_alarms": 21,
+    "false_alarm_ci": [
+     0.4504,
+     0.761
+    ]
+   },
+   "sahayak": {
+    "scams": 103,
+    "caught": 67,
+    "caught_ci": [
+     0.5545,
+     0.7357
+    ],
+    "genuine": 34,
+    "false_alarms": 11,
+    "false_alarm_ci": [
+     0.1913,
+     0.4916
+    ]
+   },
+   "sahayak_could_not_check": 6,
+   "llm_unparsed": 0,
+   "llm_seconds": {
+    "median": 2.13,
+    "p95": 3.16,
+    "max": 3.93
+   },
+   "sahayak_ms_median": 1.7,
+   "items": [
+    {
+     "id": "pub-001",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "Messages about account lockouts typically come from banks, but they usually include an option for you to contact customer support directly. The link provided in the message is suspicious and not commo"
+    },
+    {
+     "id": "pub-002",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message contains urgent instructions to call back, which is suspicious and does not match typical bank communication procedures."
+    },
+    {
+     "id": "pub-003",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message describes a scenario where someone is being pressured into sharing sensitive information (bank details) with an unknown caller posing as an army personnel. This aligns with common tactics "
+    },
+    {
+     "id": "pub-004",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The sender is asking you to scan a QR code and receive money through your bank account, which is unusual and suspicious. The fact that the initial transaction failed but the amount was credited sugges"
+    },
+    {
+     "id": "pub-005",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message contains elements of phishing, where an impersonator is trying to trick the recipient into believing they are in urgent need of purchasing items from them. Genuine messages do not involve "
+    },
+    {
+     "id": "pub-006",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message contains an unverified URL that leads to a suspicious website. Additionally, there is no official branding from the India Post service and it includes instructions for replying to receive "
+    },
+    {
+     "id": "pub-007",
+     "label": "scam",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "scam",
+     "llm_reason": "The message appears to be from India Post, providing an update on the delivery status of a package. It includes a link for tracking which is provided by the sender and not generated by the user."
+    },
+    {
+     "id": "pub-008",
+     "label": "scam",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "suspicious",
+     "llm_reason": "The message appears to be from a legitimate delivery service (India Post) providing information and instructions related to package delivery. Genuine messages often include links for updating address "
+    },
+    {
+     "id": "pub-009",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains a link that directs the recipient to an unverified and suspicious website. Genuine messages from official bodies do not include links for further action unless they are provided b"
+    },
+    {
+     "id": "pub-010",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains an offer to redeem credit card reward points for a fee, which is suspicious and indicative of a potential scam. Genuine redemption offers would typically be from the bank itself w"
+    },
+    {
+     "id": "pub-011",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains elements of extortion, threats, and misinformation. It also requests personal information and urges immediate action which are red flags for scams."
+    },
+    {
+     "id": "pub-012",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is not consistent with known communication patterns and involves threatening content typically used in scams."
+    },
+    {
+     "id": "pub-013",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "Unexpected contact from an authority without prior communication and no legitimate way to verify such claims via phone call."
+    },
+    {
+     "id": "pub-014",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains instructions that are likely part of a scam attempt, such as advising the recipient to take digital custody and providing instructions that seem designed to provoke fear in order "
+    },
+    {
+     "id": "pub-015",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains suspicious and threatening language, asking for money transfer. It also includes personal information that seems to be fabricated."
+    },
+    {
+     "id": "pub-016",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains false information about illegal activities and unconfirmed financial transactions. It is not from a legitimate source."
+    },
+    {
+     "id": "pub-017",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains multiple inconsistencies and is threatening in nature. It also requests for sensitive personal information such as bank details which are not part of legitimate communication proc"
+    },
+    {
+     "id": "pub-018",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains instructions for paying a traffic violation fine, which is suspicious as it lacks details and appears to be an attempt to extort money. The URL provided in the message does not se"
+    },
+    {
+     "id": "pub-019",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains an offer for payment of traffic violation fine, which is often used in scams to trick people into paying fake fines. It also includes a suspicious link that could lead to further "
+    },
+    {
+     "id": "pub-020",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message contains information about a traffic violation that requires payment of ₹5,000 for viewing evidence and resolving the matter. However, it does not provide any official contact details or l"
+    },
+    {
+     "id": "pub-021",
+     "label": "scam",
+     "lang": "ml",
+     "llm": "scam",
+     "sahayak": "unreadable",
+     "llm_reason": "The message appears to be an automated alert about traffic congestion, but the sender is unknown and does not match any known legitimate authorities. It also contains promotional language that could b"
+    },
+    {
+     "id": "pub-022",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message appears to be from an unauthorized source and does not match the official communication channels of electricity providers. It also lacks important details such as the customer's name, acco"
+    },
+    {
+     "id": "pub-023",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains an urgent call to action that appears to be from the Ministry of Power, but it includes a phone number for electricity officers which is not provided by official channels. The mes"
+    },
+    {
+     "id": "pub-024",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is attempting to scare the recipient into thinking their internet service will be cut off unless they contact an unknown number. It also contains incorrect information about when the servi"
+    },
+    {
+     "id": "pub-025",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is in an unfamiliar language (Hindi) and contains instructions to contact a phone number, which could be used for identity theft. Additionally, it mentions service disruption without provi"
+    },
+    {
+     "id": "pub-026",
+     "label": "scam",
+     "lang": "ta",
+     "llm": "scam",
+     "sahayak": "unreadable",
+     "llm_reason": "The message appears to be in Tamil and contains instructions for an upcoming bank transaction. However, the sender is unknown and the message does not include any official-looking details such as a lo"
+    },
+    {
+     "id": "pub-027",
+     "label": "scam",
+     "lang": "te",
+     "llm": "scam",
+     "sahayak": "unreadable",
+     "llm_reason": "The message appears to be in Telugu and contains instructions related to bank transactions, which could be part of a phishing attempt. The sender is unknown and the content seems suspicious."
+    },
+    {
+     "id": "pub-028",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The caller is asking for the victim to transfer money back, which is unusual and suspicious. Genuine transactions typically involve receiving funds rather than initiating transfers."
+    },
+    {
+     "id": "pub-029",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message describes a fraudulent scenario where a customer is tricked into downloading an APK file and transferring money, which are clear signs of fraud."
+    },
+    {
+     "id": "pub-030",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message instructs the recipient to confirm that they did not authorize a withdrawal from their account, which is a common tactic used in phishing attempts. Genuine messages related to bank transac"
+    },
+    {
+     "id": "pub-031",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains instructions to provide personal information and includes a call to action (dialing a six-digit verification code) which is common in phishing attempts. It also mentions 'Mobiquic"
+    },
+    {
+     "id": "pub-032",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message is offering free rewards under the Pradhan Mantri Mudra Yojana, but it contains a clickable link to an unknown website (Learn More button) and mentions specific apps (PhonePe or PayTM) for"
+    },
+    {
+     "id": "pub-033",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message appears to be an attempt to promote a government scheme for students, but the URL provided does not seem legitimate and is unfamiliar. There are no official details that would confirm its "
+    },
+    {
+     "id": "pub-034",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is promoting an offer for free laptops from the Government of India, but it directs recipients to visit an unofficial website (tinyurl.com/IndiaFreeLaptop-413) instead of providing a legit"
+    },
+    {
+     "id": "pub-035",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message is from an unknown sender and claims that the Ministry of Finance has provided every citizen with ₹46715 to reduce the severity of a financial crisis. This type of sudden, large-scale fina"
+    },
+    {
+     "id": "pub-036",
+     "label": "scam",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "scam",
+     "llm_reason": "The message appears to be from the Pradhan Mantri Jan Dhan Yojana (PMJDY) program, which is a real government initiative in India. The details provided match official information about the PMJDY 2026 "
+    },
+    {
+     "id": "pub-037",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is an advertisement for a loan scheme and contains a phone number. Such messages are often fraudulent attempts to trick recipients into providing personal information."
+    },
+    {
+     "id": "pub-038",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message appears to be an attempt to promote a government scheme, but the link provided is not from a known official source and may lead to fraudulent websites."
+    },
+    {
+     "id": "pub-039",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains promotional content for an exam qualification program, which appears to be unsolicited and does not match known legitimate government communication patterns. The use of 'unknown' "
+    },
+    {
+     "id": "pub-040",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "This appears to be a genuine government announcement regarding health insurance for senior citizens in India."
+    },
+    {
+     "id": "pub-041",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message is offering an exclusive and significant offer (free cashback) that seems too good to be true without any clear details about the terms, conditions, or how to claim it. It also does not pr"
+    },
+    {
+     "id": "pub-042",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains suspicious language and does not appear to be from a legitimate bank or government source. It also includes instructions that are unusual for such notifications, encouraging recip"
+    },
+    {
+     "id": "pub-043",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message is offering free cashback and does not specify the source of the offer, which is suspicious. It also lacks any verification details such as an official logo or contact information."
+    },
+    {
+     "id": "pub-044",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message contains information about a telecom authority offer, but the sender is unknown and does not provide any official contact details or verification methods. Such offers are often used in sca"
+    },
+    {
+     "id": "pub-045",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains an expired link and does not provide any official source for the offer. It also lacks details that would typically be found in legitimate government announcements, such as contact"
+    },
+    {
+     "id": "pub-046",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains suspicious and exaggerated claims about a government offer to build Ram Mandir in Ayodhya, India. The link provided is not verified by the sender and appears to be for a fraudulen"
+    },
+    {
+     "id": "pub-047",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is an advertisement for a recharge offer related to the World Cup T20, which appears suspiciously free and offers. It lacks any official branding or verification from credible sources."
+    },
+    {
+     "id": "pub-048",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains an unknown phone number and does not provide a clear way to verify the information, which is typical of scams. It also lacks important details such as the customer's account numbe"
+    },
+    {
+     "id": "pub-049",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message appears to be from an unauthorized source and contains urgent instructions that are likely part of a scam. Genuine notifications would typically come from the actual service provider (in t"
+    },
+    {
+     "id": "pub-050",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message appears to be from an unauthorized source and does not match the official communication channels of Green Gas Private Limited. Unauthorized entities typically do not have access to such se"
+    },
+    {
+     "id": "pub-051",
+     "label": "scam",
+     "lang": "gu",
+     "llm": "scam",
+     "sahayak": "unreadable",
+     "llm_reason": "The message appears to be an attempt to scare the recipient into believing their gas connection will be turned off. It contains contact information for a company called IGL, which is plausible, but th"
+    },
+    {
+     "id": "pub-052",
+     "label": "scam",
+     "lang": "mr",
+     "llm": "scam",
+     "sahayak": "unreadable",
+     "llm_reason": "The message appears to be an attempt to scare the recipient into believing their gas connection will be cut off if they do not update their bill. It does not come from a known legitimate source and is"
+    },
+    {
+     "id": "pub-053",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains suspicious links and requests for personal financial information, which are common tactics used in phishing scams."
+    },
+    {
+     "id": "pub-054",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains an official-looking header but lacks critical verification details such as a proper contact number for further inquiries, and the amount mentioned is unusually high. It also does "
+    },
+    {
+     "id": "pub-055",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message appears to be an invitation to join a stock trading recommendation service, which could be fraudulent. It does not provide any legitimate information and encourages voluntary exit for thos"
+    },
+    {
+     "id": "pub-056",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message is promoting an investment group by an unknown sender. It does not come from a recognized financial institution or government body."
+    },
+    {
+     "id": "pub-057",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message is promoting an investment opportunity, which could be fraudulent. Genuine financial advice and alerts from banks or stock markets typically come with specific details about their services"
+    },
+    {
+     "id": "pub-058",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "Unexpected job offers from unknown sources are often scams. Payment requests without clear information about what is being purchased or services provided should raise suspicion."
+    },
+    {
+     "id": "pub-059",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains suspicious elements such as asking for personal information, providing customer support number without prior communication and the use of generic greetings like 'Dear Ncs Employee"
+    },
+    {
+     "id": "pub-060",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be an attempt to trick recipients into clicking on a phishing link for a job application form. It does not mention any official institutions, and the urgency is suspicious."
+    },
+    {
+     "id": "pub-061",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains suspicious links and requests for immediate action, which are common tactics used in phishing attempts. It also mentions blocking of an account without providing context, which is"
+    },
+    {
+     "id": "pub-062",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "This message appears to be fraudulent. Banks do not send unsolicited messages requesting customers to download unofficial apps for updating Aadhaar details, as it could expose the customer's personal "
+    },
+    {
+     "id": "pub-063",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains urgent action instructions that seem suspicious, such as account suspension without proper warning. It also includes a phone number to call which is not provided by the bank and a"
+    },
+    {
+     "id": "pub-064",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message is requesting an urgent action (updating PAN card number) via a provided link, which is a common tactic used in phishing scams. Genuine alerts from banks typically do not require the user "
+    },
+    {
+     "id": "pub-065",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains urgent language and requests for immediate action, which is common in scams. It also includes personal information such as Bank of Maharashtra CustId XXXX, which should not be sha"
+    },
+    {
+     "id": "pub-066",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains a hyperlink (https://rb.gy/xaotao0) which is unusual for legitimate KYC updates. Legitimate institutions would not include links in such messages."
+    },
+    {
+     "id": "pub-067",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is asking for immediate action to update a PAN card, which is unusual and not typically how bank accounts are blocked. It also contains an embedded link that directs the user to an externa"
+    },
+    {
+     "id": "pub-068",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains a request for immediate action to update personal information via a provided link, which is suspicious and indicative of phishing. Genuine messages from banks typically do not req"
+    },
+    {
+     "id": "pub-069",
+     "label": "scam",
+     "lang": "ml",
+     "llm": "scam",
+     "sahayak": "unreadable",
+     "llm_reason": "The message appears to be in Malayalam and is offering an option to download the Kharur Vishay Bank app, which seems suspicious as it does not provide any legitimate bank alert information. It also re"
+    },
+    {
+     "id": "pub-070",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains threatening language and instructions that are not aligned with legitimate financial recovery attempts. It also includes illegal content suggestions, which is red flag for scams."
+    },
+    {
+     "id": "pub-071",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message describes a scenario where the recipient is threatened with social media exposure if they do not pay, which is a common tactic used in scams to induce fear and prompt immediate payment."
+    },
+    {
+     "id": "pub-072",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains suspicious elements such as asking for payment and includes an unverified phone number (Mr. Payal 9876012345). It also lacks official branding and contact information from a recog"
+    },
+    {
+     "id": "pub-073",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains an attempt to trick the recipient into forwarding the message, which is a common tactic used in phishing scams."
+    },
+    {
+     "id": "pub-074",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "OTP messages are typically sent from the bank or service provider directly, and they do not ask recipients to resend or forward the OTP."
+    },
+    {
+     "id": "pub-075",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message is from an unknown sender offering a job that requires clicking likes on videos for payment. This type of offer often involves scams and should be treated with caution. The recruiter's nam"
+    },
+    {
+     "id": "pub-076",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is offering an easy way to earn money by operating a mobile phone at home, which is suspicious and often associated with scams. It also includes instructions to reply and click on a link, "
+    },
+    {
+     "id": "pub-077",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message is an unsolicited offer for high-paying jobs, which is suspicious. Such offers often come from unknown senders and are likely scams."
+    },
+    {
+     "id": "pub-078",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains unrealistic salary offers, no legitimate way to contact the sender, and requests for personal information which are red flags in scams."
+    },
+    {
+     "id": "pub-079",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "OTP is not expected in such messages and the caller ID might be fake. Government agencies do not typically request OTPs for pension status verification."
+    },
+    {
+     "id": "pub-080",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains suspicious elements such as an unknown sender, unrealistic details, and requests for payment. It also mentions the Finance Minister of India which is not typical in legitimate com"
+    },
+    {
+     "id": "pub-081",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains suspicious details such as an unverifiable large sum of money, a fabricated sender's name (Diplomat Tom Nelson from BBC United Kingdom), and requests for immediate payment. Such m"
+    },
+    {
+     "id": "pub-082",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains fraudulent claims about winning a prize from the Reserve Bank of India (RBI). It requests personal and financial information, which is common in phishing attempts. The message als"
+    },
+    {
+     "id": "pub-083",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains an offer for winning a lottery with specific instructions to send money, which is a common tactic used in scams. Genuine lottery offers do not require the recipient to pay any fee"
+    },
+    {
+     "id": "pub-084",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains suspicious financial offers and requests for personal information. It also mentions names of public figures which is not consistent with official government communications."
+    },
+    {
+     "id": "pub-085",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains suspicious and misleading information, including instructions to click on a link that could lead to malware. It also mentions lottery winnings which are not consistent with the se"
+    },
+    {
+     "id": "pub-086",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains false and misleading information about winning money from the KBC lottery. It also encourages recipients to call an unknown number, which is a common tactic used in scams."
+    },
+    {
+     "id": "pub-087",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains an urgent request for immediate action and asks the recipient to provide personal information. This is suspicious as legitimate organizations typically do not ask for sensitive in"
+    },
+    {
+     "id": "pub-088",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains suspicious details such as asking for payment of tax on a refundable amount which is unusual and not in line with standard financial procedures. The sender's identity is unknown, "
+    },
+    {
+     "id": "pub-089",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message describes an attempt to extort money from the recipient by claiming involvement in a fabricated criminal case. This is indicative of a scam as it involves threats and requests for payment,"
+    },
+    {
+     "id": "pub-090",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message describes an urgent call from someone claiming to be in immediate danger and needing money transferred through UPI. The use of incorrect familial address (calling her 'mummy' instead of 'm"
+    },
+    {
+     "id": "pub-091",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message contains urgent and threatening language, asking for immediate payment to save someone's life. This is not how legitimate alerts or notices are communicated."
+    },
+    {
+     "id": "pub-092",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message describes an urgent and threatening situation involving police intervention, which is not consistent with real government communications. The caller's identity is unknown and the content a"
+    },
+    {
+     "id": "pub-093",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains fabricated information about criminal activities and extortion, which is not consistent with real government notices or alerts. It also includes personal details that are not typi"
+    },
+    {
+     "id": "pub-094",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains suspicious links and does not appear to be from a legitimate bank. It also mentions A/C Rewards Points expiring, which is unusual for typical banking communications."
+    },
+    {
+     "id": "pub-095",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message is offering an expired reward and directing the recipient to install an app, which is suspicious. Genuine redemption messages would not prompt users to download additional apps for rewards"
+    },
+    {
+     "id": "pub-096",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "This message describes fraudulent activities involving scammers contacting parents through phone calls and social media platforms, asking for sensitive banking details. This is clearly a scam attempt."
+    },
+    {
+     "id": "pub-097",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains threatening language and demands immediate response to avoid legal consequences. It also includes personal information such as the sender's name and position which is not typical "
+    },
+    {
+     "id": "pub-098",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains suspicious content about an Internet IP traffic court order by the Indian Intelligence Bureau. It also includes technical details that seem overly complex and exaggerated, which i"
+    },
+    {
+     "id": "pub-099",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be unrelated and concerning, potentially phishing for personal information. It also contains inappropriate content that is not typical of legitimate communications."
+    },
+    {
+     "id": "pub-100",
+     "label": "scam",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message describes an incident where personal information is used to trick someone into giving money, which aligns with blackmail and fraud tactics. The caller's identity is unknown and the content"
+    },
+    {
+     "id": "pub-101",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains urgent instructions to call an unknown number, which is a common tactic used in scams. It also mentions that the SIM card will be blocked within 24 hours without providing any off"
+    },
+    {
+     "id": "pub-102",
+     "label": "scam",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains information about illegal activity and requests the recipient to call back, which is suspicious and not aligned with official communication practices."
+    },
+    {
+     "id": "pub-103",
+     "label": "scam",
+     "lang": "hinglish",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains vague and overly positive language, which can be characteristic of scams targeting individuals with hopes for romance or marriage. The date in the message is also not clear and do"
+    },
+    {
+     "id": "pub-104",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be from a bank or financial institution informing customers about changes in their service process, which is a typical type of government or shop notice."
+    },
+    {
+     "id": "pub-105",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "suspicious",
+     "llm_reason": "This message is from State Bank of India (SBI) regarding scheduled maintenance of their UPI services, which is a genuine communication related to service disruptions and alternatives."
+    },
+    {
+     "id": "pub-106",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "Unexpected contact from an unknown sender requesting account blocking, which is unusual and not typically how banks operate. Genuine messages would usually include the bank's official contact number f"
+    },
+    {
+     "id": "pub-107",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "This message appears to be from HDFC Bank regarding KYC updates and online banking transactions. It is likely a legitimate notification sent by the bank."
+    },
+    {
+     "id": "pub-108",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains suspicious links and requests for action that are typical of phishing attempts. It also includes details about an unauthorized transaction, which is often used in scams to trick v"
+    },
+    {
+     "id": "pub-109",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains suspicious elements such as asking the recipient to forward it to another mobile number and mentions a POS transaction for an unusually large amount. Such messages are often fraud"
+    },
+    {
+     "id": "pub-110",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "This appears to be a real bank alert confirming a money transfer. Such alerts are common and expected when funds are transferred between accounts."
+    },
+    {
+     "id": "pub-111",
+     "label": "genuine",
+     "lang": "hi",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message is threatening to cut off the recipient's internet access if unpaid within three days, and it includes an unverified link that could lead to further fraudulent activities."
+    },
+    {
+     "id": "pub-112",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "suspicious",
+     "llm_reason": "This message is from the Department of Telecommunication, Government of India and aims to enhance public safety by providing timely alerts during emergencies. It includes details about the Pan-India E"
+    },
+    {
+     "id": "pub-113",
+     "label": "genuine",
+     "lang": "hi",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "This message is from the National Disaster Management Authority, which is part of the Government of India. It describes an alert system used for disaster management and safety purposes."
+    },
+    {
+     "id": "pub-114",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be from an official channel related to a pending claim settlement, which is consistent with legitimate communication."
+    },
+    {
+     "id": "pub-115",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be a legitimate tax notification from the IT Department, providing information about TDS (Tax Deducted at Source) and cumulative TDS for a specific fiscal year. The use of PAN d"
+    },
+    {
+     "id": "pub-116",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be an attempt to trick individuals into believing they need to file a new tax return due to a previous refund claim. It contains elements of urgency and requests for action, whi"
+    },
+    {
+     "id": "pub-117",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains an urgent and threatening language, urging the recipient to take immediate action by linking their PAN with Aadhaar within a specific date. It also includes a link that directs to"
+    },
+    {
+     "id": "pub-118",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message is attempting to extort money by threatening late fees, which is suspicious and not typically how legitimate government notifications are communicated."
+    },
+    {
+     "id": "pub-119",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "suspicious",
+     "llm_reason": "The message appears to be from the Income Tax Department (ITD), informing about pending processing of a PAN return filing due to discrepancies. It includes an acknowledgment number and a deadline, whi"
+    },
+    {
+     "id": "pub-120",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message does not appear to be from a legitimate government source and includes an unknown sender, which is suspicious."
+    },
+    {
+     "id": "pub-121",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains personal information (PAN) and appears to be from an unknown sender, which is suspicious. It also includes instructions that seem too specific for a legitimate government notice."
+    },
+    {
+     "id": "pub-122",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains suspicious elements such as an unknown sender and requests for online action without providing clear verification steps. It also mentions e-filing which is typically done through "
+    },
+    {
+     "id": "pub-123",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message appears to be from the Income Tax Department, but it contains an unknown sender and does not include any verification code or official contact information that would typically be used for "
+    },
+    {
+     "id": "pub-124",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains urgent and threatening language regarding tax disputes and appeals, which is often used in scams. It also requests immediate action to file declarations on an e-Filing portal with"
+    },
+    {
+     "id": "pub-125",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains an offer for downloading an app (HPPAY) which is unusual in such context. It also includes details of a delivery OTP, which seems to be part of a fraudulent attempt to gather pers"
+    },
+    {
+     "id": "pub-126",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message contains suspicious details such as an inflated income figure and a request for contacting a toll-free number to dispute it. It also includes a link that appears legitimate but is actually"
+    },
+    {
+     "id": "pub-127",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be from an official source, IndianOil, regarding e-KYC for receiving LPG cylinders. It includes details about how to complete e-KYC and mentions specific dates which are consist"
+    },
+    {
+     "id": "pub-128",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message instructs not to disclose the OTP, which is a common practice but in this case, it appears to be part of a phishing attempt. Genuine OTP messages from banks usually do not include instruct"
+    },
+    {
+     "id": "pub-129",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message instructs not to disclose the OTP to anyone, which is contrary to standard banking practices where OTPs are meant to be shared with the recipient. Additionally, it mentions 'MEERA' as Paye"
+    },
+    {
+     "id": "pub-130",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "The message instructs not to disclose the OTP to anyone, which is contrary to standard banking practices where OTPs are meant to be shared with the recipient. Additionally, it mentions 'ICICI Bank' bu"
+    },
+    {
+     "id": "pub-131",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "no_signs",
+     "llm_reason": "OTP messages from banks typically do not include personal details such as the full account number and are usually sent via email or an official mobile app. The message provided contains what appears t"
+    },
+    {
+     "id": "pub-132",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "scam",
+     "llm_reason": "The message is requesting an OTP and reference number for changing/update mobile number, which is unusual and does not match typical bank communication practices. It also includes a suspicious code (1"
+    },
+    {
+     "id": "pub-133",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be from the Passport Service, which is a legitimate government body issuing passports and visas."
+    },
+    {
+     "id": "pub-134",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message appears to be a real bank alert, detailing a successful credit transaction for the PM KISAN scheme. It includes details such as the amount credited and the account number which are consist"
+    },
+    {
+     "id": "pub-135",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message does not contain the expected security elements such as OTP (One Time Password) and is asking for immediate action to change passwords. It also lacks details that are typically found in le"
+    },
+    {
+     "id": "pub-136",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "genuine",
+     "sahayak": "no_signs",
+     "llm_reason": "The message contains information related to Aadhaar, which is issued by the Unique Identification Authority of India (UIDAI), and provides an OTP for authentication. It also includes instructions from"
+    },
+    {
+     "id": "pub-137",
+     "label": "genuine",
+     "lang": "en",
+     "llm": "scam",
+     "sahayak": "suspicious",
+     "llm_reason": "The message contains phone numbers for dispute raising and unblocking which are suspicious and not typically provided in legitimate UPI payment notifications. It also lacks the usual verification step"
+    }
+   ],
+   "fraud_pack": "1.5.0",
+   "other_languages": {
+    "llm": {
+     "scams": 6,
+     "caught": 6,
+     "caught_ci": [
+      0.6097,
+      1.0
+     ],
+     "genuine": 0,
+     "false_alarms": 0,
+     "false_alarm_ci": [
+      0.0,
+      0.0
+     ]
+    },
+    "sahayak": {
+     "scams": 6,
+     "caught": 0,
+     "caught_ci": [
+      0.0,
+      0.3903
+     ],
+     "genuine": 0,
+     "false_alarms": 0,
+     "false_alarm_ci": [
+      0.0,
+      0.0
+     ]
+    }
+   }
+  }
+ }
+}
