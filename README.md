@@ -31,16 +31,36 @@ HTTPS site, offline after the first visit: **try it at https://roshworldwide.git
 Built for Ideas for India 2026 (Times of India × Optum) by Roshan Raj and Ishmiit Singh. Prototype due 8 Oct 2026;
 Grand Jury Round in Delhi on 14 Oct; the Grand Finale on 22 Oct is only for teams selected at the jury round.
 
-| | |
-| --- | --- |
-| ![Scam verdict](docs/screenshots/03_result_kyc_hi.png) | ![Benefits result](docs/screenshots/09_benefits_result_widow_hi.png) |
-| A fake KYC SMS: verdict, reasons, steps, 1930 | A 67-year-old widow: pensions and cover she can claim |
+| | | | |
+| --- | --- | --- | --- |
+| ![Home](docs/screenshots/01_home_hi.png) | ![Check a message](docs/screenshots/02_check_hi.png) | ![Scam verdict](docs/screenshots/03_result_kyc_hi.png) | ![Benefits result](docs/screenshots/09_benefits_result_widow_hi.png) |
+| Home: two questions and 1930 | Paste and check, speak, a QR or a screenshot | A fake KYC SMS: what to do first, then why | A 67-year-old widow: health cover first, then pensions |
+
+## The app
+
+Made for the person it serves: often older, often new to a smartphone, reading a verdict in a hurry.
+
+- **What to do comes first.** A result opens with the verdict and the steps to take (the first one highlighted), then
+  the 1930 call, then the reasons. A folded line shows the message that was checked.
+- **Fewer steps.** "Paste and check" takes a copied SMS and checks it in one tap; "Check another" opens an empty box; a
+  Scam verdict makes the phone buzz; every screen can read itself aloud.
+- **Warn your family.** On a Scam or Suspicious result, one button shares the verdict and the advice through the
+  phone's share sheet. The message itself is never shared.
+- **Benefits you can act on.** Results lead with health cover and end with one list of every paper to carry, the most
+  needed first, each with a tick box; a printable slip carries the answers to the CSC operator.
+- **Easy to read.** Text size Normal, Large or Largest, kept on the phone; light and dark; the phone's
+  increased-contrast, reduced-transparency and reduced-motion settings are followed; touch targets of 44 px or more;
+  every status shows a colour, a glyph and a word.
+- **Designed on Rosh 27**, Roshan Raj's design system: glass for whatever floats, Geist type, Material Symbols icons.
+  Every font and icon ships with the app (`web/fonts`, about 95 KB), so it looks the same with no internet.
+- **On the home screen.** Where Chrome offers it, "Keep Sahayak on your home screen" installs the app, which then
+  opens without internet.
 
 ## What is in the box
 
 | Part | What it does | Where |
 | --- | --- | --- |
-| Fraud-Shield | 52 named signals from a signed content pack (lookalike links, `.bank.in` rule, UPI collect and "scan to receive", OTP or PIN asks with negation handling, digital arrest, fake customer care, "pay to get your scheme card", 1600-series and TRAI sender rules…), a pattern matcher and a small classifier. Four answers: Scam, Suspicious, No scam signs, and Could not check, for a message mostly in a language Sahayak cannot read yet (Bengali, Tamil, Telugu, Kannada, Malayalam, Gujarati, Punjabi, Odia, Urdu, Santali, Manipuri or Marathi); signs it can read still count, so a Tamil message with a scam link is still Scam. Vetted Hindi and English templates explain every verdict; an optional local LLM (off by default) may add a sentence and can only raise a verdict, never lower it. | `sahayak/fraud/`, `packs/fraud.v1.json` |
+| Fraud-Shield | 64 named signals from a signed content pack (lookalike links, `.bank.in` rule, UPI collect and "scan to receive", OTP or PIN asks with negation handling, digital arrest, fake customer care, "pay to get your scheme card", call-forwarding codes, advances for things you cannot see first, 1600-series and TRAI sender rules…), a pattern matcher and a small classifier. Four answers: Scam, Suspicious, No scam signs, and Could not check, for a message mostly in a language Sahayak cannot read yet (Bengali, Tamil, Telugu, Kannada, Malayalam, Gujarati, Punjabi, Odia, Urdu, Santali, Manipuri or Marathi); signs it can read still count, so a Tamil message with a scam link is still Scam. Vetted Hindi and English templates explain every verdict; an optional local LLM (off by default) may add a sentence and can only raise a verdict, never lower it. | `sahayak/fraud/`, `packs/fraud.v1.json` |
 | Safety gate | Every model sentence is checked for forbidden advice, wrong numbers or links, verdict contradictions, invented amounts and script, in each language, before anyone sees it | `sahayak/safety/gate.py` |
 | Benefits Navigator | Scheme rules as data (each with its official source and date), evaluated with yes / likely / unknown / no logic; asks only questions that can still change an answer; never more than 8. Results lead with health cover: PM-JAY pays for hospital admission, not OPD, and the 70+ Vay Vandana cover is shared with a spouse who is also 70+. Pension amounts are the centre's share ("your state may add more"), and a person gets one NSAP pension | `sahayak/navigator/`, `packs/schemes.v1.json` |
 | Voice | Offline Hindi and English speech out (every fixed sentence pre-synthesised) and speech in; amounts spoken as words; "I heard …, is that right?" | `sahayak/voice/`, `packs/voice.v1.json` |
@@ -141,6 +161,10 @@ console PIN. Running it day to day, updating the scam rules and looking after si
   <pack>` re-signs what you changed.
 - **Tests.** `python -m pytest` (490 tests; the voice and OCR tests use the installed models, and the JavaScript
   parity tests need `node`).
+- **Icons.** The app draws its icons from a 24 KB cut of Material Symbols (`web/fonts/symbols.woff2`; write the icon's
+  name, e.g. `<span class="ms">call</span>`). After using a new icon, rebuild it with `python scripts/build_icon_font.py
+  <MaterialSymbolsRounded[FILL,GRAD,opsz,wght].woff2>` (needs fonttools and brotli); `tests/test_web_shell.py` fails
+  while an icon is missing.
 
 Settings are environment variables (`SAHAYAK_*`); see `sahayak/config.py`.
 
@@ -168,6 +192,9 @@ non-commercial use only, which is fine for this prototype but not for a commerci
 | Vosk small Hindi and Indian-English models | speech recognition | Apache-2.0 |
 | EasyOCR CRAFT + Devanagari models | screenshot reading | Apache-2.0 |
 
+Fonts and icons bundled with the app (`web/fonts`, full texts in `web/fonts/LICENSE.txt`): Geist and Geist Mono (SIL
+Open Font License 1.1) and Material Symbols Rounded (Apache-2.0). Devanagari comes from the phone's own font.
+
 Scheme rules were transcribed from official government pages (PIB, PFRDA, pmkisan.gov.in, eshram.gov.in,
 pmjdy.gov.in, state NSAP pages); each rule cites its page and the date it was checked.
 
@@ -176,14 +203,14 @@ pmjdy.gov.in, state NSAP pages); each rule cites its page and the date it was ch
 ```
 sahayak/            the node: server, fraud, navigator, voice, inputs, node (egress, console, counters), safety
 web/                the phone app (with its own scam check and benefits engine), console, node page and VoiceBench
-                    recorder (vanilla JS, no build step)
+                    recorder (vanilla JS, no build step); fonts/ holds Geist and the icon font
 packs/              signed content packs: fraud signals, scheme rules, voice data, demo examples
 bench/              ScamBench, SchemeBench, VoiceBench, OCR, call and phone-parity benches, red teams (ours and a blind
                     one), PublicBench (real published messages), the AI-model baseline, the stress test, field scoring,
                     the consented-message kit (scambench/COLLECTING.md, redact_messages.py, eval_scambench_v1.py),
                     and results
 scripts/            models, speech cache, pack signing and updates, the demo-day preflight, screenshots, offline phone
-                    check, stand-alone build, firewall scripts
+                    check, stand-alone build, icon font, the documents' print style (docstyle.py), firewall scripts
 tests/              pytest suite; tests/js/ holds the phone-versus-node parity harness
 docs/               testing report, operations runbook, one-pager, jury kit, pitch decks (v3 for the prototype round and
                     the 14 Oct jury round), field kit (field/), screenshots, demo clips and narrated draft video (video/)
