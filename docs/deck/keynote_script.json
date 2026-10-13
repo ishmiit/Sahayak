@@ -1,0 +1,349 @@
+{
+  "note": "The keynote for the Grand Jury Round (14 Oct 2026), one entry per slide of Sahayak_Keynote_v5.pptx. One version: about 7½ minutes at talking pace, about 10 at a slow keynote pace. The deck's speaker notes (docs/deck/build_deck_keynote.js) and the script page are both built from this file. A step is either a DO (an action, never spoken) or a SAY (spoken by I = Ishmiit or R = Roshan). Each new line in a SAY is a pause. The slides carry short cues; the SAY lines tell the story around them, so nothing is read off the screen. Button names match the app as it runs on 14 Oct 2026 (English first, reading aloud off).",
+  "hook_end": 4,
+  "slides": [
+    {
+      "n": 1,
+      "name": "The message",
+      "show": "The scam SMS, large, as a phone shows it: Hindi, with the English below.",
+      "steps": [
+        {
+          "do": "Before you walk on: the deck is on slide 1. Nothing in your hands but the clicker."
+        },
+        {
+          "do": "Walk to the centre and stop. Look at the jury. Say nothing until the room is quiet.",
+          "hold": 2
+        },
+        {
+          "say": "It’s nine at night, and a phone buzzes.\nYou can read it for yourself.\nHer account closes tonight, unless she updates her KYC.\nAnd there’s a link.",
+          "who": "I"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "name": "Who reads it",
+      "show": "Four words, one per line: 74. 9 PM. Bank closed. Alone.",
+      "steps": [
+        {
+          "do": "Click.",
+          "click": true
+        },
+        {
+          "say": "Now picture who’s holding that phone.\nShe’s seventy-four. Her bank shut hours ago.\nHer son is in another city.\nWhatever she does next, she decides alone.",
+          "who": "I"
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "name": "Every minute",
+      "show": "“₹4 lakh”, lost to cyber fraud every minute, on average. Below: ₹22,495 crore in 2025, and ₹4,005 crore of it from senior citizens.",
+      "steps": [
+        {
+          "do": "Click. Say nothing for two seconds. Let the number sit.",
+          "click": true,
+          "hold": 2
+        },
+        {
+          "say": "She isn’t one story. She’s millions.\nLast year, Indians reported losing over twenty-two thousand crore rupees to cyber fraud.\nThat’s about four lakh rupees every minute, on average.",
+          "who": "I"
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "name": "Introducing Sahayak",
+      "show": "Sahayak, its two promises, three short pills, and the app’s home screen on a phone.",
+      "steps": [
+        {
+          "do": "Click. Take one step toward the jury.",
+          "click": true
+        },
+        {
+          "say": "So we built her a helper.\nIt’s called Sahayak, and it does two things.\nIt catches the scam before the money moves.\nAnd it finds what she’s owed.",
+          "who": "I"
+        },
+        {
+          "say": "At the Common Services Centre in her village, or on her own phone, even offline.\nEnglish and Hindi today, with regional languages on the way.",
+          "who": "I"
+        },
+        {
+          "say": "Good morning. I’m Ishmiit Singh, and this is Roshan Raj.",
+          "who": "I"
+        },
+        {
+          "do": "On Roshan’s name, open a hand toward Roshan. Roshan nods."
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "name": "It tells her why",
+      "show": "Sahayak’s answer to that SMS on a phone, “Scam.”, and six short cues: three reasons, three things to do.",
+      "steps": [
+        {
+          "do": "Click.",
+          "click": true
+        },
+        {
+          "say": "Back to her message.\nShe pastes it in, and in under a second:\nScam.",
+          "who": "I"
+        },
+        {
+          "say": "But a warning people don’t understand gets ignored.\nSo Sahayak gives its reasons, in plain words.\nA bank won’t text from a personal number. That link only looks like SBI’s.\nAnd no bank updates KYC through a link.",
+          "who": "I"
+        },
+        {
+          "say": "Then, what to do.\nDon’t tap. Keep the message as proof. If money’s gone, call 1930.\nAnd one more tap warns her family.",
+          "who": "I"
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "name": "What she is owed",
+      "show": "“₹5 lakh” of free hospital care a year, three short cues, and Sahayak’s benefits result for a 74-year-old.",
+      "steps": [
+        {
+          "do": "Click.",
+          "click": true
+        },
+        {
+          "say": "And building this, something surprised us.\nThe people scammers chase are often missing out on what’s already theirs.",
+          "who": "I"
+        },
+        {
+          "say": "At seventy-four, she’s entitled to free hospital care, up to five lakh rupees a year, whatever her income.\nYet by February, fewer than one in five people over seventy had the card.",
+          "who": "I"
+        },
+        {
+          "say": "So Sahayak asks five simple questions, puts that card first,\nand gives her the exact sentence to say at the counter.",
+          "who": "I"
+        }
+      ]
+    },
+    {
+      "n": 7,
+      "name": "Try it",
+      "show": "The only QR code in the deck, and three things to try.",
+      "steps": [
+        {
+          "do": "Click.",
+          "click": true
+        },
+        {
+          "say": "Don’t take my word for it.\nTake out your phones, and scan this code.\nNothing to install. No account.",
+          "who": "I"
+        },
+        {
+          "do": "Wait until you see phones come up.",
+          "hold": 3
+        },
+        {
+          "say": "Tap ‘Check a message’,\nand try the one asking five hundred rupees for an Ayushman card.",
+          "who": "I"
+        },
+        {
+          "do": "Wait for the first faces to react.",
+          "hold": 2
+        },
+        {
+          "say": "Scam. That card is free.",
+          "who": "I"
+        },
+        {
+          "say": "Now, my favourite part.\nTurn on airplane mode, and try another.\nIt still works.",
+          "who": "I"
+        },
+        {
+          "do": "Roshan holds up the demo phone."
+        },
+        {
+          "say": "If it doesn’t open, just raise your hand.\nI’ll bring you this one.",
+          "who": "R"
+        },
+        {
+          "do": "Stop talking and let them try it. Watch the jury, not the screen. Roshan walks the demo phone to anyone who raises a hand.",
+          "hold": 10
+        },
+        {
+          "say": "The phone Roshan is holding has been in airplane mode since we walked into this room.",
+          "who": "I"
+        }
+      ]
+    },
+    {
+      "n": 8,
+      "name": "How it works",
+      "show": "Three cards with a few words each: You ask. Rules decide. A clear answer. Below: phone and counter agree, 1,841 of 1,841.",
+      "steps": [
+        {
+          "do": "Click.",
+          "click": true
+        },
+        {
+          "say": "Under the hood, it’s deliberately simple.\nShe can type, speak, describe a call, or photograph a UPI QR code.",
+          "who": "I"
+        },
+        {
+          "say": "Sixty-four scam signals run right on the device,\nso nothing she types leaves her phone.",
+          "who": "I"
+        },
+        {
+          "say": "She gets one of four answers, and ‘safe’ isn’t one of them.\nNo one can promise that.",
+          "who": "I"
+        },
+        {
+          "say": "And her phone answers exactly like the counter.\nWe checked, eighteen hundred and forty-one times.",
+          "who": "I"
+        }
+      ]
+    },
+    {
+      "n": 9,
+      "name": "Why rules decide",
+      "show": "A 3B language model against Sahayak on the same 137 real messages. Roshan speaks.",
+      "steps": [
+        {
+          "do": "Click.",
+          "click": true
+        },
+        {
+          "say": "In round one, we said a large AI model would make these decisions.\nSo we tested one.\nRoshan.",
+          "who": "I"
+        },
+        {
+          "do": "Turn to Roshan and step back. Roshan steps forward."
+        },
+        {
+          "say": "On the same hundred and thirty-seven real messages, it caught more scams than we did.",
+          "who": "R"
+        },
+        {
+          "say": "But it called twenty-one of thirty-four genuine messages a scam. We did that eleven times.\nA warning that cries wolf gets ignored.\nSo rules decide.",
+          "who": "R"
+        },
+        {
+          "say": "The model will help where it’s strongest: the new languages,\nas a second opinion that can only raise a warning.",
+          "who": "R"
+        },
+        {
+          "say": "Thank you, Roshan.",
+          "who": "I"
+        }
+      ]
+    },
+    {
+      "n": 10,
+      "name": "The honest number",
+      "show": "“7 in 10” on 137 real messages, scored once, with the two bigger numbers greyed out on the left.",
+      "steps": [
+        {
+          "do": "Click.",
+          "click": true
+        },
+        {
+          "say": "We could have opened with a bigger number.\nThirty-four of thirty-seven, on messages we wrote.\nNinety-two of a hundred and three, against a blind red team.",
+          "who": "I"
+        },
+        {
+          "say": "But real messages are harder.\nOn a hundred and thirty-seven that people in India actually received, scored once,\nit caught seven in ten.",
+          "who": "I"
+        },
+        {
+          "say": "That’s our number, because it’s the honest one.\nWhat it needs now is real users, with messages from their own phones.",
+          "who": "I"
+        }
+      ]
+    },
+    {
+      "n": 11,
+      "name": "The pilot",
+      "show": "One district: 20 villages, 50 counters, six months, about ₹39 lakh. The next 30 days.",
+      "steps": [
+        {
+          "do": "Click.",
+          "click": true
+        },
+        {
+          "say": "So, the pilot.\nOne district. Twenty villages. Fifty counters. Six months.\nAbout thirty-nine lakh rupees, costed line by line.",
+          "who": "I"
+        },
+        {
+          "say": "And the biggest share goes to the local operator who runs each counter.",
+          "who": "I"
+        },
+        {
+          "say": "And in the next thirty days: a field morning at a CSC, real messages from real phones, and a district partner.",
+          "who": "I"
+        }
+      ]
+    },
+    {
+      "n": 12,
+      "name": "The ask",
+      "show": "“Introduce us to one district.” Above it: 6 lakh CSCs, and the 50 counters we need.",
+      "steps": [
+        {
+          "do": "Click. Stop moving. Look at the head juror.",
+          "click": true
+        },
+        {
+          "say": "And that’s where you come in.\nIndia has six lakh Common Services Centres.\nWe need fifty counters.",
+          "who": "I"
+        },
+        {
+          "say": "Introduce us to one district.\nOne morning to start, then six months.\nAnd we’ll come back with real numbers, from real people.",
+          "who": "I"
+        }
+      ]
+    },
+    {
+      "n": 13,
+      "name": "One more thing",
+      "show": "Round one: a clickable mock-up. Today: the real thing. A phone in airplane mode.",
+      "steps": [
+        {
+          "do": "Click. Pause. Take one step toward the jury.",
+          "click": true,
+          "hold": 2
+        },
+        {
+          "say": "And, one more thing.\nThe address you scanned is the one we gave you in round one.\nBack then, it opened a mock-up.\nToday, it opens the real Sahayak. And it works in airplane mode.",
+          "who": "I"
+        }
+      ]
+    },
+    {
+      "n": 14,
+      "name": "Someone to ask",
+      "show": "Nine at night. Now she has someone to ask. Sahayak, its two promises, and both your names.",
+      "steps": [
+        {
+          "do": "Click.",
+          "click": true
+        },
+        {
+          "say": "So, back to her, one last time.\nNine at night. The bank is closed. The link is right there.\nBut now, before she taps, she has someone to ask.",
+          "who": "I"
+        },
+        {
+          "say": "Sahayak.\nSpot the scam before the money moves.\nClaim what you’re owed.\nThank you.",
+          "who": "I"
+        },
+        {
+          "do": "Stand still. Let them applaud.",
+          "hold": 2
+        },
+        {
+          "say": "Roshan and I would love to take your questions.",
+          "who": "I"
+        },
+        {
+          "do": "Roshan steps to the centre for the questions. Ishmiit stays on stage, half a step back."
+        }
+      ]
+    }
+  ]
+}

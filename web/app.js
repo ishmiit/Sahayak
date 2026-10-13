@@ -180,7 +180,7 @@
   const state = { lang: loadLang(), check: null, message: "", explanation: null, health: null, nodeless: false };
 
   function loadLang() {
-    try { return localStorage.getItem("sahayak.lang") || "hi"; } catch { return "hi"; }
+    try { return localStorage.getItem("sahayak.lang") || "en"; } catch { return "en"; }
   }
   function saveLang(lang) {
     try { localStorage.setItem("sahayak.lang", lang); } catch { /* private mode */ }
@@ -684,7 +684,7 @@
   function loadPref(key, fallback) { try { return localStorage.getItem(key) ?? fallback; } catch { return fallback; } }
   function savePref(key, value) { try { localStorage.setItem(key, value); } catch { /* private mode */ } }
   const voice = {
-    auto: loadPref("sahayak.voice.auto", "1") === "1",
+    auto: loadPref("sahayak.voice.auto", "0") === "1",  // off until the person turns it on
     gender: loadPref("sahayak.voice.gender", "female"),
     slow: loadPref("sahayak.voice.slow", "0") === "1",
     nodeOk: true,  // false once the node says it has no voice installed
