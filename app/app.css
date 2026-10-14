@@ -499,6 +499,7 @@ details.settings[open] > summary::after { transform: rotate(90deg); }
 #mode-text .label { margin-top: 2px; }
 .mic-slot { margin-top: 12px; }
 .mic-slot:empty { display: none; }
+.phone-mic .note { margin: 8px 4px 0; }
 .mic {
   position: relative; display: flex; align-items: center; gap: 14px; width: 100%; min-height: 64px; overflow: hidden;
   padding: 10px 18px 10px 10px; border: 0; border-radius: var(--r-card); text-align: start;

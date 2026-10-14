@@ -52,6 +52,9 @@
       mic_listening: "सुन रहा हूँ… बोलकर छोड़ें", mic_thinking: "समझ रहा हूँ…",
       mic_short: "बटन दबाकर रखें, बोलें, फिर छोड़ें।", mic_none: "कुछ सुनाई नहीं दिया। फिर से बोलें।",
       mic_secure: "यहाँ बोलने के लिए फ़ोन का रिकॉर्डर खुलेगा; दबाकर बोलने के लिए नोड का सुरक्षित (https) पता खोलें।", mic_denied: "माइक की अनुमति नहीं मिली।",
+      mic_tap: "टैप करके बोलें", mic_tap_listening: "सुन रहा हूँ… रुकने के लिए टैप करें",
+      mic_offline: "इस फ़ोन पर बोलकर लिखने के लिए इंटरनेट चाहिए। कृपया लिखें, या इंटरनेट चालू करें।",
+      mic_phone_note: "आपकी बात को आपके फ़ोन की अपनी स्पीच सेवा लिखती है।",
       heard: "मैंने सुना", heard_as: "जवाब", is_right: "क्या यह सही है?", yes_right: "हाँ, सही है", say_again: "नहीं, फिर से",
       not_understood: "समझ नहीं आया। फिर से बोलें, या नीचे से चुनें।", check_low_conf: "देख लें कि मैसेज ठीक लिखा गया है।",
       years_word: "साल",
@@ -171,6 +174,9 @@
       mic_listening: "Listening… let go when done", mic_thinking: "Working it out…",
       mic_short: "Hold the button, speak, then let go.", mic_none: "I didn't catch anything. Please try again.",
       mic_secure: "Here, speaking opens the phone's recorder; for hold-to-talk, open the node's secure (https) address.", mic_denied: "Microphone permission was not given.",
+      mic_tap: "Tap and speak", mic_tap_listening: "Listening… tap to stop",
+      mic_offline: "Speaking needs the internet on this phone. Please type, or turn the internet on.",
+      mic_phone_note: "Your phone's own speech service turns what you say into text.",
       heard: "I heard", heard_as: "Answer", is_right: "Is that right?", yes_right: "Yes, that's right", say_again: "No, again",
       not_understood: "I could not match that. Say it again, or pick below.", check_low_conf: "Check that the message was written down correctly.",
       years_word: "years",
@@ -1269,12 +1275,62 @@
     return btn;
   }
 
+  // With no node to hear her, the phone's own speech service (the browser's Web Speech API, in Chrome and
+  // Safari) turns speech into text. Tap to start; it stops by itself after a pause, or on a second tap.
+  // Most phones need the internet for it, so offline the button says so instead of failing silently.
+  const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition || null;
+  function phoneDictateButton(box) {
+    const label = el("span", { class: "mic-label" }, t("mic_tap"));
+    const btn = el("button", { type: "button", class: "mic", "aria-label": t("mic_tap") }, micGlyph(), label);
+    let rec = null;
+    const reset = () => { rec = null; btn.classList.remove("on"); label.textContent = t("mic_tap"); };
+    btn.addEventListener("click", () => {
+      if (rec) { rec.stop(); return; }
+      if (navigator.onLine === false) { toast(t("mic_offline")); return; }
+      stopSpeaking();
+      const prefix = box.value.trim() ? `${box.value.trimEnd()} ` : "";
+      let finalText = "", failed = false;
+      rec = new SpeechRec();
+      rec.lang = state.lang === "hi" ? "hi-IN" : "en-IN";
+      rec.interimResults = true;
+      rec.continuous = false;
+      rec.maxAlternatives = 1;
+      rec.onresult = (e) => {
+        let interim = "";
+        for (let i = e.resultIndex; i < e.results.length; i++) {
+          const said = e.results[i][0].transcript;
+          if (e.results[i].isFinal) finalText += said; else interim += said;
+        }
+        box.value = prefix + (finalText + interim).trim();
+      };
+      rec.onerror = (e) => {
+        failed = true;
+        const key = { "not-allowed": "mic_denied", "service-not-allowed": "mic_denied", network: "mic_offline" }[e.error] || "mic_none";
+        toast(t(key));
+      };
+      rec.onend = () => {
+        const said = finalText.trim();
+        reset();
+        box.value = prefix + said;
+        if (!said && !failed) toast(t("mic_none"));
+        box.dispatchEvent(new Event("input", { bubbles: true }));
+      };
+      btn.classList.add("on");
+      label.textContent = t("mic_tap_listening");
+      try { rec.start(); } catch { reset(); toast(t("mic_none")); }
+    });
+    return el("div", { class: "phone-mic" }, btn, el("p", { class: "note" }, t("mic_phone_note")));
+  }
+
   function setupMessageMic() {
     if (!isBuiltin(state.lang)) {  // the node hears Hindi and English only; say so, and what it reads
       $("#mic-msg").replaceChildren(el("p", { class: "note" }, `${t("lang_detect")} ${t("lang_mic_off")}`));
       return;
     }
-    if (state.nodeless) { $("#mic-msg").replaceChildren(); return; }  // speech is recognised on the node
+    if (state.nodeless) {  // no node: the phone's own speech service, where the browser has one
+      $("#mic-msg").replaceChildren(...(SpeechRec ? [phoneDictateButton($("#msg"))] : []));
+      return;
+    }
     $("#mic-msg").replaceChildren(micButton("mic_dictate", async (wav) => {
       try {
         const out = await asr(wav, {});
