@@ -189,9 +189,11 @@ body {
   -webkit-tap-highlight-color: transparent;
   font-synthesis-weight: none;
 }
-:lang(hi) { --trk-hero: 0; --trk-t1: 0; --trk-t2: 0; --trk-t3: 0; --trk-body: 0; }
+/* Indic and Perso-Arabic scripts: no negative tracking (it breaks their joined letters), and room for their marks */
+:lang(hi), :lang(as), :lang(bn), :lang(brx), :lang(doi), :lang(gu), :lang(kn), :lang(ks), :lang(kok), :lang(mai), :lang(ml), :lang(mni), :lang(mr), :lang(ne), :lang(or), :lang(pa), :lang(sa), :lang(sat), :lang(sd), :lang(ta), :lang(te), :lang(ur) { --trk-hero: 0; --trk-t1: 0; --trk-t2: 0; --trk-t3: 0; --trk-body: 0; }
 :lang(en) { --trk-hero: -.035em; --trk-t1: -.022em; --trk-t2: -.018em; --trk-t3: -.012em; --trk-body: -.004em; }
-body:lang(hi) { line-height: 1.6; }
+body:lang(hi), body:lang(as), body:lang(bn), body:lang(brx), body:lang(doi), body:lang(gu), body:lang(kn), body:lang(ks), body:lang(kok), body:lang(mai), body:lang(ml), body:lang(mni), body:lang(mr), body:lang(ne), body:lang(or), body:lang(pa), body:lang(sa), body:lang(sat), body:lang(sd), body:lang(ta), body:lang(te), body:lang(ur) { line-height: 1.6; }
+body:lang(ur), body:lang(ks), body:lang(sd) { line-height: 1.85; }
 [hidden] { display: none !important; }
 ::selection { background: var(--tint-soft); }
 :focus-visible { outline: 2px solid var(--tint); outline-offset: 2px; }
@@ -890,3 +892,26 @@ details.group[open] > summary::after { transform: rotate(180deg); }
   .node-page .node-panel:not(.printing) { display: none !important; }
   .node-page .node-panel.printing { box-shadow: none; }
 }
+
+/* ================================================================ LANGUAGES: the list, and right-to-left */
+.lang-toggle { font-size: 1.0625rem; }
+.lang-sheet { text-align: start; max-height: calc(100dvh - 16px - env(safe-area-inset-bottom)); overflow-y: auto; overscroll-behavior: contain; }
+.lang-sheet h2 { margin: 0 4px 6px; font-size: 1.375rem; line-height: 1.3; }
+.lang-sheet-note { margin: 0 4px 14px; font-size: .875rem; line-height: 1.45; color: var(--label-2); }
+.lang-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 0 0 16px; }
+.lang-opt {
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 2px; min-height: 60px;
+  padding: 10px 14px; border: 0; border-radius: 18px; background: var(--card); box-shadow: var(--e1); text-align: start;
+  transition: transform .35s var(--spring-snap);
+}
+.lang-opt:active { transform: scale(.97); }
+.lang-opt b { font-size: 1.125rem; line-height: 1.35; font-weight: 650; }
+.lang-opt small { font-size: .8125rem; line-height: 1.2; color: var(--label-2); }
+.lang-opt[aria-current="true"] { background: var(--tint-soft); box-shadow: inset 0 0 0 2px var(--tint); }
+.lang-sheet .secondary { width: 100%; }
+#lang-note { margin-top: 12px; }
+[dir="rtl"] .ms.flip, [dir="rtl"] .chev, [dir="rtl"] .opt:not(.toggle)::after { transform: scaleX(-1); }
+/* Longer words for "offline" in some languages: the pill gives way to the buttons (Hindi and English fit as they are) */
+html:not(:lang(hi)):not(:lang(en)) .node-pill { overflow: hidden; }
+html:not(:lang(hi)):not(:lang(en)) .node-pill > span:last-child { overflow: hidden; text-overflow: ellipsis; }
+[dir="rtl"] .node-pill { margin-left: 0; margin-right: auto; }

@@ -151,7 +151,7 @@ T(s, [{ text: "Sahayak", options: { color: INK } }, { text: "  सहायक",
   { x: M, y: 1.3, w: 8.5, h: 1.35, fontSize: 88, bold: true, valign: "middle", objectName: "name" });
 T(s, "Someone to ask, before you tap.", { x: M, y: 2.75, w: 8, h: 0.5, fontSize: 24, italic: true, color: MUTE, objectName: "tagline" });
 points(s, [["Spot a scam before the money moves."], ["Claim what you’re owed.", null, BLUE]], { x: M, y: 3.55, w: 7.6, step: 0.72, size: 26 });
-[["CSC counter + your phone", 2.65], ["Works offline", 1.65], ["English · Hindi · regional next", 3.25]].reduce((x, [t, w]) => { pill(s, x, 5.2, w, t); return x + w + 0.18; }, M);
+[["CSC counter + your phone", 2.65], ["Works offline", 1.65], ["22 Indian languages", 2.4]].reduce((x, [t, w]) => { pill(s, x, 5.2, w, t); return x + w + 0.18; }, M);
 T(s, "Ishmiit Singh  ·  Roshan Raj", { x: M, y: H - 0.85, w: 7, h: 0.35, fontSize: 15, color: FAINT, objectName: "team" });
 phone(s, IMG("keynote_home_en.png"), 9.5, 0.65, 6.2, "Sahayak home screen");
 s.addNotes(notes(4));
@@ -196,7 +196,7 @@ T(s, "Right now, on your phone.", { x: 6.6, y: 2.15, w: 6, h: 0.5, fontSize: 24,
   T(s, a, { x: 7.35, y, w: 5.4, h: 0.45, fontSize: 21, bold: true, objectName: `step ${i + 1}` });
   T(s, b, { x: 7.35, y: y + 0.47, w: 5.4, h: 0.42, fontSize: 18, color: MUTE, objectName: `step ${i + 1} detail` });
 });
-T(s, [{ text: "Opens in English. Tap " }, { text: "हिं", options: { fontFace: DF } }, { text: " for Hindi." }], { x: 6.6, y: 6.25, w: 6, h: 0.4, fontSize: 16, color: FAINT, objectName: "language" });
+T(s, [{ text: "Opens in English. Tap EN for any of 22 Indian languages." }], { x: 6.6, y: 6.25, w: 6, h: 0.4, fontSize: 16, color: FAINT, objectName: "language" });
 s.addNotes(notes(7));
 
 /* ---------------------------------------------------------------- 8 HOW IT WORKS */
@@ -291,21 +291,14 @@ s.addNotes(notes(12));
 
 /* ---------------------------------------------------------------- 13 ONE MORE THING */
 slide("One more thing");
-eyebrow(s, "One more thing", BLUE, M, 1.35);
-T(s, "Everything you saw today", { x: M, y: 1.85, w: 6.4, h: 0.6, fontSize: 28, color: FAINT, objectName: "then" });
-T(s, "is public.", { x: M, y: 2.5, w: 6.4, h: 1.1, fontSize: 60, bold: true, valign: "middle", objectName: "now" });
-points(s, [["The code. The tests."], ["The file behind every number.", null, BLUE]], { x: M, y: 3.95, w: 6.1, step: 0.72, size: 24 });
-// The proof card: the file each number on the slides comes from, all in the public repository
-s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 7.55, y: 1.2, w: 4.9, h: 4.75, rectRadius: 0.18, fill: { color: CARD }, line: { color: EDGE, width: 1 }, objectName: "repo card" });
-T(s, REPO, { x: 7.9, y: 1.5, w: 4.3, h: 0.4, fontSize: 16, bold: true, color: BLUE, objectName: "repo" });
-rule(s, 7.9, 2.05, 4.2, "repo rule");
-[["public_v0.json", `${in10} in 10`], ["redteam_v1_blind.json", of(blind.caught, blind.scams)], ["scambench_v0_test.json", of(sb.tp, sb.tp + sb.fn)],
- ["llm_baseline.json", `${lp.llm.false_alarms} vs ${lp.sahayak.false_alarms}`], ["phone_parity.json", of(parityOk, parity.fraud.cases)], ["facts_v3.json", `₹${lakhMin} lakh a minute`]].forEach(([f, v], i) => {
-  const y = 2.25 + i * 0.58;
-  T(s, f, { x: 7.9, y, w: 2.6, h: 0.4, fontSize: 13, fontFace: "Courier New", color: MUTE, valign: "middle", objectName: `file ${i + 1}` });
-  T(s, v, { x: 10.3, y, w: 1.85, h: 0.4, fontSize: 15, bold: true, align: "right", valign: "middle", objectName: `file ${i + 1} number` });
-});
-source(s, `${REPO} · results in bench/results, outside numbers in docs/deck/facts_v3.json, each with its source · MIT licence`);
+eyebrow(s, "One more thing", BLUE, M, 1.2);
+T(s, "Spot the scam.", { x: M, y: 1.6, w: 6.2, h: 1.05, fontSize: 54, bold: true, valign: "middle", objectName: "title" });
+T(s, "Know a scam before it arrives.", { x: M, y: 2.75, w: 6.2, h: 0.5, fontSize: 24, italic: true, color: MUTE, objectName: "tagline" });
+points(s, [["5 cards a round", "· scam or real?"], ["Sahayak’s own clues", "after every answer", BLUE], ["Levels, badges", "· a new message daily"]],
+  { x: M, y: 3.6, w: 5.6, step: 0.68, size: 21 });
+phone(s, IMG("keynote_game_card.png"), 6.95, 0.75, 5.75, "Spot the scam: a card");
+phone(s, IMG("keynote_game_clues.png"), 9.8, 0.75, 5.75, "Spot the scam: Sahayak's clues after the answer");
+source(s, "The Learn tab of the same app · every card agrees with Sahayak’s own check (tests/test_game.py) · nothing leaves the phone");
 s.addNotes(notes(13));
 
 /* ---------------------------------------------------------------- 14 SOMEONE TO ASK */
@@ -318,6 +311,7 @@ T(s, [{ text: "Sahayak", options: { color: INK } }, { text: "  सहायक",
 T(s, [{ text: "Spot the scam before the money moves.  ", options: { color: INK } }, { text: "Claim what you’re owed.", options: { color: BLUE } }],
   { x: 0.5, y: 5.0, w: W - 1, h: 0.5, fontSize: 22, align: "center", objectName: "promise" });
 T(s, "Ishmiit Singh  ·  Roshan Raj", { x: 0.5, y: 6.25, w: W - 1, h: 0.4, fontSize: 17, color: MUTE, align: "center", objectName: "team" });
+T(s, `Open source: ${REPO}`, { x: 0.5, y: 6.75, w: W - 1, h: 0.3, fontSize: 12, color: FAINT, align: "center", objectName: "repo" });
 s.addNotes(notes(14));
 
 need(pres.slides.length === SCRIPT.slides.length, `the deck has ${pres.slides.length} slides, the script ${SCRIPT.slides.length}`);

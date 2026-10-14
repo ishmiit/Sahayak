@@ -1,0 +1,2997 @@
+{
+ "note": "Source text for the display languages. ui: the app's own screens (web/app.js). text: what the engines and packs put on a card. Keep every {placeholder}, number, link, phone number and acronym exactly.",
+ "ui": {
+  "node_pill": {
+   "en": "Offline",
+   "hi": "बिना इंटरनेट"
+  },
+  "node_pill_phone": {
+   "en": "On phone · offline",
+   "hi": "फ़ोन पर · बिना इंटरनेट"
+  },
+  "foot_phone": {
+   "en": "Sahayak is running on this phone. Nothing you type leaves it.",
+   "hi": "सहायक इसी फ़ोन पर चल रहा है। आप जो लिखते हैं, वह फ़ोन से बाहर नहीं जाता।"
+  },
+  "phone_mode_note": {
+   "en": "Not connected to the node: checks run on this phone and nothing leaves it. For voice and help from the agent, come to the CSC's Wi-Fi.",
+   "hi": "अभी नोड से नहीं जुड़े: जाँच इसी फ़ोन पर होती है और कुछ भी बाहर नहीं जाता। बोलकर पूछने और एजेंट से मदद के लिए CSC के Wi-Fi पर आएँ।"
+  },
+  "checked_phone": {
+   "en": "Checked on this phone in",
+   "hi": "इस फ़ोन पर जाँच"
+  },
+  "pack_old": {
+   "en": "scam patterns are {days} days old; update this phone at the CSC",
+   "hi": "जाँच के नियम {days} दिन पुराने हैं; CSC पर फ़ोन अपडेट कराएँ"
+  },
+  "qr_no_detector": {
+   "en": "This phone cannot read QR codes without the node. Check it at the CSC, or type the message that came with the QR.",
+   "hi": "यह फ़ोन नोड के बिना QR नहीं पढ़ सकता। CSC पर आकर जाँचें, या QR के साथ आया मैसेज लिखकर जाँचें।"
+  },
+  "home_title": {
+   "en": "Namaste! I am Sahayak.",
+   "hi": "नमस्ते! मैं सहायक हूँ।"
+  },
+  "home_sub": {
+   "en": "I can check a message for fraud and tell you what you are owed, without internet.",
+   "hi": "मेरी मदद से आप मैसेज में ठगी की जाँच कर सकते हैं और जान सकते हैं कि आपका हक क्या है, बिना इंटरनेट के।"
+  },
+  "tile_check": {
+   "en": "Check a message",
+   "hi": "मैसेज जाँचें"
+  },
+  "tile_check_sub": {
+   "en": "Is it a scam?",
+   "hi": "क्या यह ठगी है?"
+  },
+  "tile_benefits": {
+   "en": "What am I owed?",
+   "hi": "मेरा हक क्या है?"
+  },
+  "tile_benefits_sub": {
+   "en": "Pensions, insurance, schemes",
+   "hi": "पेंशन, बीमा, योजनाएँ"
+  },
+  "tile_help": {
+   "en": "Help now: 1930",
+   "hi": "मदद अभी: 1930"
+  },
+  "tile_help_sub": {
+   "en": "Lost money? Call right away",
+   "hi": "पैसे गए? तुरंत कॉल करें"
+  },
+  "check_title": {
+   "en": "Check a message",
+   "hi": "मैसेज जाँचें"
+  },
+  "check_label": {
+   "en": "Paste or type the message here",
+   "hi": "मैसेज यहाँ चिपकाएँ या लिखें"
+  },
+  "sender_add": {
+   "en": "Add the sender's name or number",
+   "hi": "भेजने वाले का नाम या नंबर जोड़ें"
+  },
+  "sender_label": {
+   "en": "Sender or caller",
+   "hi": "भेजने वाला या कॉल करने वाला"
+  },
+  "itype_sms": {
+   "en": "SMS / message",
+   "hi": "SMS / मैसेज"
+  },
+  "itype_call": {
+   "en": "Phone call",
+   "hi": "फ़ोन कॉल"
+  },
+  "check_btn": {
+   "en": "Check",
+   "hi": "जाँचें"
+  },
+  "checking": {
+   "en": "Checking…",
+   "hi": "जाँच हो रही है…"
+  },
+  "try_examples": {
+   "en": "Or try an example:",
+   "hi": "या एक उदाहरण आज़माएँ:"
+  },
+  "in_simple_words": {
+   "en": "In simple words",
+   "hi": "आसान शब्दों में"
+  },
+  "explaining": {
+   "en": "Sahayak is explaining…",
+   "hi": "सहायक समझा रहा है…"
+  },
+  "why": {
+   "en": "Why?",
+   "hi": "क्यों?"
+  },
+  "what_to_do": {
+   "en": "What to do now",
+   "hi": "अब क्या करें?"
+  },
+  "call_1930": {
+   "en": "Lost money? Call 1930",
+   "hi": "पैसे गए? 1930 पर कॉल करें"
+  },
+  "speak_btn": {
+   "en": "Listen",
+   "hi": "सुनें"
+  },
+  "complaint_btn": {
+   "en": "Complaint draft",
+   "hi": "शिकायत का ड्राफ़्ट"
+  },
+  "check_another": {
+   "en": "Check another",
+   "hi": "दूसरा मैसेज जाँचें"
+  },
+  "safety_ok": {
+   "en": "How this answer was checked",
+   "hi": "यह जवाब कैसे जाँचा गया"
+  },
+  "safety_checks": {
+   "en": "Checks that ran:",
+   "hi": "ये जाँचें हुईं:"
+  },
+  "complaint_title": {
+   "en": "1930 complaint draft",
+   "hi": "1930 शिकायत का ड्राफ़्ट"
+  },
+  "complaint_note": {
+   "en": "This draft stays on this device. Use it when you call 1930 or file at cybercrime.gov.in.",
+   "hi": "यह ड्राफ़्ट इसी फ़ोन पर रहता है। 1930 पर कॉल करते समय या cybercrime.gov.in पर शिकायत करते समय इसका इस्तेमाल करें।"
+  },
+  "c_when": {
+   "en": "When did it happen",
+   "hi": "कब हुआ"
+  },
+  "c_channel": {
+   "en": "How it came (SMS, call, WhatsApp)",
+   "hi": "कैसे आया (SMS, कॉल, WhatsApp)"
+  },
+  "c_number": {
+   "en": "Fraudster's number",
+   "hi": "ठग का नंबर"
+  },
+  "c_upi": {
+   "en": "UPI ID (if any)",
+   "hi": "UPI ID (अगर हो)"
+  },
+  "c_link": {
+   "en": "Link (if any)",
+   "hi": "लिंक (अगर हो)"
+  },
+  "c_lost": {
+   "en": "Money lost (₹)",
+   "hi": "कितने पैसे गए (₹)"
+  },
+  "c_txn": {
+   "en": "Transaction ID (if any)",
+   "hi": "ट्रांज़ैक्शन ID (अगर हो)"
+  },
+  "c_message": {
+   "en": "Message",
+   "hi": "मैसेज"
+  },
+  "print_btn": {
+   "en": "Print",
+   "hi": "प्रिंट करें"
+  },
+  "back": {
+   "en": "Back",
+   "hi": "वापस"
+  },
+  "foot": {
+   "en": "Sahayak runs on this node. Nothing you type goes to the internet.",
+   "hi": "सहायक इसी नोड पर चलता है। आप जो लिखते हैं, वह इंटरनेट पर नहीं जाता।"
+  },
+  "err_empty": {
+   "en": "Paste or type a message first.",
+   "hi": "पहले मैसेज चिपकाएँ या लिखें।"
+  },
+  "err_network": {
+   "en": "Could not reach the node. Check the Wi-Fi.",
+   "hi": "नोड से नहीं जुड़ पाए। Wi-Fi जाँचें।"
+  },
+  "no_voice": {
+   "en": "No voice found on this phone.",
+   "hi": "इस फ़ोन में आवाज़ नहीं मिली।"
+  },
+  "checked_in": {
+   "en": "Checked on this node in",
+   "hi": "इस नोड पर जाँच"
+  },
+  "ms": {
+   "en": "ms",
+   "hi": "मि.से."
+  },
+  "pack": {
+   "en": "pack",
+   "hi": "पैक"
+  },
+  "model_text": {
+   "en": "model",
+   "hi": "मॉडल"
+  },
+  "template_text": {
+   "en": "vetted sentences",
+   "hi": "जाँचे-परखे वाक्य"
+  },
+  "channel_sms": {
+   "en": "SMS",
+   "hi": "SMS"
+  },
+  "channel_call": {
+   "en": "Phone call",
+   "hi": "फ़ोन कॉल"
+  },
+  "real_benefits": {
+   "en": "Check the real schemes safely here: What am I owed?",
+   "hi": "असली योजनाएँ यहाँ सुरक्षित जाँचें: मेरा हक क्या है?"
+  },
+  "mode_text": {
+   "en": "Message",
+   "hi": "मैसेज"
+  },
+  "mode_call": {
+   "en": "Phone call",
+   "hi": "फ़ोन कॉल"
+  },
+  "mode_qr": {
+   "en": "QR code",
+   "hi": "QR कोड"
+  },
+  "mode_ocr": {
+   "en": "Screenshot",
+   "hi": "स्क्रीनशॉट"
+  },
+  "call_label": {
+   "en": "What did the caller say? Speak or type it",
+   "hi": "कॉल पर क्या कहा गया? बोलकर या लिखकर बताएँ"
+  },
+  "qr_label": {
+   "en": "Take a photo of the QR you were asked to scan",
+   "hi": "जिस QR को स्कैन करने को कहा गया, उसकी फ़ोटो लें"
+  },
+  "qr_btn": {
+   "en": "Take or choose a photo of the QR",
+   "hi": "QR की फ़ोटो लें या चुनें"
+  },
+  "qr_reading": {
+   "en": "Reading the QR…",
+   "hi": "QR पढ़ रहा हूँ…"
+  },
+  "qr_none": {
+   "en": "No QR code found. Take a closer, straight photo.",
+   "hi": "फ़ोटो में QR नहीं मिला। पास से, सीधी फ़ोटो लें।"
+  },
+  "qr_try": {
+   "en": "Example QR codes:",
+   "hi": "उदाहरण QR:"
+  },
+  "qr_pays": {
+   "en": "Money goes to",
+   "hi": "पैसे किसको जाएँगे"
+  },
+  "qr_upi": {
+   "en": "UPI ID",
+   "hi": "UPI ID"
+  },
+  "qr_amount": {
+   "en": "Amount",
+   "hi": "रकम"
+  },
+  "ocr_label": {
+   "en": "Choose a screenshot or photo of the message",
+   "hi": "मैसेज का स्क्रीनशॉट या फ़ोटो चुनें"
+  },
+  "ocr_btn": {
+   "en": "Choose a screenshot",
+   "hi": "स्क्रीनशॉट चुनें"
+  },
+  "ocr_reading": {
+   "en": "Reading the screenshot… (a few seconds)",
+   "hi": "स्क्रीनशॉट पढ़ रहा हूँ… (कुछ सेकंड)"
+  },
+  "ocr_none": {
+   "en": "No text found in the screenshot.",
+   "hi": "स्क्रीनशॉट में कुछ लिखा हुआ नहीं मिला।"
+  },
+  "ocr_off": {
+   "en": "Screenshot reading is not set up on this node. Type or say the message instead.",
+   "hi": "इस नोड पर स्क्रीनशॉट पढ़ना चालू नहीं है। मैसेज लिखकर या बोलकर जाँचें।"
+  },
+  "ocr_review": {
+   "en": "This is what I read from the screenshot. Fix any mistakes, then check.",
+   "hi": "स्क्रीनशॉट से यह पढ़ा गया। गलती हो तो ठीक करें, फिर जाँचें।"
+  },
+  "ask_agent": {
+   "en": "Ask the agent (at the counter)",
+   "hi": "एजेंट से पूछें (काउंटर पर)"
+  },
+  "ticket_title": {
+   "en": "Your number",
+   "hi": "आपका नंबर"
+  },
+  "ticket_sub": {
+   "en": "The agent at the counter will call your number. Keep this screen open until then.",
+   "hi": "काउंटर पर एजेंट आपका नंबर बुलाएँगे। तब तक यह स्क्रीन खुली रखें।"
+  },
+  "ticket_ok": {
+   "en": "OK",
+   "hi": "ठीक है"
+  },
+  "agent_offline": {
+   "en": "No agent is connected right now. Please ask at the counter.",
+   "hi": "अभी कोई एजेंट नहीं जुड़ा। काउंटर पर जाकर पूछें।"
+  },
+  "voice_settings": {
+   "en": "Voice and text size",
+   "hi": "आवाज़ और अक्षर"
+  },
+  "voice_female": {
+   "en": "Female voice",
+   "hi": "महिला आवाज़"
+  },
+  "voice_male": {
+   "en": "Male voice",
+   "hi": "पुरुष आवाज़"
+  },
+  "speed_normal": {
+   "en": "Normal speed",
+   "hi": "सामान्य गति"
+  },
+  "speed_slow": {
+   "en": "Slower",
+   "hi": "धीमी गति"
+  },
+  "sound_on": {
+   "en": "Reading screens aloud: on",
+   "hi": "स्क्रीन पढ़कर सुनाना चालू"
+  },
+  "sound_off": {
+   "en": "Reading screens aloud: off",
+   "hi": "स्क्रीन पढ़कर सुनाना बंद"
+  },
+  "voice_ready": {
+   "en": "Voice runs on this node: listening and speaking, without internet.",
+   "hi": "आवाज़ इसी नोड पर चलती है: सुनना और बोलना, बिना इंटरनेट।"
+  },
+  "voice_phone": {
+   "en": "No voice on the node; using the phone's own voice.",
+   "hi": "नोड की आवाज़ नहीं मिली; फ़ोन की अपनी आवाज़ इस्तेमाल हो रही है।"
+  },
+  "mic_dictate": {
+   "en": "Speak the message (hold)",
+   "hi": "बोलकर लिखें (दबाकर रखें)"
+  },
+  "mic_answer": {
+   "en": "Answer by speaking (hold)",
+   "hi": "बोलकर जवाब दें (दबाकर रखें)"
+  },
+  "mic_dictate_upload": {
+   "en": "Speak the message with the phone's recorder",
+   "hi": "फ़ोन के रिकॉर्डर से बोलकर लिखें"
+  },
+  "mic_answer_upload": {
+   "en": "Answer with the phone's recorder",
+   "hi": "फ़ोन के रिकॉर्डर से बोलकर जवाब दें"
+  },
+  "mic_listening": {
+   "en": "Listening… let go when done",
+   "hi": "सुन रहा हूँ… बोलकर छोड़ें"
+  },
+  "mic_thinking": {
+   "en": "Working it out…",
+   "hi": "समझ रहा हूँ…"
+  },
+  "mic_short": {
+   "en": "Hold the button, speak, then let go.",
+   "hi": "बटन दबाकर रखें, बोलें, फिर छोड़ें।"
+  },
+  "mic_none": {
+   "en": "I didn't catch anything. Please try again.",
+   "hi": "कुछ सुनाई नहीं दिया। फिर से बोलें।"
+  },
+  "mic_secure": {
+   "en": "Here, speaking opens the phone's recorder; for hold-to-talk, open the node's secure (https) address.",
+   "hi": "यहाँ बोलने के लिए फ़ोन का रिकॉर्डर खुलेगा; दबाकर बोलने के लिए नोड का सुरक्षित (https) पता खोलें।"
+  },
+  "mic_denied": {
+   "en": "Microphone permission was not given.",
+   "hi": "माइक की अनुमति नहीं मिली।"
+  },
+  "heard": {
+   "en": "I heard",
+   "hi": "मैंने सुना"
+  },
+  "heard_as": {
+   "en": "Answer",
+   "hi": "जवाब"
+  },
+  "is_right": {
+   "en": "Is that right?",
+   "hi": "क्या यह सही है?"
+  },
+  "yes_right": {
+   "en": "Yes, that's right",
+   "hi": "हाँ, सही है"
+  },
+  "say_again": {
+   "en": "No, again",
+   "hi": "नहीं, फिर से"
+  },
+  "not_understood": {
+   "en": "I could not match that. Say it again, or pick below.",
+   "hi": "समझ नहीं आया। फिर से बोलें, या नीचे से चुनें।"
+  },
+  "check_low_conf": {
+   "en": "Check that the message was written down correctly.",
+   "hi": "देख लें कि मैसेज ठीक लिखा गया है।"
+  },
+  "years_word": {
+   "en": "years",
+   "hi": "साल"
+  },
+  "nav_intro": {
+   "en": "Answer a few short questions and I will tell you which of 12 government schemes you can get, where to go and which papers to take.",
+   "hi": "कुछ छोटे सवालों के जवाब दें। फिर पता चलेगा कि 12 सरकारी योजनाओं में से आपको क्या मिल सकता है, कहाँ जाना है और कौन-से कागज़ ले जाने हैं।"
+  },
+  "nav_promise_1": {
+   "en": "At most 8 questions",
+   "hi": "ज़्यादा से ज़्यादा 8 सवाल"
+  },
+  "nav_promise_2": {
+   "en": "I will not ask your name",
+   "hi": "आपका नाम नहीं पूछा जाएगा"
+  },
+  "nav_promise_3": {
+   "en": "Answers never go to the internet; the node saves nothing",
+   "hi": "जवाब इंटरनेट पर नहीं जाते, नोड कुछ सेव नहीं करता"
+  },
+  "nav_start": {
+   "en": "Start",
+   "hi": "शुरू करें"
+  },
+  "nav_try": {
+   "en": "Or see an example:",
+   "hi": "या एक उदाहरण देखें:"
+  },
+  "nav_covers": {
+   "en": "Schemes:",
+   "hi": "योजनाएँ:"
+  },
+  "q_count": {
+   "en": "Question {n} · at most {max}",
+   "hi": "सवाल {n} · ज़्यादा से ज़्यादा {max}"
+  },
+  "next": {
+   "en": "Next",
+   "hi": "आगे"
+  },
+  "age_label": {
+   "en": "Age (years)",
+   "hi": "उम्र (साल)"
+  },
+  "age_unsure": {
+   "en": "Not sure of your exact age? Pick a range:",
+   "hi": "ठीक उम्र नहीं पता? यहाँ से चुनें:"
+  },
+  "age_err": {
+   "en": "Enter an age between 0 and 120.",
+   "hi": "0 से 120 के बीच उम्र लिखें।"
+  },
+  "g_eligible": {
+   "en": "You can get",
+   "hi": "आपको मिल सकता है"
+  },
+  "g_likely": {
+   "en": "Likely — take proof",
+   "hi": "शायद मिल सकता है — सबूत साथ ले जाएँ"
+  },
+  "g_check": {
+   "en": "Ask at the office",
+   "hi": "दफ़्तर में पूछें"
+  },
+  "g_unlock": {
+   "en": "After you open a bank account",
+   "hi": "बैंक खाता खुलने के बाद"
+  },
+  "g_have": {
+   "en": "Already getting",
+   "hi": "पहले से मिल रहा है"
+  },
+  "g_not_eligible": {
+   "en": "Not for you",
+   "hi": "आपके लिए नहीं"
+  },
+  "st_eligible": {
+   "en": "You can get",
+   "hi": "मिल सकता है"
+  },
+  "st_likely": {
+   "en": "Likely — needs proof",
+   "hi": "शायद — सबूत लगेगा"
+  },
+  "st_check": {
+   "en": "Ask",
+   "hi": "पूछें"
+  },
+  "st_unlock": {
+   "en": "After an account",
+   "hi": "खाता खुलने के बाद"
+  },
+  "st_have": {
+   "en": "Already getting",
+   "hi": "पहले से मिल रहा है"
+  },
+  "st_not_eligible": {
+   "en": "No",
+   "hi": "नहीं"
+  },
+  "nav_summary": {
+   "en": "{n} of {total} schemes are worth a visit",
+   "hi": "{total} योजनाओं में से {n} आपके काम की"
+  },
+  "nav_summary_none": {
+   "en": "None of these schemes seems to apply right now.",
+   "hi": "इन योजनाओं में से अभी कोई आप पर लागू नहीं दिखती।"
+  },
+  "details": {
+   "en": "Papers, place and reasons",
+   "hi": "कागज़, जगह और कारण"
+  },
+  "why_label": {
+   "en": "Why",
+   "hi": "क्यों"
+  },
+  "benefit_label": {
+   "en": "What you get",
+   "hi": "क्या मिलता है"
+  },
+  "docs_label": {
+   "en": "Papers to take",
+   "hi": "कौन-से कागज़ ले जाएँ"
+  },
+  "where_label": {
+   "en": "Where to go",
+   "hi": "कहाँ जाएँ"
+  },
+  "say_label": {
+   "en": "Say this at the counter",
+   "hi": "काउंटर पर ऐसे कहें"
+  },
+  "how_label": {
+   "en": "How to check",
+   "hi": "कैसे पता करें"
+  },
+  "source_label": {
+   "en": "Source",
+   "hi": "स्रोत"
+  },
+  "checked_label": {
+   "en": "checked",
+   "hi": "जाँचा"
+  },
+  "have_label": {
+   "en": "I already get this",
+   "hi": "मुझे यह पहले से मिल रहा है"
+  },
+  "health_title": {
+   "en": "Health first: free treatment",
+   "hi": "पहले सेहत: मुफ़्त इलाज"
+  },
+  "nav_slip": {
+   "en": "Make a slip (for the CSC)",
+   "hi": "पर्ची बनाएँ (CSC के लिए)"
+  },
+  "nav_change": {
+   "en": "Change last answer",
+   "hi": "पिछला जवाब बदलें"
+  },
+  "nav_restart": {
+   "en": "Start again",
+   "hi": "फिर से शुरू करें"
+  },
+  "questions_asked": {
+   "en": "questions",
+   "hi": "सवाल"
+  },
+  "slip_title": {
+   "en": "Sahayak scheme slip",
+   "hi": "सहायक — योजना पर्ची"
+  },
+  "slip_answers": {
+   "en": "Answers",
+   "hi": "जवाब"
+  },
+  "slip_schemes": {
+   "en": "Schemes",
+   "hi": "योजनाएँ"
+  },
+  "slip_date": {
+   "en": "Date",
+   "hi": "तारीख"
+  },
+  "slip_no_name": {
+   "en": "No name kept",
+   "hi": "नाम नहीं रखा गया"
+  },
+  "slip_qr": {
+   "en": "QR code holding these answers",
+   "hi": "QR कोड, जिसमें ये जवाब हैं"
+  },
+  "slip_operator": {
+   "en": "CSC operator: the QR holds these answers, so there is no need to ask again.",
+   "hi": "CSC ऑपरेटर: QR में यही जवाब हैं, दोबारा पूछने की ज़रूरत नहीं।"
+  },
+  "trust_offline": {
+   "en": "No internet needed",
+   "hi": "इंटरनेट नहीं चाहिए"
+  },
+  "trust_private": {
+   "en": "Never asks your name",
+   "hi": "आपका नाम नहीं पूछता"
+  },
+  "trust_voice": {
+   "en": "Reads it out loud",
+   "hi": "पढ़कर सुनाता है"
+  },
+  "install_title": {
+   "en": "Keep Sahayak on your home screen",
+   "hi": "सहायक को होम स्क्रीन पर रखें"
+  },
+  "install_sub": {
+   "en": "Add it once; it opens without internet too",
+   "hi": "एक बार रखें, फिर बिना इंटरनेट भी खुलेगा"
+  },
+  "text_size": {
+   "en": "Text size",
+   "hi": "अक्षरों का आकार"
+  },
+  "size_normal": {
+   "en": "Normal",
+   "hi": "सामान्य"
+  },
+  "size_large": {
+   "en": "Large",
+   "hi": "बड़ा"
+  },
+  "size_xl": {
+   "en": "Largest",
+   "hi": "सबसे बड़ा"
+  },
+  "voice_label": {
+   "en": "Voice",
+   "hi": "आवाज़"
+  },
+  "speed_label": {
+   "en": "Speaking speed",
+   "hi": "बोलने की गति"
+  },
+  "paste_check": {
+   "en": "Paste and check",
+   "hi": "मैसेज चिपकाकर जाँचें"
+  },
+  "paste_empty": {
+   "en": "Nothing is copied yet. In your SMS app, press and hold the message, then tap Copy.",
+   "hi": "कॉपी किया हुआ कोई मैसेज नहीं मिला। SMS में मैसेज को दबाकर रखें और कॉपी करें।"
+  },
+  "paste_denied": {
+   "en": "Paste was not allowed. Press and hold the box below, then choose Paste.",
+   "hi": "चिपकाने की अनुमति नहीं मिली। नीचे के बॉक्स को दबाकर रखें और चिपकाएँ (Paste) चुनें।"
+  },
+  "checked_msg": {
+   "en": "The message checked",
+   "hi": "जाँचा गया मैसेज"
+  },
+  "share_btn": {
+   "en": "Warn your family",
+   "hi": "परिवार को सावधान करें"
+  },
+  "share_intro": {
+   "en": "Sahayak checked a message",
+   "hi": "सहायक ने एक मैसेज जाँचा"
+  },
+  "share_try": {
+   "en": "Check yours too, no internet needed:",
+   "hi": "आप भी जाँचें, बिना इंटरनेट:"
+  },
+  "docs_all_title": {
+   "en": "Take these papers to the CSC",
+   "hi": "CSC पर ये कागज़ साथ ले जाएँ"
+  },
+  "docs_all_sub": {
+   "en": "One list for every scheme above",
+   "hi": "ऊपर की सभी योजनाओं के लिए एक सूची"
+  },
+  "docs_for_n": {
+   "en": "for {n} schemes",
+   "hi": "{n} योजनाओं के लिए"
+  },
+  "docs_for_one": {
+   "en": "for {name}",
+   "hi": "{name} के लिए"
+  },
+  "lang_title": {
+   "en": "Choose your language",
+   "hi": "अपनी भाषा चुनें"
+  },
+  "lang_close": {
+   "en": "Close",
+   "hi": "बंद करें"
+  },
+  "lang_note": {
+   "en": "This language is a machine translation, not yet checked by a native speaker.",
+   "hi": "यह भाषा मशीन से अनुवाद की गई है; किसी मूल वक्ता ने अभी इसे जाँचा नहीं है।"
+  },
+  "lang_detect": {
+   "en": "Sahayak reads messages in Hindi, English and Hinglish. A message in another language gets “Could not check”.",
+   "hi": "सहायक हिंदी, अंग्रेज़ी और हिंग्लिश में लिखे मैसेज पढ़ता है। किसी और भाषा के मैसेज पर “जाँच नहीं हो सकी” आता है।"
+  },
+  "lang_mic_off": {
+   "en": "Speaking to Sahayak works in Hindi and English only. Please type or paste.",
+   "hi": "सहायक से बोलकर बात सिर्फ़ हिंदी और अंग्रेज़ी में होती है। कृपया लिखें या चिपकाएँ।"
+  },
+  "tab_home": {
+   "en": "Home",
+   "hi": "होम"
+  },
+  "tab_check": {
+   "en": "Check",
+   "hi": "जाँच"
+  },
+  "tab_benefits": {
+   "en": "Benefits",
+   "hi": "मेरा हक"
+  },
+  "tab_learn": {
+   "en": "Learn",
+   "hi": "सीखें"
+  },
+  "tile_learn": {
+   "en": "Spot the scam",
+   "hi": "ठगी पहचानो"
+  },
+  "tile_learn_sub": {
+   "en": "A quick game: is it a scam or real?",
+   "hi": "छोटा खेल: ठगी है या असली?"
+  },
+  "game_new": {
+   "en": "New",
+   "hi": "नया"
+  },
+  "learn_sub": {
+   "en": "Each round shows 5 messages and calls. Decide: scam or real? Then see the clues Sahayak found. Right answers earn points and badges.",
+   "hi": "हर राउंड में 5 मैसेज और कॉल आते हैं। आप तय करें: ठगी या असली? फिर देखें कि सहायक को कौन-से सुराग मिले। सही जवाब पर अंक और बैज मिलते हैं।"
+  },
+  "play_round": {
+   "en": "Play a round",
+   "hi": "एक राउंड खेलें"
+  },
+  "level_label": {
+   "en": "Level",
+   "hi": "स्तर"
+  },
+  "points": {
+   "en": "points",
+   "hi": "अंक"
+  },
+  "next_level": {
+   "en": "{n} more points to {name}",
+   "hi": "{name} तक पहुँचने के लिए {n} अंक और"
+  },
+  "top_level": {
+   "en": "You are at the top level. Keep your eyes sharp!",
+   "hi": "आप सबसे ऊँचे स्तर पर हैं। नज़र ऐसे ही तेज़ रखें!"
+  },
+  "streak_days": {
+   "en": "{n}-day streak",
+   "hi": "लगातार {n} दिन"
+  },
+  "badges_count": {
+   "en": "{n} of {total} badges",
+   "hi": "{total} में से {n} बैज"
+  },
+  "daily_title": {
+   "en": "Today's message",
+   "hi": "आज का मैसेज"
+  },
+  "daily_sub": {
+   "en": "One new message every day. +20 bonus points.",
+   "hi": "हर दिन एक नया मैसेज। +20 बोनस अंक।"
+  },
+  "daily_play": {
+   "en": "Play",
+   "hi": "खेलें"
+  },
+  "daily_done": {
+   "en": "Done for today. A new one comes tomorrow.",
+   "hi": "आज का हो गया। कल नया मैसेज आएगा।"
+  },
+  "badges_title": {
+   "en": "Badges",
+   "hi": "बैज"
+  },
+  "badge_progress": {
+   "en": "{n} of {total}",
+   "hi": "{total} में से {n}"
+  },
+  "badge_won": {
+   "en": "Earned",
+   "hi": "मिल गया"
+  },
+  "badge_otp": {
+   "en": "OTP Guardian",
+   "hi": "OTP रक्षक"
+  },
+  "badge_otp_d": {
+   "en": "OTP asks and fake customer care",
+   "hi": "OTP माँगना और नकली कस्टमर केयर"
+  },
+  "badge_upi": {
+   "en": "QR Expert",
+   "hi": "QR जानकार"
+  },
+  "badge_upi_d": {
+   "en": "QR codes that promise money",
+   "hi": "पैसे देने का वादा करने वाले QR कोड"
+  },
+  "badge_kyc": {
+   "en": "Threat Buster",
+   "hi": "धमकी पकड़ने वाले"
+  },
+  "badge_kyc_d": {
+   "en": "KYC, account-block and power-cut threats",
+   "hi": "KYC, खाता बंद और बिजली कटने की धमकी"
+  },
+  "badge_arrest": {
+   "en": "Fake Police Buster",
+   "hi": "नकली पुलिस पकड़ने वाले"
+  },
+  "badge_arrest_d": {
+   "en": "Fake police, CBI and relatives in trouble",
+   "hi": "नकली पुलिस, CBI और मुसीबत में फँसे रिश्तेदार"
+  },
+  "badge_prize": {
+   "en": "Prize Skeptic",
+   "hi": "इनाम पर शक करने वाले"
+  },
+  "badge_prize_d": {
+   "en": "Lotteries, prizes and parcel tricks",
+   "hi": "लॉटरी, इनाम और पार्सल की चालें"
+  },
+  "badge_money": {
+   "en": "Easy-Money Alarm",
+   "hi": "आसान कमाई से सावधान"
+  },
+  "badge_money_d": {
+   "en": "Jobs, loans and get-rich offers",
+   "hi": "नौकरी, लोन और जल्दी अमीर बनने के ऑफ़र"
+  },
+  "badge_scheme": {
+   "en": "Scheme Saathi",
+   "hi": "योजना साथी"
+  },
+  "badge_scheme_d": {
+   "en": "Fake schemes, fees and scheme apps",
+   "hi": "नकली योजना, फ़ीस और योजना के ऐप"
+  },
+  "badge_real": {
+   "en": "Real-Deal Detective",
+   "hi": "असली पहचानने वाले"
+  },
+  "badge_real_d": {
+   "en": "Knowing a real message when you see one",
+   "hi": "असली मैसेज को असली पहचानना"
+  },
+  "lvl_1": {
+   "en": "Learner",
+   "hi": "सीखने वाले"
+  },
+  "lvl_2": {
+   "en": "Alert",
+   "hi": "सतर्क"
+  },
+  "lvl_3": {
+   "en": "Sharp Eyes",
+   "hi": "तेज़ नज़र"
+  },
+  "lvl_4": {
+   "en": "Scam Shield",
+   "hi": "ठगी का कवच"
+  },
+  "lvl_5": {
+   "en": "Scam Guru",
+   "hi": "ठगी पहचान गुरु"
+  },
+  "play_question": {
+   "en": "Scam or real?",
+   "hi": "ठगी या असली?"
+  },
+  "ans_scam": {
+   "en": "Scam",
+   "hi": "ठगी"
+  },
+  "ans_real": {
+   "en": "Real",
+   "hi": "असली"
+  },
+  "swipe_hint": {
+   "en": "Tap your answer, or swipe the card towards it.",
+   "hi": "अपना जवाब दबाएँ, या कार्ड को उसकी ओर सरकाएँ।"
+  },
+  "card_sms": {
+   "en": "Message",
+   "hi": "मैसेज"
+  },
+  "card_call": {
+   "en": "Phone call: what the caller said",
+   "hi": "फ़ोन कॉल: कॉल करने वाले ने क्या कहा"
+  },
+  "card_n": {
+   "en": "{n} of {total}",
+   "hi": "{total} में से {n}"
+  },
+  "fb_right": {
+   "en": "Right!",
+   "hi": "सही!"
+  },
+  "fb_wrong": {
+   "en": "Not this time",
+   "hi": "इस बार नहीं"
+  },
+  "fb_real": {
+   "en": "This one is a real message.",
+   "hi": "यह असली मैसेज है।"
+  },
+  "fb_clues": {
+   "en": "The clues",
+   "hi": "सुराग"
+  },
+  "fb_remember": {
+   "en": "Remember",
+   "hi": "याद रखें"
+  },
+  "fb_real_tip": {
+   "en": "A real bank or government message gives you information or a code. It never asks you to share an OTP or PIN, or to send money to a person.",
+   "hi": "असली बैंक या सरकारी मैसेज आपको जानकारी या कोड देता है। वह कभी OTP या PIN बताने, या किसी व्यक्ति को पैसे भेजने को नहीं कहता।"
+  },
+  "combo": {
+   "en": "{n} in a row!",
+   "hi": "लगातार {n} सही!"
+  },
+  "see_score": {
+   "en": "See my score",
+   "hi": "मेरा स्कोर देखें"
+  },
+  "done_perfect": {
+   "en": "Perfect! You caught every one.",
+   "hi": "शानदार! आपने हर एक को पहचान लिया।"
+  },
+  "done_good": {
+   "en": "Sharp eyes!",
+   "hi": "तेज़ नज़र!"
+  },
+  "done_ok": {
+   "en": "Good start. Every round teaches a new trick.",
+   "hi": "अच्छी शुरुआत। हर राउंड में एक नई चाल सीखेंगे।"
+  },
+  "done_score": {
+   "en": "{n} of {total} right",
+   "hi": "{total} में से {n} सही"
+  },
+  "done_points": {
+   "en": "+{n} points",
+   "hi": "+{n} अंक"
+  },
+  "new_badge": {
+   "en": "New badge!",
+   "hi": "नया बैज!"
+  },
+  "play_again": {
+   "en": "Play again",
+   "hi": "फिर खेलें"
+  },
+  "share_game": {
+   "en": "Challenge your family",
+   "hi": "परिवार को चुनौती दें"
+  },
+  "done_btn": {
+   "en": "Done",
+   "hi": "हो गया"
+  },
+  "share_game_text": {
+   "en": "I spotted {n} of {total} messages right on Sahayak: scam or real. Can you beat my score?",
+   "hi": "मैंने सहायक पर {total} में से {n} मैसेज सही पहचाने: ठगी या असली। क्या आप मुझसे ज़्यादा पहचान सकते हैं?"
+  },
+  "game_private": {
+   "en": "Your score stays on this phone. Nothing is sent anywhere.",
+   "hi": "आपका स्कोर इसी फ़ोन पर रहता है। कुछ भी कहीं नहीं भेजा जाता।"
+  },
+  "level_up": {
+   "en": "Level up: {name}!",
+   "hi": "नया स्तर: {name}!"
+  },
+  "next_card": {
+   "en": "Next",
+   "hi": "अगला"
+  },
+  "appearance": {
+   "en": "Appearance",
+   "hi": "रंग-रूप"
+  },
+  "theme_auto": {
+   "en": "Automatic",
+   "hi": "अपने-आप"
+  },
+  "theme_light": {
+   "en": "Light",
+   "hi": "हल्का"
+  },
+  "theme_titanium": {
+   "en": "White Titanium",
+   "hi": "सफ़ेद टाइटेनियम"
+  },
+  "theme_dark": {
+   "en": "Dark",
+   "hi": "गहरा"
+  }
+ },
+ "text": {
+  "t001": {
+   "en": "It asks you to share an OTP, PIN or password. Banks never ask for these.",
+   "hi": "इसमें आपसे OTP, PIN या पासवर्ड माँगा गया है। बैंक कभी ये नहीं माँगते।",
+   "where": "fraud.signals(otp_request).reason"
+  },
+  "t002": {
+   "en": "It asks for private details like Aadhaar, PAN, card number or bank login.",
+   "hi": "इसमें आधार, PAN, कार्ड नंबर या बैंक लॉगिन जैसी निजी जानकारी माँगी गई है।",
+   "where": "fraud.signals(personal_info_request).reason"
+  },
+  "t003": {
+   "en": "It says you must scan a QR or enter your UPI PIN to receive money. Receiving money never needs a PIN or a scan.",
+   "hi": "इसमें पैसे पाने के लिए QR स्कैन करने या UPI PIN डालने को कहा गया है। पैसे पाने के लिए कभी PIN या स्कैन की ज़रूरत नहीं होती।",
+   "where": "fraud.signals(upi_receive).reason"
+  },
+  "t004": {
+   "en": "It asks you to install an app file (.apk) from a link. This can hand your phone to a fraudster.",
+   "hi": "इसमें लिंक से ऐप (.apk) डाउनलोड करने को कहा गया है। इससे आपका फ़ोन ठगों के हाथ में जा सकता है।",
+   "where": "fraud.signals(link_apk).reason"
+  },
+  "t005": {
+   "en": "It asks you to install a screen-sharing app like AnyDesk or TeamViewer.",
+   "hi": "इसमें AnyDesk या TeamViewer जैसा स्क्रीन-शेयर ऐप डालने को कहा गया है।",
+   "where": "fraud.signals(remote_access).reason"
+  },
+  "t006": {
+   "en": "\"Digital arrest\" is not real. No agency arrests anyone over a video call.",
+   "hi": "\"डिजिटल अरेस्ट\" जैसा कुछ नहीं होता। कोई भी एजेंसी वीडियो कॉल पर गिरफ़्तार नहीं करती।",
+   "where": "fraud.signals(digital_arrest).reason"
+  },
+  "t007": {
+   "en": "The link claims to be from a bank but is not an official address ({domain}). Banks now use .bank.in addresses.",
+   "hi": "लिंक बैंक का होने का दावा करता है, पर इसका पता ({domain}) आधिकारिक नहीं है। बैंक अब .bank.in वाले पते इस्तेमाल करते हैं।",
+   "where": "fraud.signals(link_bank_unofficial).reason"
+  },
+  "t008": {
+   "en": "The web address imitates a known name ({domain}).",
+   "hi": "वेब पता किसी जाने-माने नाम की नकल करता है ({domain})।",
+   "where": "fraud.signals(link_lookalike).reason"
+  },
+  "t009": {
+   "en": "The link is a bare number address ({domain}), not a real website name.",
+   "hi": "लिंक किसी वेबसाइट के नाम की जगह सिर्फ़ नंबर वाला पता ({domain}) है।",
+   "where": "fraud.signals(link_ip).reason"
+  },
+  "t010": {
+   "en": "It hides the real address behind a short link ({domain}).",
+   "hi": "असली पता एक छोटे लिंक ({domain}) के पीछे छुपाया गया है।",
+   "where": "fraud.signals(link_shortener).reason"
+  },
+  "t011": {
+   "en": "The web address ({domain}) uses an ending often used by scammers.",
+   "hi": "वेब पते ({domain}) का आखिरी हिस्सा ऐसा है जो ठग अक्सर इस्तेमाल करते हैं।",
+   "where": "fraud.signals(link_suspicious_tld).reason"
+  },
+  "t012": {
+   "en": "It contains a link ({domain}).",
+   "hi": "इसमें एक लिंक ({domain}) है।",
+   "where": "fraud.signals(link_present).reason"
+  },
+  "t013": {
+   "en": "It asks you to download or install an app from a link.",
+   "hi": "इसमें लिंक से ऐप डाउनलोड या इंस्टॉल करने को कहा गया है।",
+   "where": "fraud.signals(app_install).reason"
+  },
+  "t014": {
+   "en": "A bank or government office would not message you from a personal mobile number ({sender}).",
+   "hi": "बैंक या सरकारी दफ़्तर निजी मोबाइल नंबर ({sender}) से मैसेज नहीं भेजते।",
+   "where": "fraud.signals(sender_mobile_claims_org).reason"
+  },
+  "t015": {
+   "en": "Banks now make service calls from 1600-series numbers, not from ordinary mobile numbers like {sender}.",
+   "hi": "बैंक अब सेवा कॉल 1600 से शुरू होने वाले नंबरों से करते हैं, {sender} जैसे आम मोबाइल नंबर से नहीं।",
+   "where": "fraud.signals(call_mobile_claims_org).reason"
+  },
+  "t016": {
+   "en": "It asks you to call or WhatsApp a personal mobile number ({number}).",
+   "hi": "इसमें एक निजी मोबाइल नंबर ({number}) पर कॉल या WhatsApp करने को कहा गया है।",
+   "where": "fraud.signals(contact_mobile).reason"
+  },
+  "t017": {
+   "en": "It claims to be a bank or official body yet gives a personal mobile number. Real ones list toll-free or 1600-series numbers.",
+   "hi": "यह खुद को बैंक या सरकारी संस्था बताता है, फिर भी निजी मोबाइल नंबर देता है। असली संस्थाएँ टोल-फ़्री या 1600 वाले नंबर देती हैं।",
+   "where": "fraud.signals(org_contact_mobile).reason"
+  },
+  "t018": {
+   "en": "It shows an alarming transaction and asks you to call a mobile number to reverse it.",
+   "hi": "यह किसी डराने वाले लेन-देन की बात करके उसे रोकने के लिए मोबाइल नंबर पर कॉल करने को कहता है।",
+   "where": "fraud.signals(fake_alert_callback).reason"
+  },
+  "t019": {
+   "en": "It rushes you (\"{phrase}\"). Pressure is a common trick.",
+   "hi": "इसमें जल्दबाज़ी कराई जा रही है (\"{phrase}\")। दबाव डालना ठगों की आम चाल है।",
+   "where": "fraud.signals(urgency).reason"
+  },
+  "t020": {
+   "en": "It threatens you with police, arrest or legal action. Real officials do not do this over calls or messages.",
+   "hi": "इसमें पुलिस, गिरफ़्तारी या कानूनी कार्रवाई की धमकी है। असली अधिकारी फ़ोन या मैसेज पर ऐसा नहीं करते।",
+   "where": "fraud.signals(threat_authority).reason"
+  },
+  "t021": {
+   "en": "It claims a parcel in your name was seized with illegal items. This is a well-known scam opening.",
+   "hi": "इसमें कहा गया है कि आपके नाम का पार्सल गैरकानूनी सामान के साथ पकड़ा गया है। यह एक जानी-मानी ठगी की शुरुआत है।",
+   "where": "fraud.signals(courier_seized).reason"
+  },
+  "t022": {
+   "en": "It tells you to keep this secret. Fraudsters cut their victims off from help.",
+   "hi": "इसमें यह बात छुपाकर रखने को कहा गया है। ठग अपने शिकार को मदद से दूर रखते हैं।",
+   "where": "fraud.signals(secrecy).reason"
+  },
+  "t023": {
+   "en": "It says you won a prize or lottery you never entered.",
+   "hi": "इसमें ऐसे इनाम या लॉटरी की बात है जिसमें आपने कभी हिस्सा ही नहीं लिया।",
+   "where": "fraud.signals(prize).reason"
+  },
+  "t024": {
+   "en": "It promises easy money for simple tasks. This is how task scams begin.",
+   "hi": "इसमें आसान कामों के बदले आसान कमाई का वादा है। टास्क ठगी ऐसे ही शुरू होती है।",
+   "where": "fraud.signals(easy_money).reason"
+  },
+  "t025": {
+   "en": "It talks about earning from home or part-time work.",
+   "hi": "इसमें घर बैठे या पार्ट-टाइम कमाई की बात है।",
+   "where": "fraud.signals(easy_money_weak).reason"
+  },
+  "t026": {
+   "en": "It pulls you into a Telegram or WhatsApp group, where scammers work out of sight.",
+   "hi": "इसमें आपको Telegram या WhatsApp ग्रुप से जुड़ने को कहा गया है, जहाँ ठग छुपकर काम करते हैं।",
+   "where": "fraud.signals(join_group).reason"
+  },
+  "t027": {
+   "en": "It promises guaranteed or very high returns. Real investments never guarantee profit.",
+   "hi": "इसमें पक्के या बहुत ज़्यादा मुनाफ़े का वादा है। असली निवेश में मुनाफ़े की गारंटी नहीं होती।",
+   "where": "fraud.signals(investment_promise).reason"
+  },
+  "t028": {
+   "en": "It asks you to pay a fee first to receive money, a loan or a prize.",
+   "hi": "इसमें पैसे, लोन या इनाम पाने से पहले फ़ीस भरने को कहा गया है।",
+   "where": "fraud.signals(advance_fee).reason"
+  },
+  "t029": {
+   "en": "It offers an instant loan without checks.",
+   "hi": "इसमें बिना जाँच के तुरंत लोन देने की बात है।",
+   "where": "fraud.signals(loan_offer).reason"
+  },
+  "t030": {
+   "en": "It says your KYC has expired or your account will be blocked. Banks ask you to update KYC at the branch or in their official app, not through links or calls.",
+   "hi": "इसमें कहा गया है कि आपका KYC खत्म हो गया है या खाता बंद हो जाएगा। बैंक KYC अपडेट शाखा में या अपने आधिकारिक ऐप से करवाते हैं, लिंक या कॉल से नहीं।",
+   "where": "fraud.signals(kyc_threat).reason"
+  },
+  "t031": {
+   "en": "It talks about your KYC.",
+   "hi": "इसमें आपके KYC की बात है।",
+   "where": "fraud.signals(kyc_mention).reason"
+  },
+  "t032": {
+   "en": "It threatens to cut your electricity unless you call a number. Electricity boards do not send such messages from mobile numbers.",
+   "hi": "इसमें बिजली काटने की धमकी देकर एक नंबर पर कॉल करने को कहा गया है। बिजली विभाग ऐसे मैसेज मोबाइल नंबर से नहीं भेजता।",
+   "where": "fraud.signals(electricity_cut).reason"
+  },
+  "t033": {
+   "en": "Someone claiming to be family asks for money urgently. Call that person on their old number first.",
+   "hi": "परिवार का सदस्य बनकर कोई तुरंत पैसे माँग रहा है। पहले उस व्यक्ति को उनके पुराने नंबर पर फ़ोन करें।",
+   "where": "fraud.signals(relative_emergency).reason"
+  },
+  "t034": {
+   "en": "It says \"this is my new number\". Scammers use this to pose as people you know.",
+   "hi": "इसमें \"यह मेरा नया नंबर है\" कहा गया है। ठग ऐसा कहकर खुद को आपका कोई जान-पहचान वाला बताते हैं।",
+   "where": "fraud.signals(new_number).reason"
+  },
+  "t035": {
+   "en": "It asks you to upgrade or reactivate your SIM through a call or code. This can let someone take over your number.",
+   "hi": "इसमें कॉल या कोड से SIM बदलने या चालू करने को कहा गया है। इससे कोई आपका नंबर अपने कब्ज़े में ले सकता है।",
+   "where": "fraud.signals(sim_swap).reason"
+  },
+  "t036": {
+   "en": "It offers a refund or cashback if you click, call or approve something.",
+   "hi": "इसमें क्लिक, कॉल या अनुमति देने पर रिफ़ंड या कैशबैक देने की बात है।",
+   "where": "fraud.signals(refund_bait).reason"
+  },
+  "t037": {
+   "en": "It gives a 'customer care' number that is a personal mobile.",
+   "hi": "इसमें 'कस्टमर केयर' के नाम पर एक निजी मोबाइल नंबर दिया गया है।",
+   "where": "fraud.signals(customer_care_bait).reason"
+  },
+  "t038": {
+   "en": "Someone is threatening to share private videos or photos for money. You are not alone. Do not pay; report it.",
+   "hi": "कोई निजी वीडियो या फ़ोटो फैलाने की धमकी देकर पैसे माँग रहा है। आप अकेले नहीं हैं। पैसे न दें, शिकायत करें।",
+   "where": "fraud.signals(sextortion).reason"
+  },
+  "t039": {
+   "en": "It promises a government benefit through a link or app. Government schemes are applied for at the CSC, bank or official portal.",
+   "hi": "इसमें लिंक या ऐप के ज़रिए सरकारी योजना का फ़ायदा देने की बात है। सरकारी योजनाओं के लिए CSC, बैंक या आधिकारिक पोर्टल पर आवेदन होता है।",
+   "where": "fraud.signals(govt_scheme_bait).reason"
+  },
+  "t040": {
+   "en": "It asks you to send money to a phone number, UPI ID or link to get a government scheme or card. Government benefits are never given for money sent this way; Ayushman and e-Shram cards are free.",
+   "hi": "इसमें सरकारी योजना या कार्ड के लिए किसी नंबर, UPI ID या लिंक पर पैसे भेजने को कहा गया है। सरकारी फ़ायदे ऐसे भेजे पैसों से नहीं मिलते; आयुष्मान और ई-श्रम कार्ड मुफ़्त बनते हैं।",
+   "where": "fraud.signals(scheme_fee).reason"
+  },
+  "t041": {
+   "en": "It asks you to pay a traffic challan through a non-government link.",
+   "hi": "इसमें गैर-सरकारी लिंक से ट्रैफ़िक चालान भरने को कहा गया है।",
+   "where": "fraud.signals(challan_link).reason"
+  },
+  "t042": {
+   "en": "It offers an income tax refund through a link or a request for your details.",
+   "hi": "इसमें लिंक के ज़रिए या आपकी जानकारी माँगकर इनकम टैक्स रिफ़ंड देने की बात है।",
+   "where": "fraud.signals(tax_refund_bait).reason"
+  },
+  "t043": {
+   "en": "It closely matches a known scam: {name}.",
+   "hi": "यह एक जानी-पहचानी ठगी से काफ़ी मिलता है: {name_hi}।",
+   "where": "fraud.signals(pattern_match).reason"
+  },
+  "t044": {
+   "en": "Its wording is very similar to scam messages Sahayak has learned from.",
+   "hi": "इसके शब्द उन ठगी वाले मैसेज से बहुत मिलते हैं जिनसे सहायक ने सीखा है।",
+   "where": "fraud.signals(classifier_flag).reason"
+  },
+  "t045": {
+   "en": "No known scam pattern matched, but Sahayak's AI model finds this message unusual. Check before you act.",
+   "hi": "कोई जाना-पहचाना ठगी का पैटर्न नहीं मिला, फिर भी सहायक के AI मॉडल को यह मैसेज असामान्य लगा। कुछ भी करने से पहले जाँच लें।",
+   "where": "fraud.signals(model_flag).reason"
+  },
+  "t046": {
+   "en": "It uses look-alike letters from another alphabet to fake a name.",
+   "hi": "इसमें किसी नाम की नकल के लिए दूसरी लिपि के मिलते-जुलते अक्षर इस्तेमाल किए गए हैं।",
+   "where": "fraud.signals(lookalike_text).reason"
+  },
+  "t047": {
+   "en": "It delivers a one-time code and warns you not to share it, as real bank messages do.",
+   "hi": "यह एक OTP देता है और उसे किसी को न बताने की चेतावनी देता है, जैसे असली बैंक मैसेज करते हैं।",
+   "where": "fraud.signals(genuine_otp_delivery).reason"
+  },
+  "t048": {
+   "en": "It looks like a standard transaction alert with no link and no request.",
+   "hi": "यह बिना लिंक और बिना किसी माँग के एक सामान्य लेन-देन सूचना जैसा है।",
+   "where": "fraud.signals(genuine_txn_alert).reason"
+  },
+  "t049": {
+   "en": "It reads like a safety warning, not a request.",
+   "hi": "यह किसी माँग की जगह सुरक्षा चेतावनी जैसा लगता है।",
+   "where": "fraud.signals(advisory).reason"
+  },
+  "t050": {
+   "en": "Its only link is an official address ({domain}).",
+   "hi": "इसमें सिर्फ़ आधिकारिक वेबसाइट का लिंक ({domain}) है।",
+   "where": "fraud.signals(official_link).reason"
+  },
+  "t051": {
+   "en": "It comes from a registered business sender ({sender}).",
+   "hi": "यह किसी रजिस्टर्ड कंपनी के नाम ({sender}) से आया है।",
+   "where": "fraud.signals(dlt_sender).reason"
+  },
+  "t052": {
+   "en": "The call came from a 1600-series number reserved for banks and financial firms.",
+   "hi": "कॉल 1600 वाले नंबर से आई, जो सिर्फ़ बैंकों और फ़ाइनेंस कंपनियों के लिए है।",
+   "where": "fraud.signals(bank_1600_caller).reason"
+  },
+  "t053": {
+   "en": "It says there is no hurry (\"{phrase}\") and nothing else in it looks like a scam. Scams almost always rush you.",
+   "hi": "इसमें कहा गया है कि कोई जल्दी नहीं है (\"{phrase}\")। इसके अलावा इसमें ठगी का कोई संकेत नहीं है। ठग लगभग हमेशा जल्दबाज़ी कराते हैं।",
+   "where": "fraud.signals(no_pressure).reason"
+  },
+  "t054": {
+   "en": "It says money reached you by mistake and asks you to send it back. Scammers send fake 'money credited' SMS for this.",
+   "hi": "इसमें कहा गया है कि गलती से आपके पास पैसे आ गए और उन्हें वापस भेजने को कहा गया है। ठग इसके लिए नकली 'पैसे जमा' SMS भेजते हैं।",
+   "where": "fraud.signals(wrong_transfer).reason"
+  },
+  "t055": {
+   "en": "It asks for a donation to a personal UPI ID or phone number. Fake medical and relief appeals work this way; check with the hospital or a verified fundraiser before you give.",
+   "hi": "इसमें किसी निजी UPI ID या फ़ोन नंबर पर दान माँगा गया है। इलाज और राहत की नकली अपीलें ऐसे ही चलती हैं; देने से पहले अस्पताल से या किसी जाँची-परखी संस्था से पुष्टि करें।",
+   "where": "fraud.signals(donation_appeal).reason"
+  },
+  "t056": {
+   "en": "It offers a job but asks you to pay money first. Real employers never charge to hire, train, kit out or verify you.",
+   "hi": "इसमें नौकरी के बदले पहले पैसे जमा करने को कहा गया है। असली नौकरी देने वाले भर्ती, ट्रेनिंग, किट या वेरिफ़िकेशन के पैसे नहीं लेते।",
+   "where": "fraud.signals(job_fee).reason"
+  },
+  "t057": {
+   "en": "It asks you to come in person, to a camp, office, shop or interview, or to bring your papers, and asks for no money, code or link.",
+   "hi": "इसमें किसी कैंप, दफ़्तर, दुकान या इंटरव्यू पर खुद आने, या अपने कागज़ात साथ लाने को कहा गया है, और कोई पैसा, कोड या लिंक नहीं माँगा गया।",
+   "where": "fraud.signals(in_person).reason"
+  },
+  "t058": {
+   "en": "You say the caller asked for no money, code or details.",
+   "hi": "आपके अनुसार फ़ोन करने वाले ने कोई पैसा, कोड या जानकारी नहीं माँगी।",
+   "where": "fraud.signals(nothing_asked).reason"
+  },
+  "t059": {
+   "en": "The code goes to the delivery person at your door once the parcel or cylinder is in your hands. That is how delivery codes work. Never read a code out to someone on a phone call.",
+   "hi": "यह कोड दरवाज़े पर डिलीवरी वाले को, सामान हाथ में मिलने के बाद देना है। डिलीवरी कोड ऐसे ही काम करता है। फ़ोन कॉल पर किसी को कभी कोड न बताएं।",
+   "where": "fraud.signals(doorstep_code).reason"
+  },
+  "t060": {
+   "en": "It asks you to dial {code} followed by a number. That code forwards your calls, and your bank's OTP calls, to that number.",
+   "hi": "इसमें {code} के बाद एक नंबर डायल करने को कहा गया है। यह कोड आपकी कॉल, बैंक की OTP कॉल भी, उस नंबर पर भेज देता है।",
+   "where": "fraud.signals(call_forwarding).reason"
+  },
+  "t061": {
+   "en": "It asks for an advance, token or deposit (\"{phrase}\") for something you cannot see first. Fake flat owners, plot sellers and booking agents work this way.",
+   "hi": "इसमें ऐसी चीज़ के लिए एडवांस, टोकन या जमा राशि (\"{phrase}\") माँगी गई है जिसे आप पहले देख नहीं सकते। नकली मकान मालिक, प्लॉट बेचने वाले और बुकिंग एजेंट ऐसे ही ठगते हैं।",
+   "where": "fraud.signals(unseen_advance).reason"
+  },
+  "t062": {
+   "en": "It asks for a fee for a parcel's delivery or address update through a link. Courier companies do not collect fees through an SMS link.",
+   "hi": "इसमें लिंक से पार्सल की डिलीवरी या पता अपडेट के लिए फ़ीस माँगी गई है। कूरियर कंपनियाँ SMS के लिंक से फ़ीस नहीं लेतीं।",
+   "where": "fraud.signals(delivery_fee).reason"
+  },
+  "t063": {
+   "en": "It tells you to join a link written with gaps (\"{phrase}\"). Scammers split links so that filters miss them.",
+   "hi": "इसमें टूटे हुए लिंक को जोड़कर खोलने को कहा गया है (\"{phrase}\")। ठग लिंक को तोड़कर लिखते हैं ताकि फ़िल्टर उसे पकड़ न सकें।",
+   "where": "fraud.signals(link_hiding).reason"
+  },
+  "t064": {
+   "en": "It offers a free government scheme and asks you to click the picture or see the details. Forwarded posts like this hide a fake link in the picture.",
+   "hi": "इसमें मुफ़्त सरकारी योजना बताकर फ़ोटो पर क्लिक करने या विवरण देखने को कहा गया है। ऐसे फॉरवर्ड पोस्ट फ़ोटो में नकली लिंक छिपाते हैं।",
+   "where": "fraud.signals(scheme_click).reason"
+  },
+  "t065": {
+   "en": "OTP, PIN or private-details fraud",
+   "hi": "OTP, PIN या निजी जानकारी की ठगी",
+   "where": "fraud.categories(otp_pin).name"
+  },
+  "t066": {
+   "en": "Do not share any OTP, PIN or card details, not even with someone who says they are from your bank.",
+   "hi": "किसी को भी OTP, PIN या कार्ड की जानकारी न बताएं, चाहे वह खुद को बैंक का बताए।",
+   "where": "fraud.categories(otp_pin).actions #1"
+  },
+  "t067": {
+   "en": "If you already shared them, call your bank on the number printed in your passbook and block your card or account.",
+   "hi": "अगर आपने बता दिया है, तो पासबुक में छपे बैंक नंबर पर फ़ोन करके कार्ड या खाता ब्लॉक कराएं।",
+   "where": "fraud.categories(otp_pin).actions #2"
+  },
+  "t068": {
+   "en": "If money was taken, call 1930 at once: a quick report can stop it.",
+   "hi": "अगर पैसे कट गए हैं, तो तुरंत 1930 पर कॉल करें; जल्दी शिकायत से पैसा रुक सकता है।",
+   "where": "fraud.categories(otp_pin).actions #3"
+  },
+  "t069": {
+   "en": "'Receive money' UPI fraud",
+   "hi": "'पैसे पाने' के नाम पर UPI ठगी",
+   "where": "fraud.categories(upi_receive).name"
+  },
+  "t070": {
+   "en": "Never scan a QR or enter your UPI PIN to receive money.",
+   "hi": "पैसे पाने के लिए कभी QR स्कैन न करें, न ही UPI PIN डालें।",
+   "where": "fraud.categories(upi_receive).actions #1"
+  },
+  "t071": {
+   "en": "Decline the request in your UPI app.",
+   "hi": "अपने UPI ऐप में यह रिक्वेस्ट मना (Decline) करें।",
+   "where": "fraud.categories(upi_receive).actions #2"
+  },
+  "t072": {
+   "en": "If money left your account, call 1930 immediately.",
+   "hi": "अगर खाते से पैसा कट गया है तो तुरंत 1930 पर फ़ोन करें।",
+   "where": "fraud.categories(upi_receive).actions #3"
+  },
+  "t073": {
+   "en": "Fake police or 'digital arrest' fraud",
+   "hi": "नकली पुलिस या 'डिजिटल अरेस्ट' ठगी",
+   "where": "fraud.categories(digital_arrest).name"
+  },
+  "t074": {
+   "en": "Hang up. No police, CBI or court arrests anyone on a video call.",
+   "hi": "फ़ोन काट दें। कोई पुलिस, CBI या अदालत वीडियो कॉल पर गिरफ़्तार नहीं करती।",
+   "where": "fraud.categories(digital_arrest).actions #1"
+  },
+  "t075": {
+   "en": "Do not transfer money to 'verify' or 'clear your name'.",
+   "hi": "'जाँच' या 'नाम साफ़ करने' के लिए कोई पैसा ट्रांसफ़र न करें।",
+   "where": "fraud.categories(digital_arrest).actions #2"
+  },
+  "t076": {
+   "en": "Tell a family member, then call 1930 or your local police station.",
+   "hi": "परिवार को बताएं, फिर 1930 या नज़दीकी थाने पर फ़ोन करें।",
+   "where": "fraud.categories(digital_arrest).actions #3"
+  },
+  "t077": {
+   "en": "Fake app or screen-sharing fraud",
+   "hi": "नकली ऐप या स्क्रीन-शेयर ठगी",
+   "where": "fraud.categories(malicious_app).name"
+  },
+  "t078": {
+   "en": "Do not install apps or .apk files from links, and never install screen-sharing apps at a caller's request.",
+   "hi": "लिंक से कोई ऐप या .apk फ़ाइल इंस्टॉल न करें, और कॉल करने वाले के कहने पर स्क्रीन-शेयर ऐप कभी न डालें।",
+   "where": "fraud.categories(malicious_app).actions #1"
+  },
+  "t079": {
+   "en": "If you installed something, switch off mobile data and Wi-Fi and get help at your bank.",
+   "hi": "अगर कुछ इंस्टॉल कर लिया है, तो मोबाइल डेटा और वाई-फ़ाई बंद करें और बैंक जाकर मदद लें।",
+   "where": "fraud.categories(malicious_app).actions #2"
+  },
+  "t080": {
+   "en": "Call your bank on the passbook number to block your account, then call 1930.",
+   "hi": "पासबुक वाले नंबर पर बैंक को फ़ोन करके खाता ब्लॉक कराएं, फिर 1930 पर फ़ोन करें।",
+   "where": "fraud.categories(malicious_app).actions #3"
+  },
+  "t081": {
+   "en": "KYC or account-block fraud",
+   "hi": "KYC या खाता बंद होने के नाम पर ठगी",
+   "where": "fraud.categories(kyc).name"
+  },
+  "t082": {
+   "en": "Do not click the link or call the number in the message.",
+   "hi": "मैसेज में दिए लिंक पर क्लिक न करें, न ही उस नंबर पर कॉल करें।",
+   "where": "fraud.categories(kyc).actions #1"
+  },
+  "t083": {
+   "en": "To check your KYC, visit your bank branch or use your bank's official app.",
+   "hi": "KYC जाँचने के लिए अपनी बैंक शाखा जाएं या बैंक का आधिकारिक ऐप इस्तेमाल करें।",
+   "where": "fraud.categories(kyc).actions #2"
+  },
+  "t084": {
+   "en": "Keep the message as proof. If you clicked or shared anything, call 1930 at once; if not, report it on Chakshu at sancharsaathi.gov.in.",
+   "hi": "मैसेज सबूत के तौर पर रखें। अगर आपने क्लिक किया या कुछ बताया है, तो तुरंत 1930 पर कॉल करें; नहीं तो sancharsaathi.gov.in पर चक्षु में शिकायत करें।",
+   "where": "fraud.categories(kyc).actions #3"
+  },
+  "t085": {
+   "en": "Blackmail with private photos or videos",
+   "hi": "निजी फ़ोटो या वीडियो से ब्लैकमेल",
+   "where": "fraud.categories(sextortion).name"
+  },
+  "t086": {
+   "en": "Do not pay. Paying usually leads to more demands.",
+   "hi": "पैसे न दें। पैसे देने से अक्सर माँगें और बढ़ जाती हैं।",
+   "where": "fraud.categories(sextortion).actions #1"
+  },
+  "t087": {
+   "en": "Keep the messages as evidence and block the number.",
+   "hi": "मैसेज सबूत के तौर पर रखें और नंबर ब्लॉक करें।",
+   "where": "fraud.categories(sextortion).actions #2"
+  },
+  "t088": {
+   "en": "Report at cybercrime.gov.in or call 1930, and talk to someone you trust.",
+   "hi": "cybercrime.gov.in पर शिकायत करें या 1930 पर फ़ोन करें, और किसी भरोसेमंद व्यक्ति से बात करें।",
+   "where": "fraud.categories(sextortion).actions #3"
+  },
+  "t089": {
+   "en": "Fake parcel or courier fraud",
+   "hi": "नकली पार्सल या कूरियर ठगी",
+   "where": "fraud.categories(courier).name"
+  },
+  "t090": {
+   "en": "Ignore it. Courier companies do not call about 'illegal parcels'.",
+   "hi": "इसे अनदेखा करें। कूरियर कंपनियाँ 'गैरकानूनी पार्सल' के लिए फ़ोन नहीं करतीं।",
+   "where": "fraud.categories(courier).actions #1"
+  },
+  "t091": {
+   "en": "Do not share Aadhaar details or pay any 'clearance' amount.",
+   "hi": "आधार की जानकारी न दें, न ही कोई 'क्लियरेंस' रकम भरें।",
+   "where": "fraud.categories(courier).actions #2"
+  },
+  "t092": {
+   "en": "Report the number on Chakshu at sancharsaathi.gov.in; if you paid anything, call 1930 at once.",
+   "hi": "इस नंबर की शिकायत sancharsaathi.gov.in पर चक्षु में करें; अगर कुछ भी भुगतान किया है, तो तुरंत 1930 पर कॉल करें।",
+   "where": "fraud.categories(courier).actions #3"
+  },
+  "t093": {
+   "en": "Fake electricity disconnection",
+   "hi": "बिजली कटने का नकली मैसेज",
+   "where": "fraud.categories(electricity).name"
+  },
+  "t094": {
+   "en": "Do not call the number in the message.",
+   "hi": "मैसेज में दिए नंबर पर फ़ोन न करें।",
+   "where": "fraud.categories(electricity).actions #1"
+  },
+  "t095": {
+   "en": "Check your bill at the electricity office or on its official app or website.",
+   "hi": "अपना बिल बिजली दफ़्तर या उसके आधिकारिक ऐप या वेबसाइट पर जाँचें।",
+   "where": "fraud.categories(electricity).actions #2"
+  },
+  "t096": {
+   "en": "Report the number on Chakshu at sancharsaathi.gov.in; call 1930 only if you lost money.",
+   "hi": "इस नंबर की शिकायत sancharsaathi.gov.in पर चक्षु में करें; पैसे गए हों, तभी 1930 पर कॉल करें।",
+   "where": "fraud.categories(electricity).actions #3"
+  },
+  "t097": {
+   "en": "Prize or lottery fraud",
+   "hi": "इनाम या लॉटरी की ठगी",
+   "where": "fraud.categories(prize).name"
+  },
+  "t098": {
+   "en": "You cannot win a lottery you never entered. Ignore it.",
+   "hi": "जिस लॉटरी में आपने हिस्सा ही नहीं लिया, उसमें आप जीत नहीं सकते। इसे अनदेखा करें।",
+   "where": "fraud.categories(prize).actions #1"
+  },
+  "t099": {
+   "en": "Never pay any 'tax' or 'fee' to claim a prize.",
+   "hi": "इनाम पाने के लिए कभी कोई 'टैक्स' या 'फ़ीस' न भरें।",
+   "where": "fraud.categories(prize).actions #2"
+  },
+  "t100": {
+   "en": "Block the sender and report it on Chakshu at sancharsaathi.gov.in.",
+   "hi": "भेजने वाले को ब्लॉक करें और sancharsaathi.gov.in पर चक्षु में शिकायत करें।",
+   "where": "fraud.categories(prize).actions #3"
+  },
+  "t101": {
+   "en": "Job or task fraud",
+   "hi": "नौकरी या टास्क के नाम पर ठगी",
+   "where": "fraud.categories(job_task).name"
+  },
+  "t102": {
+   "en": "Real jobs never ask you to pay to start or to 'unlock' your earnings.",
+   "hi": "असली नौकरी में काम शुरू करने या अपनी कमाई निकालने के लिए कभी पैसे नहीं माँगे जाते।",
+   "where": "fraud.categories(job_task).actions #1"
+  },
+  "t103": {
+   "en": "Leave the Telegram or WhatsApp group.",
+   "hi": "Telegram या WhatsApp ग्रुप छोड़ दें।",
+   "where": "fraud.categories(job_task).actions #2"
+  },
+  "t104": {
+   "en": "If you paid, report on 1930 with the payment details.",
+   "hi": "अगर पैसे दिए हैं, तो भुगतान की जानकारी के साथ 1930 पर शिकायत करें।",
+   "where": "fraud.categories(job_task).actions #3"
+  },
+  "t105": {
+   "en": "Fake investment or trading tips",
+   "hi": "नकली निवेश या ट्रेडिंग टिप्स",
+   "where": "fraud.categories(investment).name"
+  },
+  "t106": {
+   "en": "No one can guarantee returns. Do not invest through a group or tips.",
+   "hi": "कोई भी मुनाफ़े की गारंटी नहीं दे सकता। ग्रुप या टिप्स के भरोसे निवेश न करें।",
+   "where": "fraud.categories(investment).actions #1"
+  },
+  "t107": {
+   "en": "Invest only through a SEBI-registered broker you can check.",
+   "hi": "सिर्फ़ SEBI में रजिस्टर्ड ब्रोकर के ज़रिए निवेश करें, जिसकी जाँच आप कर सकें।",
+   "where": "fraud.categories(investment).actions #2"
+  },
+  "t108": {
+   "en": "Report on 1930 if you already paid.",
+   "hi": "अगर पैसे दे दिए हैं तो 1930 पर शिकायत करें।",
+   "where": "fraud.categories(investment).actions #3"
+  },
+  "t109": {
+   "en": "Loan app or advance-fee fraud",
+   "hi": "लोन ऐप या पहले फ़ीस माँगने वाली ठगी",
+   "where": "fraud.categories(loan_fee).name"
+  },
+  "t110": {
+   "en": "Never pay a fee before getting a loan or any money.",
+   "hi": "लोन या कोई भी पैसा मिलने से पहले कभी फ़ीस न भरें।",
+   "where": "fraud.categories(loan_fee).actions #1"
+  },
+  "t111": {
+   "en": "Take loans only from a bank or an RBI-registered lender.",
+   "hi": "लोन सिर्फ़ बैंक या RBI में रजिस्टर्ड संस्था से ही लें।",
+   "where": "fraud.categories(loan_fee).actions #2"
+  },
+  "t112": {
+   "en": "Do not give loan apps access to your contacts or photos.",
+   "hi": "लोन ऐप को अपने कॉन्टैक्ट्स या फ़ोटो की अनुमति न दें।",
+   "where": "fraud.categories(loan_fee).actions #3"
+  },
+  "t113": {
+   "en": "Fake family member or SIM-swap fraud",
+   "hi": "नकली रिश्तेदार या SIM बदलने की ठगी",
+   "where": "fraud.categories(impersonation).name"
+  },
+  "t114": {
+   "en": "Call the person on the number you already have before sending anything.",
+   "hi": "कुछ भी भेजने से पहले उस व्यक्ति को उनके पुराने नंबर पर फ़ोन करें।",
+   "where": "fraud.categories(impersonation).actions #1"
+  },
+  "t115": {
+   "en": "Do not upgrade or reactivate your SIM through calls or codes; visit your operator's store.",
+   "hi": "कॉल या कोड से SIM बदलने या चालू करने का काम न करें; अपनी SIM कंपनी के स्टोर पर जाएं।",
+   "where": "fraud.categories(impersonation).actions #2"
+  },
+  "t116": {
+   "en": "Report on 1930 if you sent money.",
+   "hi": "अगर पैसे भेज दिए हैं तो 1930 पर शिकायत करें।",
+   "where": "fraud.categories(impersonation).actions #3"
+  },
+  "t117": {
+   "en": "Fake customer care or refund fraud",
+   "hi": "नकली कस्टमर केयर या रिफ़ंड ठगी",
+   "where": "fraud.categories(customer_care).name"
+  },
+  "t118": {
+   "en": "Get customer care numbers only from the official app or website.",
+   "hi": "कस्टमर केयर नंबर सिर्फ़ आधिकारिक ऐप या वेबसाइट से लें।",
+   "where": "fraud.categories(customer_care).actions #1"
+  },
+  "t119": {
+   "en": "Do not install any app they ask for.",
+   "hi": "उनके कहने पर कोई ऐप इंस्टॉल न करें।",
+   "where": "fraud.categories(customer_care).actions #2"
+  },
+  "t120": {
+   "en": "Do not share an OTP to 'process a refund'.",
+   "hi": "'रिफ़ंड' के नाम पर OTP न बताएं।",
+   "where": "fraud.categories(customer_care).actions #3"
+  },
+  "t121": {
+   "en": "Fake government scheme",
+   "hi": "नकली सरकारी योजना",
+   "where": "fraud.categories(govt_scheme).name"
+  },
+  "t122": {
+   "en": "Government schemes never ask you to install an app from a link, or to send money to a phone number.",
+   "hi": "सरकारी योजनाएँ लिंक से ऐप डालने या किसी नंबर पर पैसे भेजने को नहीं कहतीं।",
+   "where": "fraud.categories(govt_scheme).actions #1"
+  },
+  "t123": {
+   "en": "Apply only at the CSC, your bank, or the official portal.",
+   "hi": "आवेदन सिर्फ़ CSC, अपने बैंक या आधिकारिक पोर्टल पर करें।",
+   "where": "fraud.categories(govt_scheme).actions #2"
+  },
+  "t124": {
+   "en": "Use Sahayak's 'What am I owed?' to check schemes safely.",
+   "hi": "योजनाओं की सुरक्षित जानकारी के लिए सहायक में 'मेरा हक क्या है?' देखें।",
+   "where": "fraud.categories(govt_scheme).actions #3"
+  },
+  "t125": {
+   "en": "Fake challan or tax refund",
+   "hi": "नकली चालान या टैक्स रिफ़ंड",
+   "where": "fraud.categories(govt_payment).name"
+  },
+  "t126": {
+   "en": "Pay challans or check tax refunds only on official .gov.in websites.",
+   "hi": "चालान भरना या टैक्स रिफ़ंड देखना सिर्फ़ आधिकारिक .gov.in वेबसाइट पर करें।",
+   "where": "fraud.categories(govt_payment).actions #1"
+  },
+  "t127": {
+   "en": "Do not click the link in the message.",
+   "hi": "मैसेज में दिए लिंक पर क्लिक न करें।",
+   "where": "fraud.categories(govt_payment).actions #2"
+  },
+  "t128": {
+   "en": "Report the message on 1930 if you paid.",
+   "hi": "अगर भुगतान कर दिया है तो 1930 पर शिकायत करें।",
+   "where": "fraud.categories(govt_payment).actions #3"
+  },
+  "t129": {
+   "en": "Suspicious message",
+   "hi": "संदिग्ध मैसेज",
+   "where": "fraud.categories(generic).name"
+  },
+  "t130": {
+   "en": "Do not click links, call numbers or pay anything from this message.",
+   "hi": "इस मैसेज के लिंक पर क्लिक न करें, नंबर पर फ़ोन न करें और कोई भुगतान न करें।",
+   "where": "fraud.categories(generic).actions #1"
+  },
+  "t131": {
+   "en": "Check with your bank agent or CSC operator before acting.",
+   "hi": "कुछ भी करने से पहले अपने बैंक मित्र या CSC संचालक से पूछें।",
+   "where": "fraud.categories(generic).actions #2"
+  },
+  "t132": {
+   "en": "If you lost money, call 1930 immediately.",
+   "hi": "अगर पैसे गए हैं तो तुरंत 1930 पर फ़ोन करें।",
+   "where": "fraud.categories(generic).actions #3"
+  },
+  "t133": {
+   "en": "Fake 'sent by mistake' money",
+   "hi": "'गलती से भेजे पैसे' वाली ठगी",
+   "where": "fraud.categories(wrong_credit).name"
+  },
+  "t134": {
+   "en": "Check your balance in your bank's official app or passbook. A 'money credited' SMS can be fake.",
+   "hi": "अपना बैलेंस बैंक के आधिकारिक ऐप या पासबुक में देखें। 'पैसे जमा हुए' वाला SMS नकली हो सकता है।",
+   "where": "fraud.categories(wrong_credit).actions #1"
+  },
+  "t135": {
+   "en": "Do not send money back yourself. If money really came by mistake, the sender should ask their own bank to reverse it.",
+   "hi": "खुद पैसे वापस न भेजें। अगर सच में गलती से पैसे आए हैं, तो भेजने वाला अपने बैंक से वापस करवाए।",
+   "where": "fraud.categories(wrong_credit).actions #2"
+  },
+  "t136": {
+   "en": "If you already sent money, call 1930 at once.",
+   "hi": "अगर पैसे भेज दिए हैं, तो तुरंत 1930 पर कॉल करें।",
+   "where": "fraud.categories(wrong_credit).actions #3"
+  },
+  "t137": {
+   "en": "Fake donation or charity appeal",
+   "hi": "दान या चंदे की नकली अपील",
+   "where": "fraud.categories(charity).name"
+  },
+  "t138": {
+   "en": "Do not send money to a UPI ID or phone number given in a forwarded appeal.",
+   "hi": "फॉरवर्ड की गई अपील में दिए UPI ID या फ़ोन नंबर पर पैसे न भेजें।",
+   "where": "fraud.categories(charity).actions #1"
+  },
+  "t139": {
+   "en": "To help a patient, give through the hospital's own account or a verified fundraising page you can check.",
+   "hi": "किसी मरीज़ की मदद करनी हो तो अस्पताल के अपने खाते में पैसे दें, या किसी ऐसे चंदा जुटाने वाले पेज के ज़रिए दें जिसकी आप जाँच कर सकें।",
+   "where": "fraud.categories(charity).actions #2"
+  },
+  "t140": {
+   "en": "If you already paid, call 1930; if not, report it on Chakshu at sancharsaathi.gov.in.",
+   "hi": "अगर पैसे भेज दिए हैं तो 1930 पर कॉल करें; नहीं तो sancharsaathi.gov.in पर चक्षु में शिकायत करें।",
+   "where": "fraud.categories(charity).actions #3"
+  },
+  "t141": {
+   "en": "Call-forwarding code fraud",
+   "hi": "कॉल फ़ॉरवर्डिंग कोड वाली ठगी",
+   "where": "fraud.categories(call_forward).name"
+  },
+  "t142": {
+   "en": "Do not dial a code that starts with * or ** and has a number someone gave you. It sends your calls, and your bank's OTP calls, to them.",
+   "hi": "* या ** से शुरू होने वाला ऐसा कोई कोड डायल न करें जिसमें किसी का दिया नंबर हो। इससे आपकी कॉल, बैंक की OTP कॉल भी, उनके पास चली जाती हैं।",
+   "where": "fraud.categories(call_forward).actions #1"
+  },
+  "t143": {
+   "en": "If you dialled one, dial ##002# now to cancel all call forwarding (or switch forwarding off in the phone's call settings), then call your bank.",
+   "hi": "अगर डायल कर दिया है, तो अभी ##002# डायल करें, इससे सारी कॉल फ़ॉरवर्डिंग बंद हो जाती है (या फ़ोन की कॉल सेटिंग में फ़ॉरवर्डिंग बंद करें)। फिर अपने बैंक को फ़ोन करें।",
+   "where": "fraud.categories(call_forward).actions #2"
+  },
+  "t144": {
+   "en": "Report the number on Chakshu at sancharsaathi.gov.in; if money left your account, call 1930 at once.",
+   "hi": "इस नंबर की शिकायत sancharsaathi.gov.in पर चक्षु में करें; अगर खाते से पैसे गए हैं, तो तुरंत 1930 पर कॉल करें।",
+   "where": "fraud.categories(call_forward).actions #3"
+  },
+  "t145": {
+   "en": "Advance for a deal you cannot see",
+   "hi": "बिना देखे सौदे के लिए एडवांस",
+   "where": "fraud.categories(deal_advance).name"
+  },
+  "t146": {
+   "en": "Do not pay an advance, token or deposit before you have seen the flat or plot yourself and met the owner.",
+   "hi": "मकान या प्लॉट खुद देखे और मालिक से मिले बिना कोई एडवांस, टोकन या जमा राशि न दें।",
+   "where": "fraud.categories(deal_advance).actions #1"
+  },
+  "t147": {
+   "en": "Book pilgrimage helicopters, hotels and tickets only on the official website, not through an agent on WhatsApp or Facebook.",
+   "hi": "तीर्थ यात्रा का हेलीकॉप्टर, होटल और टिकट सिर्फ़ आधिकारिक वेबसाइट पर बुक करें, WhatsApp या Facebook के एजेंट से नहीं।",
+   "where": "fraud.categories(deal_advance).actions #2"
+  },
+  "t148": {
+   "en": "If you paid, call 1930 at once; report the number on Chakshu at sancharsaathi.gov.in.",
+   "hi": "अगर पैसे दे दिए हैं, तो तुरंत 1930 पर कॉल करें; नंबर की शिकायत sancharsaathi.gov.in पर चक्षु में करें।",
+   "where": "fraud.categories(deal_advance).actions #3"
+  },
+  "t149": {
+   "en": "Scam",
+   "hi": "ठगी",
+   "where": "fraud.verdicts.scam.label"
+  },
+  "t150": {
+   "en": "This is a scam: {category}.",
+   "hi": "यह ठगी है: {category}।",
+   "where": "fraud.verdicts.scam.headline"
+  },
+  "t151": {
+   "en": "Suspicious",
+   "hi": "संदिग्ध",
+   "where": "fraud.verdicts.suspicious.label"
+  },
+  "t152": {
+   "en": "This looks suspicious. Be careful.",
+   "hi": "यह संदिग्ध लगता है। सावधान रहें।",
+   "where": "fraud.verdicts.suspicious.headline"
+  },
+  "t153": {
+   "en": "No scam signs",
+   "hi": "ठगी के संकेत नहीं",
+   "where": "fraud.verdicts.no_signs.label"
+  },
+  "t154": {
+   "en": "No scam signs found. Still verify in your bank's official app.",
+   "hi": "ठगी के संकेत नहीं मिले। फिर भी बैंक के आधिकारिक ऐप से जाँच लें।",
+   "where": "fraud.verdicts.no_signs.headline"
+  },
+  "t155": {
+   "en": "Could not check",
+   "hi": "जाँच नहीं हो सकी",
+   "where": "fraud.verdicts.unreadable.label"
+  },
+  "t156": {
+   "en": "Sahayak cannot read {language} yet, so it cannot tell whether this message is genuine or a scam.",
+   "hi": "सहायक अभी {language} नहीं पढ़ सकता, इसलिए यह नहीं बता सकता कि यह मैसेज असली है या ठगी।",
+   "where": "fraud.verdicts.unreadable.headline"
+  },
+  "t157": {
+   "en": "We found no links, no requests for money or codes, and no pressure tactics.",
+   "hi": "हमें इसमें कोई लिंक, पैसे या कोड की माँग, या दबाव डालने की चाल नहीं मिली।",
+   "where": "fraud.no_signs.default_reason"
+  },
+  "t158": {
+   "en": "We found no scam signs, but stay careful.",
+   "hi": "हमें ठगी के संकेत नहीं मिले, फिर भी सावधान रहें।",
+   "where": "fraud.no_signs.actions #1"
+  },
+  "t159": {
+   "en": "Check any money matter in your bank's official app or passbook.",
+   "hi": "पैसों से जुड़ी किसी भी बात की जाँच बैंक के आधिकारिक ऐप या पासबुक से करें।",
+   "where": "fraud.no_signs.actions #2"
+  },
+  "t160": {
+   "en": "Never share an OTP or PIN, even if a message looks real.",
+   "hi": "मैसेज असली लगे तब भी OTP या PIN कभी न बताएं।",
+   "where": "fraud.no_signs.actions #3"
+  },
+  "t161": {
+   "en": "Sahayak reads Hindi and English only, so finding nothing in this message would mean nothing.",
+   "hi": "सहायक अभी सिर्फ़ हिंदी और अंग्रेज़ी पढ़ता है, इसलिए इस मैसेज में कुछ न मिलने का कोई मतलब नहीं।",
+   "where": "fraud.unreadable.reason"
+  },
+  "t162": {
+   "en": "Do not tell anyone an OTP, PIN or card number, and do not pay anything, because of this message.",
+   "hi": "इस मैसेज के कहने पर किसी को OTP, PIN या कार्ड नंबर न बताएं, और कोई पैसा न भेजें।",
+   "where": "fraud.unreadable.actions #1"
+  },
+  "t163": {
+   "en": "Before you act, ask someone you trust who reads this language, or the operator at this counter.",
+   "hi": "कुछ करने से पहले किसी भरोसेमंद व्यक्ति से पूछें जो यह भाषा पढ़ सके, या इस काउंटर के ऑपरेटर से।",
+   "where": "fraud.unreadable.actions #2"
+  },
+  "t164": {
+   "en": "To check a bank message, call the number printed on your passbook or card.",
+   "hi": "बैंक के मैसेज की जाँच के लिए पासबुक या कार्ड पर छपे नंबर पर कॉल करें।",
+   "where": "fraud.unreadable.actions #3"
+  },
+  "t165": {
+   "en": "Bengali or Assamese",
+   "hi": "बांग्ला या असमिया",
+   "where": "fraud.unreadable.scripts(bn)"
+  },
+  "t166": {
+   "en": "Punjabi (Gurmukhi)",
+   "hi": "पंजाबी (गुरमुखी)",
+   "where": "fraud.unreadable.scripts(pa)"
+  },
+  "t167": {
+   "en": "Gujarati",
+   "hi": "गुजराती",
+   "where": "fraud.unreadable.scripts(gu)"
+  },
+  "t168": {
+   "en": "Odia",
+   "hi": "ओड़िया",
+   "where": "fraud.unreadable.scripts(or)"
+  },
+  "t169": {
+   "en": "Tamil",
+   "hi": "तमिल",
+   "where": "fraud.unreadable.scripts(ta)"
+  },
+  "t170": {
+   "en": "Telugu",
+   "hi": "तेलुगु",
+   "where": "fraud.unreadable.scripts(te)"
+  },
+  "t171": {
+   "en": "Kannada",
+   "hi": "कन्नड़",
+   "where": "fraud.unreadable.scripts(kn)"
+  },
+  "t172": {
+   "en": "Malayalam",
+   "hi": "मलयालम",
+   "where": "fraud.unreadable.scripts(ml)"
+  },
+  "t173": {
+   "en": "Urdu",
+   "hi": "उर्दू",
+   "where": "fraud.unreadable.scripts(ur)"
+  },
+  "t174": {
+   "en": "Santali (Ol Chiki)",
+   "hi": "संथाली (ओल चिकी)",
+   "where": "fraud.unreadable.scripts(sat)"
+  },
+  "t175": {
+   "en": "Manipuri (Meetei Mayek)",
+   "hi": "मणिपुरी (मीतेई मयेक)",
+   "where": "fraud.unreadable.scripts(mni)"
+  },
+  "t176": {
+   "en": "Marathi",
+   "hi": "मराठी",
+   "where": "fraud.unreadable.scripts(mr)"
+  },
+  "t177": {
+   "en": "Cyber-crime helpline",
+   "hi": "साइबर अपराध हेल्पलाइन",
+   "where": "fraud.helplines.label"
+  },
+  "t178": {
+   "en": "Report online",
+   "hi": "ऑनलाइन शिकायत",
+   "where": "fraud.helplines.label"
+  },
+  "t179": {
+   "en": "Report a fraud call or SMS (Chakshu)",
+   "hi": "ठगी की कॉल या SMS की शिकायत (चक्षु)",
+   "where": "fraud.helplines.label"
+  },
+  "t180": {
+   "en": "Amounts are the central government's share. Your state may add more.",
+   "hi": "रकम केंद्र सरकार का हिस्सा है। आपका राज्य इसमें और जोड़ सकता है।",
+   "where": "schemes.amount_note"
+  },
+  "t181": {
+   "en": "If anyone calls, texts or sends a link in a scheme's name and asks for an OTP or money, it is a scam. Tell an Aadhaar OTP only face to face at the counter, while your card is being made in front of you. Do not pay agents for government forms. If you lose money, call 1930.",
+   "hi": "योजना के नाम पर कोई फ़ोन, मैसेज या लिंक से OTP या पैसे माँगे, तो वह ठगी है। आधार का OTP सिर्फ़ काउंटर पर आमने-सामने बताएं, जब आपका कार्ड आपके सामने बन रहा हो। सरकारी फ़ॉर्म के लिए दलाल को पैसे न दें। पैसे गए हों, तो 1930 पर कॉल करें।",
+   "where": "schemes.fraud_note"
+  },
+  "t182": {
+   "en": "This is guidance, not a decision. The office decides.",
+   "hi": "यह सलाह है, फ़ैसला नहीं। आख़िरी फ़ैसला दफ़्तर करेगा।",
+   "where": "schemes.decision_note"
+  },
+  "t183": {
+   "en": "Open a bank account first (a zero-balance Jan Dhan account). Then you can join this.",
+   "hi": "पहले बैंक खाता खुलवाएँ (जन धन खाता, ज़ीरो बैलेंस)। फिर आप इससे जुड़ सकते हैं।",
+   "where": "schemes.actionable.bank.hint"
+  },
+  "t184": {
+   "en": "I am {n} years old.",
+   "hi": "मेरी उम्र {n} साल है।",
+   "where": "schemes.age_phrase.exact"
+  },
+  "t185": {
+   "en": "Age",
+   "hi": "उम्र",
+   "where": "schemes.questions.short"
+  },
+  "t186": {
+   "en": "How old are you?",
+   "hi": "आपकी उम्र कितनी है?",
+   "where": "schemes.questions.text"
+  },
+  "t187": {
+   "en": "In completed years. Not sure? Pick a range below.",
+   "hi": "जितने साल पूरे हो चुके हैं, वही बताएँ। ठीक उम्र नहीं पता, तो नीचे से चुनें।",
+   "where": "schemes.questions.help"
+  },
+  "t188": {
+   "en": "Under 18",
+   "hi": "18 से कम",
+   "where": "schemes.questions.bands.label"
+  },
+  "t189": {
+   "en": "I am under 18.",
+   "hi": "मेरी उम्र 18 साल से कम है।",
+   "where": "schemes.questions.bands.phrase"
+  },
+  "t190": {
+   "en": "18–40",
+   "hi": "18–40",
+   "where": "schemes.questions.bands.label"
+  },
+  "t191": {
+   "en": "I am between 18 and 40.",
+   "hi": "मेरी उम्र 18 से 40 साल के बीच है।",
+   "where": "schemes.questions.bands.phrase"
+  },
+  "t192": {
+   "en": "41–50",
+   "hi": "41–50",
+   "where": "schemes.questions.bands.label"
+  },
+  "t193": {
+   "en": "I am between 41 and 50.",
+   "hi": "मेरी उम्र 41 से 50 साल के बीच है।",
+   "where": "schemes.questions.bands.phrase"
+  },
+  "t194": {
+   "en": "51–59",
+   "hi": "51–59",
+   "where": "schemes.questions.bands.label"
+  },
+  "t195": {
+   "en": "I am between 51 and 59.",
+   "hi": "मेरी उम्र 51 से 59 साल के बीच है।",
+   "where": "schemes.questions.bands.phrase"
+  },
+  "t196": {
+   "en": "60–69",
+   "hi": "60–69",
+   "where": "schemes.questions.bands.label"
+  },
+  "t197": {
+   "en": "I am between 60 and 69.",
+   "hi": "मेरी उम्र 60 से 69 साल के बीच है।",
+   "where": "schemes.questions.bands.phrase"
+  },
+  "t198": {
+   "en": "70–79",
+   "hi": "70–79",
+   "where": "schemes.questions.bands.label"
+  },
+  "t199": {
+   "en": "I am between 70 and 79.",
+   "hi": "मेरी उम्र 70 से 79 साल के बीच है।",
+   "where": "schemes.questions.bands.phrase"
+  },
+  "t200": {
+   "en": "80 or more",
+   "hi": "80 या ज़्यादा",
+   "where": "schemes.questions.bands.label"
+  },
+  "t201": {
+   "en": "I am 80 or older.",
+   "hi": "मेरी उम्र 80 साल या ज़्यादा है।",
+   "where": "schemes.questions.bands.phrase"
+  },
+  "t202": {
+   "en": "Situation",
+   "hi": "हालात",
+   "where": "schemes.questions.short"
+  },
+  "t203": {
+   "en": "Do any of these apply to you?",
+   "hi": "क्या इनमें से कुछ आप पर लागू होता है?",
+   "where": "schemes.questions.text"
+  },
+  "t204": {
+   "en": "Pick all that apply.",
+   "hi": "जितने लागू हों, सब चुनें।",
+   "where": "schemes.questions.help"
+  },
+  "t205": {
+   "en": "I am a widow (my husband has died)",
+   "hi": "मैं विधवा हूँ (पति का देहांत हो चुका है)",
+   "where": "schemes.questions.options.label"
+  },
+  "t206": {
+   "en": "I have a disability certificate of 80% or more",
+   "hi": "मेरे पास 80% या ज़्यादा विकलांगता का प्रमाण-पत्र है",
+   "where": "schemes.questions.options.label"
+  },
+  "t207": {
+   "en": "My family's main earner has died (aged 18–59 at the time)",
+   "hi": "परिवार के मुख्य कमाने वाले की मृत्यु हुई है (तब उम्र 18–59 थी)",
+   "where": "schemes.questions.options.label"
+  },
+  "t208": {
+   "en": "None of these",
+   "hi": "इनमें से कोई नहीं",
+   "where": "schemes.questions.none"
+  },
+  "t209": {
+   "en": "Ration card",
+   "hi": "राशन कार्ड",
+   "where": "schemes.questions.short"
+  },
+  "t210": {
+   "en": "Which ration card does your family have?",
+   "hi": "आपके परिवार का राशन कार्ड कौन-सा है?",
+   "where": "schemes.questions.text"
+  },
+  "t211": {
+   "en": "This tells us whether the family is below the poverty line (BPL).",
+   "hi": "इससे पता चलता है कि परिवार गरीबी रेखा (BPL) से नीचे है या नहीं।",
+   "where": "schemes.questions.help"
+  },
+  "t212": {
+   "en": "Antyodaya (AAY)",
+   "hi": "अंत्योदय (AAY)",
+   "where": "schemes.questions.options.label"
+  },
+  "t213": {
+   "en": "BPL or priority household (PHH)",
+   "hi": "BPL, प्राथमिकता या पात्र गृहस्थी (PHH)",
+   "where": "schemes.questions.options.label"
+  },
+  "t214": {
+   "en": "APL or general",
+   "hi": "APL या सामान्य",
+   "where": "schemes.questions.options.label"
+  },
+  "t215": {
+   "en": "No ration card",
+   "hi": "कोई राशन कार्ड नहीं",
+   "where": "schemes.questions.options.label"
+  },
+  "t216": {
+   "en": "Don't know",
+   "hi": "पता नहीं",
+   "where": "schemes.questions.options.label"
+  },
+  "t217": {
+   "en": "Savings account",
+   "hi": "बचत खाता",
+   "where": "schemes.questions.short"
+  },
+  "t218": {
+   "en": "Do you have a savings account in a bank or post office?",
+   "hi": "क्या आपका बैंक या डाकघर में बचत खाता है?",
+   "where": "schemes.questions.text"
+  },
+  "t219": {
+   "en": "A Jan Dhan account counts.",
+   "hi": "जन धन खाता भी गिना जाता है।",
+   "where": "schemes.questions.help"
+  },
+  "t220": {
+   "en": "Yes",
+   "hi": "हाँ",
+   "where": "schemes.questions.options.label"
+  },
+  "t221": {
+   "en": "No",
+   "hi": "नहीं",
+   "where": "schemes.questions.options.label"
+  },
+  "t222": {
+   "en": "Work",
+   "hi": "काम",
+   "where": "schemes.questions.short"
+  },
+  "t223": {
+   "en": "What is your main work?",
+   "hi": "आपका मुख्य काम क्या है?",
+   "where": "schemes.questions.text"
+  },
+  "t224": {
+   "en": "Pick the work you do most.",
+   "hi": "जो काम ज़्यादातर करते हैं, वह चुनें।",
+   "where": "schemes.questions.help"
+  },
+  "t225": {
+   "en": "Farmer — the family owns farm land",
+   "hi": "किसान — परिवार के नाम खेती की ज़मीन है",
+   "where": "schemes.questions.options.label"
+  },
+  "t226": {
+   "en": "Farm labourer or landless farmer",
+   "hi": "खेत मज़दूर या बिना ज़मीन का किसान",
+   "where": "schemes.questions.options.label"
+  },
+  "t227": {
+   "en": "Daily wage, construction, domestic work, street vending, home-based work, small shop, driver or delivery",
+   "hi": "दिहाड़ी, निर्माण, दूसरों के घरों में काम, रेहड़ी-पटरी, घर बैठे कमाई का काम, छोटी दुकान, ड्राइवर या डिलीवरी",
+   "where": "schemes.questions.options.label"
+  },
+  "t228": {
+   "en": "A job with PF or ESIC",
+   "hi": "नौकरी, जिसमें PF या ESIC कटता है",
+   "where": "schemes.questions.options.label"
+  },
+  "t229": {
+   "en": "Government job or government pension",
+   "hi": "सरकारी नौकरी या सरकारी पेंशन",
+   "where": "schemes.questions.options.label"
+  },
+  "t230": {
+   "en": "Not working now (homemaker, student, retired)",
+   "hi": "अभी काम नहीं (गृहिणी, छात्र, रिटायर)",
+   "where": "schemes.questions.options.label"
+  },
+  "t231": {
+   "en": "Tax and income",
+   "hi": "टैक्स और कमाई",
+   "where": "schemes.questions.short"
+  },
+  "t232": {
+   "en": "Do you pay income tax, and how much do you earn a month?",
+   "hi": "क्या आप इनकम टैक्स भरते हैं, और महीने में कितना कमाते हैं?",
+   "where": "schemes.questions.text"
+  },
+  "t233": {
+   "en": "If you have ever paid income tax, pick the first answer.",
+   "hi": "पहले कभी इनकम टैक्स भरा हो, तो पहला जवाब चुनें।",
+   "where": "schemes.questions.help"
+  },
+  "t234": {
+   "en": "I pay or have paid income tax",
+   "hi": "इनकम टैक्स भरा है (अब या पहले कभी)",
+   "where": "schemes.questions.options.label"
+  },
+  "t235": {
+   "en": "No tax — I earn ₹15,000 a month or less",
+   "hi": "टैक्स नहीं — कमाई ₹15,000 महीना या कम",
+   "where": "schemes.questions.options.label"
+  },
+  "t236": {
+   "en": "No tax — I earn more than ₹15,000 a month",
+   "hi": "टैक्स नहीं — कमाई ₹15,000 महीने से ज़्यादा",
+   "where": "schemes.questions.options.label"
+  },
+  "t237": {
+   "en": "PM-KISAN exclusion",
+   "hi": "PM-KISAN रोक",
+   "where": "schemes.questions.short"
+  },
+  "t238": {
+   "en": "Does anyone in your family (husband, wife or children under 18) fit any of these?",
+   "hi": "क्या आपके परिवार (पति, पत्नी या 18 साल से कम उम्र के बच्चे) में किसी पर नीचे दी गई कोई बात लागू होती है?",
+   "where": "schemes.questions.text"
+  },
+  "t239": {
+   "en": "Paid income tax last year · Government job, now or retired (except multi-tasking / Group D staff) · Government pension of ₹10,000 a month or more · Practising doctor, engineer, lawyer, CA or architect · Minister, MP, MLA, mayor or district panchayat chair (now or before)",
+   "hi": "पिछले साल इनकम टैक्स भरा · सरकारी नौकरी, अभी या रिटायर (मल्टी-टास्किंग / ग्रुप D को छोड़कर) · ₹10,000 महीना या ज़्यादा की सरकारी पेंशन · डॉक्टर, इंजीनियर, वकील, CA या आर्किटेक्ट की प्रैक्टिस · मंत्री, सांसद, विधायक, मेयर या ज़िला पंचायत अध्यक्ष (अभी या पहले)",
+   "where": "schemes.questions.help"
+  },
+  "t240": {
+   "en": "Yes, someone does",
+   "hi": "हाँ, कोई है",
+   "where": "schemes.questions.options.label"
+  },
+  "t241": {
+   "en": "No, nobody",
+   "hi": "नहीं, कोई नहीं",
+   "where": "schemes.questions.options.label"
+  },
+  "t242": {
+   "en": "Old-age pension (IGNOAPS)",
+   "hi": "वृद्धावस्था पेंशन (IGNOAPS)",
+   "where": "schemes.schemes.name"
+  },
+  "t243": {
+   "en": "A monthly pension for people aged 60 or more from below-poverty-line (BPL) families.",
+   "hi": "गरीब (BPL) परिवारों के 60 साल या ज़्यादा उम्र के लोगों को हर महीने पेंशन।",
+   "where": "schemes.schemes.what"
+  },
+  "t244": {
+   "en": "Age 60 or more",
+   "hi": "उम्र 60 साल या ज़्यादा",
+   "where": "schemes.schemes.rule.all.say"
+  },
+  "t245": {
+   "en": "Family below the poverty line (BPL)",
+   "hi": "परिवार गरीबी रेखा से नीचे (BPL)",
+   "where": "schemes.schemes.rule.all.say"
+  },
+  "t246": {
+   "en": "₹200 a month from 60 to 79; ₹500 a month from 80.",
+   "hi": "60 से 79 साल तक ₹200 हर महीने, 80 साल से ₹500 हर महीने।",
+   "where": "schemes.schemes.benefit"
+  },
+  "t247": {
+   "en": "₹200 a month from the centre; your state may add more",
+   "hi": "केंद्र सरकार से ₹200 हर महीने; आपका राज्य इसमें और जोड़ सकता है",
+   "where": "schemes.schemes.benefit_now"
+  },
+  "t248": {
+   "en": "₹500 a month from the centre; your state may add more",
+   "hi": "केंद्र सरकार से ₹500 हर महीने; आपका राज्य इसमें और जोड़ सकता है",
+   "where": "schemes.schemes.benefit_now"
+  },
+  "t249": {
+   "en": "Aadhaar card",
+   "hi": "आधार कार्ड",
+   "where": "schemes.schemes.documents"
+  },
+  "t250": {
+   "en": "Age proof (birth certificate, school certificate or voter ID)",
+   "hi": "उम्र का सबूत (जन्म प्रमाण-पत्र, स्कूल सर्टिफ़िकेट या वोटर ID)",
+   "where": "schemes.schemes.documents"
+  },
+  "t251": {
+   "en": "BPL proof (BPL or Antyodaya ration card)",
+   "hi": "BPL का सबूत (BPL या अंत्योदय राशन कार्ड)",
+   "where": "schemes.schemes.documents"
+  },
+  "t252": {
+   "en": "Bank or post office passbook",
+   "hi": "बैंक या डाकघर की पासबुक",
+   "where": "schemes.schemes.documents"
+  },
+  "t253": {
+   "en": "Passport-size photo",
+   "hi": "पासपोर्ट साइज़ फ़ोटो",
+   "where": "schemes.schemes.documents"
+  },
+  "t254": {
+   "en": "Gram panchayat, block office (municipality in towns) or a CSC centre",
+   "hi": "ग्राम पंचायत, ब्लॉक ऑफ़िस (शहर में नगरपालिका) या CSC केंद्र",
+   "where": "schemes.schemes.where"
+  },
+  "t255": {
+   "en": "Namaste. {age_phrase} I want to apply for the old-age pension (IGNOAPS).",
+   "hi": "नमस्ते। {age_phrase} मुझे वृद्धावस्था पेंशन (IGNOAPS) के लिए आवेदन करना है।",
+   "where": "schemes.schemes.counter.default"
+  },
+  "t256": {
+   "en": "Namaste. {age_phrase} Can I get the old-age pension (IGNOAPS)? Please check whether my family is on the BPL list.",
+   "hi": "नमस्ते। {age_phrase} क्या मुझे वृद्धावस्था पेंशन (IGNOAPS) मिल सकती है? कृपया देखें कि मेरा परिवार BPL सूची में है या नहीं।",
+   "where": "schemes.schemes.counter.check"
+  },
+  "t257": {
+   "en": "Ask at the gram panchayat or block office whether your family is on the BPL list.",
+   "hi": "ग्राम पंचायत या ब्लॉक ऑफ़िस में पूछें कि आपका परिवार BPL सूची में है या नहीं।",
+   "where": "schemes.schemes.check_how"
+  },
+  "t258": {
+   "en": "A person gets only one of these pensions. If more than one shows, ask the office which suits you.",
+   "hi": "इनमें से एक ही पेंशन मिलती है। एक से ज़्यादा दिखें, तो दफ़्तर में पूछें कि आपके लिए कौन-सी सही है।",
+   "where": "schemes.schemes.notes"
+  },
+  "t259": {
+   "en": "Widow pension (IGNWPS)",
+   "hi": "विधवा पेंशन (IGNWPS)",
+   "where": "schemes.schemes.name"
+  },
+  "t260": {
+   "en": "A monthly pension for widows aged 40 to 79 from BPL families.",
+   "hi": "गरीब (BPL) परिवारों की 40 से 79 साल की विधवा महिलाओं को हर महीने पेंशन।",
+   "where": "schemes.schemes.what"
+  },
+  "t261": {
+   "en": "Widow",
+   "hi": "विधवा",
+   "where": "schemes.schemes.rule.all.say"
+  },
+  "t262": {
+   "en": "Age 40 to 79",
+   "hi": "उम्र 40 से 79 साल",
+   "where": "schemes.schemes.rule.all.say"
+  },
+  "t263": {
+   "en": "₹300 a month. ₹500 a month once you turn 80.",
+   "hi": "₹300 हर महीने। 80 साल होने पर ₹500 हर महीने।",
+   "where": "schemes.schemes.benefit"
+  },
+  "t264": {
+   "en": "₹300 a month from the centre; your state may add more",
+   "hi": "केंद्र सरकार से ₹300 हर महीने; आपका राज्य इसमें और जोड़ सकता है",
+   "where": "schemes.schemes.benefit_now"
+  },
+  "t265": {
+   "en": "Husband's death certificate",
+   "hi": "पति का मृत्यु प्रमाण-पत्र",
+   "where": "schemes.schemes.documents"
+  },
+  "t266": {
+   "en": "Namaste. My husband has died. {age_phrase} I want to apply for the widow pension (IGNWPS).",
+   "hi": "नमस्ते। मेरे पति का देहांत हो चुका है। {age_phrase} मुझे विधवा पेंशन (IGNWPS) के लिए आवेदन करना है।",
+   "where": "schemes.schemes.counter.default"
+  },
+  "t267": {
+   "en": "Namaste. My husband has died. {age_phrase} Can I get the widow pension (IGNWPS)? Please check whether my family is on the BPL list.",
+   "hi": "नमस्ते। मेरे पति का देहांत हो चुका है। {age_phrase} क्या मुझे विधवा पेंशन (IGNWPS) मिल सकती है? कृपया देखें कि मेरा परिवार BPL सूची में है या नहीं।",
+   "where": "schemes.schemes.counter.check"
+  },
+  "t268": {
+   "en": "Disability pension (IGNDPS)",
+   "hi": "विकलांगता पेंशन (IGNDPS)",
+   "where": "schemes.schemes.name"
+  },
+  "t269": {
+   "en": "A monthly pension for people aged 18 to 79 with severe disability (80% or more) from BPL families.",
+   "hi": "18 से 79 साल के, गंभीर विकलांगता (80% या ज़्यादा) वाले, गरीब (BPL) परिवारों के लोगों को हर महीने पेंशन।",
+   "where": "schemes.schemes.what"
+  },
+  "t270": {
+   "en": "Disability certificate of 80% or more",
+   "hi": "80% या ज़्यादा विकलांगता का प्रमाण-पत्र",
+   "where": "schemes.schemes.rule.all.say"
+  },
+  "t271": {
+   "en": "Age 18 to 79",
+   "hi": "उम्र 18 से 79 साल",
+   "where": "schemes.schemes.rule.all.say"
+  },
+  "t272": {
+   "en": "Disability certificate or UDID card (80% or more)",
+   "hi": "विकलांगता प्रमाण-पत्र या UDID कार्ड (80% या ज़्यादा)",
+   "where": "schemes.schemes.documents"
+  },
+  "t273": {
+   "en": "Namaste. I have a disability certificate of 80% or more. {age_phrase} I want to apply for the disability pension (IGNDPS).",
+   "hi": "नमस्ते। मेरे पास 80% या ज़्यादा विकलांगता का प्रमाण-पत्र है। {age_phrase} मुझे विकलांगता पेंशन (IGNDPS) के लिए आवेदन करना है।",
+   "where": "schemes.schemes.counter.default"
+  },
+  "t274": {
+   "en": "Namaste. I have a disability certificate of 80% or more. Can I get the disability pension (IGNDPS)? Please check whether my family is on the BPL list.",
+   "hi": "नमस्ते। मेरे पास 80% या ज़्यादा विकलांगता का प्रमाण-पत्र है। क्या मुझे विकलांगता पेंशन (IGNDPS) मिल सकती है? कृपया देखें कि मेरा परिवार BPL सूची में है या नहीं।",
+   "where": "schemes.schemes.counter.check"
+  },
+  "t275": {
+   "en": "National Family Benefit (NFBS)",
+   "hi": "राष्ट्रीय परिवार लाभ (NFBS)",
+   "where": "schemes.schemes.name"
+  },
+  "t276": {
+   "en": "One-time help for a BPL family whose main earner died aged 18 to 59.",
+   "hi": "गरीब (BPL) परिवार के मुख्य कमाने वाले की 18 से 59 साल की उम्र में मृत्यु पर परिवार को एक बार मदद।",
+   "where": "schemes.schemes.what"
+  },
+  "t277": {
+   "en": "Main earner died (aged 18–59)",
+   "hi": "मुख्य कमाने वाले की मृत्यु (तब उम्र 18–59)",
+   "where": "schemes.schemes.rule.all.say"
+  },
+  "t278": {
+   "en": "₹20,000, paid once.",
+   "hi": "₹20,000 एक बार।",
+   "where": "schemes.schemes.benefit"
+  },
+  "t279": {
+   "en": "₹20,000 once",
+   "hi": "₹20,000 एक बार",
+   "where": "schemes.schemes.benefit_now"
+  },
+  "t280": {
+   "en": "Death certificate of the earner",
+   "hi": "कमाने वाले का मृत्यु प्रमाण-पत्र",
+   "where": "schemes.schemes.documents"
+  },
+  "t281": {
+   "en": "Proof of the earner's age",
+   "hi": "कमाने वाले की उम्र का सबूत",
+   "where": "schemes.schemes.documents"
+  },
+  "t282": {
+   "en": "Applicant's Aadhaar card",
+   "hi": "आवेदक का आधार कार्ड",
+   "where": "schemes.schemes.documents"
+  },
+  "t283": {
+   "en": "Gram panchayat or block office (municipality in towns)",
+   "hi": "ग्राम पंचायत या ब्लॉक ऑफ़िस (शहर में नगरपालिका)",
+   "where": "schemes.schemes.where"
+  },
+  "t284": {
+   "en": "Namaste. Our family's main earner has died. I want to apply for the National Family Benefit (NFBS).",
+   "hi": "नमस्ते। हमारे परिवार के मुख्य कमाने वाले की मृत्यु हो गई है। मुझे राष्ट्रीय परिवार लाभ योजना (NFBS) के लिए आवेदन करना है।",
+   "where": "schemes.schemes.counter.default"
+  },
+  "t285": {
+   "en": "Namaste. Our family's main earner has died. Can we get the National Family Benefit (NFBS)? Please check whether our family is on the BPL list.",
+   "hi": "नमस्ते। हमारे परिवार के मुख्य कमाने वाले की मृत्यु हो गई है। क्या हमें राष्ट्रीय परिवार लाभ (NFBS) मिल सकता है? कृपया देखें कि हमारा परिवार BPL सूची में है या नहीं।",
+   "where": "schemes.schemes.counter.check"
+  },
+  "t286": {
+   "en": "Accident insurance (PMSBY)",
+   "hi": "दुर्घटना बीमा (PMSBY)",
+   "where": "schemes.schemes.name"
+  },
+  "t287": {
+   "en": "Insurance against death or disability in an accident, for ₹20 a year.",
+   "hi": "साल के ₹20 में दुर्घटना से मृत्यु या विकलांगता का बीमा।",
+   "where": "schemes.schemes.what"
+  },
+  "t288": {
+   "en": "Age 18 to 70",
+   "hi": "उम्र 18 से 70 साल",
+   "where": "schemes.schemes.rule.all.say"
+  },
+  "t289": {
+   "en": "Savings account in a bank or post office",
+   "hi": "बैंक या डाकघर में बचत खाता",
+   "where": "schemes.schemes.rule.all.say"
+  },
+  "t290": {
+   "en": "₹2 lakh for accidental death or total permanent disability, ₹1 lakh for partial permanent disability. The ₹20 yearly premium is auto-debited from your account.",
+   "hi": "दुर्घटना में मृत्यु या पूरी स्थायी विकलांगता पर ₹2 लाख, आंशिक स्थायी विकलांगता पर ₹1 लाख। प्रीमियम ₹20 साल का, खाते से अपने-आप कटता है।",
+   "where": "schemes.schemes.benefit"
+  },
+  "t291": {
+   "en": "₹2 lakh cover for ₹20 a year",
+   "hi": "₹2 लाख का बीमा, ₹20 साल",
+   "where": "schemes.schemes.benefit_now"
+  },
+  "t292": {
+   "en": "Nominee's name and relationship",
+   "hi": "नॉमिनी का नाम और उससे रिश्ता",
+   "where": "schemes.schemes.documents"
+  },
+  "t293": {
+   "en": "The bank's consent form (for auto-debit)",
+   "hi": "बैंक का सहमति फ़ॉर्म (ऑटो-डेबिट के लिए)",
+   "where": "schemes.schemes.documents"
+  },
+  "t294": {
+   "en": "Your bank branch, bank mitra (BC point) or post office",
+   "hi": "अपने बैंक की शाखा, बैंक मित्र (BC) या डाकघर",
+   "where": "schemes.schemes.where"
+  },
+  "t295": {
+   "en": "Namaste. I want to join the PMSBY accident insurance from my account — the ₹20-a-year one.",
+   "hi": "नमस्ते। मुझे अपने खाते से प्रधानमंत्री सुरक्षा बीमा (PMSBY) जुड़वाना है — ₹20 साल वाला।",
+   "where": "schemes.schemes.counter.default"
+  },
+  "t296": {
+   "en": "Life insurance (PMJJBY)",
+   "hi": "जीवन बीमा (PMJJBY)",
+   "where": "schemes.schemes.name"
+  },
+  "t297": {
+   "en": "Life insurance for ₹436 a year — ₹2 lakh to your family on death from any cause.",
+   "hi": "साल के ₹436 में जीवन बीमा — किसी भी कारण से मृत्यु पर परिवार को ₹2 लाख।",
+   "where": "schemes.schemes.what"
+  },
+  "t298": {
+   "en": "Age 18 to 50",
+   "hi": "उम्र 18 से 50 साल",
+   "where": "schemes.schemes.rule.all.say"
+  },
+  "t299": {
+   "en": "₹2 lakh on death from any cause. The ₹436 yearly premium is auto-debited. Join before 50 and the cover continues to 55.",
+   "hi": "किसी भी कारण से मृत्यु पर ₹2 लाख। प्रीमियम ₹436 साल का, खाते से अपने-आप कटता है। 50 साल से पहले जुड़ें, तो बीमा 55 साल तक चलता है।",
+   "where": "schemes.schemes.benefit"
+  },
+  "t300": {
+   "en": "₹2 lakh life cover for ₹436 a year",
+   "hi": "₹2 लाख का जीवन बीमा, ₹436 साल",
+   "where": "schemes.schemes.benefit_now"
+  },
+  "t301": {
+   "en": "Namaste. I want to join the PMJJBY life insurance from my account — the ₹436-a-year one.",
+   "hi": "नमस्ते। मुझे अपने खाते से प्रधानमंत्री जीवन ज्योति बीमा (PMJJBY) जुड़वाना है — ₹436 साल वाला।",
+   "where": "schemes.schemes.counter.default"
+  },
+  "t302": {
+   "en": "Atal Pension Yojana (APY)",
+   "hi": "अटल पेंशन योजना (APY)",
+   "where": "schemes.schemes.name"
+  },
+  "t303": {
+   "en": "Join between 18 and 40, save a little every month, and get a guaranteed pension after 60.",
+   "hi": "18 से 40 साल की उम्र में जुड़ें, हर महीने थोड़ा जमा करें, 60 साल के बाद पक्की पेंशन पाएँ।",
+   "where": "schemes.schemes.what"
+  },
+  "t304": {
+   "en": "Age 18 to 40",
+   "hi": "उम्र 18 से 40 साल",
+   "where": "schemes.schemes.rule.all.say"
+  },
+  "t305": {
+   "en": "Has never paid income tax",
+   "hi": "कभी इनकम टैक्स नहीं भरा",
+   "where": "schemes.schemes.rule.all.say"
+  },
+  "t306": {
+   "en": "A pension of ₹1,000 to ₹5,000 a month after 60 (you choose). What you pay each month depends on your age and the pension you choose.",
+   "hi": "60 साल के बाद ₹1,000 से ₹5,000 हर महीने पेंशन (आप चुनते हैं)। हर महीने कितना जमा करना है, यह आपकी उम्र और चुनी पेंशन पर निर्भर है।",
+   "where": "schemes.schemes.benefit"
+  },
+  "t307": {
+   "en": "₹1,000–₹5,000 a month after 60",
+   "hi": "60 के बाद ₹1,000–₹5,000 हर महीने",
+   "where": "schemes.schemes.benefit_now"
+  },
+  "t308": {
+   "en": "Savings account passbook",
+   "hi": "बचत खाते की पासबुक",
+   "where": "schemes.schemes.documents"
+  },
+  "t309": {
+   "en": "Mobile number",
+   "hi": "मोबाइल नंबर",
+   "where": "schemes.schemes.documents"
+  },
+  "t310": {
+   "en": "The bank branch or post office where you have your savings account",
+   "hi": "जिस बैंक शाखा या डाकघर में आपका बचत खाता है, वहीं",
+   "where": "schemes.schemes.where"
+  },
+  "t311": {
+   "en": "Namaste. {age_phrase} I want to join the Atal Pension Yojana (APY). I have never paid income tax.",
+   "hi": "नमस्ते। {age_phrase} मुझे अटल पेंशन योजना (APY) में जुड़ना है। मैंने कभी इनकम टैक्स नहीं भरा।",
+   "where": "schemes.schemes.counter.default"
+  },
+  "t312": {
+   "en": "Namaste. {age_phrase} Can I join the Atal Pension Yojana (APY)?",
+   "hi": "नमस्ते। {age_phrase} क्या मैं अटल पेंशन योजना (APY) में जुड़ने के योग्य हूँ?",
+   "where": "schemes.schemes.counter.check"
+  },
+  "t313": {
+   "en": "Since 1 October 2022, anyone who has ever paid income tax cannot open a new account.",
+   "hi": "1 अक्टूबर 2022 से, जिसने कभी इनकम टैक्स भरा है, वह अटल पेंशन योजना में नया खाता नहीं खोल सकता।",
+   "where": "schemes.schemes.notes"
+  },
+  "t314": {
+   "en": "PM-KISAN",
+   "hi": "पीएम-किसान सम्मान निधि",
+   "where": "schemes.schemes.name"
+  },
+  "t315": {
+   "en": "₹6,000 a year for landholding farmer families, straight to the bank account.",
+   "hi": "ज़मीन वाले किसान परिवारों को हर साल ₹6,000, सीधे बैंक खाते में।",
+   "where": "schemes.schemes.what"
+  },
+  "t316": {
+   "en": "Farm land in the family's name (in the land records)",
+   "hi": "परिवार के नाम खेती की ज़मीन (भूलेख में दर्ज)",
+   "where": "schemes.schemes.rule.all.say"
+  },
+  "t317": {
+   "en": "No one in the family in an excluded group (tax, government job, large pension, professional, office-holder)",
+   "hi": "परिवार में कोई भी रोक वाली श्रेणी में नहीं (टैक्स, सरकारी नौकरी, बड़ी पेंशन, डॉक्टर-वकील जैसा पेशा, मंत्री-विधायक जैसा पद)",
+   "where": "schemes.schemes.rule.all.say"
+  },
+  "t318": {
+   "en": "₹6,000 a year — three equal instalments of ₹2,000, straight to the bank account.",
+   "hi": "हर साल ₹6,000 — ₹2,000 की तीन बराबर किस्तें, सीधे बैंक खाते में।",
+   "where": "schemes.schemes.benefit"
+  },
+  "t319": {
+   "en": "₹6,000 a year",
+   "hi": "₹6,000 हर साल",
+   "where": "schemes.schemes.benefit_now"
+  },
+  "t320": {
+   "en": "Aadhaar card (e-KYC is mandatory)",
+   "hi": "आधार कार्ड (e-KYC ज़रूरी है)",
+   "where": "schemes.schemes.documents"
+  },
+  "t321": {
+   "en": "Land records (khatauni / patta)",
+   "hi": "ज़मीन के कागज़ (खतौनी / पट्टा)",
+   "where": "schemes.schemes.documents"
+  },
+  "t322": {
+   "en": "Bank passbook (account linked to Aadhaar)",
+   "hi": "बैंक पासबुक (आधार से जुड़ा खाता)",
+   "where": "schemes.schemes.documents"
+  },
+  "t323": {
+   "en": "A CSC centre, the patwari or agriculture office, or 'New Farmer Registration' on pmkisan.gov.in",
+   "hi": "CSC केंद्र, पटवारी या कृषि विभाग, या pmkisan.gov.in पर 'New Farmer Registration'",
+   "where": "schemes.schemes.where"
+  },
+  "t324": {
+   "en": "Namaste. Our family owns farm land. I want to register for PM-KISAN and do the e-KYC.",
+   "hi": "नमस्ते। हमारे परिवार के नाम खेती की ज़मीन है। मुझे पीएम-किसान में पंजीकरण और e-KYC करवाना है।",
+   "where": "schemes.schemes.counter.default"
+  },
+  "t325": {
+   "en": "Ask at a CSC centre whether anyone in the family falls in an excluded group.",
+   "hi": "CSC केंद्र पर पूछें कि परिवार का कोई सदस्य रोक वाली श्रेणी में आता है या नहीं।",
+   "where": "schemes.schemes.check_how"
+  },
+  "t326": {
+   "en": "The money is paid once per family (husband, wife and minor children).",
+   "hi": "पूरे परिवार (पति, पत्नी और नाबालिग बच्चे) में यह पैसा एक ही व्यक्ति को मिलता है, हर सदस्य को अलग-अलग नहीं।",
+   "where": "schemes.schemes.notes"
+  },
+  "t327": {
+   "en": "Cases where land was acquired after 1 February 2019 are being verified.",
+   "hi": "1 फ़रवरी 2019 के बाद मिली ज़मीन वाले मामलों की जाँच हो रही है।",
+   "where": "schemes.schemes.notes"
+  },
+  "t328": {
+   "en": "Ayushman Bharat (PM-JAY)",
+   "hi": "आयुष्मान भारत (PM-JAY)",
+   "where": "schemes.schemes.name"
+  },
+  "t329": {
+   "en": "Free treatment when admitted to a listed hospital, up to ₹5 lakh a year. Outpatient visits (OPD) are not covered.",
+   "hi": "योजना से जुड़े अस्पताल में भर्ती होने पर हर साल ₹5 लाख तक मुफ़्त इलाज। बिना भर्ती के इलाज (OPD) इसमें नहीं।",
+   "where": "schemes.schemes.what"
+  },
+  "t330": {
+   "en": "Age 70 or more — whatever the income",
+   "hi": "उम्र 70 साल या ज़्यादा — आमदनी कुछ भी हो",
+   "where": "schemes.schemes.rule.any.say"
+  },
+  "t331": {
+   "en": "Family's name on the PM-JAY list (SECC 2011 or the state's list)",
+   "hi": "परिवार का नाम PM-JAY सूची में (SECC 2011 या राज्य की सूची)",
+   "where": "schemes.schemes.rule.any.say"
+  },
+  "t332": {
+   "en": "Free hospital treatment up to ₹5 lakh a year per family. Age 70 or more: up to ₹5 lakh a year more (Ayushman Vay Vandana card), shared only with family members who are also 70 or more.",
+   "hi": "परिवार को हर साल ₹5 लाख तक अस्पताल में मुफ़्त इलाज। 70 साल या ज़्यादा: हर साल ₹5 लाख तक और (आयुष्मान वय वंदना कार्ड), जो सिर्फ़ परिवार के 70+ लोगों में बँटता है।",
+   "where": "schemes.schemes.benefit"
+  },
+  "t333": {
+   "en": "Hospital care up to ₹5 lakh a year, for you (shared with a spouse who is 70+)",
+   "hi": "अस्पताल में इलाज: हर साल ₹5 लाख तक, आपके लिए (70+ पति या पत्नी के साथ साझा)",
+   "where": "schemes.schemes.benefit_now"
+  },
+  "t334": {
+   "en": "Hospital care up to ₹5 lakh a year, for the family",
+   "hi": "अस्पताल में इलाज: परिवार को हर साल ₹5 लाख तक",
+   "where": "schemes.schemes.benefit_now"
+  },
+  "t335": {
+   "en": "Aadhaar card (for e-KYC)",
+   "hi": "आधार कार्ड (e-KYC के लिए)",
+   "where": "schemes.schemes.documents"
+  },
+  "t336": {
+   "en": "Ration card (for the family list)",
+   "hi": "राशन कार्ड (परिवार की सूची के लिए)",
+   "where": "schemes.schemes.documents"
+  },
+  "t337": {
+   "en": "A CSC centre, an empanelled hospital, the Ayushman app, or call 14555",
+   "hi": "CSC केंद्र, योजना से जुड़ा अस्पताल, आयुष्मान ऐप, या 14555 पर कॉल",
+   "where": "schemes.schemes.where"
+  },
+  "t338": {
+   "en": "Namaste. {age_phrase} I want to get the Ayushman Vay Vandana card.",
+   "hi": "नमस्ते। {age_phrase} मुझे आयुष्मान वय वंदना कार्ड बनवाना है।",
+   "where": "schemes.schemes.counter.default"
+  },
+  "t339": {
+   "en": "Namaste. Is my family on the Ayushman Bharat (PM-JAY) list? Here is my Aadhaar card.",
+   "hi": "नमस्ते। क्या मेरे परिवार का नाम आयुष्मान भारत (PM-JAY) की सूची में है? यह मेरा आधार कार्ड है।",
+   "where": "schemes.schemes.counter.check"
+  },
+  "t340": {
+   "en": "Look up your name with your Aadhaar at a CSC centre or in the Ayushman app, or call 14555.",
+   "hi": "CSC केंद्र पर या आयुष्मान ऐप में आधार से अपना नाम देखें, या 14555 पर कॉल करें।",
+   "where": "schemes.schemes.check_how"
+  },
+  "t341": {
+   "en": "Seniors on CGHS, ECHS or CAPF must choose between that scheme and PM-JAY. People with private insurance or ESI can also take it.",
+   "hi": "CGHS, ECHS या CAPF वाले बुज़ुर्गों को अपनी योजना और PM-JAY में से एक चुनना होगा। निजी बीमा या ESI वाले भी इसे ले सकते हैं।",
+   "where": "schemes.schemes.notes"
+  },
+  "t342": {
+   "en": "e-Shram card",
+   "hi": "ई-श्रम कार्ड",
+   "where": "schemes.schemes.name"
+  },
+  "t343": {
+   "en": "Free government registration for unorganised workers — a 12-digit UAN card that brings schemes to you.",
+   "hi": "असंगठित मज़दूरों का मुफ़्त सरकारी पंजीकरण — 12 अंकों का UAN कार्ड, जिससे योजनाएँ आप तक पहुँचती हैं।",
+   "where": "schemes.schemes.what"
+  },
+  "t344": {
+   "en": "Age 16 to 59",
+   "hi": "उम्र 16 से 59 साल",
+   "where": "schemes.schemes.rule.all.say"
+  },
+  "t345": {
+   "en": "Unorganised work (daily wage, domestic, street vending, farm labour…)",
+   "hi": "असंगठित काम (दिहाड़ी, दूसरों के घरों में काम, रेहड़ी-पटरी, खेत मज़दूरी…)",
+   "where": "schemes.schemes.rule.all.say"
+  },
+  "t346": {
+   "en": "Not a member of EPFO or ESIC",
+   "hi": "EPFO या ESIC के सदस्य नहीं",
+   "where": "schemes.schemes.rule.all.say"
+  },
+  "t347": {
+   "en": "Registration is free and the card never expires. The government uses this list to reach unorganised workers with schemes and with help in emergencies.",
+   "hi": "पंजीकरण मुफ़्त है और कार्ड कभी ख़त्म नहीं होता। सरकार इसी सूची से असंगठित मज़दूरों तक योजनाएँ और मुसीबत के समय मदद पहुँचाती है।",
+   "where": "schemes.schemes.benefit"
+  },
+  "t348": {
+   "en": "Free UAN card",
+   "hi": "मुफ़्त UAN कार्ड",
+   "where": "schemes.schemes.benefit_now"
+  },
+  "t349": {
+   "en": "Mobile number linked to Aadhaar (or a fingerprint check at a CSC)",
+   "hi": "आधार से जुड़ा मोबाइल नंबर (नहीं है, तो CSC पर अँगूठा लगाकर)",
+   "where": "schemes.schemes.documents"
+  },
+  "t350": {
+   "en": "Yourself on eshram.gov.in, or at the nearest CSC centre",
+   "hi": "eshram.gov.in पर ख़ुद, या नज़दीकी CSC केंद्र पर",
+   "where": "schemes.schemes.where"
+  },
+  "t351": {
+   "en": "Namaste. I want to register for an e-Shram card. I am not a member of EPFO or ESIC.",
+   "hi": "नमस्ते। मुझे ई-श्रम कार्ड बनवाना है। मैं EPFO या ESIC का सदस्य नहीं हूँ।",
+   "where": "schemes.schemes.counter.default"
+  },
+  "t352": {
+   "en": "Do not pay anyone to register — it is free.",
+   "hi": "पंजीकरण के लिए किसी को पैसे न दें — यह मुफ़्त है।",
+   "where": "schemes.schemes.notes"
+  },
+  "t353": {
+   "en": "PM Shram Yogi Maan-dhan (PM-SYM)",
+   "hi": "पीएम श्रम योगी मानधन (PM-SYM)",
+   "where": "schemes.schemes.name"
+  },
+  "t354": {
+   "en": "A pension for unorganised workers aged 18 to 40 earning ₹15,000 a month or less — the government matches what you pay.",
+   "hi": "18 से 40 साल के असंगठित मज़दूरों (कमाई ₹15,000 महीना या कम) के लिए पेंशन — जितना आप जमा करें, उतना ही सरकार जोड़ती है।",
+   "where": "schemes.schemes.what"
+  },
+  "t355": {
+   "en": "Monthly income ₹15,000 or less",
+   "hi": "महीने की कमाई ₹15,000 या कम",
+   "where": "schemes.schemes.rule.all.say"
+  },
+  "t356": {
+   "en": "Not a member of EPFO, ESIC or government-funded NPS",
+   "hi": "EPFO, ESIC या सरकारी NPS के सदस्य नहीं",
+   "where": "schemes.schemes.rule.all.say"
+  },
+  "t357": {
+   "en": "A pension of ₹3,000 a month after 60. You pay half of the monthly contribution and the central government pays an equal amount.",
+   "hi": "60 साल के बाद ₹3,000 हर महीने पेंशन। हर महीने की जमा का आधा आप देते हैं, उतना ही केंद्र सरकार जोड़ती है।",
+   "where": "schemes.schemes.benefit"
+  },
+  "t358": {
+   "en": "₹3,000 a month after 60",
+   "hi": "60 के बाद ₹3,000 हर महीने",
+   "where": "schemes.schemes.benefit_now"
+  },
+  "t359": {
+   "en": "Savings or Jan Dhan account passbook (for the monthly contribution)",
+   "hi": "बचत या जन धन खाते की पासबुक (हर महीने की जमा के लिए)",
+   "where": "schemes.schemes.documents"
+  },
+  "t360": {
+   "en": "The nearest CSC centre, or maandhan.in",
+   "hi": "नज़दीकी CSC केंद्र, या maandhan.in",
+   "where": "schemes.schemes.where"
+  },
+  "t361": {
+   "en": "Namaste. {age_phrase} I earn ₹15,000 a month or less. I want to join the PM-SYM pension.",
+   "hi": "नमस्ते। {age_phrase} मेरी कमाई ₹15,000 महीना या कम है। मुझे पीएम श्रम योगी मानधन (PM-SYM) पेंशन में जुड़ना है।",
+   "where": "schemes.schemes.counter.default"
+  },
+  "t362": {
+   "en": "Namaste. {age_phrase} Can I join the PM-SYM pension?",
+   "hi": "नमस्ते। {age_phrase} क्या मैं पीएम श्रम योगी मानधन (PM-SYM) पेंशन में जुड़ने के योग्य हूँ?",
+   "where": "schemes.schemes.counter.check"
+  },
+  "t363": {
+   "en": "Jan Dhan account (PMJDY)",
+   "hi": "जन धन खाता (PMJDY)",
+   "where": "schemes.schemes.name"
+  },
+  "t364": {
+   "en": "A zero-balance savings account for people who have no bank account.",
+   "hi": "जिनका कोई बैंक खाता नहीं, उनके लिए ज़ीरो बैलेंस बचत खाता।",
+   "where": "schemes.schemes.what"
+  },
+  "t365": {
+   "en": "No bank account yet",
+   "hi": "अभी कोई बैंक खाता नहीं",
+   "where": "schemes.schemes.rule.say"
+  },
+  "t366": {
+   "en": "No minimum balance; interest on deposits; a RuPay debit card with ₹2 lakh accident insurance (accounts opened after 28 August 2018); overdraft up to ₹10,000 for eligible accounts. Government payments (DBT), PMSBY, PMJJBY and APY all work through it.",
+   "hi": "कम से कम बैलेंस की ज़रूरत नहीं; जमा पर ब्याज; RuPay डेबिट कार्ड, जिसके साथ ₹2 लाख का दुर्घटना बीमा (28 अगस्त 2018 के बाद खुले खातों पर); योग्य खातों पर ₹10,000 तक ओवरड्राफ़्ट। सरकारी पैसा (DBT), PMSBY, PMJJBY और APY इसी खाते से मिलते हैं।",
+   "where": "schemes.schemes.benefit"
+  },
+  "t367": {
+   "en": "Zero-balance account + RuPay card",
+   "hi": "ज़ीरो बैलेंस खाता + RuPay कार्ड",
+   "where": "schemes.schemes.benefit_now"
+  },
+  "t368": {
+   "en": "Aadhaar card (or another official ID such as a voter ID)",
+   "hi": "आधार कार्ड (या वोटर ID जैसा कोई सरकारी पहचान-पत्र)",
+   "where": "schemes.schemes.documents"
+  },
+  "t369": {
+   "en": "Any bank branch or bank mitra (BC point)",
+   "hi": "किसी भी बैंक शाखा या बैंक मित्र (BC) के पास",
+   "where": "schemes.schemes.where"
+  },
+  "t370": {
+   "en": "Namaste. I have no bank account. I want to open a Jan Dhan account.",
+   "hi": "नमस्ते। मेरा कोई बैंक खाता नहीं है। मुझे जन धन खाता खुलवाना है।",
+   "where": "schemes.schemes.counter.default"
+  },
+  "t371": {
+   "en": "67, widow, Antyodaya card",
+   "hi": "67 साल, विधवा, अंत्योदय कार्ड",
+   "where": "schemes.demos.label"
+  },
+  "t372": {
+   "en": "32, daily-wage worker, no bank account",
+   "hi": "32 साल, दिहाड़ी मज़दूर, बैंक खाता नहीं",
+   "where": "schemes.demos.label"
+  },
+  "t373": {
+   "en": "45, farmer with land",
+   "hi": "45 साल, ज़मीन वाले किसान",
+   "where": "schemes.demos.label"
+  },
+  "t374": {
+   "en": "74, BPL card",
+   "hi": "74 साल, BPL कार्ड",
+   "where": "schemes.demos.label"
+  },
+  "t375": {
+   "en": "\"KYC expired\" SMS",
+   "hi": "\"KYC खत्म\" वाला SMS",
+   "where": "demo.examples.label"
+  },
+  "t376": {
+   "en": "Caller wants my OTP",
+   "hi": "कॉल पर OTP माँगा",
+   "where": "demo.examples.label"
+  },
+  "t377": {
+   "en": "\"Scan to get cashback\"",
+   "hi": "\"स्कैन करके कैशबैक पाएं\"",
+   "where": "demo.examples.label"
+  },
+  "t378": {
+   "en": "\"Digital arrest\" call",
+   "hi": "\"डिजिटल अरेस्ट\" कॉल",
+   "where": "demo.examples.label"
+  },
+  "t379": {
+   "en": "\"PM-Kisan new list\" app",
+   "hi": "\"PM-किसान नई सूची\" ऐप",
+   "where": "demo.examples.label"
+  },
+  "t380": {
+   "en": "\"Pay ₹500 for your Ayushman card\"",
+   "hi": "\"आयुष्मान कार्ड के लिए ₹500 भेजें\"",
+   "where": "demo.examples.label"
+  },
+  "t381": {
+   "en": "Electricity cut tonight",
+   "hi": "आज रात बिजली कटेगी",
+   "where": "demo.examples.label"
+  },
+  "t382": {
+   "en": "A real bank OTP",
+   "hi": "असली बैंक OTP",
+   "where": "demo.examples.label"
+  },
+  "t383": {
+   "en": "\"Get cashback\" QR",
+   "hi": "\"कैशबैक पाएँ\" वाला QR",
+   "where": "demo.qr_examples.label"
+  },
+  "t384": {
+   "en": "\"SBI KYC fee\" QR",
+   "hi": "\"SBI KYC फ़ीस\" वाला QR",
+   "where": "demo.qr_examples.label"
+  },
+  "t385": {
+   "en": "A grocery shop's QR",
+   "hi": "किराने की दुकान का QR",
+   "where": "demo.qr_examples.label"
+  },
+  "t386": {
+   "en": "Scanning this QR and entering your UPI PIN sends money from your account to {who} ({amount}). A QR never brings money in.",
+   "hi": "इस QR को स्कैन करके UPI PIN डालने पर पैसे आपके खाते से {who} को जाते हैं ({amount})। QR से पैसे कभी आते नहीं।",
+   "where": "UPI QR fact (placeholders: payee name, amount)"
+  },
+  "t387": {
+   "en": "Scanning this QR and entering your UPI PIN sends money from your account to {who}. A QR never brings money in.",
+   "hi": "इस QR को स्कैन करके UPI PIN डालने पर पैसे आपके खाते से {who} को जाते हैं। QR से पैसे कभी आते नहीं।",
+   "where": "UPI QR fact (placeholder: payee name)"
+  },
+  "t388": {
+   "en": "It says \"{name}\", but the money goes to the UPI ID {payee}. Banks, police and the government do not collect money by QR.",
+   "hi": "नाम \"{name}\" लिखा है, पर पैसे UPI ID {payee} में जाएँगे। बैंक, पुलिस या सरकार QR से पैसे नहीं माँगते।",
+   "where": "UPI QR warning (placeholders: name, UPI ID)"
+  },
+  "t389": {
+   "en": "someone",
+   "hi": "someone",
+   "where": "UPI QR: payee when the code names nobody"
+  },
+  "t390": {
+   "en": "{n} years",
+   "hi": "{n} साल",
+   "where": "benefits: an age the person typed, e.g. '74 years'"
+  }
+ }
+}

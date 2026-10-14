@@ -2,8 +2,8 @@
 
 Renders the Markdown documents (start-here, application-to-prototype, testing report) to PDF with
 Chromium, copies the deck, one-pager, jury kit, video, clips and screenshots, packs a clean source zip
-(no caches, test keys, models or videos), zips the documents and source together, and checks every
-file against the challenge's 25 MB limit per file.
+(no caches, test keys, models or videos), packs everything (documents, video, clips, screenshots) into
+the one zip the TechGig portal takes, and checks it against the portal's 100 MB and every file against 25 MB.
 
 Run the document builders first (testing report, one-pager, deck, jury kit, video). Usage:
 python scripts/build_submission.py
@@ -22,6 +22,8 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import docstyle as D  # noqa: E402  (Rosh 27 type and colours, as in the app)
 OUT = ROOT.parent / "Sahayak_Submission"
 LIMIT = 25 * 1024 * 1024
+PORTAL_LIMIT = 100 * 1024 * 1024  # the TechGig upload takes one file (zip, ppt, pdf or docx), up to 100 MB
+STORED = {".mp4", ".png", ".zip", ".pptx"}  # already compressed: stored as they are
 SKIP_DIRS = {"__pycache__", ".pytest_cache", ".sahayak-test", ".git", "node_modules", "console", "dist"}  # dist: built sites
 SKIP_PATHS = {Path("docs/video"), Path("docs/screenshots")}  # shipped beside the zip
 
@@ -104,21 +106,27 @@ def main() -> int:
     files = source_zip(OUT / "07_Sahayak_Source_Code.zip")
     print(f"source zip: {files} files")
     # one bundle with the documents and the source (the video and media stay separate files)
-    with zipfile.ZipFile(OUT / "Sahayak_Prototype_Submission.zip", "w", zipfile.ZIP_DEFLATED) as z:
-        for f in sorted(OUT.glob("0*")):
-            if f.suffix != ".mp4":
-                z.write(f, f.name)
+    # The one file for the portal: every document, the video, the clips and the screenshots.
+    bundle = OUT / "Sahayak_Prototype_Submission.zip"
+    with zipfile.ZipFile(bundle, "w", zipfile.ZIP_DEFLATED) as z:
+        for f in sorted(OUT.rglob("*")):
+            if f.is_file() and f != bundle:
+                z.write(f, f.relative_to(OUT).as_posix(),
+                        compress_type=zipfile.ZIP_STORED if f.suffix in STORED else zipfile.ZIP_DEFLATED)
     too_big = []
     for f in sorted(OUT.rglob("*")):
         if f.is_file():
             size = f.stat().st_size
             if f.parent == OUT:
                 print(f"{size / 1024 / 1024:6.1f} MB  {f.name}")
-            if size > LIMIT:
+            if size > LIMIT and f != bundle:  # the bundle answers to the portal's 100 MB instead
                 too_big.append(f.name)
     print("all files under 25 MB" if not too_big else f"OVER 25 MB: {too_big}")
+    over_portal = bundle.stat().st_size > PORTAL_LIMIT
+    print(f"upload {bundle.name}: {bundle.stat().st_size / 1024 / 1024:.1f} MB "
+          f"({'OVER' if over_portal else 'under'} the portal's 100 MB)")
     print(f"wrote {OUT}")
-    return 1 if too_big else 0
+    return 1 if too_big or over_portal else 0
 
 
 if __name__ == "__main__":

@@ -31,6 +31,8 @@ list_alt lock lock_open logout memory menu_book mic open_in_new person phone_in_
 qr_code_2 qr_code_scanner receipt_long record_voice_over refresh restart_alt screenshot_monitor shield sms
 support_agent task_alt undo verified verified_user volume_off volume_up warning
 content_paste install_mobile person_off share wifi_off
+chevron_left close emoji_events home lightbulb local_fire_department local_police password play_arrow redeem star
+today trending_up workspace_premium
 """.split()))
 
 
@@ -45,7 +47,7 @@ def used_icons() -> set[str]:
             for args in re.findall(r"\bicon\(([^()]*(?:\([^()]*\)[^()]*)*)\)", text):
                 first = args.split(", ")[0]
                 found |= set(re.findall(r'"' + name + r'"', first))
-            for body in re.findall(r"const (?:ICONS|TRUTH_ICON|VERDICT_ICON) = \{([^}]*)\}", text):
+            for body in re.findall(r"const (?:ICONS|TRUTH_ICON|VERDICT_ICON|BADGE_ICON) = \{([^}]*)\}", text):
                 found |= set(re.findall(r':\s*"' + name + r'"', body))
     for path in sorted(WEB.glob("*.css")):
         found |= set(re.findall(r'content:\s*"' + name + r'"', path.read_text(encoding="utf-8")))

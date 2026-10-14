@@ -86,6 +86,42 @@
       share_try: "आप भी जाँचें, बिना इंटरनेट:",
       docs_all_title: "CSC पर ये कागज़ साथ ले जाएँ", docs_all_sub: "ऊपर की सभी योजनाओं के लिए एक सूची",
       docs_for_n: "{n} योजनाओं के लिए", docs_for_one: "{name} के लिए",
+      lang_title: "अपनी भाषा चुनें", lang_close: "बंद करें",
+      lang_note: "यह भाषा मशीन से अनुवाद की गई है; किसी मूल वक्ता ने अभी इसे जाँचा नहीं है।",
+      lang_detect: "सहायक हिंदी, अंग्रेज़ी और हिंग्लिश में लिखे मैसेज पढ़ता है। किसी और भाषा के मैसेज पर “जाँच नहीं हो सकी” आता है।",
+      lang_mic_off: "सहायक से बोलकर बात सिर्फ़ हिंदी और अंग्रेज़ी में होती है। कृपया लिखें या चिपकाएँ।",
+
+      tab_home: "होम", tab_check: "जाँच", tab_benefits: "मेरा हक", tab_learn: "सीखें",
+      tile_learn: "ठगी पहचानो", tile_learn_sub: "छोटा खेल: ठगी है या असली?", game_new: "नया",
+      learn_sub: "हर राउंड में 5 मैसेज और कॉल आते हैं। आप तय करें: ठगी या असली? फिर देखें कि सहायक को कौन-से सुराग मिले। सही जवाब पर अंक और बैज मिलते हैं।",
+      play_round: "एक राउंड खेलें", level_label: "स्तर", points: "अंक",
+      next_level: "{name} तक पहुँचने के लिए {n} अंक और", top_level: "आप सबसे ऊँचे स्तर पर हैं। नज़र ऐसे ही तेज़ रखें!",
+      streak_days: "लगातार {n} दिन", badges_count: "{total} में से {n} बैज",
+      daily_title: "आज का मैसेज", daily_sub: "हर दिन एक नया मैसेज। +20 बोनस अंक।", daily_play: "खेलें",
+      daily_done: "आज का हो गया। कल नया मैसेज आएगा।",
+      badges_title: "बैज", badge_progress: "{total} में से {n}", badge_won: "मिल गया",
+      badge_otp: "OTP रक्षक", badge_otp_d: "OTP माँगना और नकली कस्टमर केयर",
+      badge_upi: "QR जानकार", badge_upi_d: "पैसे देने का वादा करने वाले QR कोड",
+      badge_kyc: "धमकी पकड़ने वाले", badge_kyc_d: "KYC, खाता बंद और बिजली कटने की धमकी",
+      badge_arrest: "नकली पुलिस पकड़ने वाले", badge_arrest_d: "नकली पुलिस, CBI और मुसीबत में फँसे रिश्तेदार",
+      badge_prize: "इनाम पर शक करने वाले", badge_prize_d: "लॉटरी, इनाम और पार्सल की चालें",
+      badge_money: "आसान कमाई से सावधान", badge_money_d: "नौकरी, लोन और जल्दी अमीर बनने के ऑफ़र",
+      badge_scheme: "योजना साथी", badge_scheme_d: "नकली योजना, फ़ीस और योजना के ऐप",
+      badge_real: "असली पहचानने वाले", badge_real_d: "असली मैसेज को असली पहचानना",
+      lvl_1: "सीखने वाले", lvl_2: "सतर्क", lvl_3: "तेज़ नज़र", lvl_4: "ठगी का कवच", lvl_5: "ठगी पहचान गुरु",
+      play_question: "ठगी या असली?", ans_scam: "ठगी", ans_real: "असली",
+      swipe_hint: "अपना जवाब दबाएँ, या कार्ड को उसकी ओर सरकाएँ।",
+      card_sms: "मैसेज", card_call: "फ़ोन कॉल: कॉल करने वाले ने क्या कहा", card_n: "{total} में से {n}",
+      fb_right: "सही!", fb_wrong: "इस बार नहीं", fb_real: "यह असली मैसेज है।", fb_clues: "सुराग", fb_remember: "याद रखें",
+      fb_real_tip: "असली बैंक या सरकारी मैसेज आपको जानकारी या कोड देता है। वह कभी OTP या PIN बताने, या किसी व्यक्ति को पैसे भेजने को नहीं कहता।",
+      combo: "लगातार {n} सही!", see_score: "मेरा स्कोर देखें",
+      done_perfect: "शानदार! आपने हर एक को पहचान लिया।", done_good: "तेज़ नज़र!", done_ok: "अच्छी शुरुआत। हर राउंड में एक नई चाल सीखेंगे।",
+      done_score: "{total} में से {n} सही", done_points: "+{n} अंक", new_badge: "नया बैज!",
+      play_again: "फिर खेलें", share_game: "परिवार को चुनौती दें", done_btn: "हो गया",
+      share_game_text: "मैंने सहायक पर {total} में से {n} मैसेज सही पहचाने: ठगी या असली। क्या आप मुझसे ज़्यादा पहचान सकते हैं?",
+      game_private: "आपका स्कोर इसी फ़ोन पर रहता है। कुछ भी कहीं नहीं भेजा जाता।",
+      level_up: "नया स्तर: {name}!", next_card: "अगला",
+      appearance: "रंग-रूप", theme_auto: "अपने-आप", theme_light: "हल्का", theme_titanium: "सफ़ेद टाइटेनियम", theme_dark: "गहरा",
     },
     en: {
       node_pill: "Offline", node_pill_phone: "On phone · offline",
@@ -169,7 +205,48 @@
       share_try: "Check yours too, no internet needed:",
       docs_all_title: "Take these papers to the CSC", docs_all_sub: "One list for every scheme above",
       docs_for_n: "for {n} schemes", docs_for_one: "for {name}",
+      lang_title: "Choose your language", lang_close: "Close",
+      lang_note: "This language is a machine translation, not yet checked by a native speaker.",
+      lang_detect: "Sahayak reads messages in Hindi, English and Hinglish. A message in another language gets “Could not check”.",
+      lang_mic_off: "Speaking to Sahayak works in Hindi and English only. Please type or paste.",
+
+      tab_home: "Home", tab_check: "Check", tab_benefits: "Benefits", tab_learn: "Learn",
+      tile_learn: "Spot the scam", tile_learn_sub: "A quick game: is it a scam or real?", game_new: "New",
+      learn_sub: "Each round shows 5 messages and calls. Decide: scam or real? Then see the clues Sahayak found. Right answers earn points and badges.",
+      play_round: "Play a round", level_label: "Level", points: "points",
+      next_level: "{n} more points to {name}", top_level: "You are at the top level. Keep your eyes sharp!",
+      streak_days: "{n}-day streak", badges_count: "{n} of {total} badges",
+      daily_title: "Today's message", daily_sub: "One new message every day. +20 bonus points.", daily_play: "Play",
+      daily_done: "Done for today. A new one comes tomorrow.",
+      badges_title: "Badges", badge_progress: "{n} of {total}", badge_won: "Earned",
+      badge_otp: "OTP Guardian", badge_otp_d: "OTP asks and fake customer care",
+      badge_upi: "QR Expert", badge_upi_d: "QR codes that promise money",
+      badge_kyc: "Threat Buster", badge_kyc_d: "KYC, account-block and power-cut threats",
+      badge_arrest: "Fake Police Buster", badge_arrest_d: "Fake police, CBI and relatives in trouble",
+      badge_prize: "Prize Skeptic", badge_prize_d: "Lotteries, prizes and parcel tricks",
+      badge_money: "Easy-Money Alarm", badge_money_d: "Jobs, loans and get-rich offers",
+      badge_scheme: "Scheme Saathi", badge_scheme_d: "Fake schemes, fees and scheme apps",
+      badge_real: "Real-Deal Detective", badge_real_d: "Knowing a real message when you see one",
+      lvl_1: "Learner", lvl_2: "Alert", lvl_3: "Sharp Eyes", lvl_4: "Scam Shield", lvl_5: "Scam Guru",
+      play_question: "Scam or real?", ans_scam: "Scam", ans_real: "Real",
+      swipe_hint: "Tap your answer, or swipe the card towards it.",
+      card_sms: "Message", card_call: "Phone call: what the caller said", card_n: "{n} of {total}",
+      fb_right: "Right!", fb_wrong: "Not this time", fb_real: "This one is a real message.", fb_clues: "The clues", fb_remember: "Remember",
+      fb_real_tip: "A real bank or government message gives you information or a code. It never asks you to share an OTP or PIN, or to send money to a person.",
+      combo: "{n} in a row!", see_score: "See my score",
+      done_perfect: "Perfect! You caught every one.", done_good: "Sharp eyes!", done_ok: "Good start. Every round teaches a new trick.",
+      done_score: "{n} of {total} right", done_points: "+{n} points", new_badge: "New badge!",
+      play_again: "Play again", share_game: "Challenge your family", done_btn: "Done",
+      share_game_text: "I spotted {n} of {total} messages right on Sahayak: scam or real. Can you beat my score?",
+      game_private: "Your score stays on this phone. Nothing is sent anywhere.",
+      level_up: "Level up: {name}!", next_card: "Next",
+      appearance: "Appearance", theme_auto: "Automatic", theme_light: "Light", theme_titanium: "White Titanium", theme_dark: "Dark",
     },
+  };
+  // The language list's own note, in Hindi or English only (it describes every other language on the list).
+  const SHEET_NOTE = {
+    hi: "हर स्क्रीन और हर जवाब आपकी भाषा में। चुनी हुई भाषा इसी फ़ोन पर रहती है।",
+    en: "Every screen and every answer in your language. Your choice stays on this phone.",
   };
 
   // Verdict glyphs (Material Symbols names, drawn by web/fonts/symbols.woff2).
@@ -180,19 +257,177 @@
   const state = { lang: loadLang(), check: null, message: "", explanation: null, health: null, nodeless: false };
 
   function loadLang() {
-    try { return localStorage.getItem("sahayak.lang") || "en"; } catch { return "en"; }
+    try { return localStorage.getItem("sahayak.lang") || "en"; } catch { return "en"; }  // English until the person picks
   }
   function saveLang(lang) {
     try { localStorage.setItem("sahayak.lang", lang); } catch { /* private mode */ }
   }
-  const other = (lang) => (lang === "hi" ? "en" : "hi");
-  const t = (key) => T[state.lang][key] ?? T.en[key] ?? key;
+  // ---------------------------------------------------------------- languages
+  // Hindi and English are the engines' own languages. Every other language is a display layer: the engines
+  // answer in Hindi and English exactly as before, and web/i18n.js puts their English into the chosen language
+  // from web/i18n/<code>.json (scripts/i18n_build.py). Calls to the node always carry hi or en (base()).
+  const BUILTIN = [
+    { code: "hi", name: "हिंदी", english: "Hindi", dir: "ltr", base: "hi" },
+    { code: "en", name: "English", english: "English", dir: "ltr", base: "en" },
+  ];
+  const langs = { index: null, packs: {}, tr: {} };
+  const isBuiltin = (code) => code === "hi" || code === "en";
+  const metaOf = (code) => langs.packs[code] || BUILTIN.find((b) => b.code === code)
+    || (langs.index || []).find((x) => x.code === code) || null;
+  // The language the engines answer in for this display language, and the one shown on the line under each answer.
+  const base = (code = state.lang) => (isBuiltin(code) ? code : ((metaOf(code) || {}).base === "hi" ? "hi" : "en"));
+  const second = (code = state.lang) => (code === "hi" ? "en" : code === "en" ? "hi" : base(code));
+  const other = second;
+  const DANDA = new Set(["hi", "mr", "ne", "mai", "doi", "brx", "sa", "kok", "bn", "as", "mni", "or", "pa"]);
+  const stopFor = (code = state.lang) => (DANDA.has(code) ? "।" : ["ur", "ks", "sd"].includes(code) ? "۔" : code === "sat" ? "᱾" : ".");
+  const t = (key) => (isBuiltin(state.lang) ? T[state.lang][key] : ((langs.packs[state.lang] || {}).ui || {})[key])
+    ?? T[base()][key] ?? T.en[key] ?? key;
+
+  // An English string from an engine, in the display language (null: no translation, show the base language).
+  function trEn(en) {
+    const tx = langs.tr[state.lang];
+    if (!tx || typeof en !== "string") return null;
+    let hit = tx.lookup(en);
+    if (hit === null && en.includes("; ")) {  // a benefits answer that names several choices
+      const parts = en.split("; ").map((p) => tx.lookup(p));
+      if (parts.every((p) => p !== null)) hit = parts.join("; ");
+    }
+    return hit === null ? null : isolateLatin(hit);
+  }
+  // In a right-to-left language, a link, code or name in Latin letters keeps its own order when the line wraps.
+  function isolateLatin(text) {
+    if ((metaOf(state.lang) || {}).dir !== "rtl") return text;
+    return text.replace(/[A-Za-z0-9][A-Za-z0-9.\-/@:_]*[A-Za-z0-9]/g, (run) => `\u2066${run.replace(/-/g, "-\u2060")}\u2069`);
+  }
+  // The actions of a verdict card, { en: [...], hi: [...] }, as one list in the display language.
+  function trList(lists) {
+    if (!lists) return [];
+    if (isBuiltin(state.lang)) return lists[state.lang] || [];
+    return (lists.en || []).map((a, i) => trEn(a) ?? (lists[base()] || [])[i] ?? a);
+  }
+
+  async function loadLangPack(code) {
+    if (isBuiltin(code) || langs.packs[code]) return;
+    if (!/^[a-z]{2,3}$/.test(code) || !window.SahayakI18n) throw new Error(`no language ${code}`);
+    const res = await fetch(`${ROOT}app/i18n/${code}.json`);
+    if (!res.ok) throw new Error(`language ${code}: HTTP ${res.status}`);
+    const pack = await res.json();
+    langs.tr[code] = window.SahayakI18n.create(pack);
+    langs.packs[code] = pack;
+  }
+
+  async function loadLangIndex() {
+    if (langs.index) return langs.index;
+    try {
+      const res = await fetch(`${ROOT}app/i18n/index.json`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      langs.index = await res.json();
+      return langs.index;
+    } catch {
+      return BUILTIN;  // offline before the list was ever fetched: Hindi and English still work
+    }
+  }
+
+  async function setLanguage(code) {
+    try { await loadLangPack(code); } catch { toast(t("err_network")); return false; }
+    state.lang = code;
+    saveLang(code);
+    applyI18n();
+    return true;
+  }
+
+  // The top-bar button shows the current language: its first letter (two for Perso-Arabic script), EN for English.
+  function shortLabel(code) {
+    if (code === "en") return "EN";
+    const m = metaOf(code);
+    const name = m ? m.name : code;
+    try {
+      if (window.Intl && Intl.Segmenter) {
+        const parts = [...new Intl.Segmenter(code, { granularity: "grapheme" }).segment(name)].map((s) => s.segment);
+        return (m && m.dir === "rtl" ? parts.slice(0, 2) : parts.slice(0, 1)).join("");
+      }
+    } catch { /* fall through */ }
+    return name.slice(0, 2);
+  }
+
+  async function openLangSheet() {
+    const list = await loadLangIndex();
+    const sheet = $("#lang-sheet");
+    $("#lang-sheet-note").textContent = SHEET_NOTE[base()];
+    $("#lang-list").replaceChildren(...list.map((l) => el("button", {
+      type: "button", class: "lang-opt", lang: l.code, dir: l.dir === "rtl" ? "rtl" : "ltr",
+      "aria-current": l.code === state.lang ? "true" : null,
+      onclick: async () => { if (await setLanguage(l.code)) closeLangSheet(); },
+    }, el("b", {}, l.name), el("small", { lang: "en", dir: "ltr" }, l.english))));
+    openSheet(sheet);
+    const current = $('.lang-opt[aria-current="true"]', sheet) || $(".lang-opt", sheet);
+    if (current) current.focus();
+  }
+  function closeLangSheet() {
+    closeSheet($("#lang-sheet"), () => $("#lang-toggle").focus());
+  }
+  // A sheet slides away (and its dimming fades) before it is hidden.
+  function closeSheet(sheet, then) {
+    if (sheet.hidden || sheet.classList.contains("closing")) return;
+    const token = {};
+    sheet.closeToken = token;
+    const done = () => {
+      if (sheet.closeToken !== token) return;  // opened again while it was sliding away, or already closed
+      sheet.closeToken = null;
+      sheet.hidden = true;
+      sheet.classList.remove("closing");
+      sheet.style.transform = "";
+      if (then) then();
+    };
+    if (reduceMotion()) { done(); return; }
+    sheet.classList.add("closing");
+    sheet.addEventListener("animationend", (e) => { if (e.target === sheet) done(); }, { once: true });
+    setTimeout(done, 450);  // in case the animation never reports its end
+  }
+  function openSheet(sheet) {
+    sheet.closeToken = null;
+    sheet.classList.remove("closing");
+    sheet.style.transform = "";
+    sheet.hidden = false;
+  }
+  // Drag a sheet down by its top to close it, as on an iPhone.
+  function dragToClose(sheet, close) {
+    let start = null;
+    sheet.addEventListener("pointerdown", (e) => {
+      if (e.target.closest(".lang-list, button, a, input")) return;
+      start = { y: e.clientY, id: e.pointerId, dy: 0 };
+      sheet.setPointerCapture(e.pointerId);
+      sheet.classList.add("dragging");
+    });
+    sheet.addEventListener("pointermove", (e) => {
+      if (!start || e.pointerId !== start.id) return;
+      start.dy = Math.max(0, e.clientY - start.y);
+      sheet.style.transform = `translateY(${start.dy}px)`;
+    });
+    const end = () => {
+      if (!start) return;
+      const far = start.dy > 90;
+      start = null;
+      sheet.classList.remove("dragging");
+      if (far) close(); else sheet.style.transform = "";
+    };
+    sheet.addEventListener("pointerup", end);
+    sheet.addEventListener("pointercancel", end);
+  }
+
+  // Arrows and chevrons point the other way in a right-to-left language.
+  const FLIP = new Set(["arrow_back", "arrow_forward", "chevron_right", "chevron_left"]);
 
   function applyI18n() {
+    const meta = metaOf(state.lang) || {};
     document.documentElement.lang = state.lang;
+    document.documentElement.dir = meta.dir === "rtl" ? "rtl" : "ltr";
     $$("[data-i18n]").forEach((el) => { el.textContent = t(el.dataset.i18n); });
     $$("[data-i18n-label]").forEach((el) => { el.setAttribute("aria-label", t(el.dataset.i18nLabel)); });
-    $("#lang-toggle").textContent = state.lang === "hi" ? "EN" : "हिं";
+    $$(".ms").forEach((m) => { if (FLIP.has(m.textContent.trim())) m.classList.add("flip"); });
+    $("#lang-toggle").textContent = shortLabel(state.lang);
+    $("#lang-note").textContent = "";  // no translation note on the home screen
+    $("#lang-note").hidden = true;
     if (state.check) renderResult(state.check);
     renderExamples();
     renderNavIntro();
@@ -202,15 +437,145 @@
     renderVoiceStatus();
     if (state.mode) setMode(state.mode);
     if (state.check) renderQRBox(state.check);
+    renderLearn();
+    if (game.round) { renderPlay(); if (!$('[data-screen="game-done"]').hidden) renderDone(); }
+    updateNavTitle();
   }
 
   // ---------------------------------------------------------------- navigation
-  function go(screen) {
-    $$(".screen").forEach((s) => { s.hidden = s.dataset.screen !== screen; });
-    window.scrollTo({ top: 0 });
-    if (screen === "check") setTimeout(() => $("#msg").focus(), 50);
+  // The tab each screen belongs to: the bar at the bottom shows where the person is.
+  const TAB_OF = { home: "home", check: "check", result: "check", complaint: "check", benefits: "benefits", question: "benefits",
+    "benefits-result": "benefits", slip: "benefits", learn: "learn", play: "learn", "game-done": "learn" };
+  // How deep each screen sits in its tab: going deeper pushes the new screen in from the side, as in iOS; coming
+  // back pops it; changing tab cross-fades.
+  const DEPTH = { home: 0, check: 0, benefits: 0, learn: 0, result: 1, complaint: 2, question: 1, "benefits-result": 2,
+    slip: 3, play: 1, "game-done": 2 };
+  let currentScreen = "home";
+  function markScreen(screen) {
+    document.body.dataset.at = screen;  // not data-screen: that names the sections
+    const tabs = $$(".tab");
+    const index = tabs.findIndex((b) => b.dataset.tab === TAB_OF[screen]);
+    const bar = $(".tabbar");
+    if (index >= 0 && bar.style.getPropertyValue("--i") !== String(index)) {
+      if (bar.style.getPropertyValue("--i") !== "") replay($(".tab-lens"), "moving");
+      bar.style.setProperty("--i", String(index));
+    }
+    tabs.forEach((b) => {
+      const on = b.dataset.tab === TAB_OF[screen];
+      if (on && !b.hasAttribute("aria-current")) replay(b, "tab-bounce");
+      if (on) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current");
+    });
+  }
+  // go(screen, { render, focus, dir }): render runs inside the transition, so the old screen is captured first.
+  function go(screen, opts = {}) {
+    const from = currentScreen;
+    currentScreen = screen;
+    const update = () => {
+      if (opts.render) opts.render();
+      $$(".screen").forEach((s) => { s.hidden = s.dataset.screen !== screen; });
+      markScreen(screen);
+      window.scrollTo({ top: 0 });
+      if (screen === "learn") renderLearn();
+      updateNavTitle();
+      const f = opts.focus && $(opts.focus);
+      if (f) f.focus({ preventScroll: true });
+      if (screen === "check") setTimeout(() => $("#msg").focus({ preventScroll: true }), 60);
+    };
+    const dir = opts.dir || (from === screen ? (opts.render ? "push" : "")
+      : TAB_OF[from] !== TAB_OF[screen] ? "fade" : (DEPTH[screen] || 0) >= (DEPTH[from] || 0) ? "push" : "pop");
+    if (dir && document.startViewTransition && !reduceMotion()) {
+      const root = document.documentElement;
+      root.dataset.nav = dir;
+      const vt = document.startViewTransition(update);
+      vt.finished.finally(() => { if (root.dataset.nav === dir) delete root.dataset.nav; });
+    } else {
+      update();
+    }
+    if (screen === "learn") loadGame().catch(() => {});
     if (voice.auto) speakScreen(screen);
   }
+
+  // ---------------------------------------------------------------- motion
+  // Everything here moves with transform and opacity only, and stops for "reduce motion".
+  function reduceMotion() { return Boolean(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches); }
+  // Restart a CSS animation on an element that stays on the page.
+  function replay(node, cls) {
+    if (!node || reduceMotion()) return;
+    node.classList.remove(cls);
+    void node.offsetWidth;
+    node.classList.add(cls);
+    node.addEventListener("animationend", () => node.classList.remove(cls), { once: true });
+  }
+  // While Sahayak reads a message, a glow flows round the edge of the screen, as Apple Intelligence does. The answer
+  // waits at most a little over half a second for it, so the person sees that the message was read.
+  function glowOn() {
+    if (reduceMotion()) return 0;
+    const g = $("#glow");
+    g.hidden = false;
+    requestAnimationFrame(() => g.classList.add("on"));
+    $("#msg").classList.add("scanning");
+    return performance.now();
+  }
+  function glowOff() {
+    const g = $("#glow");
+    g.classList.remove("on");
+    $("#msg").classList.remove("scanning");
+    setTimeout(() => { if (!g.classList.contains("on")) g.hidden = true; }, 400);
+  }
+  const glowAtLeast = (started) => (started ? new Promise((done) => setTimeout(done, Math.max(0, 650 - (performance.now() - started)))) : null);
+  // The edges of the screen flash once in the answer's colour: red for a scam, green for a right answer.
+  function edgeFlash(kind) {
+    if (reduceMotion()) return;
+    const tone = { scam: "red", wrong: "red", suspicious: "orange", no_signs: "green", right: "green" }[kind];
+    if (!tone) return;
+    const f = el("div", { class: `edge-flash ${tone}`, "aria-hidden": "true" });
+    document.body.append(f);
+    setTimeout(() => f.remove(), 1300);
+  }
+  // A number that counts up to its new value, easing out, the way Apple's activity numbers do.
+  function countUp(node, to, { from = 0, ms = 750, format = String } = {}) {
+    if (!node) return;
+    if (reduceMotion() || to === from) { node.textContent = format(to); return; }
+    const start = performance.now();
+    node.textContent = format(from);
+    const step = (now) => {
+      const k = Math.min(1, (now - start) / ms);
+      node.textContent = format(Math.round(from + (to - from) * (1 - Math.pow(1 - k, 3))));
+      if (k < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  // The bar: clear at the top of a screen, frosted once the page scrolls under it; the screen's own title moves
+  // into the bar when its large title scrolls away.
+  let titleNode = null;
+  function screenTitleNode() {
+    const sec = $(`section.screen[data-screen="${currentScreen}"]`);
+    if (!sec) return null;
+    if (currentScreen === "result") return $(".v-label", sec);
+    if (currentScreen === "benefits-result") return $(".nav-summary .big", sec);
+    return $(".large-title, .screen-head h2, .play-q, .done-title, :scope > h2", sec);
+  }
+  function updateNavTitle() {
+    titleNode = screenTitleNode();
+    $("#nav-title").textContent = titleNode ? titleNode.textContent : "";
+    onScroll();
+  }
+  let scrollQueued = false;
+  function onScroll() {
+    scrollQueued = false;
+    if (currentScreen === "home" && !reduceMotion()) {
+      const y = Math.min(window.scrollY, 260);
+      const intro = $(".intro");
+      intro.style.transform = y > 0 ? `translateY(${(y * 0.32).toFixed(1)}px)` : "";
+      intro.style.opacity = y > 0 ? String(Math.max(0, 1 - y / 230).toFixed(3)) : "";
+    }
+    const bar = $(".topbar");
+    bar.classList.toggle("scrolled", window.scrollY > 2);
+    const edge = bar.getBoundingClientRect().bottom;
+    bar.classList.toggle("titled", Boolean(titleNode && titleNode.textContent.trim() && titleNode.getClientRects().length
+      && titleNode.getBoundingClientRect().bottom < edge - 2));
+  }
+  window.addEventListener("scroll", () => { if (!scrollQueued) { scrollQueued = true; requestAnimationFrame(onScroll); } }, { passive: true });
 
   // What each screen says when it opens (the scam verdict speaks itself in runCheck).
   function speakScreen(screen) {
@@ -220,6 +585,7 @@
       benefits: () => joinSpoken([t("tile_benefits"), t("nav_intro")]),
       question: spokenQuestion,
       "benefits-result": spokenResult,
+      learn: () => joinSpoken([t("tile_learn"), t("learn_sub")]),
     }[screen];
     if (say) speak(say());
   }
@@ -230,9 +596,10 @@
 
   // ---------------------------------------------------------------- toast
   let toastTimer;
-  function toast(msg) {
+  function toast(msg, kind) {
     let el = $(".toast");
-    if (!el) { el = document.createElement("div"); el.className = "toast"; el.setAttribute("role", "status"); document.body.append(el); }
+    if (!el) { el = document.createElement("div"); el.setAttribute("role", "status"); document.body.append(el); }
+    el.className = kind ? `toast ${kind}` : "toast";
     el.textContent = msg;
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => el.remove(), 3500);
@@ -426,25 +793,29 @@
 
   async function checkQR(blob, payload) {
     toast(t("qr_reading"));
+    const started = glowOn();
     try {
       let card;
       try {
         if (!blob) throw new NodeUnreachable("qr");
-        card = await postImage(`/api/qr?lang=${state.lang}`, blob);
+        card = await postImage(`/api/qr?lang=${base()}`, blob);
       } catch (e) {
         if (!(e instanceof NodeUnreachable)) throw e;
         if (blob) setNodeless(true);
         card = await qrOnPhone(blob, payload);
       }
+      await glowAtLeast(started);
       hideToast();
       state.check = card; state.message = ""; state.explanation = null;
       renderResult(card);
-      go("result");
-      $("#headline").focus();
+      go("result", { focus: "#headline" });
+      edgeFlash(card.verdict);
       buzz(card);
-      if (voice.auto) speak(joinSpoken([card.label[state.lang], ...(card.qr.facts || []).map((f) => f[state.lang])]));
+      if (voice.auto) speak(joinSpoken([tr(card.label), ...(card.qr.facts || []).map((f) => tr(f))]));
     } catch (e) {
       toast(t(e.status === 422 ? "qr_none" : e.status === 501 ? "qr_no_detector" : "err_network"));
+    } finally {
+      glowOff();
     }
   }
 
@@ -495,7 +866,7 @@
       if (q.payee) rows.push(row("qr_upi", q.payee));
       if (q.amount_text) rows.push(row("qr_amount", q.amount_text, "qr-amount"));
     }
-    box.replaceChildren(...rows, ...(q.facts || []).map((f) => el("p", { class: "qr-fact" }, f[state.lang])));
+    box.replaceChildren(...rows, ...(q.facts || []).map((f) => el("p", { class: "qr-fact" }, tr(f))));
     box.hidden = !rows.length && !(q.facts || []).length;
   }
 
@@ -516,7 +887,7 @@
     const root = $("#examples");
     root.replaceChildren(...examples.map((ex) => {
       return el("button", { type: "button", class: "chip", onclick: () => useExample(ex) },
-        icon(ex.input_type === "call" ? "phone_in_talk" : "sms"), ex.label[state.lang] || ex.label.en);
+        icon(ex.input_type === "call" ? "phone_in_talk" : "sms"), tr(ex.label));
     }));
   }
 
@@ -529,12 +900,14 @@
     btn.disabled = true; btn.classList.add("loading"); label.textContent = t("checking");
     const sender = $("#sender").value.trim() || null;
     const input_type = state.mode === "call" ? "call" : state.mode === "ocr" ? "ocr" : "text";
+    const started = glowOn();
     try {
-      const card = await api("/api/check", { text, sender, input_type, lang: state.lang });
+      const card = await api("/api/check", { text, sender, input_type, lang: base() });
+      await glowAtLeast(started);
       state.check = card; state.message = text; state.explanation = null;
       renderResult(card);
-      go("result");
-      $("#headline").focus();
+      go("result", { focus: "#headline" });
+      edgeFlash(card.verdict);
       buzz(card);
       if (voice.auto) speak(spokenSummary(card), state.lang);
       if (card.where !== "phone") explain(card.id);  // the vetted reasons already explain a phone check
@@ -542,6 +915,7 @@
       toast(t("err_network"));
     } finally {
       btn.disabled = false; btn.classList.remove("loading"); label.textContent = t("check_btn");
+      glowOff();
     }
   }
   $("#btn-check").addEventListener("click", runCheck);
@@ -567,13 +941,14 @@
   }
 
   // ---------------------------------------------------------------- result
-  function bilingualItem(textByLang, extraClass) {
+  // One line of a card: the display language, and under it the same line in the second language (hi or en).
+  function bilingualItem(mainText, subText, extraClass) {
     const li = document.createElement("li");
     if (extraClass) li.className = extraClass;
     const main = document.createElement("span");
-    main.textContent = textByLang[state.lang];
+    main.textContent = mainText;
     const sub = document.createElement("span");
-    sub.className = "en"; sub.lang = other(state.lang); sub.textContent = textByLang[other(state.lang)];
+    sub.className = "en"; sub.lang = second(); sub.dir = "auto"; sub.textContent = subText;
     li.append(main, sub);
     return li;
   }
@@ -584,14 +959,14 @@
     v.replaceChildren(
       el("span", { class: "v-glyph", "aria-hidden": "true" }, icon(ICONS[card.verdict])),
       el("div", { class: "v-words" },
-        el("div", { class: "v-label" }, card.label[state.lang]),
-        el("div", { class: "v-label-2", lang: other(state.lang) }, card.label[other(state.lang)])));
+        el("div", { class: "v-label" }, tr(card.label)),
+        el("div", { class: "v-label-2", lang: second(), dir: "auto" }, card.label[second()])));
 
-    $("#headline").textContent = card.headline[state.lang];
+    $("#headline").textContent = tr(card.headline);
+    replay($("#headline"), "rise-in");
     renderQRBox(card);
-    $("#reasons").replaceChildren(...card.reasons.map((r) => bilingualItem(r.text, r.hard ? "hard" : "")));
-    $("#actions").replaceChildren(...card.actions[state.lang].map((a, i) =>
-      bilingualItem({ [state.lang]: a, [other(state.lang)]: card.actions[other(state.lang)][i] })));
+    $("#reasons").replaceChildren(...card.reasons.map((r) => bilingualItem(tr(r.text), r.text[second()], r.hard ? "hard" : "")));
+    $("#actions").replaceChildren(...trList(card.actions).map((a, i) => bilingualItem(a, (card.actions[second()] || [])[i] || "")));
     // 1930 is for money already lost, and a complaint needs a message Sahayak could read and found signs in.
     const nothingFound = card.verdict === "no_signs" || card.verdict === "unreadable";
     $("#btn-1930").hidden = nothingFound;
@@ -634,7 +1009,7 @@
     }
     box.classList.remove("loading");
     box.hidden = !modelWrote(out, state.lang);
-    $("#explain-text").textContent = out.explanation[state.lang];
+    $("#explain-text").textContent = out.explanation[base()] || "";
     renderSafety(out);
     renderMeta();
   }
@@ -645,7 +1020,7 @@
     badge.textContent = t("safety_ok");
     badge.hidden = false;
     const checks = (out.safety && out.safety.checks) || [];
-    const lines = checks.filter((c) => c.lang === state.lang).map((c) => `${c.passed ? "✓" : "✗"} ${c.id.replace(/_/g, " ")}`);
+    const lines = checks.filter((c) => c.lang === base()).map((c) => `${c.passed ? "✓" : "✗"} ${c.id.replace(/_/g, " ")}`);
     const src = out.source === "template" ? t("template_text") : `${t("model_text")}: ${out.model || ""}`;
     detail.replaceChildren();
     const p = document.createElement("div"); p.textContent = `${t("safety_checks")} (${src})`;
@@ -674,8 +1049,8 @@
   }
 
   function spokenSummary(card) {
-    const first = card.actions[state.lang][0] || "";
-    return `${card.label[state.lang]}. ${card.headline[state.lang]} ${first}`;
+    const first = trList(card.actions)[0] || "";
+    return `${tr(card.label)}. ${tr(card.headline)} ${first}`;
   }
 
   // ---------------------------------------------------------------- voice: speech out
@@ -726,8 +1101,8 @@
 
   function phoneVoice(lang) {
     if (!("speechSynthesis" in window)) return null;
-    const want = lang === "hi" ? "hi" : "en";
-    return window.speechSynthesis.getVoices().find((vo) => vo.lang && vo.lang.toLowerCase().startsWith(want)) || null;
+    const want = lang;  // a voice for this very language: "hi" for hi-IN, "ta" for ta-IN
+    return window.speechSynthesis.getVoices().find((vo) => vo.lang && vo.lang.toLowerCase().replace("_", "-").split("-")[0] === want) || null;
   }
 
   function playBlob(blob, token) {
@@ -749,7 +1124,7 @@
     const synth = window.speechSynthesis;
     synth.cancel();
     const u = new SpeechSynthesisUtterance(text);
-    u.lang = lang === "hi" ? "hi-IN" : "en-IN";
+    u.lang = lang === "hi" ? "hi-IN" : lang === "en" ? "en-IN" : ((metaOf(lang) || {}).tts || lang);
     const v = phoneVoice(lang);
     if (v) u.voice = v;
     u.rate = voice.slow ? 0.75 : 0.92;
@@ -762,6 +1137,9 @@
   function speak(text, lang = state.lang) {
     stopSpeaking();
     if (!text) return false;
+    // The node speaks Hindi and English. Another language is read only by a voice of its own on the phone;
+    // with none, nothing is said rather than the words read out in the wrong language's voice.
+    if (!isBuiltin(lang)) return phoneVoice(lang) ? phoneSpeak(text, lang) : false;
     if (!voice.nodeOk) return phoneSpeak(text, lang);
     const token = voice.token;
     const parts = splitSentences(text);
@@ -810,7 +1188,7 @@
   function renderVoiceStatus() {
     const h = state.health;
     const nodeVoice = Boolean(h && h.voice && h.voice.tts && (h.voice.tts[state.lang] || []).length);
-    const lines = [t(nodeVoice ? "voice_ready" : "voice_phone")];
+    const lines = [t(nodeVoice ? "voice_ready" : isBuiltin(state.lang) || phoneVoice(state.lang) ? "voice_phone" : "no_voice")];
     if (!canListen) lines.push(t("mic_secure"));
     $("#voice-status").textContent = lines.join(" ");
     renderSoundToggle();
@@ -825,7 +1203,7 @@
   const micGlyph = () => el("span", { class: "mic-glyph", "aria-hidden": "true" }, icon("mic"));
 
   async function asr(wav, params) {
-    const q = new URLSearchParams({ lang: state.lang, ...params });
+    const q = new URLSearchParams({ lang: base(), ...params });
     const res = await fetch(`/api/asr?${q}`, { method: "POST", headers: { "Content-Type": wav.type || "application/octet-stream" }, body: wav });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     return res.json();
@@ -892,6 +1270,10 @@
   }
 
   function setupMessageMic() {
+    if (!isBuiltin(state.lang)) {  // the node hears Hindi and English only; say so, and what it reads
+      $("#mic-msg").replaceChildren(el("p", { class: "note" }, `${t("lang_detect")} ${t("lang_mic_off")}`));
+      return;
+    }
     if (state.nodeless) { $("#mic-msg").replaceChildren(); return; }  // speech is recognised on the node
     $("#mic-msg").replaceChildren(micButton("mic_dictate", async (wav) => {
       try {
@@ -908,8 +1290,8 @@
   $("#btn-speak").addEventListener("click", () => {
     const card = state.check;
     if (!card) return;
-    const expl = state.explanation ? state.explanation.explanation[state.lang] : "";
-    const text = [card.label[state.lang], expl || card.headline[state.lang], ...card.actions[state.lang]].join(". ");
+    const expl = state.explanation && isBuiltin(state.lang) ? state.explanation.explanation[state.lang] : "";
+    const text = [tr(card.label), expl || tr(card.headline), ...trList(card.actions)].join(". ");
     if (!speak(text, state.lang)) toast(t("no_voice"));
   });
 
@@ -944,8 +1326,7 @@
   const canShare = Boolean(navigator.share) || mobile;
   function shareText() {
     const card = state.check;
-    const stop = state.lang === "hi" ? "।" : ".";
-    const lines = [`${t("share_intro")}: ${card.label[state.lang]}${stop}`, card.headline[state.lang], ...card.actions[state.lang].slice(0, 2)];
+    const lines = [`${t("share_intro")}: ${tr(card.label)}${stopFor()}`, tr(card.headline), ...trList(card.actions).slice(0, 2)];
     if (STANDALONE) lines.push(`${t("share_try")} ${location.origin}${location.pathname}`);
     return lines.join("\n");
   }
@@ -968,6 +1349,24 @@
   $$('input[name="tsize"]').forEach((r) => r.addEventListener("change", () => {
     savePref("sahayak.textsize", r.value);
     applyTextSize(r.value);
+  }));
+
+  // Appearance, kept on this phone: Automatic follows the phone; Light, White Titanium and Dark stay as chosen.
+  const THEMES = ["auto", "light", "titanium", "dark"];
+  const THEME_BAR = { light: "#F9F9F9", titanium: "#F2F1EE", dark: "#161617" };  // the browser's own bar
+  function applyTheme(theme) {
+    if (!THEMES.includes(theme)) theme = "auto";
+    if (theme === "auto") delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme = theme;
+    $$('meta[name="theme-color"]').forEach((m) => {
+      if (!m.dataset.auto) m.dataset.auto = m.content;
+      m.content = theme === "auto" ? m.dataset.auto : THEME_BAR[theme];
+    });
+    $$('input[name="theme"]').forEach((r) => { r.checked = r.value === theme; });
+  }
+  applyTheme(loadPref("sahayak.theme", "auto"));
+  $$('input[name="theme"]').forEach((r) => r.addEventListener("change", () => {
+    savePref("sahayak.theme", r.value);
+    applyTheme(r.value);
   }));
 
   // Keep it on the home screen: where the browser offers it (Chrome on Android, over HTTPS), one tap.
@@ -1015,9 +1414,9 @@
   // sees the verdict or the scheme results; message text never leaves the node's memory.
   async function askAgent(body) {
     try {
-      const out = await api("/api/queue", { ...body, lang: state.lang });
+      const out = await api("/api/queue", { ...body, lang: base() });
       $("#ticket-no").textContent = out.ticket;
-      $("#ticket").hidden = false;
+      openSheet($("#ticket"));
       $("#ticket-ok").focus();
       if (voice.auto) speak(`${t("ticket_title")}: ${out.ticket.replace("-", " ")}. ${t("ticket_sub")}`);
     } catch {
@@ -1026,7 +1425,9 @@
   }
   $("#btn-agent-check").addEventListener("click", () => { if (state.check) askAgent({ kind: "check", check_id: state.check.id }); });
   $("#btn-agent-nav").addEventListener("click", () => askAgent({ kind: "benefits", answers: nav.answers }));
-  $("#ticket-ok").addEventListener("click", () => { $("#ticket").hidden = true; });
+  $("#ticket-ok").addEventListener("click", () => closeSheet($("#ticket")));
+  dragToClose($("#ticket"), () => closeSheet($("#ticket")));
+  dragToClose($("#lang-sheet"), closeLangSheet);
 
   // ---------------------------------------------------------------- benefits navigator
   // The node decides everything (rules live in the schemes pack); the phone only asks the
@@ -1049,9 +1450,14 @@
     node.append(...kids.flat(2).filter((kid) => kid != null && kid !== false));
     return node;
   }
-  const tr = (obj) => (obj ? obj[state.lang] ?? obj.en : "");
+  // A bilingual { en, hi } object from an engine or a pack, in the display language.
+  const tr = (obj) => {
+    if (!obj) return "";
+    if (isBuiltin(state.lang)) return obj[state.lang] ?? obj.en;
+    return trEn(obj.en) ?? obj[base()] ?? obj.en ?? "";
+  };
   // A Material Symbols glyph; hidden from screen readers, so it never changes what is read out.
-  const icon = (name, cls) => el("span", { class: `ms${cls ? ` ${cls}` : ""}`, "aria-hidden": "true" }, name);
+  const icon = (name, cls) => el("span", { class: `ms${cls ? ` ${cls}` : ""}${FLIP.has(name) ? " flip" : ""}`, "aria-hidden": "true" }, name);
   const fmt = (s, vars) => s.replace(/\{(\w+)\}/g, (_, k) => String(vars[k] ?? ""));
   const hostOf = (url) => { try { return new URL(url).host.replace(/^www\./, ""); } catch { return ""; } };
 
@@ -1076,9 +1482,9 @@
       const out = await api("/api/navigator/next", { answers: nav.answers });
       if (out.done) { await navResult(); return; }
       nav.question = out.question;
-      renderQuestion();
-      go("question");
-      $("#q-text").focus();
+      const back = nav.back;
+      nav.back = false;
+      go("question", { render: renderQuestion, focus: "#q-text", dir: back ? "pop" : "push" });
     } catch {
       toast(t("err_network"));
     }
@@ -1094,19 +1500,19 @@
     if (!nav.order.length) { go("benefits"); return; }
     delete nav.answers[nav.order.pop()];
     nav.result = null;
+    nav.back = true;
     navNext();
   }
 
   async function fetchNavResult() {
-    nav.result = await api("/api/navigator/result", { answers: nav.answers, already: [...nav.already], session: nav.session, lang: state.lang });
+    nav.result = await api("/api/navigator/result", { answers: nav.answers, already: [...nav.already], session: nav.session, lang: base() });
     renderNavResult();
   }
 
   async function navResult() {
     try {
       await fetchNavResult();
-      go("benefits-result");
-      $("#nav-summary").focus();
+      go("benefits-result", { focus: "#nav-summary" });
     } catch {
       toast(t("err_network"));
     }
@@ -1140,6 +1546,7 @@
   function renderQuestionMic() {
     const q = nav.question;
     $("#q-confirm").hidden = true;
+    if (!isBuiltin(state.lang)) { $("#q-mic").replaceChildren(el("p", { class: "note" }, t("lang_mic_off"))); return; }
     if (state.nodeless) { $("#q-mic").replaceChildren(); return; }
     $("#q-mic").replaceChildren(micButton("mic_answer", async (wav) => {
       const params = { question: q.id };
@@ -1224,7 +1631,7 @@
   // Join spoken parts so each one stays its own sentence: the node then finds each part
   // ready-made in its speech cache instead of synthesising a new combination.
   function joinSpoken(parts) {
-    const stop = state.lang === "hi" ? "।" : ".";
+    const stop = stopFor();
     return parts.map((p) => (p || "").trim()).filter(Boolean).map((p) => (/[।.?!]$/.test(p) ? p : p + stop)).join(" ");
   }
 
@@ -1253,7 +1660,7 @@
       health.map((s) => el("div", { class: "hc-item" },
         el("div", { class: "hc-name" }, `${tr(s.name)} · ${t(`st_${s.status}`)}`),
         s.benefit_now ? el("div", { class: "hc-now" }, tr(s.benefit_now)) : null,
-        el("p", { class: "hc-say" }, `${t("say_label")}: “${s.counter[state.lang]}”`))))] : []));
+        el("p", { class: "hc-say" }, `${t("say_label")}: “${tr(s.counter)}”`))))] : []));
     const blocks = NAV_GROUPS.filter((g) => r.groups[g].length).map((g) => {
       const cards = r.groups[g].map((id) => schemeCard(byId[id]));
       if (g === "not_eligible") {
@@ -1306,8 +1713,8 @@
       el("h5", {}, t("benefit_label")), el("p", {}, tr(s.benefit)),
       el("h5", {}, t("docs_label")), el("ul", { class: "docs" }, s.documents.map((d) => el("li", {}, tr(d)))),
       el("h5", {}, t("where_label")), el("p", {}, tr(s.where)),
-      el("h5", {}, t("say_label")), el("blockquote", { class: "say" }, s.counter[state.lang]),
-      el("button", { type: "button", class: "chip", onclick: () => { if (!speak(s.counter[state.lang], state.lang)) toast(t("no_voice")); } },
+      el("h5", {}, t("say_label")), el("blockquote", { class: "say" }, tr(s.counter)),
+      el("button", { type: "button", class: "chip", onclick: () => { if (!speak(tr(s.counter), state.lang)) toast(t("no_voice")); } },
         icon("volume_up"), t("speak_btn")),
       s.notes.length ? el("ul", { class: "s-notes" }, s.notes.map((n) => el("li", {}, tr(n)))) : null,
       el("p", { class: "src" }, `${t("source_label")}: ${sources} · ${t("checked_label")} ${s.sources[0].checked}`));
@@ -1349,7 +1756,7 @@
         el("div", { class: "slip-sname" }, `${SLIP_MARK[s.status]} ${tr(s.name)} — ${t(`st_${s.status}`)}${s.benefit_now ? ` · ${tr(s.benefit_now)}` : ""}`),
         el("div", {}, el("b", {}, `${t("where_label")}: `), tr(s.where)),
         el("div", { class: "slip-docs" }, el("b", {}, `${t("docs_label")}: `), s.documents.map((d) => el("span", { class: "doc" }, `☐ ${tr(d)}`))),
-        el("div", { class: "slip-say" }, `“${s.counter[state.lang]}”`));
+        el("div", { class: "slip-say" }, `“${tr(s.counter)}”`));
     });
     $("#slip-sheet").replaceChildren(
       el("div", { class: "slip-head" },
@@ -1383,12 +1790,502 @@
     api("/api/counters/slip", { kind: "scheme" }).catch(() => {});
   });
 
-  // ---------------------------------------------------------------- language, health, offline cache
-  $("#lang-toggle").addEventListener("click", () => {
-    state.lang = other(state.lang);
-    saveLang(state.lang);
-    applyI18n();
+  // ---------------------------------------------------------------- Spot the scam: the awareness game
+  // Messages and calls the team wrote to mirror reported scams (web/game.json, made by scripts/build_game.py). The
+  // person says Scam or Real; then this phone's own checker shows its clues and what to do, so the game teaches
+  // exactly what a real check would say. Points, level, streak and badges stay on this phone (localStorage): nothing
+  // is sent and nothing is counted on the node.
+  const GAME_KEY = "sahayak.game.v1";
+  const ROUND = 5;            // cards in a round
+  const BADGE_NEED = 3;       // right answers of one kind that earn its badge
+  const LEVELS = [0, 50, 150, 300, 600];
+  const BADGES = ["otp", "upi", "kyc", "arrest", "prize", "money", "scheme", "real"];
+  const BADGE_ICON = { otp: "password", upi: "qr_code_2", kyc: "lock", arrest: "local_police", prize: "redeem",
+    money: "trending_up", scheme: "account_balance", real: "verified" };
+  const game = { cards: null, loading: null, round: null, state: loadGameState() };
+
+  function loadGameState() {
+    const blank = { points: 0, rounds: 0, best: 0, streak: 0, lastDay: "", dailyDay: "", seen: [], right: {}, badges: [] };
+    try { return { ...blank, ...(JSON.parse(localStorage.getItem(GAME_KEY)) || {}) }; } catch { return blank; }
+  }
+  function saveGame() { try { localStorage.setItem(GAME_KEY, JSON.stringify(game.state)); } catch { /* private mode */ } }
+  const isoDay = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  const today = () => isoDay(new Date());
+  const yesterday = () => { const d = new Date(); d.setDate(d.getDate() - 1); return isoDay(d); };
+  const liveStreak = () => ([today(), yesterday()].includes(game.state.lastDay) ? game.state.streak : 0);
+  function touchStreak() {
+    const s = game.state;
+    if (s.lastDay === today()) return;
+    s.streak = s.lastDay === yesterday() ? s.streak + 1 : 1;
+    s.lastDay = today();
+  }
+  function levelOf(points) {
+    let i = 0;
+    while (i + 1 < LEVELS.length && points >= LEVELS[i + 1]) i++;
+    const next = LEVELS[i + 1];
+    return { n: i + 1, name: t(`lvl_${i + 1}`), next, frac: next ? (points - LEVELS[i]) / (next - LEVELS[i]) : 1 };
+  }
+  const vibrate = (pattern) => { if (navigator.vibrate) { try { navigator.vibrate(pattern); } catch { /* not allowed */ } } };
+
+  function loadGame() {
+    if (!game.loading) {
+      game.loading = (async () => {
+        const [res] = await Promise.all([fetch(`${ROOT}app/game.json`), loadLocal()]);
+        if (!res.ok) throw new Error(`game: HTTP ${res.status}`);
+        game.cards = (await res.json()).cards;
+      })();
+      game.loading.catch(() => { game.loading = null; });
+    }
+    return game.loading;
+  }
+
+  // A ring that fills, as in Apple's Fitness rings: the level on the Learn screen, the score at the end of a round.
+  const SVG_NS = "http://www.w3.org/2000/svg";
+  function ringSvg(size, stroke, frac, withTrack) {
+    const r = (size - stroke) / 2;
+    const c = 2 * Math.PI * r;
+    const svg = document.createElementNS(SVG_NS, "svg");
+    for (const [k, v] of [["width", size], ["height", size], ["viewBox", `0 0 ${size} ${size}`], ["aria-hidden", "true"]]) svg.setAttribute(k, v);
+    const circle = (cls) => {
+      const e = document.createElementNS(SVG_NS, "circle");
+      for (const [k, v] of [["cx", size / 2], ["cy", size / 2], ["r", r], ["fill", "none"], ["stroke-width", stroke], ["class", cls]]) e.setAttribute(k, v);
+      return e;
+    };
+    if (withTrack) svg.append(circle("track"));
+    const arc = circle("arc");
+    arc.style.strokeDasharray = String(c);
+    arc.style.strokeDashoffset = String(c);
+    svg.append(arc);
+    const to = c * (1 - Math.max(0, Math.min(1, frac)));
+    requestAnimationFrame(() => requestAnimationFrame(() => { arc.style.strokeDashoffset = String(to); }));
+    return svg;
+  }
+  function ring(size, stroke, frac, cls, label, small) {
+    return el("div", { class: `ring${cls ? ` ${cls}` : ""}`, style: null },
+      ringSvg(size, stroke, frac, true),
+      el("div", { class: "ring-num" }, el("span", {}, label, small ? el("small", {}, small) : null)));
+  }
+  // A badge's medal: grey with a part-drawn ring while it is being earned, in its colour once earned.
+  function medal(id, frac) {
+    const won = frac >= 1;
+    const m = el("span", { class: `medal m-${id}${won ? " won" : ""}`, "aria-hidden": "true" }, icon(BADGE_ICON[id]));
+    if (!won && frac > 0) m.append(ringSvg(68, 3, frac, false));
+    return m;
+  }
+  const badgeProgress = (id) => Math.min(BADGE_NEED, game.state.right[id] || 0);
+  const badgeLine = (id) => (game.state.badges.includes(id) ? t("badge_won") : fmt(t("badge_progress"), { n: badgeProgress(id), total: BADGE_NEED }));
+
+  function renderLearn() {
+    const s = game.state;
+    const lv = levelOf(s.points);
+    const streak = liveStreak();
+    $("#level-card").replaceChildren(
+      el("div", { class: "lc-top" },
+        ring(76, 8, lv.frac, "", String(lv.n)),
+        el("div", { class: "lc-text" },
+          el("span", { class: "lc-over" }, `${t("level_label")} ${lv.n}`),
+          el("b", { class: "lc-name" }, lv.name),
+          el("span", { class: "lc-points" }, `${s.points} ${t("points")}`))),
+      el("p", { class: "lc-next" }, lv.next ? fmt(t("next_level"), { n: lv.next - s.points, name: t(`lvl_${lv.n + 1}`) }) : t("top_level")),
+      el("div", { class: "lc-stats" },
+        el("span", { class: `stat streak${streak ? "" : " cold"}` }, icon("local_fire_department"), el("span", {}, fmt(t("streak_days"), { n: streak }))),
+        el("span", { class: "stat medals" }, icon("workspace_premium"),
+          el("span", {}, fmt(t("badges_count"), { n: s.badges.length, total: BADGES.length })))));
+    const done = s.dailyDay === today();
+    const daily = $("#daily-card");
+    daily.className = `daily-card${done ? " done" : ""}`;
+    daily.replaceChildren(
+      el("span", { class: "tile-icon", "aria-hidden": "true" }, icon(done ? "task_alt" : "today")),
+      el("div", { class: "daily-text" }, el("b", {}, t("daily_title")), el("span", {}, t(done ? "daily_done" : "daily_sub"))),
+      done ? null : el("button", { type: "button", class: "tinted", onclick: () => startRound(true) }, t("daily_play")));
+    $("#badges").replaceChildren(...BADGES.map((id) => {
+      const won = s.badges.includes(id);
+      return el("button", { type: "button", class: `badge${won ? " won" : ""}`,
+        "aria-label": `${t(`badge_${id}`)}: ${badgeLine(id)}. ${t(`badge_${id}_d`)}`,
+        onclick: (e) => {
+          if (won) replay(e.currentTarget.querySelector(".medal"), "spin");
+          toast(`${t(`badge_${id}`)}: ${t(`badge_${id}_d`)}`, won ? "award" : null);
+        } },
+      medal(id, won ? 1 : badgeProgress(id) / BADGE_NEED),
+      el("span", { class: "badge-name" }, t(`badge_${id}`)),
+      el("span", { class: "badge-prog" }, badgeLine(id)));
+    }));
+    // the points count up from what the person last saw here
+    const shown = game.shownPoints ?? s.points;
+    countUp($(".lc-points", $("#level-card")), s.points, { from: shown, format: (v) => `${v} ${t("points")}` });
+    game.shownPoints = s.points;
+    renderLearnBadge();
+  }
+  // On the home screen: "New" until the first round, then a dot while today's message waits.
+  function renderLearnBadge() {
+    const b = $("#learn-badge");
+    const s = game.state;
+    if (!s.rounds) { b.className = "tile-badge"; b.textContent = t("game_new"); b.hidden = false; }
+    else if (s.dailyDay !== today()) { b.className = "tile-badge dot"; b.textContent = ""; b.hidden = false; }
+    else b.hidden = true;
+  }
+
+  const shuffle = (list) => {
+    const a = list.slice();
+    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+    return a;
+  };
+  // Five cards: one or two real messages, and scams of different kinds, the kinds whose badge is still to earn first.
+  function pickRound(daily) {
+    const cards = game.cards;
+    if (daily) {  // the same message for everyone on a given day
+      let h = 7;
+      for (const ch of today()) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
+      return [cards[h % cards.length]];
+    }
+    const s = game.state;
+    const seen = new Set(s.seen);
+    const fresh = (list) => { const f = list.filter((c) => !seen.has(c.id)); return f.length ? f : list; };
+    const nReal = Math.random() < 0.5 ? 1 : 2;
+    const kinds = shuffle(BADGES.filter((b) => b !== "real")).sort((a, b) => s.badges.includes(a) - s.badges.includes(b));
+    const scams = [];
+    for (const kind of kinds) {
+      if (scams.length >= ROUND - nReal) break;
+      const pool = shuffle(fresh(cards.filter((c) => c.badge === kind)));
+      if (pool.length) scams.push(pool[0]);
+    }
+    const reals = shuffle(fresh(cards.filter((c) => c.badge === "real"))).slice(0, ROUND - scams.length);
+    return shuffle([...scams, ...reals]);
+  }
+
+  async function startRound(daily = false) {
+    try { await loadGame(); } catch { toast(t("err_network")); return; }
+    game.round = { daily, cards: pickRound(daily), i: 0, right: 0, combo: 0, points: 0, results: [], newBadges: [],
+      levelBefore: levelOf(game.state.points).n, answered: false, checked: null };
+    go("play", { dir: "push" });
+    renderPlay();
+    speakCard();
+  }
+
+  function renderPlay() {
+    const r = game.round;
+    if (!r) return;
+    $("#play-dots").replaceChildren(...r.cards.map((_, i) =>
+      el("i", { class: i < r.results.length ? (r.results[i] ? "right" : "wrong") : i === r.i ? "now" : null })));
+    $("#play-score").replaceChildren(icon("star"), el("span", { class: "num" }, String(r.points)));
+    if (r.answered && r.gain && !r.counted) {  // the new points count up once
+      r.counted = true;
+      countUp($("#play-score .num"), r.points, { from: r.points - r.gain, ms: 600 });
+    }
+    $("#play-count").textContent = fmt(t("card_n"), { n: r.i + 1, total: r.cards.length });
+    renderMsgCard(r.cards[r.i], r.answered ? r.checked : null);
+    $("#answer-row").hidden = r.answered;
+    $("#swipe-hint").hidden = r.answered;
+    $("#feedback").hidden = !r.answered;
+    if (r.answered) renderFeedback();
+  }
+
+  // The card looks like the thing itself: a received SMS bubble, or the words of a phone call.
+  function renderMsgCard(card, checked) {
+    const call = card.input_type === "call";
+    const bubble = el("div", { class: "bubble", dir: "auto", lang: card.lang === "hi" ? "hi" : "en" });
+    if (checked && card.truth === "scam") markFlags(bubble, card.text, checked); else bubble.textContent = card.text;
+    const box = $("#msg-card");
+    box.className = `msg-card${call ? " mc-call" : ""}${checked ? "" : " deal"}`;
+    box.style.transform = "";
+    box.replaceChildren(
+      el("div", { class: "mc-head" },
+        el("span", { class: "mc-avatar", "aria-hidden": "true" }, icon(call ? "call" : "person")),
+        el("div", { class: "mc-who" },
+          el("b", { dir: "auto" }, card.sender || t(call ? "card_call" : "card_sms")),
+          card.sender ? el("span", {}, t(call ? "card_call" : "card_sms")) : null)),
+      bubble,
+      el("span", { class: "stamp s-scam", "aria-hidden": "true" }, t("ans_scam")),
+      el("span", { class: "stamp s-real", "aria-hidden": "true" }, t("ans_real")));
+  }
+
+  // After the answer, a scam card marks what the checker itself pulled out of it: links, phone numbers, UPI IDs,
+  // and the words OTP or PIN when it found an ask for them.
+  function markFlags(node, text, checked) {
+    const lower = text.toLowerCase();
+    const ranges = [];
+    const ex = checked.extracted || {};
+    for (const v of [...(ex.links || []), ...(ex.upi_ids || [])]) {
+      const needle = String(v).toLowerCase();
+      if (needle.length < 4) continue;
+      for (let at = lower.indexOf(needle); at >= 0; at = lower.indexOf(needle, at + needle.length)) ranges.push([at, at + needle.length]);
+    }
+    for (const v of ex.mobiles || []) {  // a number as written, with or without spaces: 90000 12345
+      const digits = String(v).replace(/\D/g, "").slice(-10);
+      if (digits.length < 8) continue;
+      for (const m of text.matchAll(new RegExp(digits.split("").join("[\\s-]?"), "g"))) ranges.push([m.index, m.index + m[0].length]);
+    }
+    if ((checked.signals || []).some((sg) => /otp|pin|secret/.test(sg.id))) {
+      for (const m of text.matchAll(/\b(?:OTP|PIN|CVV)\b|ओटीपी/gi)) ranges.push([m.index, m.index + m[0].length]);
+    }
+    ranges.sort((a, b) => a[0] - b[0]);
+    const parts = [];
+    let pos = 0;
+    for (const [a, b] of ranges) {
+      if (a < pos) continue;
+      if (a > pos) parts.push(text.slice(pos, a));
+      parts.push(el("mark", {}, text.slice(a, b)));
+      pos = b;
+    }
+    parts.push(text.slice(pos));
+    node.replaceChildren(...parts);
+  }
+
+  function answer(saysScam) {
+    const r = game.round;
+    if (!r || r.answered || !local.checker) return;
+    const card = r.cards[r.i];
+    const s = game.state;
+    const right = saysScam === (card.truth === "scam");
+    r.checked = local.checker.check(card.text, { sender: card.sender, inputType: card.input_type });
+    r.answered = true;
+    r.wasRight = right;
+    r.results.push(right);
+    r.gain = 0;
+    if (right) {
+      r.right++;
+      r.combo++;
+      r.gain = 10 + (r.combo >= 3 ? 5 : 0);  // three in a row and more: a bonus
+      r.points += r.gain;
+      s.points += r.gain;
+      s.right[card.badge] = (s.right[card.badge] || 0) + 1;
+      if (s.right[card.badge] >= BADGE_NEED && !s.badges.includes(card.badge)) { s.badges.push(card.badge); r.newBadges.push(card.badge); }
+      vibrate(18);
+    } else {
+      r.combo = 0;
+      vibrate([40, 60, 40]);
+    }
+    s.seen = [...s.seen.filter((id) => id !== card.id), card.id].slice(-40);
+    saveGame();
+    edgeFlash(right ? "right" : "wrong");
+    renderPlay();
+    if (r.gain) popPoints(r.gain);
+    const title = $("#feedback .fb-title");
+    if (title) title.focus({ preventScroll: true });
+    $("#feedback").scrollIntoView({ block: "nearest", behavior: "smooth" });
+    if (voice.auto) speak(joinSpoken([t(right ? "fb_right" : "fb_wrong"), card.truth === "scam" ? tr(r.checked.headline) : t("fb_real")]));
+  }
+
+  // A tick or a cross drawn with one stroke, as in Apple Pay's "Done".
+  function drawnMark(right) {
+    const svg = document.createElementNS(SVG_NS, "svg");
+    svg.setAttribute("viewBox", "0 0 24 24");
+    svg.setAttribute("class", "mark");
+    for (const d of right ? ["M5.5 12.5l4.2 4.2L18.5 7.5"] : ["M7 7l10 10", "M17 7L7 17"]) {
+      const path = document.createElementNS(SVG_NS, "path");
+      path.setAttribute("d", d);
+      path.setAttribute("pathLength", "1");
+      svg.append(path);
+    }
+    return svg;
+  }
+  // Ten sparks thrown out from the tick.
+  function burst() {
+    if (reduceMotion()) return null;
+    const box = el("span", { class: "burst", "aria-hidden": "true" });
+    for (let i = 0; i < 10; i++) {
+      const spark = el("i", {});
+      spark.style.setProperty("--a", `${i * 36 + (i % 2 ? 10 : 0)}deg`);
+      spark.style.setProperty("--d", `${30 + (i % 3) * 8}px`);
+      box.append(spark);
+    }
+    return box;
+  }
+
+  function popPoints(gain) {
+    const score = $("#play-score");
+    score.classList.remove("bump");
+    void score.offsetWidth;  // restart the animation
+    score.classList.add("bump");
+    const pop = el("span", { class: "pop", "aria-hidden": "true" }, `+${gain}`);
+    score.append(pop);
+    setTimeout(() => pop.remove(), 1000);
+  }
+
+  function renderFeedback() {
+    const r = game.round;
+    const card = r.cards[r.i];
+    const c = r.checked;
+    const scam = card.truth === "scam";
+    const last = r.i + 1 >= r.cards.length;
+    const kids = [el("div", { class: `fb-head ${r.wasRight ? "right" : "wrong"}` },
+      el("span", { class: "fb-icon", "aria-hidden": "true" }, drawnMark(r.wasRight), r.wasRight ? burst() : null),
+      el("div", { class: "fb-words" },
+        el("div", { class: "fb-title", tabindex: "-1" }, t(r.wasRight ? "fb_right" : "fb_wrong")),
+        el("div", { class: "fb-truth" }, scam ? tr(c.headline) : t("fb_real")),
+        r.wasRight && r.combo >= 3 ? el("span", { class: "combo" }, icon("local_fire_department"), fmt(t("combo"), { n: r.combo })) : null))];
+    if (scam) {
+      kids.push(el("p", { class: "fb-label" }, t("fb_clues")),
+        el("ul", { class: "reasons" }, c.reasons.map((x) => el("li", { class: x.hard ? "hard" : null }, el("span", {}, tr(x.text))))));
+      const first = trList(c.actions)[0];
+      if (first) kids.push(el("p", { class: "fb-label" }, t("fb_remember")), el("div", { class: "fb-tip" }, first));
+    } else {
+      kids.push(el("p", { class: "fb-label" }, t("fb_remember")), el("div", { class: "fb-tip" }, t("fb_real_tip")));
+    }
+    kids.push(el("button", { type: "button", class: "primary big", onclick: nextCard },
+      t(last ? "see_score" : "next_card"), icon(last ? "emoji_events" : "arrow_forward")));
+    $("#feedback").replaceChildren(...kids);
+  }
+
+  function speakCard() {
+    const r = game.round;
+    if (!voice.auto || !r) return;
+    const card = r.cards[r.i];
+    speak(card.text, card.lang === "hi" ? "hi" : "en");
+  }
+
+  function nextCard() {
+    const r = game.round;
+    if (!r || r.leaving) return;
+    if (r.i + 1 >= r.cards.length) { finishRound(); return; }
+    const deal = () => {
+      r.leaving = false;
+      r.i++;
+      r.answered = false;
+      r.checked = null;
+      r.counted = false;
+      renderPlay();
+      window.scrollTo({ top: 0 });
+      speakCard();
+    };
+    if (reduceMotion()) { deal(); return; }
+    // the answered card flies off towards the answer it was, then the next one is dealt
+    r.leaving = true;
+    $("#feedback").classList.add("leaving");
+    $("#msg-card").classList.add(r.cards[r.i].truth === "scam" ? "fly-scam" : "fly-real");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setTimeout(deal, 260);
+  }
+
+  function finishRound() {
+    const r = game.round;
+    const s = game.state;
+    if (r.daily) {
+      s.dailyDay = today();
+      if (r.right) { s.points += 20; r.points += 20; }  // today's message, answered right: the bonus
+    }
+    s.rounds++;
+    s.best = Math.max(s.best, r.right);
+    touchStreak();
+    const lv = levelOf(s.points);
+    r.levelUp = lv.n > r.levelBefore ? lv.n : 0;
+    saveGame();
+    go("game-done", { focus: "#done-title", render: () => {
+      renderDone();
+      if (voice.auto) speak(joinSpoken([$("#done-title").textContent, $("#done-sub").textContent]));
+    } });
+    if (r.right === r.cards.length && r.cards.length > 1) setTimeout(confetti, 450);  // once the screen has arrived
+    vibrate(r.newBadges.length || r.levelUp ? [20, 40, 20, 40, 60] : 20);
+  }
+
+  function renderDone() {
+    const r = game.round;
+    if (!r) return;
+    const n = r.right;
+    const total = r.cards.length;
+    $("#done-ring").replaceChildren(ring(156, 16, n / total, "green", `${n}/${total}`));
+    countUp($("#done-ring .ring-num span"), n, { ms: 900, format: (v) => `${v}/${total}` });
+    $("#done-title").textContent = t(n === total ? "done_perfect" : n / total >= 0.6 ? "done_good" : "done_ok");
+    $("#done-sub").textContent = fmt(t("done_score"), { n, total });
+    $("#done-points").replaceChildren(icon("star"), el("span", { class: "num" }, fmt(t("done_points"), { n: r.points })));
+    countUp($("#done-points .num"), r.points, { ms: 1100, format: (v) => fmt(t("done_points"), { n: v }) });
+    const awards = r.newBadges.map((id, i) => {
+      const a = el("div", { class: "award" }, medal(id, 1),
+        el("div", { class: "award-words" }, el("small", {}, t("new_badge")), el("b", {}, t(`badge_${id}`)), el("span", {}, t(`badge_${id}_d`))));
+      a.style.animationDelay = `${0.25 + i * 0.15}s`;
+      return a;
+    });
+    if (r.levelUp) {
+      awards.unshift(el("div", { class: "award level" },
+        el("div", { class: "twinkle-wrap" }, ring(52, 6, 1, "", String(r.levelUp)),
+          reduceMotion() ? null : el("span", { class: "twinkles", "aria-hidden": "true" }, el("i", {}), el("i", {}), el("i", {}), el("i", {}))),
+        el("div", { class: "award-words" }, el("small", {}, `${t("level_label")} ${r.levelUp}`), el("b", {}, fmt(t("level_up"), { name: t(`lvl_${r.levelUp}`) })))));
+    }
+    $("#done-badges").replaceChildren(...awards);
+    $("#btn-game-share").hidden = !canShare;
+  }
+
+  // A burst of confetti for a perfect round (not with reduced motion).
+  function confetti() {
+    if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const colors = ["#FF3B30", "#FF9500", "#FFCC00", "#34C759", "#007AFF", "#AF52DE", "#FF2D55"];
+    const box = el("div", { class: "confetti", "aria-hidden": "true" });
+    for (let i = 0; i < 70; i++) {
+      const bit = el("i", {});
+      bit.style.left = `${Math.random() * 100}%`;
+      bit.style.background = colors[i % colors.length];
+      bit.style.animationDuration = `${1.8 + Math.random() * 1.6}s`;
+      bit.style.animationDelay = `${Math.random() * 0.5}s`;
+      bit.style.transform = `rotate(${Math.random() * 180}deg)`;
+      box.append(bit);
+    }
+    document.body.append(box);
+    setTimeout(() => box.remove(), 4200);
+  }
+
+  // Swipe the card towards an answer: towards Scam or towards Real, whichever side the button is on.
+  function setupSwipe() {
+    const box = $("#msg-card");
+    let start = null;
+    let dx = 0;
+    const rtl = () => document.documentElement.dir === "rtl";
+    const toScam = (d) => (rtl() ? d > 0 : d < 0);
+    const stamps = (k, scam) => {
+      const a = $(".stamp.s-scam", box);
+      const b = $(".stamp.s-real", box);
+      if (a) a.style.opacity = scam ? String(k) : "0";
+      if (b) b.style.opacity = scam ? "0" : String(k);
+    };
+    box.addEventListener("pointerdown", (e) => {
+      if (!game.round || game.round.answered || e.button > 0) return;
+      start = { x: e.clientX, id: e.pointerId };
+      dx = 0;
+      box.classList.remove("settle");
+      box.classList.add("dragging");
+    });
+    box.addEventListener("pointermove", (e) => {
+      if (!start || e.pointerId !== start.id) return;
+      dx = e.clientX - start.x;
+      if (Math.abs(dx) > 6 && !box.hasPointerCapture(e.pointerId)) box.setPointerCapture(e.pointerId);
+      box.style.transform = `perspective(900px) translateX(${dx}px) rotateY(${(dx / 14).toFixed(1)}deg) rotate(${(dx / 30).toFixed(1)}deg)`;
+      stamps(Math.min(1, Math.abs(dx) / 90), toScam(dx));
+    });
+    const end = () => {
+      if (!start) return;
+      start = null;
+      box.classList.remove("dragging");
+      box.classList.add("settle");
+      if (Math.abs(dx) > 90) { answer(toScam(dx)); return; }
+      box.style.transform = "";
+      stamps(0, false);
+    };
+    box.addEventListener("pointerup", end);
+    box.addEventListener("pointercancel", end);
+  }
+  setupSwipe();
+
+  $("#btn-play").addEventListener("click", () => startRound(false));
+  $("#btn-ans-scam").addEventListener("click", () => answer(true));
+  $("#btn-ans-real").addEventListener("click", () => answer(false));
+  $("#btn-play-quit").addEventListener("click", () => { stopSpeaking(); game.round = null; go("learn"); });
+  $("#btn-play-again").addEventListener("click", () => startRound(false));
+  $("#btn-game-share").addEventListener("click", async () => {
+    const r = game.round;
+    if (!r) return;
+    const lines = [fmt(t("share_game_text"), { n: r.right, total: r.cards.length })];
+    if (STANDALONE) lines.push(`${location.origin}${location.pathname}`);
+    const text = lines.join("\n");
+    if (navigator.share) {
+      try { await navigator.share({ text }); } catch { /* the person closed the share sheet */ }
+      return;
+    }
+    location.href = `whatsapp://send?text=${encodeURIComponent(text)}`;
   });
+
+  // ---------------------------------------------------------------- language, health, offline cache
+  $("#lang-toggle").addEventListener("click", () => { openLangSheet(); });
+  $("#lang-close").addEventListener("click", closeLangSheet);
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("#lang-sheet").hidden) closeLangSheet(); });
 
   async function loadHealth() {
     try {
@@ -1423,9 +2320,23 @@
   // Deep links: ?lang=en, ?screen=check|benefits, ?demo=<example id>, ?nav=start|<persona id>.
   // A QR code printed on a demo card can open straight to its verdict or benefits result.
   const params = new URLSearchParams(location.search);
-  if (T[params.get("lang")]) state.lang = params.get("lang");
+  if (params.get("lang") && /^[a-z]{2,3}$/.test(params.get("lang"))) state.lang = params.get("lang");
+  if (params.get("theme")) applyTheme(params.get("theme"));  // ?theme=titanium, for a demo; not kept
   applyI18n();
+  // A language other than Hindi or English shows once its translation is loaded (cached for offline use).
+  if (!isBuiltin(state.lang)) {
+    const wanted = state.lang;
+    loadLangPack(wanted).then(() => { if (state.lang === wanted) { saveLang(wanted); applyI18n(); } })
+      .catch(() => { if (state.lang === wanted) { state.lang = "en"; saveLang("en"); applyI18n(); } });
+  }
   setMode("text");
+  markScreen("home");
+  renderLearnBadge();
+  updateNavTitle();
+  if (!reduceMotion()) {
+    document.body.classList.add("intro-play");
+    setTimeout(() => document.body.classList.remove("intro-play"), 1600);
+  }
   loadQRExamples();
   Promise.all([loadExamples(), loadNavigator()]).then(() => {
     const demo = examples.find((ex) => ex.id === params.get("demo"));
@@ -1453,6 +2364,7 @@
       } catch { go("benefits"); }
     }
     else if (params.get("nav") === "start") { navReset(); navNext(); }
+    else if (params.get("play")) startRound(params.get("play") === "daily");
     else if (params.get("screen")) go(params.get("screen"));
   });
   if (STANDALONE) setNodeless(true); else loadHealth();

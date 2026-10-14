@@ -36,6 +36,19 @@ Grand Jury Round in Delhi on 14 Oct; the Grand Finale on 22 Oct is only for team
 | ![Home](docs/screenshots/01_home_hi.png) | ![Check a message](docs/screenshots/02_check_hi.png) | ![Scam verdict](docs/screenshots/03_result_kyc_hi.png) | ![Benefits result](docs/screenshots/09_benefits_result_widow_hi.png) |
 | Home: two questions and 1930 | Paste and check, speak, a QR or a screenshot | A fake KYC SMS: what to do first, then why | A 67-year-old widow: health cover first, then pensions |
 
+**In this copy: India's 22 scheduled languages.** The top-right button opens a list of 23 languages. Screens and
+answers can be shown in every scheduled language, as machine translations that no native speaker has checked yet,
+and the app says so. The scam check still reads Hindi, English and Hinglish, and the engines and signed packs are
+unchanged. See `docs/LANGUAGES.md`.
+
+**Also in this copy: an Apple-style look and a scam-spotting game.** The phone app now follows iOS design (system font
+and colours, grouped lists, a tab bar). The new Learn tab holds **Spot the scam**: 5 cards a round, scam or real,
+then Sahayak's own clues, with points, levels, a daily message and badges, all kept on the phone. See `docs/GAME.md`.
+
+| ![New home](docs/screenshots/17_home_ios_hi.png) | ![Learn](docs/screenshots/18_learn_hi.png) | ![A card](docs/screenshots/19_play_card_hi.png) | ![After an answer](docs/screenshots/20_play_feedback_hi.png) |
+|---|---|---|---|
+| The new home: grouped rows and a tab bar | Learn: level ring, streak, today's message, badges | A card: scam or real? | After the answer: what it was, and what to remember |
+
 ## The app
 
 Made for the person it serves: often older, often new to a smartphone, reading a verdict in a hurry.

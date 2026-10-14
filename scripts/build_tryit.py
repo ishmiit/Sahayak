@@ -24,7 +24,7 @@ sys.path.insert(0, str(ROOT))
 from sahayak.packs import get_pack  # noqa: E402
 
 WEB = ROOT / "web"
-APP_FILES = ("styles.css", "app.js", "mic.js", "recorder.js", "checker.js", "navigator.js", "icons/icon.svg", "icons/icon-192.png", "icons/icon-512.png",
+APP_FILES = ("app.css", "styles.css", "app.js", "game.json", "mic.js", "recorder.js", "checker.js", "navigator.js", "i18n.js", "i18n/index.json", "icons/icon.svg", "icons/icon-192.png", "icons/icon-512.png",
              "fonts/geist-latin.woff2", "fonts/geist-latin-ext.woff2", "fonts/geist-mono-latin.woff2", "fonts/symbols.woff2",
              "fonts/LICENSE.txt")
 PACKS = ("fraud", "scam_patterns", "fraud_model", "schemes", "demo")  # the same list the node serves
@@ -36,10 +36,13 @@ def main() -> None:
         shutil.rmtree(out)
     (out / "app" / "icons").mkdir(parents=True)
     (out / "app" / "fonts").mkdir()
+    (out / "app" / "i18n").mkdir()
     (out / "phone-packs").mkdir()
 
     for f in APP_FILES:
         shutil.copy2(WEB / f, out / "app" / f)
+    for f in sorted((WEB / "i18n").glob("*.json")):  # display languages (scripts/i18n_build.py); a phone fetches only its own
+        shutil.copy2(f, out / "app" / "i18n" / f.name)
     shutil.copy2(WEB / "sw.js", out / "sw.js")  # works from any folder: it caches relative to itself
 
     # The page: relative paths (the site may live in a sub-folder), and a marker that tells the app there is no

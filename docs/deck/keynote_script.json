@@ -1,5 +1,5 @@
 {
-  "note": "The keynote for the Grand Jury Round (14 Oct 2026), one entry per slide of Sahayak_Keynote_v5.pptx. One version: about 7½ minutes at talking pace, about 10 at a slow keynote pace. The deck's speaker notes (docs/deck/build_deck_keynote.js) and the script page are both built from this file. A step is either a DO (an action, never spoken) or a SAY (spoken by I = Ishmiit or R = Roshan). Each new line in a SAY is a pause. The slides carry short cues; the SAY lines tell the story around them, so nothing is read off the screen. Button names match the app as it runs on 14 Oct 2026 (English first, reading aloud off).",
+  "note": "The keynote for the Grand Jury Round (14 Oct 2026), one entry per slide of Sahayak_Keynote_v5.pptx. One version: about 7½ minutes at talking pace, about 10 at a slow keynote pace. The deck's speaker notes (docs/deck/build_deck_keynote.js) and the script page are both built from this file. A step is either a DO (an action, never spoken) or a SAY (spoken by I = Ishmiit or R = Roshan). Each new line in a SAY is a pause. The slides carry short cues; the SAY lines tell the story around them, so nothing is read off the screen. Button names match the app as it runs on 14 Oct 2026 (English first, reading aloud off, 22 display languages, Spot the scam on the Learn tab).",
   "hook_end": 4,
   "slides": [
     {
@@ -54,7 +54,7 @@
     {
       "n": 4,
       "name": "Introducing Sahayak",
-      "show": "Sahayak, its two promises, three short pills, and the app’s home screen on a phone.",
+      "show": "Sahayak, its two promises, three short pills (CSC and phone, offline, 22 languages), and the app’s home screen.",
       "steps": [
         {
           "do": "Click. Take one step toward the jury.",
@@ -65,7 +65,7 @@
           "who": "I"
         },
         {
-          "say": "At the Common Services Centre in her village, or on her own phone, even offline.\nEnglish and Hindi today, with regional languages on the way.",
+          "say": "At the Common Services Centre in her village, or on her own phone, even offline.\nAnd every screen, every answer, comes in all twenty-two of India’s scheduled languages.",
           "who": "I"
         },
         {
@@ -165,7 +165,7 @@
         },
         {
           "do": "Stop talking and let them try it. Watch the jury, not the screen. Roshan walks the demo phone to anyone who raises a hand.",
-          "hold": 10
+          "hold": 8
         },
         {
           "say": "The phone Roshan is holding has been in airplane mode since we walked into this room.",
@@ -183,7 +183,7 @@
           "click": true
         },
         {
-          "say": "Under the hood, it’s deliberately simple.\nShe can type, speak, describe a call, or photograph a UPI QR code.",
+          "say": "She can type, speak, describe a call, or photograph a UPI QR code.",
           "who": "I"
         },
         {
@@ -225,7 +225,7 @@
           "who": "R"
         },
         {
-          "say": "The model will help where it’s strongest: the new languages,\nas a second opinion that can only raise a warning.",
+          "say": "We’ll use the model where it helps most: reading messages in the new languages,\nas a second opinion that can only raise a warning.",
           "who": "R"
         },
         {
@@ -273,10 +273,6 @@
         {
           "say": "And the biggest share goes to the local operator who runs each counter.",
           "who": "I"
-        },
-        {
-          "say": "And in the next thirty days: a field morning at a CSC, real messages from real phones, and a district partner.",
-          "who": "I"
         }
       ]
     },
@@ -302,7 +298,7 @@
     {
       "n": 13,
       "name": "One more thing",
-      "show": "Everything you saw today is public. A card lists the result file behind each number.",
+      "show": "Spot the scam: the game on the Learn tab. Two phones: a card (Scam or real?) and Sahayak’s clues after the answer.",
       "steps": [
         {
           "do": "Click. Pause. Take one step toward the jury.",
@@ -310,7 +306,7 @@
           "hold": 2
         },
         {
-          "say": "And, one more thing.\nEverything you’ve seen today is public.\nThe code, the tests, and the file behind every number on these slides.\nAnyone can check our work.\nWe’d like you to.",
+          "say": "And, one more thing.\nSahayak checks a message when you have one.\nBut the best defence is knowing a scam before it arrives.\nSo we built a game. Spot the scam.\nFive messages a round. Scam, or real? Swipe your answer,\nand Sahayak shows you the clues it found.\nPoints, levels, badges, and a new message every day.\nIt’s in the Learn tab, on the phone in your hand.",
           "who": "I"
         }
       ]

@@ -1,0 +1,28 @@
+{
+ "note": "India's 22 scheduled languages (Eighth Schedule) plus English. base: the language the engines answer in and the second line under each answer (hi or en). tts: the phone voice to ask for. draft: translations to treat with extra care until a native speaker checks them.",
+ "languages": [
+  {"code": "hi", "name": "हिंदी", "english": "Hindi", "script": "Devanagari", "dir": "ltr", "base": "hi", "tts": "hi-IN", "builtin": true},
+  {"code": "en", "name": "English", "english": "English", "script": "Latin", "dir": "ltr", "base": "en", "tts": "en-IN", "builtin": true},
+  {"code": "as", "name": "অসমীয়া", "english": "Assamese", "script": "Bengali", "dir": "ltr", "base": "en", "tts": "as-IN"},
+  {"code": "bn", "name": "বাংলা", "english": "Bengali", "script": "Bengali", "dir": "ltr", "base": "en", "tts": "bn-IN"},
+  {"code": "brx", "name": "बड़ो", "english": "Bodo", "script": "Devanagari", "dir": "ltr", "base": "hi", "tts": "brx-IN", "draft": true},
+  {"code": "doi", "name": "डोगरी", "english": "Dogri", "script": "Devanagari", "dir": "ltr", "base": "hi", "tts": "doi-IN", "draft": true},
+  {"code": "gu", "name": "ગુજરાતી", "english": "Gujarati", "script": "Gujarati", "dir": "ltr", "base": "en", "tts": "gu-IN"},
+  {"code": "kn", "name": "ಕನ್ನಡ", "english": "Kannada", "script": "Kannada", "dir": "ltr", "base": "en", "tts": "kn-IN"},
+  {"code": "ks", "name": "کٲشُر", "english": "Kashmiri", "script": "Arabic", "dir": "rtl", "base": "en", "tts": "ks-IN", "draft": true},
+  {"code": "kok", "name": "कोंकणी", "english": "Konkani", "script": "Devanagari", "dir": "ltr", "base": "en", "tts": "kok-IN", "draft": true},
+  {"code": "mai", "name": "मैथिली", "english": "Maithili", "script": "Devanagari", "dir": "ltr", "base": "hi", "tts": "mai-IN", "draft": true},
+  {"code": "ml", "name": "മലയാളം", "english": "Malayalam", "script": "Malayalam", "dir": "ltr", "base": "en", "tts": "ml-IN"},
+  {"code": "mni", "name": "মৈতৈলোন্ (মণিপুরী)", "english": "Manipuri", "script": "Bengali", "dir": "ltr", "base": "en", "tts": "mni-IN", "draft": true},
+  {"code": "mr", "name": "मराठी", "english": "Marathi", "script": "Devanagari", "dir": "ltr", "base": "en", "tts": "mr-IN"},
+  {"code": "ne", "name": "नेपाली", "english": "Nepali", "script": "Devanagari", "dir": "ltr", "base": "en", "tts": "ne-NP"},
+  {"code": "or", "name": "ଓଡ଼ିଆ", "english": "Odia", "script": "Oriya", "dir": "ltr", "base": "en", "tts": "or-IN"},
+  {"code": "pa", "name": "ਪੰਜਾਬੀ", "english": "Punjabi", "script": "Gurmukhi", "dir": "ltr", "base": "en", "tts": "pa-IN"},
+  {"code": "sa", "name": "संस्कृतम्", "english": "Sanskrit", "script": "Devanagari", "dir": "ltr", "base": "hi", "tts": "sa-IN", "draft": true},
+  {"code": "sat", "name": "ᱥᱟᱱᱛᱟᱲᱤ", "english": "Santali", "script": "Ol Chiki", "dir": "ltr", "base": "en", "tts": "sat-IN", "draft": true},
+  {"code": "sd", "name": "سنڌي", "english": "Sindhi", "script": "Arabic", "dir": "rtl", "base": "en", "tts": "sd-IN", "draft": true},
+  {"code": "ta", "name": "தமிழ்", "english": "Tamil", "script": "Tamil", "dir": "ltr", "base": "en", "tts": "ta-IN"},
+  {"code": "te", "name": "తెలుగు", "english": "Telugu", "script": "Telugu", "dir": "ltr", "base": "en", "tts": "te-IN"},
+  {"code": "ur", "name": "اردو", "english": "Urdu", "script": "Arabic", "dir": "rtl", "base": "en", "tts": "ur-IN"}
+ ]
+}

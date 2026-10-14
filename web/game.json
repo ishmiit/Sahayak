@@ -1,0 +1,545 @@
+{
+ "note": "Spot the scam: cards for the awareness game (scripts/build_game.py). Written by the team to mirror publicly reported patterns; not real messages. Each answer agrees with Sahayak's check.",
+ "badges": [
+  "otp",
+  "upi",
+  "kyc",
+  "arrest",
+  "prize",
+  "money",
+  "scheme",
+  "real"
+ ],
+ "cards": [
+  {
+   "id": "demo-otp_call",
+   "text": "Sir main SBI bank se bol raha hu, aapka card block ho jayega. Aapke mobile pe jo OTP aaya hai woh batao turant.",
+   "sender": "9123456780",
+   "input_type": "call",
+   "truth": "scam",
+   "badge": "otp",
+   "category": "otp_pin",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0012",
+   "text": "This is calling from SBI head office. Due to RBI rules your card will be blocked. Please tell me the 6 digit OTP received on your mobile to verify.",
+   "sender": null,
+   "input_type": "call",
+   "truth": "scam",
+   "badge": "otp",
+   "category": "otp_pin",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0013",
+   "text": "मैं एसबीआई हेड ऑफिस से बोल रहा हूँ। आपका कार्ड ब्लॉक होने वाला है। आपके मोबाइल पर आया 6 अंकों का OTP बताइए।",
+   "sender": null,
+   "input_type": "call",
+   "truth": "scam",
+   "badge": "otp",
+   "category": "otp_pin",
+   "lang": "hi"
+  },
+  {
+   "id": "sb-0103",
+   "text": "Your Amazon order is cancelled. Refund of Rs 2,499 will be processed only after verification. Call customer care 98760 12345",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "otp",
+   "category": "customer_care",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0104",
+   "text": "आपका अमेज़न ऑर्डर रद्द हो गया है। 2499 रुपये के रिफ़ंड के लिए कस्टमर केयर 98760 12345 पर कॉल करें।",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "otp",
+   "category": "customer_care",
+   "lang": "hi"
+  },
+  {
+   "id": "sb-0105",
+   "text": "Hello this is Zomato customer care. Your refund failed. Please install AnyDesk and share the code, I will process it for you.",
+   "sender": null,
+   "input_type": "call",
+   "truth": "scam",
+   "badge": "otp",
+   "category": "customer_care",
+   "lang": "en"
+  },
+  {
+   "id": "demo-upi_receive",
+   "text": "Congratulations! You have received a cashback of Rs 5000 from PhonePe. Scan the QR code and enter your UPI PIN to receive the money.",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "upi",
+   "category": "upi_receive",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0023",
+   "text": "Congratulations! Rs 2,000 cashback is waiting for you. Scan this QR code and enter UPI PIN to get the money in your account.",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "upi",
+   "category": "upi_receive",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0024",
+   "text": "बधाई हो! आपको 2000 रुपये का कैशबैक मिला है। पैसे पाने के लिए QR स्कैन करें और UPI पिन डालें।",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "upi",
+   "category": "upi_receive",
+   "lang": "hi"
+  },
+  {
+   "id": "demo-kyc_hi",
+   "text": "प्रिय ग्राहक, आपके SBI खाते का KYC खत्म हो गया है। तुरंत अपडेट करें, नहीं तो आज रात खाता बंद हो जाएगा। लिंक: http://sbi-kyc-update.xyz",
+   "sender": "9876501234",
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "kyc",
+   "category": "kyc",
+   "lang": "hi"
+  },
+  {
+   "id": "demo-electricity",
+   "text": "Dear Consumer your electricity power will be disconnected tonight at 9.30pm because your previous month bill was not updated. Please immediately contact our electricity officer 9876543210",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "kyc",
+   "category": "electricity",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0001",
+   "text": "Dear Customer, your SBI YONO account will be blocked today. Please update your PAN card immediately by clicking http://sbi-yono-pan.top/update",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "kyc",
+   "category": "kyc",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0002",
+   "text": "प्रिय ग्राहक, आपका SBI YONO खाता आज बंद हो जाएगा। तुरंत अपना PAN कार्ड अपडेट करें: http://sbi-yono-pan.top/update",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "kyc",
+   "category": "kyc",
+   "lang": "hi"
+  },
+  {
+   "id": "sb-0062",
+   "text": "Dear consumer your electricity power will be disconnected tonight at 9.30 pm from electricity office because your previous month bill was not update. Please immediately contact with our electricity officer 98765 43210",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "kyc",
+   "category": "electricity",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0063",
+   "text": "प्रिय उपभोक्ता, आपका पिछले महीने का बिल अपडेट नहीं हुआ है, आज रात 9:30 बजे आपकी बिजली काट दी जाएगी। तुरंत बिजली अधिकारी से संपर्क करें 98765 43210",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "kyc",
+   "category": "electricity",
+   "lang": "hi"
+  },
+  {
+   "id": "demo-digital_arrest",
+   "text": "मैं मुंबई पुलिस से बोल रहा हूँ। आपके आधार से मनी लॉन्ड्रिंग हुई है। आप डिजिटल अरेस्ट में हैं, वीडियो कॉल पर बने रहें और किसी को मत बताना।",
+   "sender": null,
+   "input_type": "call",
+   "truth": "scam",
+   "badge": "arrest",
+   "category": "digital_arrest",
+   "lang": "hi"
+  },
+  {
+   "id": "sb-0043",
+   "text": "This is Inspector Sharma from Mumbai Cyber Crime. Your Aadhaar is linked to a money laundering case. You are under digital arrest. Stay on this video call and do not inform anyone.",
+   "sender": null,
+   "input_type": "call",
+   "truth": "scam",
+   "badge": "arrest",
+   "category": "digital_arrest",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0044",
+   "text": "मैं मुंबई साइबर क्राइम से इंस्पेक्टर शर्मा बोल रहा हूँ। आपके आधार पर मनी लॉन्ड्रिंग का केस है। आप डिजिटल अरेस्ट में हैं, वीडियो कॉल पर रहें और किसी को न बताएं।",
+   "sender": null,
+   "input_type": "call",
+   "truth": "scam",
+   "badge": "arrest",
+   "category": "digital_arrest",
+   "lang": "hi"
+  },
+  {
+   "id": "sb-0127",
+   "text": "Papa, I met with an accident and I am at the hospital. My phone broke, this is my friend's number. Please send Rs 30,000 urgently by GPay.",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "arrest",
+   "category": "impersonation",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0129",
+   "text": "Hi mummy, this is my new number. Save it. I need some money urgently for fees, can you send 15,000 now?",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "arrest",
+   "category": "impersonation",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0130",
+   "text": "Bhaiya main thane mein fas gaya hoon, police wale 20,000 maang rahe hain, abhi is number pe paise bhejo, ghar pe mat batana",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "arrest",
+   "category": "impersonation",
+   "lang": "hinglish"
+  },
+  {
+   "id": "sb-0033",
+   "text": "Congratulations! Your mobile number has won Rs 25,00,000 in the KBC lucky draw. To claim call Rana Pratap Singh on WhatsApp 90000 12345",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "prize",
+   "category": "prize",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0034",
+   "text": "बधाई हो! आपके मोबाइल नंबर ने केबीसी लकी ड्रॉ में 25 लाख रुपये जीते हैं। इनाम के लिए व्हाट्सएप करें 90000 12345",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "prize",
+   "category": "prize",
+   "lang": "hi"
+  },
+  {
+   "id": "sb-0035",
+   "text": "Jio lucky customer! Aapne 5 lakh ka inaam jeeta hai. Inaam lene ke liye 12,500 GST jama karna hoga.",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "prize",
+   "category": "prize",
+   "lang": "hinglish"
+  },
+  {
+   "id": "sb-0053",
+   "text": "FedEx: your parcel to Taiwan containing 5 passports, 3 credit cards and MDMA has been seized by Mumbai customs. Press 1 to speak to the officer.",
+   "sender": null,
+   "input_type": "call",
+   "truth": "scam",
+   "badge": "prize",
+   "category": "courier",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0054",
+   "text": "फेडएक्स: आपके नाम का पार्सल जिसमें ड्रग्स और नकली पासपोर्ट हैं, कस्टम ने ज़ब्त कर लिया है। अधिकारी से बात करने के लिए 1 दबाएं।",
+   "sender": null,
+   "input_type": "call",
+   "truth": "scam",
+   "badge": "prize",
+   "category": "courier",
+   "lang": "hi"
+  },
+  {
+   "id": "sb-0055",
+   "text": "India Post: your package is held at our warehouse due to incomplete address. Update within 12 hours: indiapost-redelivery.top",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "prize",
+   "category": "courier",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0071",
+   "text": "Part time job offer! Earn Rs 5,000 to 10,000 daily by liking YouTube videos. No investment. WhatsApp us now.",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "money",
+   "category": "job_task",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0072",
+   "text": "पार्ट टाइम नौकरी! यूट्यूब वीडियो लाइक करके रोज़ 5000 से 10000 रुपये कमाएं। बिना निवेश। अभी व्हाट्सएप करें।",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "money",
+   "category": "job_task",
+   "lang": "hi"
+  },
+  {
+   "id": "sb-0073",
+   "text": "Hello, I am Priya from Amazon HR. We are hiring for work from home. Daily salary Rs 3,000. Join our Telegram channel for tasks: t.me/amz_tasks",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "money",
+   "category": "job_task",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0082",
+   "text": "Guaranteed 300% returns in 30 days! Join our VIP stock market tips group on WhatsApp. Limited seats.",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "money",
+   "category": "investment",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0083",
+   "text": "30 दिनों में पैसा डबल! हमारे वीआईपी शेयर टिप्स ग्रुप से जुड़ें। सीमित सीटें।",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "money",
+   "category": "investment",
+   "lang": "hi"
+  },
+  {
+   "id": "sb-0084",
+   "text": "Get IPO allotment guaranteed through our institutional account. Invest Rs 50,000 and get 4x listing gain. Contact our advisor.",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "money",
+   "category": "investment",
+   "lang": "en"
+  },
+  {
+   "id": "demo-scheme_apk",
+   "text": "PM-किसान की नई सूची जारी। ₹6000 की अगली किस्त पाने के लिए अपना नाम देखें: PM-Kisan-Suchi.apk डाउनलोड करके आधार नंबर डालें।",
+   "sender": "9812233445",
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "scheme",
+   "category": "govt_scheme",
+   "lang": "hi"
+  },
+  {
+   "id": "demo-ayushman_fee",
+   "text": "आयुष्मान कार्ड बनवाने के लिए 500 रुपये इस नंबर पर भेजें 9876012345, कार्ड घर आ जाएगा। आज आखिरी दिन है।",
+   "sender": "9876012345",
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "scheme",
+   "category": "govt_scheme",
+   "lang": "hi"
+  },
+  {
+   "id": "sb-0117",
+   "text": "PM Kisan yojana new list jari. Apna naam dekhne ke liye PM-Kisan.apk download karein",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "scheme",
+   "category": "govt_scheme",
+   "lang": "hinglish"
+  },
+  {
+   "id": "sb-0122",
+   "text": "Your traffic e-challan of Rs 500 is pending. Pay now to avoid court action: echallan-parivahan.top",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "scheme",
+   "category": "govt_payment",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0123",
+   "text": "आपका ट्रैफ़िक चालान 2000 रुपये बकाया है। कोर्ट केस से बचने के लिए यहाँ भुगतान करें: e-challan-pay.online",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "scheme",
+   "category": "govt_payment",
+   "lang": "hi"
+  },
+  {
+   "id": "sb-0124",
+   "text": "Income Tax Department: you are eligible for an income tax refund of Rs 15,490. Verify your account here incometax-refund.info",
+   "sender": null,
+   "input_type": "text",
+   "truth": "scam",
+   "badge": "scheme",
+   "category": "govt_payment",
+   "lang": "en"
+  },
+  {
+   "id": "demo-genuine_otp",
+   "text": "482910 is your OTP for txn of Rs 2,500.00 at AMAZON on HDFC Bank card XX4421. Valid for 5 mins. Do not share OTP with anyone. -HDFC Bank",
+   "sender": "AX-HDFCBK-T",
+   "input_type": "text",
+   "truth": "genuine",
+   "badge": "real",
+   "category": "bank_otp",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0153",
+   "text": "OTP for login to YONO is 739204. Never share it with anyone. SBI never asks for OTP.",
+   "sender": null,
+   "input_type": "text",
+   "truth": "genuine",
+   "badge": "real",
+   "category": "bank_otp",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0154",
+   "text": "आपका OTP 482910 है। इसे किसी के साथ साझा न करें। - SBI",
+   "sender": null,
+   "input_type": "text",
+   "truth": "genuine",
+   "badge": "real",
+   "category": "bank_otp",
+   "lang": "hi"
+  },
+  {
+   "id": "sb-0164",
+   "text": "Rs 1,200.00 debited from A/c XX7781 on 01-10-26 to VPA ravi@okaxis. UPI Ref 427811902. Not you? Call 18001234 -SBI",
+   "sender": null,
+   "input_type": "text",
+   "truth": "genuine",
+   "badge": "real",
+   "category": "txn_alert",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0165",
+   "text": "Dear Customer, INR 5,000.00 credited to your A/c XX2219 on 30-09-26 by NEFT from RAMESH KUMAR. Bal: INR 12,340.55 -Canara Bank",
+   "sender": null,
+   "input_type": "text",
+   "truth": "genuine",
+   "badge": "real",
+   "category": "txn_alert",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0166",
+   "text": "आपके खाते XX4410 में 2,000 रुपये जमा हुए हैं। शेष राशि 8,420 रुपये। - बैंक ऑफ बड़ौदा",
+   "sender": null,
+   "input_type": "text",
+   "truth": "genuine",
+   "badge": "real",
+   "category": "txn_alert",
+   "lang": "hi"
+  },
+  {
+   "id": "sb-0176",
+   "text": "Dear Customer, your KYC is due for periodic update. Please visit your nearest branch with valid documents.",
+   "sender": null,
+   "input_type": "text",
+   "truth": "genuine",
+   "badge": "real",
+   "category": "kyc_reminder",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0177",
+   "text": "प्रिय ग्राहक, आपका केवाईसी अपडेट होना है। कृपया वैध दस्तावेज़ों के साथ अपनी नज़दीकी शाखा में जाएं।",
+   "sender": null,
+   "input_type": "text",
+   "truth": "genuine",
+   "badge": "real",
+   "category": "kyc_reminder",
+   "lang": "hi"
+  },
+  {
+   "id": "sb-0178",
+   "text": "Your Re-KYC was completed successfully on 15-09-26. Thank you for banking with us. -Canara Bank",
+   "sender": null,
+   "input_type": "text",
+   "truth": "genuine",
+   "badge": "real",
+   "category": "kyc_reminder",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0181",
+   "text": "PM-KISAN: Rs 2,000 instalment has been transferred to your Aadhaar-linked bank account. Check status at pmkisan.gov.in",
+   "sender": null,
+   "input_type": "text",
+   "truth": "genuine",
+   "badge": "real",
+   "category": "government",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0182",
+   "text": "पीएम-किसान: 2000 रुपये की किस्त आपके आधार से जुड़े बैंक खाते में भेज दी गई है।",
+   "sender": null,
+   "input_type": "text",
+   "truth": "genuine",
+   "badge": "real",
+   "category": "government",
+   "lang": "hi"
+  },
+  {
+   "id": "sb-0183",
+   "text": "Your Aadhaar has been updated successfully. Download your updated Aadhaar from myaadhaar.uidai.gov.in. -UIDAI",
+   "sender": null,
+   "input_type": "text",
+   "truth": "genuine",
+   "badge": "real",
+   "category": "government",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0191",
+   "text": "Your order #4031-2288 for Bajaj Mixer Grinder has been shipped and will be delivered by Friday. Track on the Amazon app.",
+   "sender": null,
+   "input_type": "text",
+   "truth": "genuine",
+   "badge": "real",
+   "category": "commerce",
+   "lang": "en"
+  },
+  {
+   "id": "sb-0192",
+   "text": "Refund of Rs 799 for your cancelled order has been initiated to your original payment method. It will reflect in 5-7 days. -Flipkart",
+   "sender": null,
+   "input_type": "text",
+   "truth": "genuine",
+   "badge": "real",
+   "category": "commerce",
+   "lang": "en"
+  }
+ ]
+}
