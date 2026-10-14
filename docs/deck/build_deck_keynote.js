@@ -44,6 +44,7 @@ need(vvHave / vvAll < 0.2, "the script says fewer than one in five over-70s had 
 need(F.cscs.value === "6 lakh", "the script says six lakh CSCs");
 const KYC = JSON.parse(fs.readFileSync(path.join(ROOT, "packs", "demo.v1.json"), "utf8")).examples.find((e) => e.id === "kyc_hi");
 const SITE = F.tryit_url.replace(/^https:\/\//, "").replace(/\/$/, "");
+const REPO = "github.com/ishmiit/Sahayak";
 
 /* ---------------------------------------------------------------- design: black stage, one accent per slide */
 const THEME = {
@@ -291,11 +292,20 @@ s.addNotes(notes(12));
 /* ---------------------------------------------------------------- 13 ONE MORE THING */
 slide("One more thing");
 eyebrow(s, "One more thing", BLUE, M, 1.35);
-T(s, "Round one: a clickable mock-up.", { x: M, y: 1.85, w: 8, h: 0.6, fontSize: 28, color: FAINT, objectName: "then" });
-T(s, "Today: the real thing.", { x: M, y: 2.5, w: 8.2, h: 1.1, fontSize: 52, bold: true, valign: "middle", objectName: "now" });
-points(s, [["Same address", "you just scanned."], ["Works in airplane mode.", null, BLUE]], { x: M, y: 3.95, w: 7.2, step: 0.72, size: 24 });
-phone(s, IMG("keynote_offline_en.png"), 9.3, 0.65, 6.2, "Sahayak on a phone with no internet");
-source(s, `${SITE} · screenshot: a check on a phone in airplane mode`);
+T(s, "Everything you saw today", { x: M, y: 1.85, w: 6.4, h: 0.6, fontSize: 28, color: FAINT, objectName: "then" });
+T(s, "is public.", { x: M, y: 2.5, w: 6.4, h: 1.1, fontSize: 60, bold: true, valign: "middle", objectName: "now" });
+points(s, [["The code. The tests."], ["The file behind every number.", null, BLUE]], { x: M, y: 3.95, w: 6.1, step: 0.72, size: 24 });
+// The proof card: the file each number on the slides comes from, all in the public repository
+s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 7.55, y: 1.2, w: 4.9, h: 4.75, rectRadius: 0.18, fill: { color: CARD }, line: { color: EDGE, width: 1 }, objectName: "repo card" });
+T(s, REPO, { x: 7.9, y: 1.5, w: 4.3, h: 0.4, fontSize: 16, bold: true, color: BLUE, objectName: "repo" });
+rule(s, 7.9, 2.05, 4.2, "repo rule");
+[["public_v0.json", `${in10} in 10`], ["redteam_v1_blind.json", of(blind.caught, blind.scams)], ["scambench_v0_test.json", of(sb.tp, sb.tp + sb.fn)],
+ ["llm_baseline.json", `${lp.llm.false_alarms} vs ${lp.sahayak.false_alarms}`], ["phone_parity.json", of(parityOk, parity.fraud.cases)], ["facts_v3.json", `₹${lakhMin} lakh a minute`]].forEach(([f, v], i) => {
+  const y = 2.25 + i * 0.58;
+  T(s, f, { x: 7.9, y, w: 2.6, h: 0.4, fontSize: 13, fontFace: "Courier New", color: MUTE, valign: "middle", objectName: `file ${i + 1}` });
+  T(s, v, { x: 10.3, y, w: 1.85, h: 0.4, fontSize: 15, bold: true, align: "right", valign: "middle", objectName: `file ${i + 1} number` });
+});
+source(s, `${REPO} · results in bench/results, outside numbers in docs/deck/facts_v3.json, each with its source · MIT licence`);
 s.addNotes(notes(13));
 
 /* ---------------------------------------------------------------- 14 SOMEONE TO ASK */

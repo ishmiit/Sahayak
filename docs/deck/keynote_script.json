@@ -302,7 +302,7 @@
     {
       "n": 13,
       "name": "One more thing",
-      "show": "Round one: a clickable mock-up. Today: the real thing. A phone in airplane mode.",
+      "show": "Everything you saw today is public. A card lists the result file behind each number.",
       "steps": [
         {
           "do": "Click. Pause. Take one step toward the jury.",
@@ -310,7 +310,7 @@
           "hold": 2
         },
         {
-          "say": "And, one more thing.\nThe address you scanned is the one we gave you in round one.\nBack then, it opened a mock-up.\nToday, it opens the real Sahayak. And it works in airplane mode.",
+          "say": "And, one more thing.\nEverything you’ve seen today is public.\nThe code, the tests, and the file behind every number on these slides.\nAnyone can check our work.\nWe’d like you to.",
           "who": "I"
         }
       ]

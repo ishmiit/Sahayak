@@ -47,7 +47,7 @@ EXPECTED = {"kyc_hi": "scam", "otp_call": "scam", "upi_receive": "scam", "digita
             "scheme_apk": "scam", "ayushman_fee": "scam", "electricity": "scam", "genuine_otp": "no_signs"}
 EXPECTED_QR = {"qr_cashback": "scam", "qr_kyc": "scam", "qr_shop": "no_signs"}
 TAMIL = "உங்கள் வங்கி கணக்கு இன்று முடக்கப்படும். உடனே வந்த எண்ணை இந்த நம்பருக்கு சொல்லுங்கள்."
-PUBLIC_SITE = "https://roshworldwide.github.io/optum-v2/"
+PUBLIC_SITE = "https://ishmiit.github.io/Sahayak/"
 
 
 def report(status: str, what: str, detail: str = "") -> None:

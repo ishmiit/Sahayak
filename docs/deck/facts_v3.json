@@ -1,6 +1,6 @@
 {
   "note": "Outside numbers on deck v3, each checked on 6 Oct 2026 (the RBI one again on 7 Oct, in the Directions themselves) against the source named (primary where one exists). Edit here, not in the deck builder. Sahayak's own numbers come from bench/results/*.json, never from this file.",
-  "tryit_url": "https://roshworldwide.github.io/optum-v2/",
+  "tryit_url": "https://ishmiit.github.io/Sahayak/",
   "fraud_2025": {"value": "₹22,495 crore", "text": "lost to financial cyber fraud in 2025, across 24 lakh complaints", "source": "MHA / I4C, Rajya Sabha, Feb 2026", "url": "https://www.dynamitenews.com/national/cyber-frauds-mount-to-rs22495-crore-in-2025-over-rs8000-crore-saved-through-rapid-response-system"},
   "seniors_2025": {"value": "₹4,005 crore", "text": "lost by senior citizens in 2025 (1,03,488 complaints)", "source": "MHA, Rajya Sabha, 5 Aug 2026", "url": "https://www.newkerala.com/news/a/over-lakh-senior-citizens-463-lakh-women-lodged-614.htm"},
   "upi_families": {"value": "1 in 5", "text": "families with a UPI user hit by UPI fraud in the last 3 years; 51% never reported it", "source": "LocalCircles survey, 2025", "url": "https://www.localcircles.com/a/press/page/upi-fraud-complaint"},

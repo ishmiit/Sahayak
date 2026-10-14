@@ -25,7 +25,7 @@ secure web address once (the public site below today; the node's own address aft
 `docs/NODE_HTTPS.md`) keeps its own copy of the scam check and the benefits interview (the same rules, from the same
 signed packs) and answers by itself, with no node and no internet; nothing leaves the phone. The phone's answers match
 the node's on every benchmark case (`bench/results/phone_parity.md`). A stand-alone build of the app runs from any
-HTTPS site, offline after the first visit: **try it at https://roshworldwide.github.io/optum-v2/**
+HTTPS site, offline after the first visit: **try it at https://ishmiit.github.io/Sahayak/**
 (`python scripts/build_tryit.py`).
 
 Built for Ideas for India 2026 (Times of India × Optum) by Roshan Raj and Ishmiit Singh. Prototype due 8 Oct 2026;
@@ -150,8 +150,8 @@ console PIN. Running it day to day, updating the scam rules and looking after si
 - **On the phone, offline.** Browsers keep an offline copy only for a secure page: the node's HTTPS address (above), or
   `http://127.0.0.1:8000` on the node itself. `python scripts/check_phone_offline.py <address>` proves it in a phone
   browser (one visit, network off, then a scam check, a QR check and a benefits interview).
-- **Stand-alone site.** Live at **https://roshworldwide.github.io/optum-v2/** (try it on a phone, then switch on
-  airplane mode). `python scripts/build_tryit.py` writes it to `dist/tryit/` for any HTTPS host (GitHub Pages works).
+- **Stand-alone site.** Live at **https://ishmiit.github.io/Sahayak/** (try it on a phone, then switch on
+  airplane mode). `python scripts/build_tryit.py` writes it to `dist/tryit/`; this repository's `gh-pages` branch serves it on GitHub Pages.
   Voice input and screenshot reading need the node and are left out; QR photos use the phone browser's own QR reader
   where it has one.
 - **HTTPS for the node.** `docs/NODE_HTTPS.md`: a certificate for a name under a domain you own (one DNS TXT record),
