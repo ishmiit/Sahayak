@@ -2033,6 +2033,7 @@
     $("#answer-row").hidden = r.answered;
     $("#swipe-hint").hidden = r.answered;
     $("#feedback").hidden = !r.answered;
+    if (!r.leaving) $("#feedback").classList.remove("leaving");  // the fade-out after Next must not stay on the next card
     if (r.answered) renderFeedback();
   }
 
