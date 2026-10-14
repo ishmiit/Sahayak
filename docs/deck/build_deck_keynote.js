@@ -97,8 +97,9 @@ function pill(s, x, y, w, text) {
 }
 
 // Speaker notes from the script: what to do and what to say, in order
-function notes(n) {
-  const sl = SCRIPT.slides.find((x) => x.n === n);
+function notes(name) {
+  const sl = SCRIPT.slides.find((x) => x.name === name);
+  if (!sl) throw new Error(`build_deck_keynote: no script for the slide "${name}"`);
   const who = { I: "ISHMIIT", R: "ROSHAN" };
   const lines = [`SHOW: ${sl.show}`, ""];
   for (const st of sl.steps) {
@@ -107,8 +108,8 @@ function notes(n) {
   }
   return lines.join("\n");
 }
-let s;
-const slide = (section) => { pres.addSection({ title: section }); s = pres.addSlide({ masterName: "STAGE", sectionTitle: section }); return s; };
+let s, CUR;
+const slide = (section) => { CUR = section; pres.addSection({ title: section }); s = pres.addSlide({ masterName: "STAGE", sectionTitle: section }); return s; };
 
 /* ---------------------------------------------------------------- 1 THE MESSAGE: the scam SMS, as a phone shows it */
 slide("The message");
@@ -121,7 +122,7 @@ T(s, smsText.trim(), { x: 2.85, y: 2.3, w: 7.65, h: 1.85, fontSize: 28, fontFace
 T(s, `लिंक: ${smsLink || ""}`.trim(), { x: 2.85, y: 4.25, w: 7.65, h: 0.5, fontSize: 20, fontFace: DF, color: BLUE, objectName: "the link" });
 T(s, "“Your SBI KYC has expired. Update now, or your account will be closed tonight.”", { x: 1.4, y: 5.55, w: 10.53, h: 0.5, fontSize: 20, italic: true, color: MUTE, align: "center", objectName: "English" });
 source(s, "A demo message, written by the team in the style of real KYC scams");
-s.addNotes(notes(1));
+s.addNotes(notes(CUR));
 
 /* ---------------------------------------------------------------- 2 WHO READS IT */
 slide("Who reads it");
@@ -129,7 +130,7 @@ eyebrow(s, "Who reads it", BLUE, 1.6, 0.95);
 [["74.", INK], ["9 PM.", INK], ["Bank closed.", INK], ["Alone.", CHAMP]].forEach(([t, c], i) =>
   T(s, t, { x: 1.6, y: 1.45 + i * 1.12, w: 10, h: 1.0, fontSize: 60, bold: true, color: c, valign: "middle", objectName: `line ${i + 1}` }));
 source(s, "A demo persona, not a real person");
-s.addNotes(notes(2));
+s.addNotes(notes(CUR));
 
 /* ---------------------------------------------------------------- 3 EVERY MINUTE */
 slide("Every minute");
@@ -142,7 +143,7 @@ T(s, "lost to cyber fraud in India, every minute, on average.", { x: M + 0.08, y
   T(s, b, { x, y: 5.65, w: 5.0, h: 0.4, fontSize: 17, color: MUTE, objectName: `stat ${i + 1} label` });
 });
 source(s, `${F.fraud_2025.source}; seniors: ${F.seniors_2025.source}. Spread evenly over the year, ₹22,495 crore is about ₹${num(Math.round(perMin / 60))} a second.`);
-s.addNotes(notes(3));
+s.addNotes(notes(CUR));
 
 /* ---------------------------------------------------------------- 4 INTRODUCING SAHAYAK */
 slide("Introducing Sahayak");
@@ -154,7 +155,7 @@ points(s, [["Spot a scam before the money moves."], ["Claim what you’re owed."
 [["CSC counter + your phone", 2.65], ["Works offline", 1.65], ["22 Indian languages", 2.4]].reduce((x, [t, w]) => { pill(s, x, 5.2, w, t); return x + w + 0.18; }, M);
 T(s, "Ishmiit Singh  ·  Roshan Raj", { x: M, y: H - 0.85, w: 7, h: 0.35, fontSize: 15, color: FAINT, objectName: "team" });
 phone(s, IMG("keynote_home_en.png"), 9.5, 0.65, 6.2, "Sahayak home screen");
-s.addNotes(notes(4));
+s.addNotes(notes(CUR));
 
 /* ---------------------------------------------------------------- 5 IT TELLS HER WHY */
 slide("It tells her why");
@@ -167,7 +168,7 @@ points(s, [["Personal number"], ["Fake SBI link"], ["KYC never by link"]], { x: 
 eyebrow(s, "What to do", FAINT, RX, 4.65);
 points(s, [["Don’t tap · keep the proof"], ["Money gone? 1930"], ["Warn the family"]], { x: RX, y: 5.0, w: RW, step: 0.55, size: 21 });
 source(s, "Demo persona and SMS written by the team · the app’s answer, on a phone, 14 Oct 2026");
-s.addNotes(notes(5));
+s.addNotes(notes(CUR));
 
 /* ---------------------------------------------------------------- 6 WHAT SHE IS OWED */
 slide("What she is owed");
@@ -179,25 +180,7 @@ points(s, [["Vay Vandana card", "· every Indian 70+"], ["Fewer than 1 in 5", "�
 T(s, [{ text: "Stop the scam. ", options: { color: INK } }, { text: "Claim what you’re owed.", options: { color: BLUE } }], { x: M, y: 5.75, w: 7.8, h: 0.5, fontSize: 24, bold: true, objectName: "both" });
 source(s, `${vvHave} of ~${vvAll} crore aged 70+ had the card (${F.vay_vandana.source.split(";")[0]}) · shared with a spouse also 70+; hospital care only · screenshot: result for a 74-year-old`);
 phone(s, IMG("keynote_owed_en.png"), 9.5, 0.65, 6.2, "Sahayak's benefits result for a 74-year-old");
-s.addNotes(notes(6));
-
-/* ---------------------------------------------------------------- 7 TRY IT: the deck's only QR code */
-slide("Try it");
-s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 1.0, y: 1.25, w: 4.75, h: 4.75, rectRadius: 0.25, fill: { color: "FFFFFF" }, line: { type: "none" }, objectName: "QR card" });
-s.addImage({ path: IMG("tryit_qr.png"), x: 1.2, y: 1.45, w: 4.35, h: 4.35, objectName: "QR code", altText: `QR code for ${F.tryit_url}` });
-T(s, SITE, { x: 0.7, y: 6.25, w: 5.35, h: 0.4, fontSize: 17, bold: true, color: BLUE, align: "center", objectName: "address" });
-T(s, "Try it.", { x: 6.6, y: 1.2, w: 6, h: 0.9, fontSize: 56, bold: true, objectName: "title" });
-T(s, "Right now, on your phone.", { x: 6.6, y: 2.15, w: 6, h: 0.5, fontSize: 24, color: MUTE, objectName: "subtitle" });
-[["Scan the code.", "Nothing to install. No account."],
- ["Tap “Check a message”", "then “Pay ₹500 for your Ayushman card”."],
- ["Turn on airplane mode.", "Try another. It still works."]].forEach(([a, b], i) => {
-  const y = 3.1 + i * 1.08;
-  chip(s, 6.6, y + 0.03, i + 1);
-  T(s, a, { x: 7.35, y, w: 5.4, h: 0.45, fontSize: 21, bold: true, objectName: `step ${i + 1}` });
-  T(s, b, { x: 7.35, y: y + 0.47, w: 5.4, h: 0.42, fontSize: 18, color: MUTE, objectName: `step ${i + 1} detail` });
-});
-T(s, [{ text: "Opens in English. Tap EN for any of 22 Indian languages." }], { x: 6.6, y: 6.25, w: 6, h: 0.4, fontSize: 16, color: FAINT, objectName: "language" });
-s.addNotes(notes(7));
+s.addNotes(notes(CUR));
 
 /* ---------------------------------------------------------------- 8 HOW IT WORKS */
 slide("How it works");
@@ -215,11 +198,11 @@ T(s, "How it works", { x: M, y: 0.8, w: 10, h: 0.85, fontSize: 44, bold: true, o
 });
 T(s, [{ text: "Phone = counter: ", options: { color: MUTE } }, { text: `${of(parityOk, parity.fraud.cases)} checks.`, options: { bold: true, color: INK } }],
   { x: M, y: 5.7, w: W - 2 * M, h: 0.45, fontSize: 22, objectName: "parity" });
-s.addNotes(notes(8));
+s.addNotes(notes(CUR));
 
 /* ---------------------------------------------------------------- 9 WHY RULES DECIDE (Roshan) */
 slide("Why rules decide");
-eyebrow(s, "Round one: a large AI model would decide", CHAMP, M, 0.8, 11);
+eyebrow(s, "Why not let an AI model decide?", CHAMP, M, 0.8, 11);
 T(s, "So we tested one.", { x: M, y: 1.15, w: 11, h: 0.85, fontSize: 44, bold: true, objectName: "title" });
 [["A 3B language model", lp.llm, CARD, EDGE, INK, RED], ["Sahayak", lp.sahayak, "111B2B", "2F4A75", BLUE, INK]].forEach(([name, r, fill, edge, nc, fc], i) => {
   const x = M + i * 5.85, y = 2.35, w = 5.6;
@@ -234,7 +217,7 @@ T(s, "So we tested one.", { x: M, y: 1.15, w: 11, h: 0.85, fontSize: 44, bold: t
 T(s, [{ text: "A warning that cries wolf gets ignored.", options: { color: MUTE, breakLine: true } }, { text: "So rules decide, and every answer says why.", options: { color: BLUE } }],
   { x: M, y: 5.6, w: W - 2 * M, h: 0.95, fontSize: 24, bold: true, objectName: "conclusion" });
 source(s, `${llm.model}, zero-shot, on the same ${lp.n} real published messages, first runs, 7 Oct 2026. In languages Sahayak can’t read yet, the model caught ${of(llm.sets.redteam_v1_blind.other_languages.llm.caught, llm.sets.redteam_v1_blind.other_languages.llm.scams)} scams.`);
-s.addNotes(notes(9));
+s.addNotes(notes(CUR));
 
 /* ---------------------------------------------------------------- 10 THE HONEST NUMBER */
 slide("The honest number");
@@ -254,7 +237,7 @@ rule(s, M, 5.75, W - 2 * M, "not yet rule");
 T(s, [{ text: "Not yet: ", options: { bold: true, color: CHAMP } }, { text: "real users, and messages from people’s own phones. That’s next.", options: { color: INK } }],
   { x: M, y: 5.9, w: W - 2 * M, h: 0.45, fontSize: 21, objectName: "not yet" });
 source(s, `In Hindi, English and Hinglish: ${of(pH.caught, pH.scams)} scams caught, ${of(pH.false_alarm, pH.genuine)} genuine flagged; published by the Income Tax portal, PIB Fact Check and fact-checkers · first runs, bench/results`);
-s.addNotes(notes(10));
+s.addNotes(notes(CUR));
 
 /* ---------------------------------------------------------------- 11 THE PILOT */
 slide("The pilot");
@@ -273,7 +256,7 @@ eyebrow(s, "The next 30 days", FAINT, M, 4.75);
   T(s, t, { x: x + 0.6, y: 5.18, w: 3.2, h: 0.8, fontSize: 19, bold: true, objectName: `next ${i + 1}` });
 });
 source(s, `Estimates, not quotes: the team’s line-item budget, 7 Oct 2026 (${PILOT.total}). At 500 counters, about ${PILOT.perCounter} a counter a year; the operator’s ${PILOT.operator} is the biggest part.`);
-s.addNotes(notes(11));
+s.addNotes(notes(CUR));
 
 /* ---------------------------------------------------------------- 12 THE ASK */
 slide("The ask");
@@ -287,7 +270,7 @@ T(s, "Introduce us to one district.", { x: M, y: 2.95, w: 11.6, h: 1.3, fontSize
   T(s, t, { x, y: 5.15, w: 3.85, h: 0.8, fontSize: 21, bold: true, color: i === 2 ? BLUE : INK, objectName: `step ${i + 1}` });
 });
 source(s, `${F.cscs.value} functional CSCs, 4.7 lakh at gram-panchayat level (MeitY, Mar 2025) · the pilot’s 50 counters: nodes at 20 CSCs, the phone app at 30 bank-agent points`);
-s.addNotes(notes(12));
+s.addNotes(notes(CUR));
 
 /* ---------------------------------------------------------------- 13 ONE MORE THING */
 slide("One more thing");
@@ -299,7 +282,7 @@ points(s, [["5 cards a round", "· scam or real?"], ["Sahayak’s own clues", "a
 phone(s, IMG("keynote_game_card.png"), 6.95, 0.75, 5.75, "Spot the scam: a card");
 phone(s, IMG("keynote_game_clues.png"), 9.8, 0.75, 5.75, "Spot the scam: Sahayak's clues after the answer");
 source(s, "The Learn tab of the same app · every card agrees with Sahayak’s own check (tests/test_game.py) · nothing leaves the phone");
-s.addNotes(notes(13));
+s.addNotes(notes(CUR));
 
 /* ---------------------------------------------------------------- 14 SOMEONE TO ASK */
 slide("Someone to ask");
@@ -312,7 +295,26 @@ T(s, [{ text: "Spot the scam before the money moves.  ", options: { color: INK }
   { x: 0.5, y: 5.0, w: W - 1, h: 0.5, fontSize: 22, align: "center", objectName: "promise" });
 T(s, "Ishmiit Singh  ·  Roshan Raj", { x: 0.5, y: 6.25, w: W - 1, h: 0.4, fontSize: 17, color: MUTE, align: "center", objectName: "team" });
 T(s, `Open source: ${REPO}`, { x: 0.5, y: 6.75, w: W - 1, h: 0.3, fontSize: 12, color: FAINT, align: "center", objectName: "repo" });
-s.addNotes(notes(14));
+s.addNotes(notes(CUR));
+
+/* ---------------------------------------------------------------- TRY IT YOURSELF: the deck's only QR code; the jury explores the app */
+slide("Try it yourself");
+s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 1.0, y: 1.25, w: 4.75, h: 4.75, rectRadius: 0.25, fill: { color: "FFFFFF" }, line: { type: "none" }, objectName: "QR card" });
+s.addImage({ path: IMG("tryit_qr.png"), x: 1.2, y: 1.45, w: 4.35, h: 4.35, objectName: "QR code", altText: `QR code for ${F.tryit_url}` });
+T(s, SITE, { x: 0.7, y: 6.25, w: 5.35, h: 0.4, fontSize: 17, bold: true, color: BLUE, align: "center", objectName: "address" });
+T(s, "Try it yourself.", { x: 6.6, y: 0.95, w: 6.2, h: 0.9, fontSize: 48, bold: true, objectName: "title" });
+T(s, "Scan it on your phone, or watch it on our laptop.", { x: 6.6, y: 1.85, w: 6.2, h: 0.5, fontSize: 20, color: MUTE, objectName: "subtitle" });
+[["Check a scam", "Try “Pay ₹500 for your Ayushman card”."],
+ ["What is she owed?", "Answer as a 74-year-old."],
+ ["Your language", "Tap EN and pick any of 22."],
+ ["Airplane mode", "Turn it on. It still works."]].forEach(([a, b], i) => {
+  const y = 2.7 + i * 0.92;
+  chip(s, 6.6, y + 0.03, i + 1);
+  T(s, a, { x: 7.35, y, w: 5.4, h: 0.42, fontSize: 20, bold: true, objectName: `step ${i + 1}` });
+  T(s, b, { x: 7.35, y: y + 0.42, w: 5.4, h: 0.4, fontSize: 17, color: MUTE, objectName: `step ${i + 1} detail` });
+});
+T(s, "Nothing to install. No account. Then, your questions.", { x: 6.6, y: 6.3, w: 6.2, h: 0.4, fontSize: 16, color: FAINT, objectName: "footer" });
+s.addNotes(notes(CUR));
 
 need(pres.slides.length === SCRIPT.slides.length, `the deck has ${pres.slides.length} slides, the script ${SCRIPT.slides.length}`);
 

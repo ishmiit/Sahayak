@@ -1,5 +1,5 @@
 {
-  "note": "The keynote for the Grand Jury Round (14 Oct 2026), one entry per slide of Sahayak_Keynote_v5.pptx. One version: about 7½ minutes at talking pace, about 10 at a slow keynote pace. The deck's speaker notes (docs/deck/build_deck_keynote.js) and the script page are both built from this file. A step is either a DO (an action, never spoken) or a SAY (spoken by I = Ishmiit or R = Roshan). Each new line in a SAY is a pause. The slides carry short cues; the SAY lines tell the story around them, so nothing is read off the screen. Button names match the app as it runs on 14 Oct 2026 (English first, reading aloud off, 22 display languages, Spot the scam on the Learn tab).",
+  "note": "The final keynote for the Grand Jury Round (14 Oct 2026), one entry per slide of Sahayak_Keynote_v5.pptx: about five and a half minutes of talk at a calm pace, then two minutes where the jury tries the app on their phones or on the laptop, then questions. The deck's speaker notes (docs/deck/build_deck_keynote.js, matched by slide name) and the script page are both built from this file. A step is either a DO (an action, never spoken) or a SAY (spoken by I = Ishmiit or R = Roshan). Each new line in a SAY is a pause. Nothing in it assumes the jury saw an earlier round.",
   "hook_end": 4,
   "slides": [
     {
@@ -91,11 +91,11 @@
           "who": "I"
         },
         {
-          "say": "But a warning people don’t understand gets ignored.\nSo Sahayak gives its reasons, in plain words.\nA bank won’t text from a personal number. That link only looks like SBI’s.\nAnd no bank updates KYC through a link.",
+          "say": "But a warning people don’t understand gets ignored.\nSo Sahayak tells her why, in plain words.\nA bank won’t text from a personal number. That link only pretends to be SBI’s.",
           "who": "I"
         },
         {
-          "say": "Then, what to do.\nDon’t tap. Keep the message as proof. If money’s gone, call 1930.\nAnd one more tap warns her family.",
+          "say": "And what to do: don’t tap, keep the message as proof, and if money’s gone, call 1930.",
           "who": "I"
         }
       ]
@@ -125,56 +125,6 @@
     },
     {
       "n": 7,
-      "name": "Try it",
-      "show": "The only QR code in the deck, and three things to try.",
-      "steps": [
-        {
-          "do": "Click.",
-          "click": true
-        },
-        {
-          "say": "Don’t take my word for it.\nTake out your phones, and scan this code.\nNothing to install. No account.",
-          "who": "I"
-        },
-        {
-          "do": "Wait until you see phones come up.",
-          "hold": 3
-        },
-        {
-          "say": "Tap ‘Check a message’,\nand try the one asking five hundred rupees for an Ayushman card.",
-          "who": "I"
-        },
-        {
-          "do": "Wait for the first faces to react.",
-          "hold": 2
-        },
-        {
-          "say": "Scam. That card is free.",
-          "who": "I"
-        },
-        {
-          "say": "Now, my favourite part.\nTurn on airplane mode, and try another.\nIt still works.",
-          "who": "I"
-        },
-        {
-          "do": "Roshan holds up the demo phone."
-        },
-        {
-          "say": "If it doesn’t open, just raise your hand.\nI’ll bring you this one.",
-          "who": "R"
-        },
-        {
-          "do": "Stop talking and let them try it. Watch the jury, not the screen. Roshan walks the demo phone to anyone who raises a hand.",
-          "hold": 8
-        },
-        {
-          "say": "The phone Roshan is holding has been in airplane mode since we walked into this room.",
-          "who": "I"
-        }
-      ]
-    },
-    {
-      "n": 8,
       "name": "How it works",
       "show": "Three cards with a few words each: You ask. Rules decide. A clear answer. Below: phone and counter agree, 1,841 of 1,841.",
       "steps": [
@@ -183,25 +133,17 @@
           "click": true
         },
         {
-          "say": "She can type, speak, describe a call, or photograph a UPI QR code.",
+          "say": "She can type, speak, describe a call, or photograph a UPI QR code.\nSixty-four scam signals run right on the device, so nothing she types leaves her phone.",
           "who": "I"
         },
         {
-          "say": "Sixty-four scam signals run right on the device,\nso nothing she types leaves her phone.",
-          "who": "I"
-        },
-        {
-          "say": "She gets one of four answers, and ‘safe’ isn’t one of them.\nNo one can promise that.",
-          "who": "I"
-        },
-        {
-          "say": "And her phone answers exactly like the counter.\nWe checked, eighteen hundred and forty-one times.",
+          "say": "She gets one of four answers, and ‘safe’ isn’t one of them.\nBecause no one can promise that.",
           "who": "I"
         }
       ]
     },
     {
-      "n": 9,
+      "n": 8,
       "name": "Why rules decide",
       "show": "A 3B language model against Sahayak on the same 137 real messages. Roshan speaks.",
       "steps": [
@@ -210,7 +152,7 @@
           "click": true
         },
         {
-          "say": "In round one, we said a large AI model would make these decisions.\nSo we tested one.\nRoshan.",
+          "say": "Now, you might ask: why not just let an AI model decide?\nWe asked that too. So we tested one.\nRoshan.",
           "who": "I"
         },
         {
@@ -221,11 +163,7 @@
           "who": "R"
         },
         {
-          "say": "But it called twenty-one of thirty-four genuine messages a scam. We did that eleven times.\nA warning that cries wolf gets ignored.\nSo rules decide.",
-          "who": "R"
-        },
-        {
-          "say": "We’ll use the model where it helps most: reading messages in the new languages,\nas a second opinion that can only raise a warning.",
+          "say": "But it called twenty-one of thirty-four genuine messages a scam. We did that eleven times.\nA warning that cries wolf gets ignored.\nSo rules decide, and every answer says why.",
           "who": "R"
         },
         {
@@ -235,7 +173,7 @@
       ]
     },
     {
-      "n": 10,
+      "n": 9,
       "name": "The honest number",
       "show": "“7 in 10” on 137 real messages, scored once, with the two bigger numbers greyed out on the left.",
       "steps": [
@@ -244,21 +182,17 @@
           "click": true
         },
         {
-          "say": "We could have opened with a bigger number.\nThirty-four of thirty-seven, on messages we wrote.\nNinety-two of a hundred and three, against a blind red team.",
+          "say": "On messages we wrote ourselves, Sahayak caught thirty-four of thirty-seven.\nBut real messages are harder.",
           "who": "I"
         },
         {
-          "say": "But real messages are harder.\nOn a hundred and thirty-seven that people in India actually received, scored once,\nit caught seven in ten.",
-          "who": "I"
-        },
-        {
-          "say": "That’s our number, because it’s the honest one.\nWhat it needs now is real users, with messages from their own phones.",
+          "say": "On a hundred and thirty-seven that people in India actually received, scored once, it caught seven in ten.\nThat’s the number we stand behind.",
           "who": "I"
         }
       ]
     },
     {
-      "n": 11,
+      "n": 10,
       "name": "The pilot",
       "show": "One district: 20 villages, 50 counters, six months, about ₹39 lakh. The next 30 days.",
       "steps": [
@@ -267,17 +201,13 @@
           "click": true
         },
         {
-          "say": "So, the pilot.\nOne district. Twenty villages. Fifty counters. Six months.\nAbout thirty-nine lakh rupees, costed line by line.",
-          "who": "I"
-        },
-        {
-          "say": "And the biggest share goes to the local operator who runs each counter.",
+          "say": "So, the pilot.\nOne district. Twenty villages. Fifty counters. Six months.\nAbout thirty-nine lakh rupees, and the biggest share goes to the local operator at each counter.",
           "who": "I"
         }
       ]
     },
     {
-      "n": 12,
+      "n": 11,
       "name": "The ask",
       "show": "“Introduce us to one district.” Above it: 6 lakh CSCs, and the 50 counters we need.",
       "steps": [
@@ -296,7 +226,7 @@
       ]
     },
     {
-      "n": 13,
+      "n": 12,
       "name": "One more thing",
       "show": "Spot the scam: the game on the Learn tab. Two phones: a card (Scam or real?) and Sahayak’s clues after the answer.",
       "steps": [
@@ -306,13 +236,13 @@
           "hold": 2
         },
         {
-          "say": "And, one more thing.\nSahayak checks a message when you have one.\nBut the best defence is knowing a scam before it arrives.\nSo we built a game. Spot the scam.\nFive messages a round. Scam, or real? Swipe your answer,\nand Sahayak shows you the clues it found.\nPoints, levels, badges, and a new message every day.\nIt’s in the Learn tab, on the phone in your hand.",
+          "say": "And, one more thing.\nThe best defence is spotting a scam before it arrives.\nSo we built a game. Spot the scam.\nYou’ll play it in a minute.",
           "who": "I"
         }
       ]
     },
     {
-      "n": 14,
+      "n": 13,
       "name": "Someone to ask",
       "show": "Nine at night. Now she has someone to ask. Sahayak, its two promises, and both your names.",
       "steps": [
@@ -325,15 +255,37 @@
           "who": "I"
         },
         {
-          "say": "Sahayak.\nSpot the scam before the money moves.\nClaim what you’re owed.\nThank you.",
+          "say": "Sahayak.\nSpot the scam before the money moves.\nClaim what you’re owed.",
+          "who": "I"
+        }
+      ]
+    },
+    {
+      "n": 14,
+      "name": "Try it yourself",
+      "show": "The deck’s only QR code, and four things to try. The jury explores the app on their phones or on the laptop.",
+      "steps": [
+        {
+          "do": "Click.",
+          "click": true
+        },
+        {
+          "say": "But please, don’t take our word for it.\nScan this code, and Sahayak opens on your phone.\nNothing to install. No account.\nOr, if you’d rather watch, Roshan will show you on our laptop.",
           "who": "I"
         },
         {
-          "do": "Stand still. Let them applaud.",
-          "hold": 2
+          "say": "Try a scam message, ask what a seventy-four-year-old is owed, or switch to your own language.\nAnd turn on airplane mode. It still works.",
+          "who": "R"
         },
         {
-          "say": "Roshan and I would love to take your questions.",
+          "do": "Hands-on, about two minutes. Roshan drives the app on the laptop (it is on the screen behind you): the Ayushman ₹500 scam, ‘What am I owed?’ as a 74-year-old, a switch to Tamil, the Learn tab, and the new game. Ishmiit walks the demo phone to any juror whose phone won’t scan. Answer what they ask as they try it; keep it short.",
+          "hold": 120
+        },
+        {
+          "do": "When the first juror looks up, or at two minutes: step back to the centre."
+        },
+        {
+          "say": "Thank you.\nRoshan and I would love to take your questions.",
           "who": "I"
         },
         {
