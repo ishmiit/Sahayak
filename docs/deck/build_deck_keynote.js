@@ -66,7 +66,8 @@ pres.defineSlideMaster({ title: "STAGE", background: { color: BG }, objects: [] 
 
 const T = (s, text, o) => s.addText(text, Object.assign({ isTextBox: true, fontFace: HF, margin: 0, valign: "top", color: INK }, o));
 const eyebrow = (s, text, color, x, y, w) => T(s, text.toUpperCase(), { x, y, w: w || 8, h: 0.34, fontSize: 14, bold: true, color, charSpacing: 3, objectName: "eyebrow" });
-const source = (s, text) => T(s, text, { x: M, y: H - 0.5, w: W - 2 * M, h: 0.28, fontSize: 10.5, color: FAINT, objectName: "source" });
+// Sources stay in the speaker notes and the script page, not on the slides: the bottom of every slide is left clear.
+const source = () => {};
 const rule = (s, x, y, w, name) => s.addShape(pres.shapes.LINE, { x, y, w, h: 0, line: { color: LINE, width: 0.75 }, objectName: name || "rule" });
 // Talking points: a hairline above each, the lead words in white and the rest in grey
 function points(s, items, { x, y, w, step, size, lead }) {
@@ -243,7 +244,7 @@ s.addNotes(notes(CUR));
 slide("The pilot");
 eyebrow(s, "The pilot", BLUE, M, 0.85);
 T(s, "One district.", { x: M, y: 1.2, w: 11, h: 1.05, fontSize: 64, bold: true, valign: "middle", objectName: "scope" });
-[["20", "villages", INK], ["50", "counters", INK], ["6", "months", INK], [`₹${PILOT.total.match(/[\d]+/)[0]} lakh`, "estimated", CHAMP]].forEach(([n, l, c], i) => {
+[["20", "villages", INK], ["50", "counters", INK], ["6", "months", INK], ["₹25–35k", "a CSC’s computer, once", CHAMP]].forEach(([n, l, c], i) => {
   const x = M + i * 2.75, w = i === 3 ? 3.28 : 2.5;
   rule(s, x, 2.6, w, `stat ${i + 1} rule`);
   T(s, n, { x, y: 2.75, w, h: 0.9, fontSize: 52, bold: true, color: c, objectName: `stat ${i + 1}` });
@@ -294,7 +295,6 @@ T(s, [{ text: "Sahayak", options: { color: INK } }, { text: "  सहायक",
 T(s, [{ text: "Spot the scam before the money moves.  ", options: { color: INK } }, { text: "Claim what you’re owed.", options: { color: BLUE } }],
   { x: 0.5, y: 5.0, w: W - 1, h: 0.5, fontSize: 22, align: "center", objectName: "promise" });
 T(s, "Ishmiit Singh  ·  Roshan Raj", { x: 0.5, y: 6.25, w: W - 1, h: 0.4, fontSize: 17, color: MUTE, align: "center", objectName: "team" });
-T(s, `Open source: ${REPO}`, { x: 0.5, y: 6.75, w: W - 1, h: 0.3, fontSize: 12, color: FAINT, align: "center", objectName: "repo" });
 s.addNotes(notes(CUR));
 
 /* ---------------------------------------------------------------- TRY IT YOURSELF: the deck's only QR code; the jury explores the app */

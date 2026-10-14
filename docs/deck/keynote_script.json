@@ -194,14 +194,14 @@
     {
       "n": 10,
       "name": "The pilot",
-      "show": "One district: 20 villages, 50 counters, six months, about ₹39 lakh. The next 30 days.",
+      "show": "One district: 20 villages, 50 counters, six months, and ₹25–35k for a CSC’s computer, once. The next 30 days.",
       "steps": [
         {
           "do": "Click.",
           "click": true
         },
         {
-          "say": "So, the pilot.\nOne district. Twenty villages. Fifty counters. Six months.\nAbout thirty-nine lakh rupees, and the biggest share goes to the local operator at each counter.",
+          "say": "So, the pilot.\nOne district. Twenty villages. Fifty counters. Six months.\nEach CSC needs one computer, twenty-five to thirty-five thousand rupees, once.\nAfter that, every check costs nothing.",
           "who": "I"
         }
       ]
