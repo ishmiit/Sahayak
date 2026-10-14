@@ -2,9 +2,9 @@
    the benefits interview by itself: at home, with no node and no internet. API calls are never cached:
    every check on the node is fresh and stays in the node's memory.
    BASE is "/" on the node and the site folder in the stand-alone build (scripts/build_tryit.py). */
-const CACHE = "sahayak-shell-v5";
+const CACHE = "sahayak-shell-v8";
 const BASE = new URL("./", self.location).pathname;
-const SHELL = ["", "app/styles.css", "app/app.js", "app/mic.js", "app/recorder.js", "app/checker.js", "app/navigator.js",
+const SHELL = ["", "app/app.css", "app/styles.css", "app/app.js", "app/game.json", "app/mic.js", "app/recorder.js", "app/checker.js", "app/navigator.js", "app/i18n.js", "app/i18n/index.json",
   "app/manifest.webmanifest", "app/icons/icon.svg", "app/icons/icon-192.png", "app/icons/icon-512.png",
   "app/fonts/geist-latin.woff2", "app/fonts/geist-latin-ext.woff2", "app/fonts/geist-mono-latin.woff2", "app/fonts/symbols.woff2",
   "phone-packs/fraud.json", "phone-packs/scam_patterns.json", "phone-packs/fraud_model.json",

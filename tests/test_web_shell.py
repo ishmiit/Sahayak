@@ -57,5 +57,5 @@ def test_pages_load_nothing_from_outside_the_node():
     for page in ("index.html", "console.html", "node.html", "voicebench.html"):
         html = (WEB / page).read_text(encoding="utf-8")
         assert not re.search(r'(?:src|href)="(?:https?:)?//', html), page
-    css = "".join((WEB / f).read_text(encoding="utf-8") for f in ("styles.css", "console.css"))
+    css = "".join((WEB / f).read_text(encoding="utf-8") for f in ("app.css", "styles.css", "console.css"))
     assert not re.search(r"url\((?!fonts/)", css)

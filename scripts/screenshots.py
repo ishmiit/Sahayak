@@ -44,6 +44,8 @@ def main() -> int:
             ctx = browser.new_context(**PHONE, color_scheme="light", service_workers="block")
             page = ctx.new_page()
             # networkidle also waits for the model's explanation, which is slow on a busy laptop CPU
+            if name.endswith("_hi") and "lang=" not in path:  # the app opens in English unless told otherwise
+                path += ("&" if "?" in path else "?") + "lang=hi"
             page.goto(base + path, wait_until="networkidle" if action != "explain" else "load", timeout=180000)
             page.wait_for_selector(wait_for, timeout=15000)
             if action == "explain":
