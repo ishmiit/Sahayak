@@ -4,48 +4,46 @@
 <meta charset="utf-8">
 <meta name="sahayak-standalone" content="1">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#F4F3F0" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#101010" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F9F9F9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161617" media="(prefers-color-scheme: dark)">
 <meta name="description" content="Sahayak: offline scam check and benefits guide, running on this node.">
 <title>Sahayak · सहायक</title>
 <link rel="manifest" href="app/manifest.webmanifest">
 <link rel="icon" href="app/icons/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="app/icons/icon-192.png">
 <link rel="preload" href="app/fonts/symbols.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="app/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="app/styles.css">
+<link rel="stylesheet" href="app/app.css">
 </head>
 <body>
 <header class="topbar">
   <div class="topbar-inner">
     <button class="brand" data-go="home" type="button" aria-label="Sahayak home">
       <span class="brand-mark" aria-hidden="true"><span class="ms">verified_user</span></span>
-      <span class="brand-text"><b>सहायक</b><small>SAHAYAK</small></span>
+      <span class="brand-text"><b>सहायक</b><span class="nav-title" id="nav-title" aria-hidden="true"></span><small>SAHAYAK</small></span>
     </button>
     <span class="node-pill" id="node-pill" title=""><span class="dot" aria-hidden="true"></span><span data-i18n="node_pill"></span></span>
     <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" aria-label="Read screens aloud">
       <span class="ms on" aria-hidden="true">volume_up</span><span class="ms off" aria-hidden="true">volume_off</span>
     </button>
-    <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Change language">हिं</button>
+    <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Change language">EN</button>
   </div>
 </header>
 
 <main id="main">
   <!-- HOME -->
   <section class="screen" data-screen="home">
-    <div class="hero">
-      <span class="hero-mark ms" aria-hidden="true">verified_user</span>
-      <div class="hero-glass">
-        <h1 data-i18n="home_title"></h1>
-        <p class="sub" data-i18n="home_sub"></p>
-        <ul class="trust">
-          <li><span class="ms" aria-hidden="true">wifi_off</span><span data-i18n="trust_offline"></span></li>
-          <li><span class="ms" aria-hidden="true">person_off</span><span data-i18n="trust_private"></span></li>
-          <li><span class="ms" aria-hidden="true">volume_up</span><span data-i18n="trust_voice"></span></li>
-        </ul>
-      </div>
+    <div class="intro">
+      <span class="live-shield" aria-hidden="true"><i></i><i></i><span class="ms">verified_user</span></span>
+      <h1 class="large-title" data-i18n="home_title"></h1>
+      <p class="sub" data-i18n="home_sub"></p>
     </div>
+    <ul class="trust">
+      <li><span class="ms" aria-hidden="true">wifi_off</span><span data-i18n="trust_offline"></span></li>
+      <li><span class="ms" aria-hidden="true">person_off</span><span data-i18n="trust_private"></span></li>
+      <li><span class="ms" aria-hidden="true">volume_up</span><span data-i18n="trust_voice"></span></li>
+    </ul>
     <p class="note" id="phone-mode-note" data-i18n="phone_mode_note" hidden></p>
+    <p class="note" id="lang-note" hidden></p>
     <div class="tiles">
       <button class="tile tile-shield" data-go="check" type="button">
         <span class="tile-icon" aria-hidden="true"><span class="ms">shield</span></span>
@@ -57,6 +55,14 @@
         <span class="tile-text"><span class="tile-title" data-i18n="tile_benefits"></span><span class="tile-sub" data-i18n="tile_benefits_sub"></span></span>
         <span class="ms chev" aria-hidden="true">chevron_right</span>
       </button>
+      <button class="tile tile-learn" data-go="learn" type="button">
+        <span class="tile-icon" aria-hidden="true"><span class="ms">emoji_events</span></span>
+        <span class="tile-text"><span class="tile-title" data-i18n="tile_learn"></span><span class="tile-sub" data-i18n="tile_learn_sub"></span></span>
+        <span class="tile-badge" id="learn-badge" hidden></span>
+        <span class="ms chev" aria-hidden="true">chevron_right</span>
+      </button>
+    </div>
+    <div class="tiles">
       <a class="tile tile-help" href="tel:1930">
         <span class="tile-icon" aria-hidden="true"><span class="ms">call</span></span>
         <span class="tile-text"><span class="tile-title" data-i18n="tile_help"></span><span class="tile-sub" data-i18n="tile_help_sub"></span></span>
@@ -90,12 +96,23 @@
         <p class="note" id="voice-status"></p>
       </div>
     </details>
+    <details class="settings appearance">
+      <summary><span class="ms" aria-hidden="true">contrast</span><span data-i18n="appearance"></span></summary>
+      <div class="settings-body">
+        <div class="theme-picker" role="radiogroup" data-i18n-label="appearance">
+        <label class="theme-opt"><input type="radio" name="theme" value="auto" checked><span class="sw sw-auto" aria-hidden="true"><i></i><i></i><b></b></span><span class="theme-name" data-i18n="theme_auto"></span><span class="theme-tick" aria-hidden="true"></span></label>
+        <label class="theme-opt"><input type="radio" name="theme" value="light"><span class="sw sw-light" aria-hidden="true"><i></i><i></i><b></b></span><span class="theme-name" data-i18n="theme_light"></span><span class="theme-tick" aria-hidden="true"></span></label>
+        <label class="theme-opt"><input type="radio" name="theme" value="titanium"><span class="sw sw-titanium" aria-hidden="true"><i></i><i></i><b></b></span><span class="theme-name" data-i18n="theme_titanium"></span><span class="theme-tick" aria-hidden="true"></span></label>
+        <label class="theme-opt"><input type="radio" name="theme" value="dark"><span class="sw sw-dark" aria-hidden="true"><i></i><i></i><b></b></span><span class="theme-name" data-i18n="theme_dark"></span><span class="theme-tick" aria-hidden="true"></span></label>
+        </div>
+      </div>
+    </details>
   </section>
 
   <!-- CHECK A MESSAGE -->
   <section class="screen" data-screen="check" hidden>
     <div class="screen-head">
-      <button class="back" data-go="home" type="button" data-i18n-label="back"><span class="ms" aria-hidden="true">arrow_back</span></button>
+      <button class="back" data-go="home" type="button" data-i18n-label="back"><span class="ms" aria-hidden="true">chevron_left</span><span class="back-label" data-i18n="back"></span></button>
       <h2 data-i18n="check_title"></h2>
     </div>
     <div class="modes" role="radiogroup" aria-label="What to check">
@@ -108,12 +125,12 @@
       <button id="btn-paste" class="tinted big paste-btn" type="button" hidden><span class="ms" aria-hidden="true">content_paste</span><span data-i18n="paste_check"></span></button>
       <label class="label" for="msg" id="msg-label" data-i18n="check_label"></label>
       <p class="note" id="ocr-review" data-i18n="ocr_review" hidden></p>
-      <textarea id="msg" maxlength="4000" autocomplete="off" spellcheck="false"></textarea>
+      <textarea id="msg" maxlength="4000" autocomplete="off" spellcheck="false" dir="auto"></textarea>
       <div id="mic-msg" class="mic-slot"></div>
       <details class="extra">
         <summary data-i18n="sender_add"></summary>
         <label class="label" for="sender" data-i18n="sender_label"></label>
-        <input id="sender" type="text" maxlength="40" autocomplete="off" inputmode="text" placeholder="AX-SBIBNK-S / 98xxxxxx10">
+        <input id="sender" type="text" maxlength="40" autocomplete="off" inputmode="text" placeholder="AX-SBIBNK-S / 98xxxxxx10" dir="auto">
       </details>
       <button id="btn-check" class="primary big" type="button"><span class="ms" aria-hidden="true">shield</span><span class="btn-label" data-i18n="check_btn"></span></button>
       <p class="try" data-i18n="try_examples"></p>
@@ -134,7 +151,7 @@
   <!-- RESULT -->
   <section class="screen" data-screen="result" hidden>
     <div class="screen-head">
-      <button class="back" data-go="check" type="button" data-i18n-label="back"><span class="ms" aria-hidden="true">arrow_back</span></button>
+      <button class="back" data-go="check" type="button" data-i18n-label="back"><span class="ms" aria-hidden="true">chevron_left</span><span class="back-label" data-i18n="back"></span></button>
     </div>
     <div id="verdict" class="verdict" role="status" aria-live="polite"></div>
     <h2 id="headline" tabindex="-1"></h2>
@@ -167,7 +184,7 @@
   <!-- 1930 COMPLAINT DRAFT -->
   <section class="screen" data-screen="complaint" hidden>
     <div class="screen-head">
-      <button class="back no-print" data-go="result" type="button" data-i18n-label="back"><span class="ms" aria-hidden="true">arrow_back</span></button>
+      <button class="back no-print" data-go="result" type="button" data-i18n-label="back"><span class="ms" aria-hidden="true">chevron_left</span><span class="back-label" data-i18n="back"></span></button>
       <h2 data-i18n="complaint_title"></h2>
     </div>
     <p class="note" data-i18n="complaint_note"></p>
@@ -190,7 +207,7 @@
   <!-- BENEFITS NAVIGATOR: intro -->
   <section class="screen" data-screen="benefits" hidden>
     <div class="screen-head">
-      <button class="back" data-go="home" type="button" data-i18n-label="back"><span class="ms" aria-hidden="true">arrow_back</span></button>
+      <button class="back" data-go="home" type="button" data-i18n-label="back"><span class="ms" aria-hidden="true">chevron_left</span><span class="back-label" data-i18n="back"></span></button>
     </div>
     <span class="feature-icon" aria-hidden="true"><span class="ms">currency_rupee</span></span>
     <h2 data-i18n="tile_benefits"></h2>
@@ -209,7 +226,7 @@
   <!-- BENEFITS NAVIGATOR: one question per screen -->
   <section class="screen" data-screen="question" hidden>
     <div class="q-head">
-      <button id="btn-q-back" class="back" type="button" data-i18n-label="back"><span class="ms" aria-hidden="true">arrow_back</span></button>
+      <button id="btn-q-back" class="back" type="button" data-i18n-label="back"><span class="ms" aria-hidden="true">chevron_left</span><span class="back-label" data-i18n="back"></span></button>
       <div class="q-progress">
         <span id="q-count"></span>
         <span class="bar" aria-hidden="true"><span id="q-bar"></span></span>
@@ -228,7 +245,7 @@
   <!-- BENEFITS NAVIGATOR: result -->
   <section class="screen" data-screen="benefits-result" hidden>
     <div class="screen-head">
-      <button class="back" data-go="benefits" type="button" data-i18n-label="back"><span class="ms" aria-hidden="true">arrow_back</span></button>
+      <button class="back" data-go="benefits" type="button" data-i18n-label="back"><span class="ms" aria-hidden="true">chevron_left</span><span class="back-label" data-i18n="back"></span></button>
     </div>
     <div id="nav-summary" class="nav-summary" role="status" aria-live="polite" tabindex="-1"></div>
     <div id="nav-health"></div>
@@ -246,10 +263,52 @@
     <p id="nav-meta" class="meta"></p>
   </section>
 
+  <!-- SPOT THE SCAM: the awareness game -->
+  <section class="screen" data-screen="learn" hidden>
+    <h1 class="large-title" data-i18n="tile_learn"></h1>
+    <p class="sub" data-i18n="learn_sub"></p>
+    <div id="level-card" class="level-card"></div>
+    <button id="btn-play" class="primary big" type="button"><span class="ms" aria-hidden="true">play_arrow</span><span data-i18n="play_round"></span></button>
+    <div id="daily-card" class="daily-card"></div>
+    <h3 data-i18n="badges_title"></h3>
+    <div id="badges" class="badges"></div>
+    <p class="fine" data-i18n="game_private"></p>
+  </section>
+
+  <section class="screen" data-screen="play" hidden>
+    <div class="play-head">
+      <button class="back" id="btn-play-quit" type="button" data-i18n-label="back"><span class="ms" aria-hidden="true">close</span></button>
+      <div class="dots" id="play-dots" aria-hidden="true"></div>
+      <span class="play-score" id="play-score"></span>
+    </div>
+    <p class="play-count" id="play-count"></p>
+    <h2 class="play-q" data-i18n="play_question"></h2>
+    <div id="msg-card" class="msg-card"></div>
+    <div id="answer-row" class="answer-row">
+      <button id="btn-ans-scam" class="answer scam" type="button"><span class="ms" aria-hidden="true">gpp_bad</span><span data-i18n="ans_scam"></span></button>
+      <button id="btn-ans-real" class="answer real" type="button"><span class="ms" aria-hidden="true">verified_user</span><span data-i18n="ans_real"></span></button>
+    </div>
+    <p id="swipe-hint" class="fine" data-i18n="swipe_hint"></p>
+    <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div>
+  </section>
+
+  <section class="screen" data-screen="game-done" hidden>
+    <div class="ring-wrap" id="done-ring"></div>
+    <h2 id="done-title" class="done-title" tabindex="-1"></h2>
+    <p id="done-sub" class="sub done-sub"></p>
+    <span id="done-points" class="done-points"></span>
+    <div id="done-badges"></div>
+    <div class="cta-row">
+      <button id="btn-play-again" class="primary wide" type="button"><span class="ms" aria-hidden="true">refresh</span><span data-i18n="play_again"></span></button>
+      <button id="btn-game-share" class="tinted wide" type="button"><span class="ms" aria-hidden="true">share</span><span data-i18n="share_game"></span></button>
+      <button class="secondary wide" data-go="learn" type="button"><span data-i18n="done_btn"></span></button>
+    </div>
+  </section>
+
   <!-- BENEFITS NAVIGATOR: printable case slip -->
   <section class="screen" data-screen="slip" hidden>
     <div class="screen-head no-print">
-      <button class="back" data-go="benefits-result" type="button" data-i18n-label="back"><span class="ms" aria-hidden="true">arrow_back</span></button>
+      <button class="back" data-go="benefits-result" type="button" data-i18n-label="back"><span class="ms" aria-hidden="true">chevron_left</span><span class="back-label" data-i18n="back"></span></button>
     </div>
     <div id="slip-sheet" class="slip-sheet"></div>
     <div class="cta-row no-print">
@@ -259,6 +318,14 @@
   </section>
 </main>
 
+<nav class="tabbar no-print" aria-label="Sahayak">
+  <span class="tab-lens" aria-hidden="true"></span>
+  <button class="tab" data-go="home" data-tab="home" type="button"><span class="ms" aria-hidden="true">home</span><span data-i18n="tab_home"></span></button>
+  <button class="tab" data-go="check" data-tab="check" type="button"><span class="ms" aria-hidden="true">shield</span><span data-i18n="tab_check"></span></button>
+  <button class="tab" data-go="benefits" data-tab="benefits" type="button"><span class="ms" aria-hidden="true">currency_rupee</span><span data-i18n="tab_benefits"></span></button>
+  <button class="tab" data-go="learn" data-tab="learn" type="button"><span class="ms" aria-hidden="true">emoji_events</span><span data-i18n="tab_learn"></span></button>
+</nav>
+
 <div id="ticket" class="ticket-sheet" role="alertdialog" aria-live="assertive" hidden>
   <p class="ticket-label"><span class="ms" aria-hidden="true">confirmation_number</span><span data-i18n="ticket_title"></span></p>
   <div id="ticket-no" class="ticket-no"></div>
@@ -266,10 +333,19 @@
   <button class="primary" id="ticket-ok" type="button" data-i18n="ticket_ok"></button>
 </div>
 
+<div id="lang-sheet" class="ticket-sheet lang-sheet" role="dialog" aria-modal="true" aria-labelledby="lang-sheet-title" hidden>
+  <h2 id="lang-sheet-title" data-i18n="lang_title"></h2>
+  <p class="lang-sheet-note" id="lang-sheet-note" dir="auto"></p>
+  <div class="lang-list" id="lang-list"></div>
+  <button class="secondary" id="lang-close" type="button" data-i18n="lang_close"></button>
+</div>
+
+<div class="glow" id="glow" aria-hidden="true" hidden><i class="glow-haze"></i><i class="glow-edge"></i></div>
 <footer class="foot"><span data-i18n="foot"></span> <span id="pack-version"></span></footer>
 <script src="app/mic.js" defer></script>
 <script src="app/checker.js" defer></script>
 <script src="app/navigator.js" defer></script>
+<script src="app/i18n.js" defer></script>
 <script src="app/app.js" defer></script>
 </body>
 </html>
